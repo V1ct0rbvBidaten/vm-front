@@ -203,7 +203,7 @@ const Landing = () => {
       </div>
       <div className="flex flex-col mt-5 p-20">
         <h1 className="text-4xl font-bold text-purple-700 mb-4 text-center">
-          Nosotros
+          Nuestro Equipo
         </h1>
         <p className="text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
