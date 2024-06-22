@@ -13,7 +13,7 @@ const Landing = () => {
     <>
       <LandingNav />
       {/* Hero section */}
-      <div className="bg-gradient-to-br from-purple-600  to-sky-700  w-full flex p-[180px]  background-landing">
+      <div className="bg-gradient-to-br from-purple-600  to-sky-700  w-full flex p-[150px]  background-landing">
         <div className="flex gap-4 flex-col">
           <h1 className="text-4xl text-white max-w-[650px]">
             Únete ahora y comienza a ganar Dinero con{" "}
