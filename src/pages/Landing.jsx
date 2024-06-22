@@ -34,7 +34,7 @@ const Landing = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <h1 className="font-bold text-inherit text-3xl bg-gradient-to-r from-teal-400 via-purple-500 to-orange-500 bg-clip-text text-transparent">
+          <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-400 via-purple-500 to-sky-500 bg-clip-text text-transparent">
             VeMdo
           </h1>
         </NavbarBrand>
