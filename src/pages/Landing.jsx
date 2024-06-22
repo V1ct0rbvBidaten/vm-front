@@ -15,16 +15,11 @@ const Landing = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    "Inicio",
+    "Empresas",
+    "Nosotros",
+    "Iniciar Sesión",
+    "Registrarse",
   ];
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -34,7 +29,7 @@ const Landing = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-400 via-purple-500 to-sky-500 bg-clip-text text-transparent">
+          <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-400 via-purple-300 to-sky-500 bg-clip-text text-transparent">
             VeMdo
           </h1>
         </NavbarBrand>
@@ -46,7 +41,7 @@ const Landing = () => {
             Inicio
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
+        <NavbarItem>
           <Link href="#" aria-current="page">
             Empresas
           </Link>
@@ -58,12 +53,18 @@ const Landing = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+        <NavbarItem className="hidden sm:flex">
+          <Link href="#" className="text-sky-500 font-semibold">
+            Ingresar
+          </Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
+          <Button
+            as={Link}
+            className="bg-gradient-to-r from-purple-400  to-sky-500  text-white"
+            href="#"
+          >
+            Registrarse
           </Button>
         </NavbarItem>
       </NavbarContent>
