@@ -14,10 +14,8 @@ import {
   InformationCircleIcon,
 } from "@heroicons/react/24/solid";
 import { useLocation, Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/archlogo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { version } from "../../utils/constants";
-import { LogoArgos } from "../../assets/LogoArgos";
 
 const AdminSideNav = ({ user }) => {
   let navigate = useNavigate();

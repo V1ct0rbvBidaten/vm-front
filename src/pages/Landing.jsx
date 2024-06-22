@@ -8,6 +8,10 @@ import {
 } from "@nextui-org/react";
 import LandingNav from "../components/navs/LandingNav";
 import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
+import juanCarlos from "../assets/juanCarlos.jpg";
+import ignacioMalo from "../assets/ignacioMalo.jpg";
+import hugoCastro from "../assets/hugoCastro.jpg";
+import reinerNarr from "../assets/reinerNarr.jpg";
 
 const Landing = () => {
   return (
@@ -198,18 +202,50 @@ const Landing = () => {
         </p>
       </div>
       <div className="flex flex-col mt-5 p-20">
-        <h1 className="text-4xl font-bold text-purple-500 mb-4 text-center">
+        <h1 className="text-4xl font-bold text-purple-700 mb-4 text-center">
           Nosotros
         </h1>
-        <p>
+        <p className="text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          aliquip ex ea commodo consequat.
         </p>
+        <div className="grid grid-cols-4 mt-10">
+          <div className="flex items-center justify-center flex-col">
+            <div className="rounded-full overflow-hidden h-[200px] w-[200px]">
+              <img src={juanCarlos} height={200} width={200} />
+            </div>
+            <h1 className="text-purple-700 font-bold text-xl">
+              Juan Carlos Pizarro
+            </h1>
+            <h4 className="font-bold text-xl ">CEO</h4>
+          </div>
+          <div className="flex items-center justify-center flex-col">
+            <div className="rounded-full overflow-hidden h-[200px] w-[200px]">
+              <img src={reinerNarr} height={200} width={200} />
+            </div>
+            <h1 className="text-purple-700 font-bold text-xl">Reiner Narr</h1>
+            <h4 className="font-bold text-xl ">CMO</h4>
+          </div>
+          <div className="flex items-center justify-center flex-col">
+            <div className="rounded-full overflow-hidden h-[200px] w-[200px]">
+              <img src={hugoCastro} height={200} width={200} />
+            </div>
+            <h1 className="text-purple-700 font-bold text-xl">Hugo Castro</h1>
+            <h4 className="font-bold text-xl ">CPO</h4>
+          </div>
+
+          <div className="flex items-center justify-center flex-col">
+            <div className="flex justify-center items-center h-[200px] w-[200px] overflow-hidden rounded-full">
+              <img src={ignacioMalo} height={200} width={200} />
+            </div>
+            <h1 className="text-purple-700 font-bold text-xl">
+              Ignacio Sandoval
+            </h1>
+            <h4 className="font-bold text-xl ">CTO</h4>
+          </div>
+        </div>
       </div>
     </>
   );
