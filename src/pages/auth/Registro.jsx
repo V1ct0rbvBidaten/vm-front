@@ -1,6 +1,6 @@
 import React from "react";
 import LandingNav from "../../components/navs/LandingNav";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 
 const Registro = () => {
@@ -16,13 +16,40 @@ const Registro = () => {
                 VeMdo
               </span>
             </h1>
-            <Input
-              label="Ingrese su correo"
-              labelPlacement="outside"
-              className="mt-4"
-              startContent={<EnvelopeIcon className="h-4" />}
-            />
-            <Button>Registrarse</Button>
+            <Tabs
+              key="tipoUsuario"
+              variant="underlined"
+              color="secondary"
+              aria-label="Tabs variants"
+            >
+              <Tab key="vendedor" title="Vendedor">
+                <Input
+                  label="Correo"
+                  labelPlacement="outside"
+                  variant="bordered"
+                  placeholder="Ingrese su correo"
+                  className="mt-4"
+                  startContent={<EnvelopeIcon className="h-4" />}
+                />
+                <Button className="w-full mt-4 bg-gradient-to-br from-purple-400  to-purple-500 text-white">
+                  Registrarse
+                </Button>
+              </Tab>
+              <Tab key="empresa" title="Empresa">
+                <Input
+                  label="Correo"
+                  labelPlacement="outside"
+                  placeholder="Ingrese su correo"
+                  variant="bordered"
+                  className="mt-4"
+                  startContent={<EnvelopeIcon className="h-4" />}
+                />
+                <Button className="w-full mt-4 bg-gradient-to-br from-rose-300 to-rose-500 text-white">
+                  Registrarse
+                </Button>
+              </Tab>
+            </Tabs>
+
             <div className="grid grid-cols-3 gap-2 text-center items-center">
               <div className="w-full h-1 bg-slate-300  justify-center"></div>
               <div className="w-full  text-slate-300 text-center ">O</div>
@@ -30,8 +57,14 @@ const Registro = () => {
             </div>
 
             <div className="flex  gap-4">
-              <Button className="w-full">Facebook</Button>
-              <Button className="w-full">Google</Button>
+              <Button className="w-full bg-blue-700 text-white">
+                Facebook
+              </Button>
+              <Button className="w-full bg-slate-700 text-white">Google</Button>
+            </div>
+            <div className="flex  gap-4">
+              <p>¿Ya tienes cuenta?</p>
+              <Link href="/login">Iniciar Sesión</Link>
             </div>
           </div>
           <div className="col-span-2 bg-gradient-to-br from-purple-600  to-sky-700 rounded-tr-md rounded-br-md"></div>
