@@ -1,94 +1,31 @@
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem,
-  Link,
-  Button,
-} from "@nextui-org/react";
-import { useState } from "react";
+import { Button } from "@nextui-org/react";
+import LandingNav from "../components/navs/LandingNav";
 
 const Landing = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const menuItems = [
-    "Inicio",
-    "Empresas",
-    "Nosotros",
-    "Iniciar Sesión",
-    "Registrarse",
-  ];
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-        <NavbarBrand>
-          <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-400 via-purple-300 to-sky-500 bg-clip-text text-transparent">
-            VeMdo
+    <>
+      <LandingNav />
+      <div className="bg-gradient-to-br from-purple-600  to-sky-700  w-full flex p-[180px]  ">
+        <div className="flex gap-4 flex-col">
+          <h1 className="text-4xl text-white">
+            Únete ahora y comienza a ganar Dinero con{" "}
+            <span className="font-bold text-inherit text-5xl bg-gradient-to-br from-sky-100 via-purple-300 to-purple-100 bg-clip-text text-transparent">
+              VeMdo
+            </span>
           </h1>
-        </NavbarBrand>
-      </NavbarContent>
-
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Inicio
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#" aria-current="page">
-            Empresas
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Nosotros
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden sm:flex">
-          <Link href="#" className="text-sky-500 font-semibold">
-            Ingresar
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button
-            as={Link}
-            className="bg-gradient-to-r from-purple-400  to-sky-500  text-white"
-            href="#"
-          >
-            Registrarse
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+          <p className="text-white">
+            ¿Quieres generar ingresos? Puedes vender todas nuestras marcas sin
+            postular, sin invertir ni mantener stock.
+          </p>
+          <div className="flex gap-4 ">
+            <Button className="h-8 w-60 bg-sky-500 text-white">
+              Unete ahora!
+            </Button>
+            <Button className="h-8 w-60 bg-white">Saber más</Button>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
