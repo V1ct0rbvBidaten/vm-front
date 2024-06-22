@@ -27,3 +27,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.register-container {
+  height: calc(100vh - 64px);
+}

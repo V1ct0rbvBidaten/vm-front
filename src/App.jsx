@@ -4,12 +4,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { useCheckUser } from "./hooks/useCheckUser";
 
 //Rutas
-import Login from "./pages/Login";
+import Landing from "./pages/Landing";
+import Login from "./pages/auth/Login";
+import Registro from "./pages/auth/Registro";
 
 //Admin Routes
 import AdminRoute from "./components/routes/AdminRoute";
 import AdminHome from "./pages/admin/home/AdminHome";
-import Landing from "./pages/Landing";
 
 const App = () => {
   useCheckUser();
@@ -21,6 +22,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Landing />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/registro" element={<Registro />} />
           <Route
             exact
             path="/admin/home"

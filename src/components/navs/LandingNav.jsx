@@ -22,7 +22,7 @@ const LandingNav = () => {
     "Registrarse",
   ];
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="xl">
+    <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="xl" isBlurred>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -37,7 +37,7 @@ const LandingNav = () => {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/">
             Inicio
           </Link>
         </NavbarItem>
@@ -55,7 +55,7 @@ const LandingNav = () => {
       <NavbarContent justify="end">
         <NavbarItem className="hidden sm:flex">
           <Link
-            href="#"
+            href="/login"
             className="text-sky-500 font-semibold text-lg font-normal"
           >
             Ingresar
@@ -65,7 +65,7 @@ const LandingNav = () => {
           <Button
             as={Link}
             className="bg-gradient-to-r from-sky-500  to-sky-600  text-white"
-            href="#"
+            href="/registro"
           >
             Registrarse
           </Button>

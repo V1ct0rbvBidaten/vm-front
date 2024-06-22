@@ -1,8 +1,6 @@
 import { Button } from "@nextui-org/react";
-import Logo from "../../src/assets/archlogo.png";
-import Wallpaper from "../../src/assets/ocean.jpg";
-import LoginForm from "../components/forms/LoginForm";
-import { LogoArgos } from "../assets/LogoArgos";
+import Wallpaper from "../../../src/assets/ocean.jpg";
+import LoginForm from "../../components/forms/LoginForm";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 function Login() {
@@ -11,9 +9,6 @@ function Login() {
       <div className="grid grid-cols-2 rounded-md shadow-md login-container">
         <div className="grid gap-1 bg-white text-center p-5 lg:gap-4 lg:p-10  ">
           <div className="flex flex-col justify-center items-center">
-            <div>
-              <LogoArgos height={80} />
-            </div>
             <p className="text-xl   lg:text-lg  isotipo">
               ARGOS
               <span className=" font-bold " style={{ color: "#9bb9b7" }}>
