@@ -4,7 +4,6 @@ import AdminSideNav from "../navs/AdminSideNav";
 import { Button } from "@nextui-org/react";
 import { ListBulletIcon } from "@heroicons/react/24/solid";
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
-import Breadcrum from "../utils/Breadcrum";
 
 const AdminRoute = ({ Component }) => {
   const dispatch = useDispatch();
@@ -32,7 +31,6 @@ const AdminRoute = ({ Component }) => {
             >
               <ListBulletIcon className="h-6 " />
             </Button>
-            <Breadcrum />
           </div>
           <div className="  mt-5  p-3 rounded-md">
             <Component user={user} />

@@ -22,14 +22,14 @@ const LandingNav = () => {
     "Registrarse",
   ];
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered>
+    <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="xl">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-          <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-400 via-purple-300 to-sky-500 bg-clip-text text-transparent">
+          <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-sky-500 via-purple-sky to-sky-500 bg-clip-text text-transparent">
             VeMdo
           </h1>
         </NavbarBrand>
@@ -64,7 +64,7 @@ const LandingNav = () => {
         <NavbarItem>
           <Button
             as={Link}
-            className="bg-gradient-to-r from-purple-400  to-sky-500  text-white"
+            className="bg-gradient-to-r from-sky-500 via-purple-sky to-sky-600  text-white"
             href="#"
           >
             Registrarse
