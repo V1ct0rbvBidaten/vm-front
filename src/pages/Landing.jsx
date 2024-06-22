@@ -7,6 +7,7 @@ import {
   Image,
 } from "@nextui-org/react";
 import LandingNav from "../components/navs/LandingNav";
+import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
 
 const Landing = () => {
   return (
@@ -19,8 +20,24 @@ const Landing = () => {
             Únete ahora y comienza a ganar Dinero con{" "}
             <span className="font-bold text-inherit text-5xl bg-gradient-to-br from-purple-200 via-purple-300 to-purple-500 bg-clip-text text-transparent">
               VeMdo
-            </span>
+            </span>{" "}
           </h1>
+          <div className="text-xl bg-white rounded-full pl-6 pr-6 p-1 font-semibold text-emerald-500">
+            <Typewriter
+              words={[
+                "Más ingresos",
+                "Más productos",
+                "Más ventas",
+                "Mejor catalogo",
+              ]}
+              loop={5}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </div>
           <p className="text-white">
             ¿Quieres generar ingresos? Puedes vender todas nuestras marcas sin
             postular, sin invertir ni mantener stock.

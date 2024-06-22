@@ -6,21 +6,14 @@ import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
 
 const Registro = () => {
-  const { text } = useTypewriter({
-    words: ["Ingresos", "Dinero"],
-  });
-
   return (
     <>
       <LandingNav />
       <div className="flex justify-center p-10  register-container  bg-slate-100">
         <div className="bg-white w-full rounded-md shadow-lg grid grid-cols-3 border-1">
-          <div className="flex flex-col p-10 justify-center gap-5">
-            <h1 className="text-3xl font-normal text-slate-500  mt-8">
-              Registrarse en{" "}
-              <span className="font-bold text-inherit text-5xl bg-gradient-to-br from-purple-200 via-purple-300 to-purple-500 bg-clip-text text-transparent">
-                VeMdo
-              </span>
+          <div className="flex flex-col p-10 justify-center gap-2 text-center">
+            <h1 className="text-3xl font-normal text-slate-500  mt-8 ">
+              Registrarse
             </h1>
             <Tabs
               key="tipoUsuario"

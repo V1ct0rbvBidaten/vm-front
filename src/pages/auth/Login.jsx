@@ -1,50 +1,124 @@
-import { Button } from "@nextui-org/react";
-import Wallpaper from "../../../src/assets/ocean.jpg";
-import LoginForm from "../../components/forms/LoginForm";
-import { UserCircleIcon } from "@heroicons/react/24/solid";
+import React from "react";
+import LandingNav from "../../components/navs/LandingNav";
+import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
+import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 
-function Login() {
+import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
+
+const Login = () => {
+  const { text } = useTypewriter({
+    words: ["Ingresos", "Dinero"],
+  });
+
   return (
-    <div className="flex justify-center items-center h-screen bg-slate-100">
-      <div className="grid grid-cols-2 rounded-md shadow-md login-container">
-        <div className="grid gap-1 bg-white text-center p-5 lg:gap-4 lg:p-10  ">
-          <div className="flex flex-col justify-center items-center">
-            <p className="text-xl   lg:text-lg  isotipo">
-              ARGOS
-              <span className=" font-bold " style={{ color: "#9bb9b7" }}>
-                NAUTICA
-              </span>
-            </p>
+    <>
+      <LandingNav />
+      <div className="flex justify-center p-10  register-container  bg-slate-100">
+        <div className="bg-white w-full rounded-md shadow-lg grid grid-cols-3 border-1">
+          <div className="flex flex-col p-10 justify-center gap-2 text-center">
+            <h1 className="text-3xl font-normal text-slate-500  mt-8 ">
+              Iniciar Sesión
+            </h1>
+            <Tabs
+              key="tipoUsuario"
+              variant="underlined"
+              color="secondary"
+              aria-label="Tabs variants"
+            >
+              <Tab key="vendedor" title="Vendedor">
+                <div className="flex gap-2 flex-col">
+                  <Input
+                    label="Correo"
+                    labelPlacement="outside"
+                    variant="bordered"
+                    placeholder="Ingrese su correo"
+                    startContent={<EnvelopeIcon className="h-4" />}
+                  />
+                  <Input
+                    label="Contraseña"
+                    labelPlacement="outside"
+                    variant="bordered"
+                    placeholder="Ingrese su contraseña"
+                    startContent={<LockClosedIcon className="h-4" />}
+                  />
+                  <Button className="w-full mt-4 bg-gradient-to-br from-purple-400  to-purple-500 text-white">
+                    Iniciar Sesión
+                  </Button>
+                </div>
+              </Tab>
+              <Tab key="empresa" title="Empresa">
+                <div className="flex gap-2 flex-col">
+                  <Input
+                    label="Correo"
+                    labelPlacement="outside"
+                    variant="bordered"
+                    placeholder="Ingrese su correo"
+                    startContent={<EnvelopeIcon className="h-4" />}
+                  />
+                  <Input
+                    label="Contraseña"
+                    labelPlacement="outside"
+                    variant="bordered"
+                    placeholder="Ingrese su contraseña"
+                    startContent={<LockClosedIcon className="h-4" />}
+                  />
+                  <Button className="w-full mt-4 bg-gradient-to-br from-rose-400  to-rose-500 text-white">
+                    Iniciar Sesión
+                  </Button>
+                </div>
+              </Tab>
+            </Tabs>
+
+            <div className="grid grid-cols-3 gap-1 text-center items-center">
+              <div className="w-full h-1 bg-slate-300  justify-center"></div>
+              <div className="w-full  text-slate-300 text-center ">O</div>
+              <div className="w-full h-1 bg-slate-300 justify-center"></div>
+            </div>
+
+            <div className="flex  gap-4">
+              <Button className="w-full bg-blue-700 text-white">
+                Facebook
+              </Button>
+              <Button className="w-full bg-slate-700 text-white">Google</Button>
+            </div>
+            <div className="flex  gap-4">
+              <p>¿No tienes cuenta?</p>
+              <Link href="/registro">Registrarse</Link>
+            </div>
           </div>
-          <Button
-            size="sm"
-            radius="none"
-            className="pl-10 pr-10 m-auto bg-gradient-to-br from-slate-500 to-slate-400 text-white shadow-lg text-md font-bold"
-            startContent={<UserCircleIcon className="h-5" />}
-          >
-            FLOTA
-          </Button>
-          <h1 className="text-xl  text-sky-700 capitalize lg:text-3xl">
-            Iniciar Sesión
-          </h1>
-          <div className="h-1 bg-gradient-to-t from-sky-400 to-sky-500 m-auto w-28 "></div>
-          <LoginForm />
-          <p className="text-stone-300">@Creado por Bidaten Ltda</p>
-        </div>
-        <div className=" rounded-r-md overflow-hidden">
-          <img src={Wallpaper} className="wallpaper-img" />
-          <div className="grid m-4 gap-2">
-            <p className="text-2xl ">¡Bienvenido!</p>
-            <div className="h-1 bg-white w-20 "></div>
-            <p>
-              Esta ingresando al sistema de gestion de solicitudes de
-              mantención.
+          <div className="gap-2 col-span-2 bg-gradient-to-br from-purple-600  to-sky-700 rounded-tr-md rounded-br-md  p-20 flex items-center flex-col justify-center">
+            <h1 className="font-semibold text-3xl text-white">
+              En{" "}
+              <span className="font-bold text-inherit text-5xl bg-gradient-to-br from-purple-200 via-purple-300 to-purple-500 bg-clip-text text-transparent">
+                VeMdo
+              </span>{" "}
+              encuentra
+            </h1>
+            <span className="text-emerald-500 w-30 text-xl pl-5 pr-5 bg-white rounded-full p-2">
+              <Typewriter
+                words={[
+                  "Más ingresos",
+                  "Más productos",
+                  "Más ventas",
+                  "Mejor catalogo",
+                ]}
+                loop={5}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </span>
+            <p className="text-white text-center w-[500px]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
-}
+};
 
 export default Login;
