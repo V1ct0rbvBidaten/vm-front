@@ -29,7 +29,7 @@ const LandingNav = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-sky-500 via-purple-sky to-sky-500 bg-clip-text text-transparent">
+          <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-300 via-purple-400 to-purple-700 bg-clip-text text-transparent">
             VeMdo
           </h1>
         </NavbarBrand>
@@ -64,7 +64,7 @@ const LandingNav = () => {
         <NavbarItem>
           <Button
             as={Link}
-            className="bg-gradient-to-r from-sky-500 via-purple-sky to-sky-600  text-white"
+            className="bg-gradient-to-r from-sky-500  to-sky-600  text-white"
             href="#"
           >
             Registrarse
