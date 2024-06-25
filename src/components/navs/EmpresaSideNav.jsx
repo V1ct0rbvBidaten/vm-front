@@ -26,26 +26,26 @@ const EmpresaSideNav = ({ user }) => {
 
   const activeMenuItem = [
     {
-      name: "Panel de control",
+      name: "Lorem",
       route: "/admin/home",
       icon: <ChartPieIcon className="h-6 w-6 " />,
       type: "Menu",
     },
     {
-      name: "Personal embarcado",
+      name: "Lorem",
       route: "/admin/personal-embarcado",
       icon: <UsersIcon className="h-6 w-6 " />,
       type: "Menu",
     },
     {
-      name: "Asistencia",
+      name: "Lorem",
       icon: <CalendarDaysIcon className="h-6 w-6 " />,
       type: "Menu",
       route: "/admin/asistencia",
     },
 
     {
-      name: "Cierre de mes",
+      name: "Lorem",
       icon: <CalendarIcon className="h-6 w-6 " />,
       type: "Menu",
       route: "/admin/cierre",
@@ -54,7 +54,7 @@ const EmpresaSideNav = ({ user }) => {
 
   const activeMenuItemHerramientas = [
     {
-      name: "Configuraciones",
+      name: "Lorem",
       icon: <AdjustmentsHorizontalIcon className="h-6 w-6 " />,
       type: "SubMenu",
       route: "/admin/configuraciones",
@@ -77,7 +77,7 @@ const EmpresaSideNav = ({ user }) => {
       ],
     },
     {
-      name: "Reportes",
+      name: "Lorem",
       route: "/admin/reportes",
       icon: <NewspaperIcon className="h-6 w-6 " />,
       type: "Menu",
@@ -127,7 +127,7 @@ const EmpresaSideNav = ({ user }) => {
   const versionFormat = (
     <div className="flex gap-2 text-slate-500 text-xs italic  mt-2 hover:cursor-pointer hover:transition-all hover:text-slate-500 font-semibold bg-stone-100 p-1 rounded-full hover:bg-stone-400 hover:text-white">
       <InformationCircleIcon className="h-4" />
-      <span>ArgosNautica Versión - {version[0].version}</span>
+      <span>VeMdo Versión - {version[0].version}</span>
     </div>
   );
 
@@ -306,7 +306,7 @@ const EmpresaSideNav = ({ user }) => {
               </h1>
             </div>
 
-            <Button
+            {/* <Button
               radius="none"
               size="sm"
               className="mt-2 w-full col-span-3 bg-gradient-to-br  text-white shadow-lg text-md font-bold"
@@ -314,7 +314,7 @@ const EmpresaSideNav = ({ user }) => {
               startContent={<UserCircleIcon className="h-5" />}
             >
               Flota
-            </Button>
+            </Button> */}
           </div>
           <div className="mt-5 text-md text-slate-400">
             <p>Menu</p>
