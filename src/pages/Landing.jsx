@@ -9,7 +9,7 @@ import {
 import LandingNav from "../components/navs/LandingNav";
 import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
 import juanCarlos from "../assets/juanCarlos.jpg";
-import ignacioMalo from "../assets/ignacioMalo.jpg";
+import ignacioBueno from "../assets/ignacioBueno.jpg";
 import hugoCastro from "../assets/hugoCastro.jpg";
 import reinerNarr from "../assets/reinerNarr.jpg";
 
@@ -26,7 +26,7 @@ const Landing = () => {
               VeMdo
             </span>{" "}
           </h1>
-          <div className="text-xl bg-white rounded-full pl-6 pr-6 p-1 font-semibold text-emerald-500">
+          <div className="text-xl bg-white rounded-full pl-6 pr-6 p-1 font-semibold text-blue-500">
             <Typewriter
               words={[
                 "Más ingresos",
@@ -237,8 +237,8 @@ const Landing = () => {
           </div>
 
           <div className="flex items-center justify-center flex-col">
-            <div className="flex justify-center items-center h-[200px] w-[200px] overflow-hidden rounded-full">
-              <img src={ignacioMalo} height={200} width={200} />
+            <div className="flex justify-center items-center h-[200px] w-[200px] overflow-hidden rounded-full ">
+              <img src={ignacioBueno} height={200} width={200} />
             </div>
             <h1 className="text-purple-700 font-bold text-xl">
               Ignacio Sandoval
