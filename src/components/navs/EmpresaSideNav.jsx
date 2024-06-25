@@ -17,7 +17,7 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { version } from "../../utils/constants";
 
-const AdminSideNav = ({ user }) => {
+const EmpresaSideNav = ({ user }) => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const isCollapsed = useSelector((state) => state.collapse.isCollapsed);
@@ -142,7 +142,9 @@ const AdminSideNav = ({ user }) => {
       {isCollapsed ? (
         <>
           <div className="flex flex-col items-center justify-center ">
-            <LogoArgos height={60} />
+            <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-300 via-purple-400 to-purple-700 bg-clip-text text-transparent">
+              VeMdo
+            </h1>
             <div
               className="mt-2 h-6  w-full col-span-3  text-white shadow-lg text-md font-bold "
               style={{ background: "#003246" }}
@@ -298,15 +300,11 @@ const AdminSideNav = ({ user }) => {
         <>
           <div className="grid grid-cols-3  justify-start items-center  mb-0 mr ">
             {/* <img src={Logo} height="20" width={50} /> */}
-            <div className=" rounded-full">
-              <LogoArgos />
+            <div className=" rounded-full col-span-3">
+              <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-300 via-purple-400 to-purple-700 bg-clip-text text-transparent">
+                VeMdo
+              </h1>
             </div>
-            <p
-              className="col-span-2 font-bold md:text-sm  isotipo "
-              // style={{ color: "#003246" }}
-            >
-              ARGOSNAUTICA
-            </p>
 
             <Button
               radius="none"
@@ -479,4 +477,4 @@ const AdminSideNav = ({ user }) => {
   );
 };
 
-export default AdminSideNav;
+export default EmpresaSideNav;

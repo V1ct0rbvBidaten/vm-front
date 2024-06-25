@@ -9,8 +9,9 @@ import Login from "./pages/auth/Login";
 import Registro from "./pages/auth/Registro";
 
 //Admin Routes
-import AdminRoute from "./components/routes/AdminRoute";
+import EmpresaRoute from "./components/routes/EmpresaRoute";
 import AdminHome from "./pages/admin/home/AdminHome";
+import EmpresaHome from "./pages/empresa/EmpresaHome";
 
 const App = () => {
   useCheckUser();
@@ -25,8 +26,8 @@ const App = () => {
           <Route exact path="/registro" element={<Registro />} />
           <Route
             exact
-            path="/admin/home"
-            element={<AdminRoute Component={AdminHome} />}
+            path="/empresa/home"
+            element={<EmpresaRoute Component={EmpresaHome} />}
           />
         </Routes>
       </div>

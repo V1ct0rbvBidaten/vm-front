@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import LoadingToRedirect from "../utils/LoadingToRedirect";
-import AdminSideNav from "../navs/AdminSideNav";
+import EmpresaSideNav from "../navs/EmpresaSideNav";
 import { Button } from "@nextui-org/react";
 import { ListBulletIcon } from "@heroicons/react/24/solid";
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
@@ -17,7 +17,7 @@ const AdminRoute = ({ Component }) => {
   return user && user.token && user.role === "admin" ? (
     <>
       <div className=" flex min-h-screen">
-        <AdminSideNav user={user} />
+        <EmpresaSideNav user={user} />
 
         <main className="p-7 w-full bg-stone-50">
           <div className="flex justify-start items-center gap-4 bg-white p-3 rounded-md shadow-md">

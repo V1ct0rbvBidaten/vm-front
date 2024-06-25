@@ -4,11 +4,18 @@ import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 
 import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  let navigate = useNavigate();
+
   const { text } = useTypewriter({
     words: ["Ingresos", "Dinero"],
   });
+
+  const handleSubmit = async (e) => {
+    navigate(`/empresa/home`);
+  };
 
   return (
     <>
@@ -62,7 +69,10 @@ const Login = () => {
                     placeholder="Ingrese su contraseña"
                     startContent={<LockClosedIcon className="h-4" />}
                   />
-                  <Button className="w-full mt-4 bg-gradient-to-br from-rose-400  to-rose-500 text-white">
+                  <Button
+                    className="w-full mt-4 bg-gradient-to-br from-rose-400  to-rose-500 text-white"
+                    onClick={handleSubmit}
+                  >
                     Iniciar Sesión
                   </Button>
                 </div>

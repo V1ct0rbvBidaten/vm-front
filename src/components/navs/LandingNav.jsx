@@ -64,7 +64,7 @@ const LandingNav = () => {
         <NavbarItem>
           <Button
             as={Link}
-            className="bg-gradient-to-r from-sky-500  to-sky-600  text-white"
+            className="bg-gradient-to-r from-sky-500  to-sky-600  text-white rounded-full"
             href="/registro"
           >
             Registrarse
