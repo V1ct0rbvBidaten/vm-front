@@ -31,3 +31,7 @@
 .register-container {
   height: calc(100vh - 64px);
 }
+
+.css-dip3t8 {
+  background-color: transparent !important;
+}

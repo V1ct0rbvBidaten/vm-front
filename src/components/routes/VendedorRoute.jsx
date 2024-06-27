@@ -4,14 +4,15 @@ import EmpresaSideNav from "../navs/EmpresaSideNav";
 import { Button } from "@nextui-org/react";
 import { ListBulletIcon } from "@heroicons/react/24/solid";
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
+import VendedorSideNav from "../navs/VendedorSideNav";
 
-const AdminRoute = ({ Component }) => {
+const VendedorRoute = ({ Component }) => {
   const dispatch = useDispatch();
 
   //   const user = useSelector((state) => state.user);
   const user = {
     name: "Victor",
-    role: "empresa",
+    role: "vendedor",
   };
 
   const isCollapsed = useSelector((state) => state.collapse.isCollapsed);
@@ -23,7 +24,7 @@ const AdminRoute = ({ Component }) => {
     <>
       <div className=" flex min-h-screen">
         <div>
-          <EmpresaSideNav user={user} />
+          <VendedorSideNav user={user} />
         </div>
 
         <main className="p-7 w-full bg-stone-50">
@@ -53,4 +54,4 @@ const AdminRoute = ({ Component }) => {
   //   );
 };
 
-export default AdminRoute;
+export default VendedorRoute;

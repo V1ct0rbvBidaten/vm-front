@@ -1,7 +1,7 @@
 import React from "react";
 
 const EmpresaHome = () => {
-  return <div>EmpresaHome</div>;
+  return <div>Productos</div>;
 };
 
 export default EmpresaHome;

@@ -15,12 +15,15 @@ import {
   ShoppingBagIcon,
   CreditCardIcon,
   EnvelopeIcon,
+  BriefcaseIcon,
+  MagnifyingGlassCircleIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { version } from "../../utils/constants";
 
-const EmpresaSideNav = ({ user }) => {
+const VendedorSideNav = ({ user }) => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const isCollapsed = useSelector((state) => state.collapse.isCollapsed);
@@ -29,14 +32,26 @@ const EmpresaSideNav = ({ user }) => {
 
   const activeMenuItem = [
     {
-      name: "Productos",
-      route: "/empresa/home",
-      icon: <ShoppingBagIcon className="h-6 w-6 " />,
+      name: "Explorar",
+      route: "/vendedor/explorar",
+      icon: <MagnifyingGlassIcon className="h-6 w-6 " />,
       type: "Menu",
     },
     {
-      name: "Ventas",
-      route: "/empresa/ventas",
+      name: "Mis Ventas",
+      route: "/vendedor/ventas",
+      icon: <CreditCardIcon className="h-6 w-6 " />,
+      type: "Menu",
+    },
+    {
+      name: "Maletin de Productos",
+      route: "/vendedor/productos",
+      icon: <BriefcaseIcon className="h-6 w-6 " />,
+      type: "Menu",
+    },
+    {
+      name: "Balance",
+      route: "/vendedor/balance",
       icon: <CreditCardIcon className="h-6 w-6 " />,
       type: "Menu",
     },
@@ -44,15 +59,8 @@ const EmpresaSideNav = ({ user }) => {
       name: "Mi cuenta",
       icon: <UserCircleIcon className="h-6 w-6 " />,
       type: "Menu",
-      route: "/empresa/cuenta",
+      route: "/vendedor/cuenta",
     },
-
-    // {
-    //   name: "Contacto",
-    //   icon: <EnvelopeIcon className="h-6 w-6 " />,
-    //   type: "Menu",
-    //   route: "/empresa/contacto",
-    // },
   ];
 
   const config = {
@@ -68,9 +76,9 @@ const EmpresaSideNav = ({ user }) => {
         return {
           color: active ? "#231f62" : "white",
           backgroundColor: active ? "#fff" : undefined,
-          borderRadius: "10px",
+          borderRadius: "20px",
           margin: "5px 0px 0px 0px",
-          height: "30px",
+          height: "40px",
           fontSize: "12px",
           padding: "10px",
           transition: "all .3s ease",
@@ -300,4 +308,4 @@ const EmpresaSideNav = ({ user }) => {
   );
 };
 
-export default EmpresaSideNav;
+export default VendedorSideNav;

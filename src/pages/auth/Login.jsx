@@ -17,6 +17,10 @@ const Login = () => {
     navigate(`/empresa/home`);
   };
 
+  const handleSubmitVendedor = async (e) => {
+    navigate(`/vendedor/explorar`);
+  };
+
   return (
     <>
       <LandingNav />
@@ -48,7 +52,11 @@ const Login = () => {
                     placeholder="Ingrese su contraseña"
                     startContent={<LockClosedIcon className="h-4" />}
                   />
-                  <Button className="w-full mt-4 bg-gradient-to-br from-purple-400  to-purple-500 text-white">
+
+                  <Button
+                    className="w-full mt-4 bg-gradient-to-br from-purple-400  to-purple-500 text-white"
+                    onClick={handleSubmitVendedor}
+                  >
                     Iniciar Sesión
                   </Button>
                 </div>
