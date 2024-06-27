@@ -2,7 +2,10 @@ import { useSelector, useDispatch } from "react-redux";
 import LoadingToRedirect from "../utils/LoadingToRedirect";
 import EmpresaSideNav from "../navs/EmpresaSideNav";
 import { Button } from "@nextui-org/react";
-import { ListBulletIcon } from "@heroicons/react/24/solid";
+import {
+  ChatBubbleLeftRightIcon,
+  ListBulletIcon,
+} from "@heroicons/react/24/solid";
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
 import VendedorSideNav from "../navs/VendedorSideNav";
 
@@ -46,6 +49,12 @@ const VendedorRoute = ({ Component }) => {
             <Component user={user} />
           </div>
         </main>
+        <Button
+          className="h-14 w-14 rounded-2xl bg-emerald-300 shadow-lg text-white absolute bottom-10 right-10 p-2"
+          isIconOnly
+        >
+          <ChatBubbleLeftRightIcon />
+        </Button>
       </div>
     </>
   );

@@ -2,7 +2,10 @@ import { useSelector, useDispatch } from "react-redux";
 import LoadingToRedirect from "../utils/LoadingToRedirect";
 import EmpresaSideNav from "../navs/EmpresaSideNav";
 import { Button } from "@nextui-org/react";
-import { ListBulletIcon } from "@heroicons/react/24/solid";
+import {
+  ChatBubbleLeftRightIcon,
+  ListBulletIcon,
+} from "@heroicons/react/24/solid";
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
 
 const AdminRoute = ({ Component }) => {
@@ -25,7 +28,6 @@ const AdminRoute = ({ Component }) => {
         <div>
           <EmpresaSideNav user={user} />
         </div>
-
         <main className="p-7 w-full bg-stone-50">
           <div className="flex justify-between items-center gap-4 bg-white p-3 rounded-md shadow-md">
             <Button
@@ -45,6 +47,12 @@ const AdminRoute = ({ Component }) => {
             <Component user={user} />
           </div>
         </main>
+        <Button
+          className="h-14 w-14 rounded-2xl bg-emerald-300 shadow-lg text-white absolute bottom-10 right-10 p-2"
+          isIconOnly
+        >
+          <ChatBubbleLeftRightIcon />
+        </Button>
       </div>
     </>
   );

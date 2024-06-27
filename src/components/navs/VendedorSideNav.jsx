@@ -122,12 +122,12 @@ const VendedorSideNav = ({ user }) => {
       width="230px"
     >
       {isCollapsed ? (
-        <div className="m-4 flex flex-col h-full">
-          <div className="flex flex-col items-center justify-center">
+        <div className=" flex flex-col h-full">
+          <div className="flex flex-col items-center justify-center m-2">
             <h1 className="font-bold text-white">V</h1>
           </div>
 
-          <Menu className="mt-5" menuItemStyles={config}>
+          <Menu className="m-4" menuItemStyles={config}>
             {activeMenuItem &&
               activeMenuItem.map((c) => {
                 if (c.type === "Menu") {

@@ -68,9 +68,9 @@ const EmpresaSideNav = ({ user }) => {
         return {
           color: active ? "#231f62" : "white",
           backgroundColor: active ? "#fff" : undefined,
-          borderRadius: "10px",
+          borderRadius: "20px",
           margin: "5px 0px 0px 0px",
-          height: "30px",
+          height: "40px",
           fontSize: "12px",
           padding: "10px",
           transition: "all .3s ease",
