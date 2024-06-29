@@ -211,7 +211,7 @@ const Landing = () => {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
-        <div className="grid grid-cols-4 mt-10">
+        {/* <div className="grid grid-cols-4 mt-10">
           <div className="flex items-center justify-center flex-col">
             <div className="rounded-full overflow-hidden h-[200px] w-[200px]">
               <img src={juanCarlos} height={200} width={200} />
@@ -245,7 +245,7 @@ const Landing = () => {
             </h1>
             <h4 className="font-bold text-xl ">CTO</h4>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

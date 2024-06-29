@@ -1,10 +1,17 @@
 import { useSelector, useDispatch } from "react-redux";
-import LoadingToRedirect from "../utils/LoadingToRedirect";
-import EmpresaSideNav from "../navs/EmpresaSideNav";
-import { Button } from "@nextui-org/react";
+import {
+  Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  DropdownSection,
+} from "@nextui-org/react";
 import {
   ChatBubbleLeftRightIcon,
+  EllipsisVerticalIcon,
   ListBulletIcon,
+  PowerIcon,
 } from "@heroicons/react/24/solid";
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
 import VendedorSideNav from "../navs/VendedorSideNav";
@@ -41,9 +48,30 @@ const VendedorRoute = ({ Component }) => {
             >
               <ListBulletIcon className="h-6 " />
             </Button>
-            <Button className="bg-sky-500 text-white shadow-md h-8 rounded-full">
-              ¡Hola, {user.name}!
-            </Button>
+            <Dropdown>
+              <DropdownTrigger>
+                <Button
+                  className="bg-sky-500 text-white shadow-md h-8 rounded-full"
+                  endContent={<EllipsisVerticalIcon className="h-6" />}
+                >
+                  ¡Hola, {user.name}!
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Static Actions">
+                <DropdownSection title="Mi cuenta" showDivider>
+                  <DropdownItem key="perfil">Perfil</DropdownItem>
+                  <DropdownItem key="configuraciones">
+                    Configuraciones
+                  </DropdownItem>
+                </DropdownSection>
+                <DropdownItem
+                  key="delete"
+                  startContent={<PowerIcon className="h-4" />}
+                >
+                  Cerrar Sesión
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
           </div>
           <div className="  mt-5  p-3 rounded-md">
             <Component user={user} />
