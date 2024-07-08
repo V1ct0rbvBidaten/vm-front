@@ -18,7 +18,7 @@ const BalanceHome = () => {
     },
     {
       date: "Apr 23",
-      ingresos: 84652,
+      ingresos: 84632,
     },
     {
       date: "May 23",
