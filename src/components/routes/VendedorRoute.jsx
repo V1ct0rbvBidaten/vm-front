@@ -32,8 +32,8 @@ const VendedorRoute = ({ Component }) => {
   return (
     //   user && user.token && user.role === "empresa" ? (
     <>
-      <div className=" flex min-h-screen">
-        <div>
+      <div className=" flex  min-h-screen ">
+        <div className="">
           <VendedorSideNav user={user} />
         </div>
 
@@ -78,7 +78,7 @@ const VendedorRoute = ({ Component }) => {
           </div>
         </main>
         <Button
-          className="h-14 w-14 rounded-2xl bg-emerald-300 shadow-lg text-white absolute bottom-10 right-10 p-2"
+          className="h-14 w-14 rounded-2xl bg-emerald-300 shadow-lg text-white fixed bottom-10 right-10 p-2"
           isIconOnly
         >
           <ChatBubbleLeftRightIcon />

@@ -71,7 +71,6 @@ const VendedorSideNav = ({ user }) => {
       };
     },
     button: ({ level, active }) => {
-      // only apply styles on first level elements of the tree
       if (level === 0)
         return {
           color: active ? "#231f62" : "white",
@@ -211,10 +210,6 @@ const VendedorSideNav = ({ user }) => {
               VeMdo
             </h1>
           </div>
-          {/* <div className="mt-5 text-md text-white">
-        <p>Menu</p>
-        <hr />
-      </div> */}
           <Menu className="m-4" menuItemStyles={config}>
             {activeMenuItem &&
               activeMenuItem.map((c) => {
@@ -289,7 +284,7 @@ const VendedorSideNav = ({ user }) => {
             <User
               name={user.name}
               classNames={{
-                name: "text-white", // Assuming you have a CSS class `text-white` to set the text color to white
+                name: "text-white",
               }}
               description={
                 <Link href="#" size="sm" className="text-sky-500 capitalize">
