@@ -1,6 +1,7 @@
 import LandingNav from "../../../components/navs/LandingNav";
 import { Button, Input } from "@nextui-org/react";
-import RegistroEmpresa from "./registroEmpresa/RegistroEmpresa";
+import RegistroEmpresa from "./registroVendedor/RegistroVendedor";
+import RegistroVendedor from "./registroEmpresa/RegistroEmpresa";
 
 const RegisterComplete = () => {
   const esEmpresa = localStorage.getItem("es-empresa");
@@ -17,7 +18,7 @@ const RegisterComplete = () => {
             Para ingresar a la plataforma complete su registro
           </h1>
           <div className="w-[70%] ">
-            {esEmpresa ? <RegistroEmpresa /> : <Button>Vendedor</Button>}
+            {esEmpresa ? <RegistroEmpresa /> : <RegistroVendedor />}
           </div>
         </div>
       </div>
