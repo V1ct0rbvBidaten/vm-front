@@ -5,8 +5,9 @@ import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 
 import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../api/auth";
+import { getCurrentUser, login } from "../../api/auth";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 
 const initialState = {
   email: "",
@@ -15,6 +16,8 @@ const initialState = {
 
 const Login = () => {
   const [values, setValues] = useState(initialState);
+
+  const dispatch = useDispatch();
 
   let navigate = useNavigate();
 
@@ -33,7 +36,18 @@ const Login = () => {
         localStorage.setItem("token", token);
         console.log(res);
         toast.success(res.data.detail.message);
-        navigate(`/empresa/home`);
+        getCurrentUser({ token: token })
+          .then((response) => {
+            dispatch({
+              type: "LOGGED_IN_USER",
+              payload: { ...response.data, token },
+            });
+
+            navigate(`/empresa/home`);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         console.log(err);
@@ -48,7 +62,18 @@ const Login = () => {
         localStorage.setItem("token", token);
         console.log(res);
         toast.success(res.data.detail.message);
-        navigate(`/vendedor/explorar`);
+        getCurrentUser({ token: token })
+          .then((response) => {
+            dispatch({
+              type: "LOGGED_IN_USER",
+              payload: { ...response.data, token },
+            });
+
+            navigate(`/vendedor/explorar`);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         console.log(err);

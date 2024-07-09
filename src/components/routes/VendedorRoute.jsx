@@ -15,22 +15,18 @@ import {
 } from "@heroicons/react/24/solid";
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
 import VendedorSideNav from "../navs/VendedorSideNav";
+import LoadingToRedirect from "../utils/LoadingToRedirect";
 
 const VendedorRoute = ({ Component }) => {
   const dispatch = useDispatch();
 
-  //   const user = useSelector((state) => state.user);
-  const user = {
-    name: "Victor",
-    role: "vendedor",
-  };
+  const user = useSelector((state) => state.user);
 
   const isCollapsed = useSelector((state) => state.collapse.isCollapsed);
   const handleToggle = () => {
     dispatch(toggleCollapse());
   };
-  return (
-    //   user && user.token && user.role === "empresa" ? (
+  return user && user.token && !user.es_empresa ? (
     <>
       <div className=" flex  min-h-screen ">
         <div className="">
@@ -54,7 +50,7 @@ const VendedorRoute = ({ Component }) => {
                   className="bg-sky-500 text-white shadow-md h-8 rounded-full"
                   endContent={<EllipsisVerticalIcon className="h-6" />}
                 >
-                  ¡Hola, {user.name}!
+                  ¡Hola, {user.profile_name}!
                 </Button>
               </DropdownTrigger>
               <DropdownMenu aria-label="Static Actions">
@@ -85,10 +81,9 @@ const VendedorRoute = ({ Component }) => {
         </Button>
       </div>
     </>
+  ) : (
+    <LoadingToRedirect />
   );
-  //   : (
-  //     <LoadingToRedirect />
-  //   );
 };
 
 export default VendedorRoute;
