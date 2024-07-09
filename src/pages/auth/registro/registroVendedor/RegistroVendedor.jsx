@@ -23,12 +23,6 @@ const initialState = {
   telefono: "",
   es_vendedor: false,
   es_empresa: false,
-  rut_razon_social: "",
-  nombre_razon_social: "",
-  direccion_razon_social: "",
-  telefono_razon_social: "",
-  correo_electronico_razon_social: "",
-  representante_legal: "",
 };
 
 const RegistroVendedor = () => {
@@ -103,8 +97,6 @@ const RegistroVendedor = () => {
         );
       case 2:
         return <PerfilForm handleChange={handleChange} values={values} />;
-      case 3:
-        return <EmpresaForm handleChange={handleChange} values={values} />;
       default:
         return null;
     }

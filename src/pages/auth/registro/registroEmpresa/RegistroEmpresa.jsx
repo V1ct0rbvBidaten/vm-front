@@ -10,6 +10,7 @@ import {
 } from "../../../../functions/formaters";
 import { completeProfile } from "../../../../api/auth";
 import { useNavigate } from "react-router-dom";
+import EmpresaForm from "./EmpresaForm";
 
 const initialState = {
   email: "",
@@ -21,6 +22,12 @@ const initialState = {
   telefono: "",
   es_vendedor: false,
   es_empresa: false,
+  rut_razon_social: "",
+  nombre_razon_social: "",
+  direccion_razon_social: "",
+  telefono_razon_social: "",
+  correo_electronico_razon_social: "",
+  representante_legal: "",
 };
 
 const RegistroEmpresa = () => {
