@@ -1,7 +1,7 @@
 import LandingNav from "../../../components/navs/LandingNav";
 import { Button, Input } from "@nextui-org/react";
-import RegistroEmpresa from "./registroVendedor/RegistroVendedor";
-import RegistroVendedor from "./registroEmpresa/RegistroEmpresa";
+import RegistroEmpresa from "./registroEmpresa/RegistroEmpresa";
+import RegistroVendedor from "./registroVendedor/RegistroVendedor";
 
 const RegisterComplete = () => {
   const esEmpresa = localStorage.getItem("es-empresa");

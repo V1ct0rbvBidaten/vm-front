@@ -31,7 +31,7 @@ const RegistroVendedor = () => {
 
   let navigate = useNavigate();
 
-  const steps = ["Datos Cuenta", "Datos Perfil", "Datos Empresa"];
+  const steps = ["Datos Cuenta", "Datos Perfil"];
 
   const email = localStorage.getItem("email-verification");
 
