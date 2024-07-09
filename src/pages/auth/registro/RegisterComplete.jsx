@@ -9,7 +9,7 @@ const RegisterComplete = () => {
     <>
       <LandingNav />
       <div className="flex justify-center p-10 register-container bg-slate-100">
-        <div className="flex flex-col items-center bg-white w-full rounded-md shadow-lg  border-1">
+        <div className="flex flex-col items-center bg-white w-full rounded-md shadow-lg  border-1 p-10">
           <span className="mt-2 font-bold text-inherit text-5xl bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500 bg-clip-text text-transparent">
             VeMdo
           </span>
