@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LandingNav from "../../../components/navs/LandingNav";
 import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
-import { getCurrentUser, signup, verifyCode } from "../../../api/auth";
+import { signup, verifyCode } from "../../../api/auth";
 import { Typewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -41,18 +41,6 @@ const Registro = () => {
           );
           localStorage.setItem("es-empresa", dataToSend.es_empresa);
           console.log("setEmailSend True");
-          getCurrentUser({ token: token })
-            .then((response) => {
-              dispatch({
-                type: "LOGGED_IN_USER",
-                payload: { ...response.data, token },
-              });
-
-              navigate(`/empresa/home`);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
           setEmailSend(true);
         } else {
           toast.error(res.data.message);
