@@ -1,26 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import LandingNav from "../../components/navs/LandingNav";
 import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 
 import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
+import { login } from "../../api/auth";
+import { toast } from "react-toastify";
+
+const initialState = {
+  email: "",
+  password: "",
+};
 
 const Login = () => {
+  const [values, setValues] = useState(initialState);
+
   let navigate = useNavigate();
 
   const { text } = useTypewriter({
     words: ["Ingresos", "Dinero"],
   });
 
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = async (e) => {
-    navigate(`/empresa/home`);
+    login(values)
+      .then((res) => {
+        let token = res.data.detail.data.access_token;
+        localStorage.setItem("token", token);
+        console.log(res);
+        toast.success(res.data.detail.message);
+        navigate(`/empresa/home`);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.response.data.detail.message);
+      });
   };
 
   const handleSubmitVendedor = async (e) => {
-    navigate(`/vendedor/explorar`);
+    login(values)
+      .then((res) => {
+        let token = res.data.detail.data.access_token;
+        localStorage.setItem("token", token);
+        console.log(res);
+        toast.success(res.data.detail.message);
+        navigate(`/vendedor/explorar`);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.response.data.detail.message);
+      });
   };
 
+  const { email, password } = values;
   return (
     <>
       <LandingNav />
@@ -44,6 +80,9 @@ const Login = () => {
                     variant="bordered"
                     placeholder="Ingrese su correo"
                     startContent={<EnvelopeIcon className="h-4" />}
+                    name="email"
+                    value={email}
+                    onChange={handleChange}
                   />
                   <Input
                     label="Contraseña"
@@ -51,6 +90,9 @@ const Login = () => {
                     variant="bordered"
                     placeholder="Ingrese su contraseña"
                     startContent={<LockClosedIcon className="h-4" />}
+                    name="password"
+                    value={password}
+                    onChange={handleChange}
                   />
 
                   <Button
@@ -69,6 +111,9 @@ const Login = () => {
                     variant="bordered"
                     placeholder="Ingrese su correo"
                     startContent={<EnvelopeIcon className="h-4" />}
+                    name="email"
+                    value={email}
+                    onChange={handleChange}
                   />
                   <Input
                     label="Contraseña"
@@ -76,6 +121,9 @@ const Login = () => {
                     variant="bordered"
                     placeholder="Ingrese su contraseña"
                     startContent={<LockClosedIcon className="h-4" />}
+                    name="password"
+                    value={password}
+                    onChange={handleChange}
                   />
                   <Button
                     className="w-full mt-4 bg-gradient-to-br from-rose-400  to-rose-500 text-white"

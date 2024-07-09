@@ -2,9 +2,7 @@ import { useState } from "react";
 import Stepper from "../../../../components/stepper/Stepper";
 import StepperControls from "../../../../components/stepper/StepperControls";
 import UsuarioForm from "./UsuarioForm";
-import PerfilForm from "./PerfilForm";
-import EmpresaForm from "./EmpresaForm";
-import DocumentacionForm from "./DocumentacionForm";
+import PerfilForm from "../registroEmpresa/PerfilForm";
 import { toast } from "react-toastify";
 import {
   formatChileanPhoneNumber,
@@ -23,21 +21,20 @@ const initialState = {
   telefono: "",
   es_vendedor: false,
   es_empresa: false,
-  rut_razon_social: "",
-  nombre_razon_social: "",
-  direccion_razon_social: "",
-  telefono_razon_social: "",
-  correo_electronico_razon_social: "",
-  representante_legal: "",
 };
 
-const RegistroEmpresa = () => {
+const RegistroVendedor = () => {
   const [values, setValues] = useState(initialState);
   const [currentStep, setCurrentStep] = useState(1);
 
   let navigate = useNavigate();
 
-  const steps = ["Datos Cuenta", "Datos Perfil"];
+  const steps = [
+    "Datos Cuenta",
+    "Datos Perfil",
+    "Datos Empresa",
+    // "Documentación",
+  ];
 
   const email = localStorage.getItem("email-verification");
 
@@ -103,6 +100,10 @@ const RegistroEmpresa = () => {
         );
       case 2:
         return <PerfilForm handleChange={handleChange} values={values} />;
+      case 3:
+        return <EmpresaForm handleChange={handleChange} values={values} />;
+      // case 4:
+      //   return <DocumentacionForm />;
       default:
         return null;
     }
@@ -123,7 +124,13 @@ const RegistroEmpresa = () => {
         apellidos: data.apellidos,
         direccion: data.direccion,
         telefono: data.telefono,
-        es_vendedor: !localStorage.getItem("es-empresa"),
+        es_vendedor: data.es_vendedor,
+        rut_razon_social: data.rut_razon_social,
+        nombre_razon_social: data.nombre_razon_social,
+        direccion_razon_social: data.direccion_razon_social,
+        telefono_razon_social: data.telefono_razon_social,
+        correo_electronico_razon_social: data.correo_electronico_razon_social,
+        representante_legal: data.representante_legal,
       },
     };
 
@@ -132,7 +139,7 @@ const RegistroEmpresa = () => {
         toast.success(res.data.detail.message);
         let token = res.data.detail.data.access_token;
         localStorage.setItem("token", token);
-        navigate("/vendedor/explorar");
+        navigate("/empresa/home");
       })
       .catch((err) => {
         toast.success(err.data.detail.message);
@@ -158,4 +165,4 @@ const RegistroEmpresa = () => {
   );
 };
 
-export default RegistroEmpresa;
+export default RegistroVendedor;
