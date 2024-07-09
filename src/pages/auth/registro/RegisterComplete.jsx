@@ -13,14 +13,10 @@ const RegisterComplete = () => {
           <span className="mt-2 font-bold text-inherit text-5xl bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500 bg-clip-text text-transparent">
             VeMdo
           </span>
-          <h1 className="text-3xl font-normal text-slate-500 mt-1">
+          <h1 className="text-md font-normal text-slate-500 mt-1">
             Para ingresar a la plataforma complete su registro
           </h1>
-          <p className="mt-2">
-            lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-            ipsum
-          </p>
-          <div className="w-[70%] p-10">
+          <div className="w-[70%] ">
             {esEmpresa ? <RegistroEmpresa /> : <Button>Vendedor</Button>}
           </div>
         </div>
