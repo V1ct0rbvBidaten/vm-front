@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useCheckUser } from "./hooks/useCheckUser";
 
 //Rutas
 import Landing from "./pages/Landing";
@@ -32,7 +33,7 @@ import ProductoEmpresa from "./pages/vendedor/productos/ProductoEmpresa";
 import ProductoMaletinDetail from "./pages/vendedor/productos/ProductoMaletinDetail";
 
 const App = () => {
-  // useCheckUser();
+  useCheckUser();
   return (
     <div className="h-max flex flex-col justify-between">
       <ToastContainer />

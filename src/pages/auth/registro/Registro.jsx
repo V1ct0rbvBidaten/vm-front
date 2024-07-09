@@ -31,17 +31,23 @@ const Registro = () => {
     };
     signup(dataToSend)
       .then((res) => {
-        const resStatus = res.data.success;
+        console.log(res);
+        const resStatus = res.data.detail.success;
         if (resStatus) {
-          toast.success(res.data.message);
-          localStorage.setItem("email-verification", res.data.data.email);
+          toast.success(res.data.detail.message);
+          localStorage.setItem(
+            "email-verification",
+            res.data.detail.data.email
+          );
           localStorage.setItem("es-empresa", dataToSend.es_empresa);
+          console.log("setEmailSend True");
           setEmailSend(true);
         } else {
           toast.error(res.data.message);
         }
       })
       .catch((err) => {
+        console.log(err);
         toast.error(err.response.data.detail.message);
       });
   };
@@ -78,6 +84,8 @@ const Registro = () => {
       email: localStorage.getItem("email-verification"),
       code: code,
     };
+
+    console.log("registro");
 
     verifyCode(data)
       .then((res) => {

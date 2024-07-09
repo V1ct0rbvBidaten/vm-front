@@ -11,18 +11,14 @@ import { toggleCollapse } from "../../reducers/sideBarCollapse";
 const AdminRoute = ({ Component }) => {
   const dispatch = useDispatch();
 
-  //   const user = useSelector((state) => state.user);
-  const user = {
-    name: "Victor",
-    role: "empresa",
-  };
+  const user = useSelector((state) => state.user);
 
   const isCollapsed = useSelector((state) => state.collapse.isCollapsed);
+
   const handleToggle = () => {
     dispatch(toggleCollapse());
   };
-  return (
-    //   user && user.token && user.role === "empresa" ? (
+  return user && user.token && user.es_empresa ? (
     <>
       <div className=" flex min-h-screen">
         <div>
@@ -40,7 +36,7 @@ const AdminRoute = ({ Component }) => {
               <ListBulletIcon className="h-6 " />
             </Button>
             <Button className="bg-sky-500 text-white shadow-md h-8 rounded-full">
-              ¡Hola, {user.name}!
+              ¡Hola, {user.profile_name}!
             </Button>
           </div>
           <div className="  mt-5  p-3 rounded-md">
@@ -48,17 +44,16 @@ const AdminRoute = ({ Component }) => {
           </div>
         </main>
         <Button
-          className="h-14 w-14 rounded-2xl bg-emerald-300 shadow-lg text-white absolute bottom-10 right-10 p-2"
+          className="h-14 w-14 rounded-2xl bg-emerald-300 shadow-lg text-white fixed z-10 bottom-10 right-10 p-2"
           isIconOnly
         >
           <ChatBubbleLeftRightIcon />
         </Button>
       </div>
     </>
+  ) : (
+    <LoadingToRedirect />
   );
-  //   : (
-  //     <LoadingToRedirect />
-  //   );
 };
 
 export default AdminRoute;

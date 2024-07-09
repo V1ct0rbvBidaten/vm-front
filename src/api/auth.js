@@ -17,3 +17,7 @@ export const completeProfile = async (profileData) => {
     profileData
   );
 };
+
+export const getCurrentUser = async (token) => {
+  return await axios.post(`${import.meta.env.VITE_API_URL}/auth`, token);
+};

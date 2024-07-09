@@ -1,7 +1,97 @@
-import React from "react";
+import ProductoCard from "./ProductoCard";
+import {
+  ArrowDownIcon,
+  EllipsisVerticalIcon,
+  FunnelIcon,
+  MagnifyingGlassIcon,
+  PlusIcon,
+} from "@heroicons/react/24/solid";
+import {
+  Card,
+  Image,
+  CardFooter,
+  Button,
+  CardHeader,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  CardBody,
+  Input,
+  Pagination,
+} from "@nextui-org/react";
 
-const ProductosHome = () => {
-  return <div>ProductosHome</div>;
+const ProductosHome = ({ data, resetState }) => {
+  let productos = data ? data.detail.data.products : [];
+
+  return (
+    <div className="flex flex-col gap-2 justify-center items-center">
+      <div className="w-full bg-white rounded-md shadow-md mb-5 p-4 flex justify-between">
+        <h1 className="text-2xl font-semibold">Productos</h1>{" "}
+        <Button
+          className="bg-emerald-500 text-white h-7"
+          startContent={<PlusIcon className="h-4" />}
+        >
+          Crear Producto
+        </Button>
+      </div>
+      <div className="w-full flex gap-4 bg-white rounded-md shadow-md mb-5 p-4">
+        <FunnelIcon className="h-6 text-slate-700" />
+        <Input
+          size="sm"
+          radius="full"
+          className="h-6 w-[300px] "
+          placeholder="Ingrese nombre de producto"
+          variant="bordered"
+          startContent={<MagnifyingGlassIcon className="h-4" />}
+        />
+        <Dropdown>
+          <DropdownTrigger>
+            <Button
+              className="h-7 bg-slate-100 shadow-md"
+              startContent={<EllipsisVerticalIcon className="h-4" />}
+            >
+              Categoria
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
+            <DropdownItem key="new" shortcut="⌘N">
+              New file
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        <Dropdown>
+          <DropdownTrigger>
+            <Button
+              className="h-7 bg-slate-100 shadow-md"
+              startContent={<EllipsisVerticalIcon className="h-4" />}
+            >
+              Estado
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
+            <DropdownItem key="new" shortcut="⌘N">
+              New file
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </div>
+      <div className="grid grid-cols-6 gap-4">
+        {productos && productos.length > 0 ? (
+          productos.map((c) => <ProductoCard key={c.id_producto} data={c} />)
+        ) : (
+          <>No hay datos</>
+        )}
+      </div>
+      <Pagination
+        total={10}
+        initialPage={1}
+        loop
+        showControls
+        color="secondary"
+      />
+    </div>
+  );
 };
 
 export default ProductosHome;

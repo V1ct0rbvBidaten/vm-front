@@ -46,13 +46,6 @@ const EmpresaSideNav = ({ user }) => {
       type: "Menu",
       route: "/empresa/cuenta",
     },
-
-    // {
-    //   name: "Contacto",
-    //   icon: <EnvelopeIcon className="h-6 w-6 " />,
-    //   type: "Menu",
-    //   route: "/empresa/contacto",
-    // },
   ];
 
   const config = {
@@ -279,15 +272,10 @@ const EmpresaSideNav = ({ user }) => {
 
           <div className="mt-auto ml-4 mr-4 p-4 text-md">
             <User
-              name={user.name}
+              name={user.profile_name}
               classNames={{
-                name: "text-white", // Assuming you have a CSS class `text-white` to set the text color to white
+                name: "text-white font-semibold", // Assuming you have a CSS class `text-white` to set the text color to white
               }}
-              description={
-                <Link href="#" size="sm" className="text-sky-500 capitalize">
-                  {user.role}
-                </Link>
-              }
               avatarProps={{
                 src: "https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg",
               }}
