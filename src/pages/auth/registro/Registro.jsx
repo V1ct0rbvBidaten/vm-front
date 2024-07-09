@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LandingNav from "../../../components/navs/LandingNav";
 import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
-import { signup, verifyCode } from "../../../api/auth";
+import { getCurrentUser, signup, verifyCode } from "../../../api/auth";
 import { Typewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -41,6 +41,18 @@ const Registro = () => {
           );
           localStorage.setItem("es-empresa", dataToSend.es_empresa);
           console.log("setEmailSend True");
+          getCurrentUser({ token: token })
+            .then((response) => {
+              dispatch({
+                type: "LOGGED_IN_USER",
+                payload: { ...response.data, token },
+              });
+
+              navigate(`/empresa/home`);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
           setEmailSend(true);
         } else {
           toast.error(res.data.message);
@@ -120,7 +132,7 @@ const Registro = () => {
                       key={index}
                       id={`code-${index}`}
                       type="number"
-                      className="no-arrows w-12 h-12 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="no-arrows w-8 h-8 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       maxLength="1"
                       onInput={(e) => handleInput(e, index)}
                       onKeyDown={(e) => handleKeyDown(e, index)}
