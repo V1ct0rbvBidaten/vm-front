@@ -10,8 +10,9 @@ import {
   formatChileanPhoneNumber,
   formatRut,
 } from "../../../../functions/formaters";
-import { completeProfile } from "../../../../api/auth";
+import { completeProfile, getCurrentUser } from "../../../../api/auth";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const initialState = {
   email: "",
@@ -29,6 +30,7 @@ const RegistroVendedor = () => {
   const [values, setValues] = useState(initialState);
   const [currentStep, setCurrentStep] = useState(1);
 
+  const dispatch = useDispatch();
   let navigate = useNavigate();
 
   const steps = ["Datos Cuenta", "Datos Perfil"];
@@ -126,7 +128,18 @@ const RegistroVendedor = () => {
         toast.success(res.data.detail.message);
         let token = res.data.detail.data.access_token;
         localStorage.setItem("token", token);
-        navigate("/vendedor/explorar");
+        getCurrentUser({ token: token })
+          .then((response) => {
+            dispatch({
+              type: "LOGGED_IN_USER",
+              payload: { ...response.data, token },
+            });
+
+            navigate("/vendedor/explorar");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         toast.success(err.data.detail.message);
