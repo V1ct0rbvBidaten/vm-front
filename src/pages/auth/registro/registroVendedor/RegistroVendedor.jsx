@@ -22,7 +22,7 @@ const initialState = {
   apellidos: "",
   direccion: "",
   telefono: "",
-  es_vendedor: false,
+  es_vendedor: true,
   es_empresa: false,
 };
 
@@ -113,13 +113,13 @@ const RegistroVendedor = () => {
     let profileData = {
       email: data.email,
       password: data.contraseña,
-      es_empresa: localStorage.getItem("es-empresa"),
+      es_empresa: data.es_empresa,
       profile_details: {
         nombres: data.nombres,
         apellidos: data.apellidos,
         direccion: data.direccion,
         telefono: data.telefono,
-        es_vendedor: !localStorage.getItem("es-empresa"),
+        es_vendedor: data.es_vendedor,
       },
     };
 
