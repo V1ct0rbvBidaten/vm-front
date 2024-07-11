@@ -29,9 +29,11 @@ const LandingNav = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-300 via-purple-400 to-purple-700 bg-clip-text text-transparent">
-            VeMdo
-          </h1>
+          <Link href="/" color="foreground">
+            <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-300 via-purple-400 to-purple-700 bg-clip-text text-transparent">
+              VeMdo
+            </h1>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 

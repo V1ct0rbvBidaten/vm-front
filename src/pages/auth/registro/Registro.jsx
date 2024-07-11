@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import LandingNav from "../../../components/navs/LandingNav";
 import { CountdownTimer, VerificationCodeInput } from '../../../utils/constants';
-import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
+import { Button, Input, Link, Tabs, Tab, Spinner } from "@nextui-org/react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { signup, verifyCode } from "../../../api/auth";
 import { Typewriter } from "react-simple-typewriter";
@@ -20,7 +20,7 @@ const Registro = () => {
   const [emailSend, setEmailSend] = useState(false);
   const [selectedTab, setSelectedTab] = useState("vendedor");
   const [verificationCode, setVerificationCode] = useState(Array(6).fill(""));
-
+  const [loading, setLoading] = useState(false); // Estado de carga
   let navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -28,6 +28,7 @@ const Registro = () => {
   };
 
   const handleRegister = () => {
+    setLoading(true); // Activar el spinner
     const dataToSend = {
       ...registerData,
       es_empresa: selectedTab === "empresa",
@@ -52,9 +53,11 @@ const Registro = () => {
       .catch((err) => {
         console.log(err);
         toast.error(err.response.data.detail.message);
+      })
+      .finally(() => {
+        setLoading(false); // Desactivar el spinner
       });
   };
-
   const { email } = registerData;
 
   const handleInput = (e, index) => {
@@ -82,7 +85,10 @@ const Registro = () => {
 
   const handleVerificationSubmit = () => {
     const code = verificationCode.join("");
-
+    if (code.length < 6) {
+      toast.error(`Has ingresado solo ${code.length} dígitos.`);
+      return;
+    }
     let data = {
       email: localStorage.getItem("email-verification"),
       code: code,
@@ -111,7 +117,9 @@ const Registro = () => {
             <h1 className="text-3xl font-normal text-slate-500 mt-8">
               Registrarse
             </h1>
-            {emailSend ? (
+            {loading ? ( // Mostrar el spinner cuando loading es true
+              <Spinner size="xl" /> 
+            ) : emailSend ? (
               <div className="flex flex-col gap-4 ">
                 <p>
                   Un codigo de verificación fue enviado a su correo favor
@@ -121,10 +129,10 @@ const Registro = () => {
                   <CountdownTimer />
                 </h2>
                 <div className="space-x-2">
- 
                   <VerificationCodeInput
                     verificationCode={verificationCode}
-                    setVerificationCode={setVerificationCode} />
+                    setVerificationCode={setVerificationCode}
+                  />
                 </div>
                 <Button
                   className="bg-slate-700 text-white"
