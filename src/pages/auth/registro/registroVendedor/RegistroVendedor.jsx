@@ -154,9 +154,7 @@ const RegistroVendedor = () => {
         toast.success(err.data.detail.message);
       });
   };
-
   const handleSubmitText = "Crear perfil";
-
   return (
     <>
       <Stepper currentStep={currentStep} steps={steps} />
