@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useCallback } from "react";
 import LandingNav from "../../../components/navs/LandingNav";
-import { CountdownTimer, VerificationCodeInput } from '../../../utils/constants';
-import { Button, Input, Link, Tabs, Tab, Spinner } from "@nextui-org/react";
+import { VerificationCodeInput } from '../registro/VerifyCodeAuth';
+import { CountdownTimer } from '../../../components/utils/countDownTimer';
+import Loading from '../../../components/utils/Loading';
+import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { signup, verifyCode } from "../../../api/auth";
 import { Typewriter } from "react-simple-typewriter";
@@ -16,6 +18,7 @@ const initialState = {
 
 
 const Registro = () => {
+  var timeCountDown = 300
   const [registerData, setRegisterData] = useState(initialState);
   const [emailSend, setEmailSend] = useState(false);
   const [selectedTab, setSelectedTab] = useState("vendedor");
@@ -84,6 +87,7 @@ const Registro = () => {
   };
 
   const handleVerificationSubmit = () => {
+    setLoading(true); // Activar el spinner
     const code = verificationCode.join("");
     if (code.length < 6) {
       toast.error(`Has ingresado solo ${code.length} dígitos.`);
@@ -104,6 +108,9 @@ const Registro = () => {
       })
       .catch((err) => {
         toast.error(err.response.data.detail.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -118,7 +125,7 @@ const Registro = () => {
               Registrarse
             </h1>
             {loading ? ( // Mostrar el spinner cuando loading es true
-              <Spinner size="xl" /> 
+              <Loading size="xl" /> 
             ) : emailSend ? (
               <div className="flex flex-col gap-4 ">
                 <p>
@@ -126,7 +133,9 @@ const Registro = () => {
                   ingresar a continuación para continuar con su registro.
                 </p>
                 <h2 className="text-2xl font-semibold">
-                  <CountdownTimer />
+                  <CountdownTimer 
+                  time={timeCountDown}
+                  />
                 </h2>
                 <div className="space-x-2">
                   <VerificationCodeInput
@@ -134,12 +143,15 @@ const Registro = () => {
                     setVerificationCode={setVerificationCode}
                   />
                 </div>
+                {loading ? ( // Mostrar el spinner cuando loading es true
+              <Loading size="xl" /> 
+            ) :
                 <Button
                   className="bg-slate-700 text-white"
                   onClick={handleVerificationSubmit}
                 >
                   Ingresar codigo de verificación
-                </Button>
+                </Button>}
               </div>
             ) : (
               <>
