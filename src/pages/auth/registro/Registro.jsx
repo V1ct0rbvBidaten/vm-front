@@ -121,17 +121,7 @@ const Registro = () => {
                   <CountdownTimer />
                 </h2>
                 <div className="space-x-2">
-                  {/* {[...Array(6)].map((_, index) => (
-                    <input
-                      key={index}
-                      id={`code-${index}`}
-                      type="number"
-                      className="no-arrows w-8 h-8 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      maxLength="1"
-                      onInput={(e) => handleInput(e, index)}
-                      onKeyDown={(e) => handleKeyDown(e, index)}
-                    />
-                  ))} */}
+ 
                   <VerificationCodeInput
                     verificationCode={verificationCode}
                     setVerificationCode={setVerificationCode} />
