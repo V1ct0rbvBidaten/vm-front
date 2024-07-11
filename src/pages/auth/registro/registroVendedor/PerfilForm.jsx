@@ -42,7 +42,7 @@ const PerfilForm = ({ handleChange, values }) => {
         name="telefono"
         value={telefono}
         onChange={handleChange}
-      />
+      /> 
     </div>
   );
 };

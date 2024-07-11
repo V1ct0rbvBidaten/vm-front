@@ -13,6 +13,7 @@ import {
 import { completeProfile, getCurrentUser } from "../../../../api/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import DataBankForm from "./DataBankForm";
 
 const initialState = {
   email: "",
@@ -33,7 +34,7 @@ const RegistroVendedor = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const steps = ["Datos Cuenta", "Datos Perfil"];
+  const steps = ["Datos Cuenta", "Datos Perfil", "Datos Bancarios"];
 
   const email = localStorage.getItem("email-verification");
 
@@ -99,6 +100,8 @@ const RegistroVendedor = () => {
         );
       case 2:
         return <PerfilForm handleChange={handleChange} values={values} />;
+      case 3:
+          return <DataBankForm handleChange={handleChange} values={values} />;
       default:
         return null;
     }
@@ -120,6 +123,12 @@ const RegistroVendedor = () => {
         direccion: data.direccion,
         telefono: data.telefono,
         es_vendedor: data.es_vendedor,
+        rut_cuenta_bancaria: data.rut_cuenta_bancaria,
+        banco: data.banco,
+        tipo_cuenta_bancaria: data.tipo_cuenta_bancaria,
+        numero_cuenta_bancaria: data.numero_cuenta_bancaria,
+        email_cuenta_bancaria: data.email_cuenta_bancaria
+
       },
     };
 
