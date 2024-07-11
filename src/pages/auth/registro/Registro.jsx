@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useCallback  } from "react";
 import LandingNav from "../../../components/navs/LandingNav";
+import CountdownTimer from '../../../utils/constants';
 import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { signup, verifyCode } from "../../../api/auth";
@@ -7,10 +8,12 @@ import { Typewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+
 const initialState = {
   email: "",
   es_empresa: false,
 };
+
 
 const Registro = () => {
   const [registerData, setRegisterData] = useState(initialState);
@@ -98,6 +101,7 @@ const Registro = () => {
       });
   };
 
+  
   return (
     <>
       <LandingNav />
@@ -113,7 +117,9 @@ const Registro = () => {
                   Un codigo de verificación fue enviado a su correo favor
                   ingresar a continuación para continuar con su registro.
                 </p>
-                <h2 className="text-2xl font-semibold">5:00</h2>
+                <h2 className="text-2xl font-semibold">
+                <CountdownTimer />
+                </h2>
                 <div className="space-x-2">
                   {[...Array(6)].map((_, index) => (
                     <input
