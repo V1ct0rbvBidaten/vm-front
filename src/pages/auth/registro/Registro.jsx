@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useCallback  } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import LandingNav from "../../../components/navs/LandingNav";
-import CountdownTimer from '../../../utils/constants';
+import { CountdownTimer, VerificationCodeInput } from '../../../utils/constants';
 import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { signup, verifyCode } from "../../../api/auth";
@@ -101,7 +101,7 @@ const Registro = () => {
       });
   };
 
-  
+
   return (
     <>
       <LandingNav />
@@ -118,20 +118,13 @@ const Registro = () => {
                   ingresar a continuación para continuar con su registro.
                 </p>
                 <h2 className="text-2xl font-semibold">
-                <CountdownTimer />
+                  <CountdownTimer />
                 </h2>
                 <div className="space-x-2">
-                  {[...Array(6)].map((_, index) => (
-                    <input
-                      key={index}
-                      id={`code-${index}`}
-                      type="number"
-                      className="no-arrows w-8 h-8 text-center border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      maxLength="1"
-                      onInput={(e) => handleInput(e, index)}
-                      onKeyDown={(e) => handleKeyDown(e, index)}
-                    />
-                  ))}
+ 
+                  <VerificationCodeInput
+                    verificationCode={verificationCode}
+                    setVerificationCode={setVerificationCode} />
                 </div>
                 <Button
                   className="bg-slate-700 text-white"
