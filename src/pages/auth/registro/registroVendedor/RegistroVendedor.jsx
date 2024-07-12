@@ -3,8 +3,6 @@ import Stepper from "../../../../components/stepper/Stepper";
 import StepperControls from "../../../../components/stepper/StepperControls";
 import UsuarioForm from "../registroEmpresa/UsuarioForm";
 import PerfilForm from "../registroEmpresa/PerfilForm";
-import EmpresaForm from "../registroEmpresa/EmpresaForm";
-import DocumentacionForm from "../registroEmpresa/DocumentacionForm";
 import { toast } from "react-toastify";
 import {
   formatChileanPhoneNumber,
@@ -25,6 +23,11 @@ const initialState = {
   telefono: "",
   es_vendedor: true,
   es_empresa: false,
+  rut_cuenta_bancaria: "",
+  banco: "",
+  tipo_cuenta_bancaria: "",
+  numero_cuenta_bancaria: "",
+  email_cuenta_bancaria: "",
 };
 
 const RegistroVendedor = () => {
@@ -101,7 +104,7 @@ const RegistroVendedor = () => {
       case 2:
         return <PerfilForm handleChange={handleChange} values={values} />;
       case 3:
-          return <DataBankForm handleChange={handleChange} values={values} />;
+        return <DataBankForm handleChange={handleChange} values={values} />;
       default:
         return null;
     }
@@ -127,8 +130,7 @@ const RegistroVendedor = () => {
         banco: data.banco,
         tipo_cuenta_bancaria: data.tipo_cuenta_bancaria,
         numero_cuenta_bancaria: data.numero_cuenta_bancaria,
-        email_cuenta_bancaria: data.email_cuenta_bancaria
-
+        email_cuenta_bancaria: data.email_cuenta_bancaria,
       },
     };
 

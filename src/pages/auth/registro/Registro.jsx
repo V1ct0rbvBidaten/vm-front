@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useState, useRef } from "react";
 import LandingNav from "../../../components/navs/LandingNav";
-import { VerificationCodeInput } from '../registro/VerifyCodeAuth';
-import { CountdownTimer } from '../../../components/utils/countDownTimer';
-import Loading from '../../../components/utils/Loading';
+import { VerificationCodeInput } from "../registro/VerifyCodeAuth";
+import { CountdownTimer } from "../../../components/utils/countDownTimer";
+import Loading from "../../../components/utils/Loading";
 import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { signup, verifyCode } from "../../../api/auth";
@@ -10,20 +10,19 @@ import { Typewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-
 const initialState = {
   email: "",
   es_empresa: false,
 };
 
-
 const Registro = () => {
-  var timeCountDown = 300
+  const inputsRef = useRef([]);
+  var timeCountDown = 300;
   const [registerData, setRegisterData] = useState(initialState);
   const [emailSend, setEmailSend] = useState(false);
   const [selectedTab, setSelectedTab] = useState("vendedor");
-  const [verificationCode, setVerificationCode] = useState(Array(6).fill(""));
   const [loading, setLoading] = useState(false); // Estado de carga
+
   let navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -63,42 +62,19 @@ const Registro = () => {
   };
   const { email } = registerData;
 
-  const handleInput = (e, index) => {
-    const { value } = e.target;
-    if (value.length === 1) {
-      const newVerificationCode = [...verificationCode];
-      newVerificationCode[index] = value;
-      setVerificationCode(newVerificationCode);
-
-      const nextInput = document.querySelector(`#code-${index + 1}`);
-      if (nextInput) {
-        nextInput.focus();
-      }
-    } else if (value.length > 1) {
-      e.target.value = value[0];
-    }
-  };
-
-  const handleKeyDown = (e, index) => {
-    if (e.key === "Backspace" && index > 0 && !e.target.value) {
-      const prevInput = document.querySelector(`#code-${index - 1}`);
-      prevInput.focus();
-    }
-  };
-
   const handleVerificationSubmit = () => {
-    setLoading(true); // Activar el spinner
-    const code = verificationCode.join("");
+    setLoading(true);
+    const code = inputsRef.current.map((input) => input.value).join("");
+
     if (code.length < 6) {
       toast.error(`Has ingresado solo ${code.length} dígitos.`);
       return;
     }
+
     let data = {
       email: localStorage.getItem("email-verification"),
       code: code,
     };
-
-    console.log("registro");
 
     verifyCode(data)
       .then((res) => {
@@ -114,7 +90,6 @@ const Registro = () => {
       });
   };
 
-
   return (
     <>
       <LandingNav />
@@ -125,33 +100,30 @@ const Registro = () => {
               Registrarse
             </h1>
             {loading ? ( // Mostrar el spinner cuando loading es true
-              <Loading size="xl" /> 
-            ) : emailSend ? (
+              <Loading size="xl" />
+            ) : !emailSend ? (
               <div className="flex flex-col gap-4 ">
                 <p>
                   Un codigo de verificación fue enviado a su correo favor
                   ingresar a continuación para continuar con su registro.
                 </p>
+
                 <h2 className="text-2xl font-semibold">
-                  <CountdownTimer 
-                  time={timeCountDown}
-                  />
+                  <CountdownTimer time={timeCountDown} />
                 </h2>
                 <div className="space-x-2">
-                  <VerificationCodeInput
-                    verificationCode={verificationCode}
-                    setVerificationCode={setVerificationCode}
-                  />
+                  <VerificationCodeInput inputsRef={inputsRef} />
                 </div>
                 {loading ? ( // Mostrar el spinner cuando loading es true
-              <Loading size="xl" /> 
-            ) :
-                <Button
-                  className="bg-slate-700 text-white"
-                  onClick={handleVerificationSubmit}
-                >
-                  Ingresar codigo de verificación
-                </Button>}
+                  <Loading size="xl" />
+                ) : (
+                  <Button
+                    className="bg-slate-700 text-white"
+                    onClick={handleVerificationSubmit}
+                  >
+                    Ingresar codigo de verificación
+                  </Button>
+                )}
               </div>
             ) : (
               <>
