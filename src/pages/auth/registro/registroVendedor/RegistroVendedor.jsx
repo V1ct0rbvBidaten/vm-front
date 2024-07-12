@@ -15,8 +15,6 @@ import DataBankForm from "./DataBankForm";
 
 const initialState = {
   email: "",
-  contraseña: "",
-  validacion_contraseña: "",
   nombres: "",
   apellidos: "",
   direccion: "",
@@ -30,16 +28,16 @@ const initialState = {
   email_cuenta_bancaria: "",
 };
 
-const RegistroVendedor = () => {
+const RegistroVendedor = ({ user }) => {
   const [values, setValues] = useState(initialState);
   const [currentStep, setCurrentStep] = useState(1);
 
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const steps = ["Datos Cuenta", "Datos Perfil", "Datos Bancarios"];
+  const steps = ["Datos Perfil", "Datos Bancarios"];
 
-  const email = localStorage.getItem("email-verification");
+  const email = user.email;
 
   const handleChange = (e) => {
     if (
@@ -96,17 +94,8 @@ const RegistroVendedor = () => {
   const displayStep = (step) => {
     switch (step) {
       case 1:
-        return (
-          <UsuarioForm
-            email={email}
-            handleChange={handleChange}
-            values={values}
-            isEqual={isEqual}
-          />
-        );
-      case 2:
         return <PerfilForm handleChange={handleChange} values={values} />;
-      case 3:
+      case 2:
         return <DataBankForm handleChange={handleChange} values={values} />;
       default:
         return null;
@@ -121,7 +110,6 @@ const RegistroVendedor = () => {
 
     let profileData = {
       email: data.email,
-      password: data.contraseña,
       es_empresa: data.es_empresa,
       profile_details: {
         nombres: data.nombres,

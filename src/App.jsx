@@ -31,6 +31,7 @@ import ProductoDetail from "./pages/vendedor/explorar/Producto/ProductoDetail";
 import VentaDetail from "./pages/vendedor/ventas/VentaDetail";
 import ProductoEmpresa from "./pages/vendedor/productos/ProductoEmpresa";
 import ProductoMaletinDetail from "./pages/vendedor/productos/ProductoMaletinDetail";
+import CreateProfile from "./pages/vendedor/cuenta/CreateProfile";
 
 const App = () => {
   useCheckUser();
