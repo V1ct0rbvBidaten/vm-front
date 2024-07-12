@@ -11,7 +11,9 @@ import {
 } from "@nextui-org/react";
 import {
   ChatBubbleLeftRightIcon,
+  EllipsisVerticalIcon,
   ListBulletIcon,
+  PowerIcon,
 } from "@heroicons/react/24/solid";
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +24,12 @@ const AdminRoute = ({ Component }) => {
 
   let navigate = useNavigate();
 
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
+
+  const user = {
+    profile_name: "Victor",
+    email: "victor.bv.996@outlook.com",
+  };
 
   const handleToggle = () => {
     dispatch(toggleCollapse());
@@ -37,7 +44,8 @@ const AdminRoute = ({ Component }) => {
     navigate("/");
   };
 
-  return user && user.token && user.es_empresa ? (
+  // user && user.token && user.es_empresa ?
+  return (
     <>
       <div className=" flex min-h-screen">
         <div>
@@ -92,9 +100,11 @@ const AdminRoute = ({ Component }) => {
         </Button>
       </div>
     </>
-  ) : (
-    <LoadingToRedirect />
   );
+
+  // : (
+  //   <LoadingToRedirect />
+  // );
 };
 
 export default AdminRoute;

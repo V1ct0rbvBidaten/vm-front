@@ -14,6 +14,7 @@ const AdminRoute = ({ Component }) => {
   const handleToggle = () => {
     dispatch(toggleCollapse());
   };
+
   return user && user.token && user.role === "admin" ? (
     <>
       <div className=" flex min-h-screen">
