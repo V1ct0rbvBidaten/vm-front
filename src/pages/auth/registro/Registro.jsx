@@ -101,7 +101,7 @@ const Registro = () => {
             </h1>
             {loading ? ( // Mostrar el spinner cuando loading es true
               <Loading size="xl" />
-            ) : !emailSend ? (
+            ) : emailSend ? (
               <div className="flex flex-col gap-4 ">
                 <p>
                   Un codigo de verificación fue enviado a su correo favor
