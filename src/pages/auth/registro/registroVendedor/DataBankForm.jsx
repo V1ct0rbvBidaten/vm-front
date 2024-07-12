@@ -1,8 +1,13 @@
-import { Input } from "@nextui-org/react";
-import React from "react";
+import { Input, Select, SelectItem } from "@nextui-org/react";
 
 const DataBankForm = ({ handleChange, values }) => {
-  const { banco, rut_cuenta_bancaria, tipo_cuenta_bancaria, numero_cuenta_bancaria, email_cuenta_bancaria } = values;
+  const {
+    banco,
+    rut_cuenta_bancaria,
+    tipo_cuenta_bancaria,
+    numero_cuenta_bancaria,
+    email_cuenta_bancaria,
+  } = values;
 
   return (
     <div className="grid grid-cols-2 items-center gap-4">
@@ -24,8 +29,7 @@ const DataBankForm = ({ handleChange, values }) => {
         value={rut_cuenta_bancaria}
         onChange={handleChange}
       />
-      
-      <Input
+      <Select
         variant="bordered"
         label="Tipo de cuenta bancaria"
         labelPlacement="outside"
@@ -33,7 +37,17 @@ const DataBankForm = ({ handleChange, values }) => {
         name="tipo_cuenta_bancaria"
         value={tipo_cuenta_bancaria}
         onChange={handleChange}
-      />
+      >
+        <SelectItem key="vista" value="vista">
+          Vista
+        </SelectItem>
+        <SelectItem key="corriente" value="corriente">
+          Corriente
+        </SelectItem>
+        <SelectItem key="ahorro" value="ahorro">
+          Ahorro
+        </SelectItem>
+      </Select>
       <Input
         variant="bordered"
         label="Número de cuenta bancaria"
@@ -51,7 +65,8 @@ const DataBankForm = ({ handleChange, values }) => {
         name="email_cuenta_bancaria"
         value={email_cuenta_bancaria}
         onChange={handleChange}
-      /> 
+        type="email"
+      />
     </div>
   );
 };

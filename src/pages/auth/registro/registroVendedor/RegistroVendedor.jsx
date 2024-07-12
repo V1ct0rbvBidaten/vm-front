@@ -50,7 +50,10 @@ const RegistroVendedor = () => {
         ...values,
         [e.target.name]: formatChileanPhoneNumber(e.target.value),
       });
-    } else if (e.target.name === "rut_razon_social") {
+    } else if (
+      e.target.name === "rut_razon_social" ||
+      e.target.name === "rut_cuenta_bancaria"
+    ) {
       setValues({
         ...values,
         [e.target.name]: formatRut(e.target.value),

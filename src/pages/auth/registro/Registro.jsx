@@ -101,7 +101,7 @@ const Registro = () => {
             </h1>
             {loading ? ( // Mostrar el spinner cuando loading es true
               <Loading size="xl" />
-            ) : !emailSend ? (
+            ) : emailSend ? (
               <div className="flex flex-col gap-4 ">
                 <p>
                   Un codigo de verificación fue enviado a su correo favor
@@ -111,9 +111,6 @@ const Registro = () => {
                 <h2 className="text-2xl font-semibold">
                   <CountdownTimer time={timeCountDown} />
                 </h2>
-                {JSON.stringify(
-                  inputsRef.current.map((input) => input.value).join("")
-                )}
                 <div className="space-x-2">
                   <VerificationCodeInput inputsRef={inputsRef} />
                 </div>
