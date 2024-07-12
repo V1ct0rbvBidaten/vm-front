@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export const VerificationCodeInput = ({ inputsRef }) => {
   const handleInput = (e, index) => {
     const { value } = e.target;
@@ -23,6 +25,29 @@ export const VerificationCodeInput = ({ inputsRef }) => {
       console.log(inputsRef.current.map((input) => input.value).join(""));
     }
   };
+  const handlePaste = (e) => {
+    const pasteData = e.clipboardData.getData("text").slice(0, 6);
+    pasteData.split("").forEach((char, index) => {
+      const input = inputsRef.current[index];
+      if (input) {
+        input.value = char;
+      }
+    });
+    e.preventDefault();
+    inputsRef.current[Math.min(pasteData.length, 5)].focus();
+  };
+
+  useEffect(() => {
+    const firstInput = inputsRef.current[0];
+    if (firstInput) {
+      firstInput.addEventListener("paste", handlePaste);
+    }
+    return () => {
+      if (firstInput) {
+        firstInput.removeEventListener("paste", handlePaste);
+      }
+    };
+  }, []);
 
   return (
     <div className="space-x-2">
