@@ -12,6 +12,7 @@ import { completeProfile, getCurrentUser } from "../../../../api/auth";
 import { useNavigate } from "react-router-dom";
 import EmpresaForm from "./EmpresaForm";
 import { useDispatch } from "react-redux";
+import DataBankForm from "./DataBankForm";
 
 const initialState = {
   email: "",
@@ -29,6 +30,11 @@ const initialState = {
   telefono_razon_social: "",
   correo_electronico_razon_social: "",
   representante_legal: "",
+  rut_cuenta_bancaria: "",
+  banco: "",
+  tipo_cuenta_bancaria: "",
+  numero_cuenta_bancaria: "",
+  email_cuenta_bancaria: "",
 };
 
 const RegistroEmpresa = () => {
@@ -41,6 +47,7 @@ const RegistroEmpresa = () => {
   const steps = [
     "Datos Cuenta",
     "Datos Perfil",
+    "Datos Bancarios",
     "Datos Empresa",
     // "Documentación",
   ];
@@ -110,6 +117,8 @@ const RegistroEmpresa = () => {
       case 2:
         return <PerfilForm handleChange={handleChange} values={values} />;
       case 3:
+        return <DataBankForm handleChange={handleChange} values={values} />;
+      case 4:
         return <EmpresaForm handleChange={handleChange} values={values} />;
       // case 4:
       //   return <DocumentacionForm />;
@@ -140,6 +149,11 @@ const RegistroEmpresa = () => {
         telefono_razon_social: data.telefono_razon_social,
         correo_electronico_razon_social: data.correo_electronico_razon_social,
         representante_legal: data.representante_legal,
+        rut_cuenta_bancaria: data.rut_cuenta_bancaria,
+        banco: data.banco,
+        tipo_cuenta_bancaria: data.tipo_cuenta_bancaria,
+        numero_cuenta_bancaria: data.numero_cuenta_bancaria,
+        email_cuenta_bancaria: data.email_cuenta_bancaria,
       },
     };
 

@@ -9,6 +9,7 @@ export const VerificationCodeInput = ({ inputsRef }) => {
     } else if (value.length > 1) {
       e.target.value = value[0];
     }
+    console.log(inputsRef.current.map((input) => input.value).join(""));
   };
 
   const handleKeyDown = (e, index) => {

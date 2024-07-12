@@ -1,23 +1,42 @@
 import { useSelector, useDispatch } from "react-redux";
 import LoadingToRedirect from "../utils/LoadingToRedirect";
 import EmpresaSideNav from "../navs/EmpresaSideNav";
-import { Button } from "@nextui-org/react";
+import {
+  Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  DropdownSection,
+} from "@nextui-org/react";
 import {
   ChatBubbleLeftRightIcon,
   ListBulletIcon,
 } from "@heroicons/react/24/solid";
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AdminRoute = ({ Component }) => {
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.user);
+  let navigate = useNavigate();
 
-  const isCollapsed = useSelector((state) => state.collapse.isCollapsed);
+  const user = useSelector((state) => state.user);
 
   const handleToggle = () => {
     dispatch(toggleCollapse());
   };
+
+  const handleSignOut = () => {
+    dispatch({
+      type: "LOGOUT",
+      payload: null,
+    });
+    toast.success("Desconectado exitosamente.");
+    navigate("/");
+  };
+
   return user && user.token && user.es_empresa ? (
     <>
       <div className=" flex min-h-screen">
@@ -35,9 +54,31 @@ const AdminRoute = ({ Component }) => {
             >
               <ListBulletIcon className="h-6 " />
             </Button>
-            <Button className="bg-sky-500 text-white shadow-md h-8 rounded-full">
-              ¡Hola, {user.profile_name}!
-            </Button>
+            <Dropdown>
+              <DropdownTrigger>
+                <Button
+                  className="bg-sky-500 text-white shadow-md h-8 rounded-full"
+                  endContent={<EllipsisVerticalIcon className="h-6" />}
+                >
+                  ¡Hola, {user.profile_name}!
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Static Actions">
+                <DropdownSection title="Mi cuenta" showDivider>
+                  <DropdownItem key="perfil">Perfil</DropdownItem>
+                  <DropdownItem key="configuraciones">
+                    Configuraciones
+                  </DropdownItem>
+                </DropdownSection>
+                <DropdownItem
+                  key="delete"
+                  startContent={<PowerIcon className="h-4" />}
+                  onClick={handleSignOut}
+                >
+                  Cerrar Sesión
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
           </div>
           <div className="  mt-5  p-3 rounded-md">
             <Component user={user} />

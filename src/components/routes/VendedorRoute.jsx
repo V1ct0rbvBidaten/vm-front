@@ -16,16 +16,29 @@ import {
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
 import VendedorSideNav from "../navs/VendedorSideNav";
 import LoadingToRedirect from "../utils/LoadingToRedirect";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const VendedorRoute = ({ Component }) => {
   const dispatch = useDispatch();
 
+  let navigate = useNavigate();
+
   const user = useSelector((state) => state.user);
 
-  const isCollapsed = useSelector((state) => state.collapse.isCollapsed);
   const handleToggle = () => {
     dispatch(toggleCollapse());
   };
+
+  const handleSignOut = () => {
+    dispatch({
+      type: "LOGOUT",
+      payload: null,
+    });
+    toast.success("Desconectado exitosamente.");
+    navigate("/");
+  };
+
   return user && user.token && !user.es_empresa ? (
     <>
       <div className=" flex  min-h-screen ">
@@ -63,6 +76,7 @@ const VendedorRoute = ({ Component }) => {
                 <DropdownItem
                   key="delete"
                   startContent={<PowerIcon className="h-4" />}
+                  onClick={handleSignOut}
                 >
                   Cerrar Sesión
                 </DropdownItem>
