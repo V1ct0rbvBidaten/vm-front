@@ -15,13 +15,6 @@ export const verifyCode = async (verificationData) => {
   );
 };
 
-export const completeProfile = async (profileData) => {
-  return await axios.post(
-    `${import.meta.env.VITE_API_URL}/complete-profile`,
-    profileData
-  );
-};
-
 export const getCurrentUser = async (token) => {
   return await axios.post(`${import.meta.env.VITE_API_URL}/auth`, token);
 };
@@ -30,5 +23,12 @@ export const completeUser = async (userData) => {
   return await axios.post(
     `${import.meta.env.VITE_API_URL}/complete-user`,
     userData
+  );
+};
+
+export const completeProfile = async (profileData) => {
+  return await axios.post(
+    `${import.meta.env.VITE_API_URL}/complete-profile`,
+    profileData
   );
 };

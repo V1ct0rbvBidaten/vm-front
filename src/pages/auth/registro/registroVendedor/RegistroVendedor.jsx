@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Stepper from "../../../../components/stepper/Stepper";
 import StepperControls from "../../../../components/stepper/StepperControls";
-import UsuarioForm from "../registroEmpresa/UsuarioForm";
 import PerfilForm from "../registroEmpresa/PerfilForm";
 import { toast } from "react-toastify";
 import {
@@ -37,8 +36,6 @@ const RegistroVendedor = ({ user }) => {
 
   const steps = ["Datos Perfil", "Datos Bancarios"];
 
-  const email = user.email;
-
   const handleChange = (e) => {
     if (
       e.target.name === "telefono" ||
@@ -61,26 +58,8 @@ const RegistroVendedor = ({ user }) => {
     }
   };
 
-  const isEqual = (contraseña, validacion_contraseña) => {
-    if (contraseña && validacion_contraseña) {
-      return contraseña === validacion_contraseña;
-    }
-    return true;
-  };
-
   const handleClick = (direction) => {
     let newStep = currentStep;
-
-    let passwordsEqual = isEqual(
-      values.contraseña,
-      values.validacion_contraseña
-    );
-
-    // let datosPerfil = values.nombre
-
-    if (!passwordsEqual) {
-      return toast.error("Las contraseñas no coinciden");
-    }
 
     if (direction === "next") {
       newStep++;
@@ -105,12 +84,9 @@ const RegistroVendedor = ({ user }) => {
   const handleSubmit = () => {
     let data = values;
 
-    delete data["validacion_contraseña"];
-    data.email = email;
-
     let profileData = {
-      email: data.email,
-      es_empresa: data.es_empresa,
+      email: user.correo_electronico,
+      es_empresa: user.es_empresa,
       profile_details: {
         nombres: data.nombres,
         apellidos: data.apellidos,
