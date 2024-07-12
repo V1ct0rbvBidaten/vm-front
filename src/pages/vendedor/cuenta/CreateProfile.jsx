@@ -20,7 +20,7 @@ const CreateProfile = ({ user }) => {
   };
 
   return (
-    <div className="h-screen w-screen p-10 ">
+    <div className="h-full w-screen p-10 ">
       <div className="flex  justify-between gradient-border relative pb-5">
         <span className="font-bold text-inherit text-5xl bg-gradient-to-br from-purple-200 via-purple-300 to-purple-500 bg-clip-text text-transparent">
           VeMdo

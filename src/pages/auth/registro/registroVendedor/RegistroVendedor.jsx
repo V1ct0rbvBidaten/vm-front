@@ -104,8 +104,7 @@ const RegistroVendedor = ({ user }) => {
     completeProfile(profileData)
       .then((res) => {
         toast.success(res.data.detail.message);
-        let token = res.data.detail.data.access_token;
-        localStorage.setItem("token", token);
+        let token = user.token;
         getCurrentUser({ token: token })
           .then((response) => {
             dispatch({
