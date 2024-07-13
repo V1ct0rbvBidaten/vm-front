@@ -22,7 +22,10 @@ import {
 } from "@nextui-org/react";
 
 const ProductosHome = ({ data, resetState }) => {
-  let productos = data ? data.detail.data.products : [];
+  // let productos =
+  //   data && data.detail.data !== null && data.detail.data.length > 0
+  //     ? data.detail.data.products
+  //     : [];
 
   return (
     <div className="flex flex-col gap-2 justify-center items-center">
@@ -77,11 +80,11 @@ const ProductosHome = ({ data, resetState }) => {
         </Dropdown>
       </div>
       <div className="grid grid-cols-6 gap-4">
-        {productos && productos.length > 0 ? (
+        {/* {productos && productos.length > 0 ? (
           productos.map((c) => <ProductoCard key={c.id_producto} data={c} />)
         ) : (
           <>No hay datos</>
-        )}
+        )} */}
       </div>
       <Pagination
         total={10}

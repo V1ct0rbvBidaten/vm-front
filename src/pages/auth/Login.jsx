@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import LandingNav from "../../components/navs/LandingNav";
 import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 
-import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
+import { Typewriter, useTypewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
 import { getCurrentUser, login } from "../../api/auth";
 import { toast } from "react-toastify";
@@ -42,34 +42,13 @@ const Login = () => {
               type: "LOGGED_IN_USER",
               payload: { ...response.data, token },
             });
-
-            navigate(`/empresa/home`);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error(err.response.data.detail.message);
-      });
-  };
-
-  const handleSubmitVendedor = async (e) => {
-    login(values)
-      .then((res) => {
-        let token = res.data.detail.data.access_token;
-        localStorage.setItem("token", token);
-        console.log(res);
-        toast.success(res.data.detail.message);
-        getCurrentUser({ token: token })
-          .then((response) => {
-            dispatch({
-              type: "LOGGED_IN_USER",
-              payload: { ...response.data, token },
-            });
-
-            navigate(`/vendedor/explorar`);
+            console.log(response.data);
+            let esEmpresa = response.data.es_empresa;
+            if (esEmpresa) {
+              navigate(`/empresa/home`);
+            } else if (!esEmpresa) {
+              navigate(`/vendedor/explorar`);
+            }
           })
           .catch((err) => {
             console.log(err);
@@ -91,74 +70,33 @@ const Login = () => {
             <h1 className="text-3xl font-normal text-slate-500  mt-8 ">
               Iniciar Sesión
             </h1>
-            <Tabs
-              key="tipoUsuario"
-              variant="underlined"
-              color="secondary"
-              aria-label="Tabs variants"
-            >
-              <Tab key="vendedor" title="Vendedor">
-                <div className="flex gap-2 flex-col">
-                  <Input
-                    label="Correo"
-                    labelPlacement="outside"
-                    variant="bordered"
-                    placeholder="Ingrese su correo"
-                    startContent={<EnvelopeIcon className="h-4" />}
-                    name="email"
-                    value={email}
-                    onChange={handleChange}
-                  />
-                  <Input
-                    label="Contraseña"
-                    labelPlacement="outside"
-                    variant="bordered"
-                    placeholder="Ingrese su contraseña"
-                    startContent={<LockClosedIcon className="h-4" />}
-                    name="password"
-                    value={password}
-                    onChange={handleChange}
-                  />
 
-                  <Button
-                    className="w-full mt-4 bg-gradient-to-br from-purple-400  to-purple-500 text-white"
-                    onClick={handleSubmitVendedor}
-                  >
-                    Iniciar Sesión
-                  </Button>
-                </div>
-              </Tab>
-              <Tab key="empresa" title="Empresa">
-                <div className="flex gap-2 flex-col">
-                  <Input
-                    label="Correo"
-                    labelPlacement="outside"
-                    variant="bordered"
-                    placeholder="Ingrese su correo"
-                    startContent={<EnvelopeIcon className="h-4" />}
-                    name="email"
-                    value={email}
-                    onChange={handleChange}
-                  />
-                  <Input
-                    label="Contraseña"
-                    labelPlacement="outside"
-                    variant="bordered"
-                    placeholder="Ingrese su contraseña"
-                    startContent={<LockClosedIcon className="h-4" />}
-                    name="password"
-                    value={password}
-                    onChange={handleChange}
-                  />
-                  <Button
-                    className="w-full mt-4 bg-gradient-to-br from-rose-400  to-rose-500 text-white"
-                    onClick={handleSubmit}
-                  >
-                    Iniciar Sesión
-                  </Button>
-                </div>
-              </Tab>
-            </Tabs>
+            <Input
+              label="Correo"
+              labelPlacement="outside"
+              variant="bordered"
+              placeholder="Ingrese su correo"
+              startContent={<EnvelopeIcon className="h-4" />}
+              name="email"
+              value={email}
+              onChange={handleChange}
+            />
+            <Input
+              label="Contraseña"
+              labelPlacement="outside"
+              variant="bordered"
+              placeholder="Ingrese su contraseña"
+              startContent={<LockClosedIcon className="h-4" />}
+              name="password"
+              value={password}
+              onChange={handleChange}
+            />
+            <Button
+              className="w-full mt-4 bg-gradient-to-br from-rose-400  to-rose-500 text-white"
+              onClick={handleSubmit}
+            >
+              Iniciar Sesión
+            </Button>
 
             <div className="grid grid-cols-3 gap-1 text-center items-center">
               <div className="w-full h-1 bg-slate-300  justify-center"></div>

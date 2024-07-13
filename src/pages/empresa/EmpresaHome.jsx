@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useProductos from "../../hooks/useProductos";
 import ProductosHome from "./productos/ProductosHome";
 

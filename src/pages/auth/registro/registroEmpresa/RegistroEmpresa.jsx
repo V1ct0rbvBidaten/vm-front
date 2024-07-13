@@ -37,20 +37,14 @@ const initialState = {
   email_cuenta_bancaria: "",
 };
 
-const RegistroEmpresa = () => {
+const RegistroEmpresa = ({ user }) => {
   const [values, setValues] = useState(initialState);
   const [currentStep, setCurrentStep] = useState(1);
   const dispatch = useDispatch();
 
   let navigate = useNavigate();
 
-  const steps = [
-    "Datos Cuenta",
-    "Datos Perfil",
-    "Datos Bancarios",
-    "Datos Empresa",
-    // "Documentación",
-  ];
+  const steps = ["Datos Perfil", "Datos Bancarios", "Datos Empresa"];
 
   const email = localStorage.getItem("email-verification");
 
@@ -120,8 +114,6 @@ const RegistroEmpresa = () => {
         return <DataBankForm handleChange={handleChange} values={values} />;
       case 4:
         return <EmpresaForm handleChange={handleChange} values={values} />;
-      // case 4:
-      //   return <DocumentacionForm />;
       default:
         return null;
     }
