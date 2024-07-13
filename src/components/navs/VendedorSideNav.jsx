@@ -89,14 +89,6 @@ const VendedorSideNav = ({ user }) => {
     },
   };
 
-  const handleSignOut = () => {
-    dispatch({
-      type: "LOGOUT",
-      payload: null,
-    });
-    navigate("/");
-  };
-
   const handleNavegar = (ruta) => {
     console.log("Navegar a");
     navigate(ruta);

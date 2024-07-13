@@ -40,8 +40,6 @@ const EmpresaRoute = ({ Component }) => {
     navigate("/");
   };
 
-  console.log(user);
-
   return user && user.token && user.es_empresa ? (
     user.profile_name === null ? (
       <CreateProfile user={user} />
@@ -88,7 +86,7 @@ const EmpresaRoute = ({ Component }) => {
                 </DropdownMenu>
               </Dropdown>
             </div>
-            <div className="  mt-5  p-3 rounded-md">
+            <div className="  mt-5   rounded-md">
               <Component user={user} />
             </div>
           </main>
