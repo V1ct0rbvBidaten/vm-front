@@ -6,9 +6,10 @@ import {
   CardFooter,
   Button,
 } from "@nextui-org/react";
+import NoImage from "../../../assets/no-image.jpg";
 
 const ProductoCard = ({ data }) => {
-  const { nombre_producto, precio, descripcion } = data;
+  const { nombre_producto, precio, descripcion, image } = data;
 
   return (
     <Card className="py-4" isPressable>
@@ -19,7 +20,7 @@ const ProductoCard = ({ data }) => {
         <Image
           alt="Card background"
           className="object-cover rounded-xl"
-          src="https://nextui.org/images/hero-card-complete.jpeg"
+          src={image || NoImage}
           width={270}
         />
       </CardBody>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useProductos from "../../hooks/useProductos";
 import ProductosHome from "./productos/ProductosHome";
+import Loading from "../../components/utils/Loading";
 
 const initialDinamicState = {
   page: 1,
@@ -25,12 +26,20 @@ const EmpresaHome = ({ user }) => {
     setReload(!reload);
   };
 
+  if (loading)
+    return (
+      <div className="flex flex-col justify-center items-center w-100 h-[400px] bg-white rounded-md shadow-md">
+        <Loading />
+        <p className="text-sky-500 font-semibold text-xl">Cargando...</p>
+      </div>
+    );
+
   return (
     <>
       {loading ? (
         <>Loading...</>
       ) : (
-        <ProductosHome data={data} resetState={resetState} />
+        <ProductosHome data={data} resetState={resetState} user={user} />
       )}
     </>
   );

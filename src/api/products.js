@@ -6,7 +6,7 @@ export const createProducto = async (token, body) => {
     body,
     {
       headers: {
-        "x-auth-token": token,
+        Authorization: `Bearer ${token}`,
       },
     }
   );

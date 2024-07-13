@@ -32,6 +32,7 @@ import VentaDetail from "./pages/vendedor/ventas/VentaDetail";
 import ProductoEmpresa from "./pages/vendedor/productos/ProductoEmpresa";
 import ProductoMaletinDetail from "./pages/vendedor/productos/ProductoMaletinDetail";
 import CreateProfile from "./pages/vendedor/cuenta/CreateProfile";
+import ProductoCreate from "./pages/empresa/productos/ProductoCreate";
 
 const App = () => {
   useCheckUser();
@@ -54,6 +55,11 @@ const App = () => {
             exact
             path="/empresa/home"
             element={<EmpresaRoute Component={EmpresaHome} />}
+          />
+          <Route
+            exact
+            path="/empresa/home/create-producto"
+            element={<EmpresaRoute Component={ProductoCreate} />}
           />
           <Route
             exact
