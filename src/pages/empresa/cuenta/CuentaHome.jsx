@@ -131,38 +131,66 @@ const CuentaHome = () => {
               <Card>
                 <CardBody>
                   <div className="grid grid-cols-2  gap-4  p-4 ">
-                    <h4 className="col-span-3 tracking-wide text-xl font-semibold">
-                      Datos Personales
+                    <h4 className="col-span-2 tracking-wide text-xl font-semibold">
+                      Datos Bancarios
                     </h4>
                     <Input
                       variant="bordered"
-                      label="Nombres"
+                      label="Banco"
                       labelPlacement="outside"
+                      size="sm"
+                      className="col-span-2"
                       disabled
-                      value={nombres}
+                      value={banco}
                     />
                     <Input
                       variant="bordered"
-                      label="Apellidos"
+                      label="Rut"
                       labelPlacement="outside"
+                      size="sm"
                       disabled
-                      value={apellidos}
+                      value={rut_cuenta_bancaria} // rut_cuenta_bancaria  es el rut de la empresa   rut_empresa
+                    />
+                    <Input
+                      variant="bordered"
+                      label="Tipo de cuenta"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={tipo_cuenta_bancaria}
+                    />
+                    <Input
+                      variant="bordered"
+                      label="Número de cuenta"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={numero_cuenta_bancaria}
+                    />
+                    <Input
+                      variant="bordered"
+                      label="Email"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={email_cuenta_bancaria}
                     />
                   </div>
                 </CardBody>
               </Card>
             </Tab>
-            <Tab key="datosCuenta" title="Cuenta" className="w-full">
+            <Tab key="contrasena" title="Contraseña" className="w-full">
               <Card>
                 <CardBody>
                   <div className="grid grid-cols-2  gap-4  p-4 ">
                     <h4 className="col-span-3 tracking-wide text-xl font-semibold">
-                      Datos Cuenta
+                      Contraseña
                     </h4>
                     <Input
                       variant="bordered"
                       label="Mi correo"
                       labelPlacement="outside"
+                      size="sm"
                       disabled
                       value={user.correo_electronico}
                     />
@@ -170,6 +198,7 @@ const CuentaHome = () => {
                       variant="bordered"
                       label="Contraseña"
                       labelPlacement="outside"
+                      size="sm"
                       endContent={
                         <button className="focus:outline-none" type="button">
                           <EyeSlashIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
