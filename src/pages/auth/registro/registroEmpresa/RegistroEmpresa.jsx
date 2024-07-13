@@ -21,6 +21,8 @@ const initialState = {
   nombres: "",
   apellidos: "",
   direccion: "",
+  comuna: "",
+  region: "",
   telefono: "",
   es_vendedor: false,
   es_empresa: false,
@@ -35,6 +37,8 @@ const initialState = {
   tipo_cuenta_bancaria: "",
   numero_cuenta_bancaria: "",
   email_cuenta_bancaria: "",
+  comuna_razon_social: "",
+  rubro: "",
 };
 
 const RegistroEmpresa = ({ user }) => {
@@ -57,7 +61,10 @@ const RegistroEmpresa = ({ user }) => {
         ...values,
         [e.target.name]: formatChileanPhoneNumber(e.target.value),
       });
-    } else if (e.target.name === "rut_razon_social") {
+    } else if (
+      e.target.name === "rut_razon_social" ||
+      e.target.name === "rut_cuenta_bancaria"
+    ) {
       setValues({
         ...values,
         [e.target.name]: formatRut(e.target.value),
@@ -100,19 +107,10 @@ const RegistroEmpresa = ({ user }) => {
   const displayStep = (step) => {
     switch (step) {
       case 1:
-        return (
-          <UsuarioForm
-            email={email}
-            handleChange={handleChange}
-            values={values}
-            isEqual={isEqual}
-          />
-        );
-      case 2:
         return <PerfilForm handleChange={handleChange} values={values} />;
-      case 3:
+      case 2:
         return <DataBankForm handleChange={handleChange} values={values} />;
-      case 4:
+      case 3:
         return <EmpresaForm handleChange={handleChange} values={values} />;
       default:
         return null;
@@ -125,15 +123,19 @@ const RegistroEmpresa = ({ user }) => {
     delete data["validacion_contraseña"];
     data.email = email;
 
+    console.log(user);
+
     let profileData = {
-      email: data.email,
-      password: data.contraseña,
-      es_empresa: localStorage.getItem("es-empresa"),
+      email: user.correo_electronico,
+      es_empresa: user.es_empresa,
       profile_details: {
         nombres: data.nombres,
         apellidos: data.apellidos,
         direccion: data.direccion,
+        comuna: data.comuna,
+        region: data.region,
         telefono: data.telefono,
+        rubro: data.rubro,
         es_vendedor: data.es_vendedor,
         rut_razon_social: data.rut_razon_social,
         nombre_razon_social: data.nombre_razon_social,
@@ -146,14 +148,15 @@ const RegistroEmpresa = ({ user }) => {
         tipo_cuenta_bancaria: data.tipo_cuenta_bancaria,
         numero_cuenta_bancaria: data.numero_cuenta_bancaria,
         email_cuenta_bancaria: data.email_cuenta_bancaria,
+        region_razon_social: data.region_razon_social,
+        comuna_razon_social: data.comuna_razon_social,
       },
     };
 
     completeProfile(profileData)
       .then((res) => {
         toast.success(res.data.detail.message);
-        let token = res.data.detail.data.access_token;
-        localStorage.setItem("token", token);
+        let token = user.token;
         getCurrentUser({ token: token })
           .then((response) => {
             dispatch({

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import RegistroVendedor from "../../auth/registro/registroVendedor/RegistroVendedor";
+import RegistroEmpresa from "../../auth/registro/registroEmpresa/RegistroEmpresa";
 
 const CreateProfile = ({ user }) => {
   const dispatch = useDispatch();
@@ -18,6 +19,8 @@ const CreateProfile = ({ user }) => {
     toast.success("Desconectado exitosamente.");
     navigate("/");
   };
+
+  let esEmpresa = user.es_empresa;
 
   return (
     <div className="h-full w-screen p-10 ">
@@ -38,7 +41,11 @@ const CreateProfile = ({ user }) => {
           Para poder ingresar veMdo es necesario que termine de crear su perfil.
         </h1>
         <div className="w-[70%]">
-          <RegistroVendedor user={user} />
+          {esEmpresa ? (
+            <RegistroEmpresa user={user} />
+          ) : (
+            <RegistroVendedor user={user} />
+          )}
         </div>
       </div>
     </div>

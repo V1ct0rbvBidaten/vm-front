@@ -42,6 +42,12 @@ const DataBankForm = ({ handleChange, values }) => {
         <SelectItem key="vista" value="vista">
           Vista
         </SelectItem>
+        <SelectItem key="Corriente" value="Corriente">
+          Corriente
+        </SelectItem>
+        <SelectItem key="ahorro" value="ahorro">
+          Ahorro
+        </SelectItem>
       </Select>
       <Input
         variant="bordered"
@@ -54,6 +60,7 @@ const DataBankForm = ({ handleChange, values }) => {
       />
       <Input
         variant="bordered"
+        className="col-span-2"
         label="Email cuenta bancaria"
         labelPlacement="outside"
         placeholder="Ingrese email cuenta bancaria"

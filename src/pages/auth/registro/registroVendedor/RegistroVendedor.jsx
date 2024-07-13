@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Stepper from "../../../../components/stepper/Stepper";
 import StepperControls from "../../../../components/stepper/StepperControls";
-import PerfilForm from "../registroEmpresa/PerfilForm";
+import PerfilForm from "../registroVendedor/PerfilForm";
 import { toast } from "react-toastify";
 import {
   formatChileanPhoneNumber,
@@ -18,6 +18,8 @@ const initialState = {
   apellidos: "",
   direccion: "",
   telefono: "",
+  comuna: "",
+  region: "",
   es_vendedor: true,
   es_empresa: false,
   rut_cuenta_bancaria: "",
@@ -95,6 +97,8 @@ const RegistroVendedor = ({ user }) => {
         es_vendedor: data.es_vendedor,
         rut_cuenta_bancaria: data.rut_cuenta_bancaria,
         banco: data.banco,
+        comuna: data.comuna,
+        region: data.region,
         tipo_cuenta_bancaria: data.tipo_cuenta_bancaria,
         numero_cuenta_bancaria: data.numero_cuenta_bancaria,
         email_cuenta_bancaria: data.email_cuenta_bancaria,
