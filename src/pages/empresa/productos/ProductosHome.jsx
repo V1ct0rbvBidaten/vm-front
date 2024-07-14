@@ -97,7 +97,7 @@ const ProductosHome = ({ data, resetState, user }) => {
         <>
           <div className="grid grid-cols-6 gap-4 ">
             {productos.map((c) => (
-              <ProductoCard key={c.id_producto} data={c} />
+              <ProductoCard key={c.id_producto} data={c}  />
             ))}
           </div>
           <Pagination
