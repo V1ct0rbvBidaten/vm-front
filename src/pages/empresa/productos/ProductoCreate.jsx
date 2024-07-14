@@ -33,7 +33,7 @@ const ProductoCreate = () => {
   const user = useSelector((state) => state.user);
 
   const [loading, setLoading] = useState(false);
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const [galeria, setGaleria] = useState([]);
   const [values, setValues] = useState(initialState);
 
