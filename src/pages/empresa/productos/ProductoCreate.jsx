@@ -84,8 +84,7 @@ const ProductoCreate = () => {
       </div>
       <Divider />
       <div className="w-full p-4">
-        <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4">
-          {JSON.stringify(image)}
+        <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4"> 
           <div className="row-span-3 h-auto ">
             <SingleImageUploader image={image} setImage={setImage} />
           </div>
