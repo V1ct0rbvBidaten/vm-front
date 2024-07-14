@@ -7,7 +7,7 @@ const SingleImageUploader = ({ image, setImage }) => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(reader.result); // Set base64 string as the image
+        setImage(reader.result);  
       };
       reader.readAsDataURL(file);
     }
@@ -31,7 +31,7 @@ const SingleImageUploader = ({ image, setImage }) => {
         <img
           className="hover:cursor-pointer hover:opacity-80 transition duration-300"
           onClick={handleClick}
-          src={image} // Use base64 string as src
+          src={image}  
           alt="Uploaded Image"
         />
       )}

@@ -7,12 +7,14 @@ import {
   Button,
 } from "@nextui-org/react";
 import NoImage from "../../../assets/no-image.jpg";
+import { useNavigate } from "react-router-dom";
 
 const ProductoCard = ({ data }) => {
+  const navigate = useNavigate();
   const { nombre_producto, precio, descripcion } = data;
 
   return (
-    <Card className="py-4" isPressable>
+    <Card className="py-4" isPressable onClick={() => navigate("/empresa/home/create-producto")}>
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
         <h4 className="font-bold text-large">{nombre_producto}</h4>
       </CardHeader>
