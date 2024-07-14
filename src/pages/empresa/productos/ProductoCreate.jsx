@@ -42,6 +42,9 @@ const ProductoCreate = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+    values.imagen_principal = JSON.stringify(image);
+    values.imagenes = galeria;
     setLoading(true);
     createProducto(user.token, values)
       .then((res) => {
@@ -81,6 +84,7 @@ const ProductoCreate = () => {
       <Divider />
       <div className="w-full p-4">
         <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4">
+          {JSON.stringify(image)}
           <div className="row-span-3 h-auto ">
             <SingleImageUploader image={image} setImage={setImage} />
           </div>
@@ -114,8 +118,12 @@ const ProductoCreate = () => {
             placeholder="estado"
             onChange={handleChange}
           >
-            <SelectItem value="disponible">Disponible</SelectItem>
-            <SelectItem value="no_disponible">No Disponible</SelectItem>
+            <SelectItem key="disponible" value="disponible">
+              Disponible
+            </SelectItem>
+            <SelectItem key="no_disponible" value="no_disponible">
+              No Disponible
+            </SelectItem>
           </Select>
           <Input
             size="sm"
@@ -154,8 +162,12 @@ const ProductoCreate = () => {
             value={values.tipo_venta}
             onChange={handleChange}
           >
-            <SelectItem value="pago anticipado">Pago Anticipado</SelectItem>
-            <SelectItem value="postpago">Post Pago</SelectItem>
+            <SelectItem key="PAGO ANTICIPADO" value="PAGO ANTICIPADO">
+              Pago Anticipado
+            </SelectItem>
+            <SelectItem key="POSTPAGO" value="POSTPAGO">
+              Post Pago
+            </SelectItem>
           </Select>
           <Textarea
             placeholder="Ingrese descripción"

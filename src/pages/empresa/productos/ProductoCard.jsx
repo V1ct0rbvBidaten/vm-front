@@ -9,7 +9,7 @@ import {
 import NoImage from "../../../assets/no-image.jpg";
 
 const ProductoCard = ({ data }) => {
-  const { nombre_producto, precio, descripcion, image } = data;
+  const { nombre_producto, precio, descripcion } = data;
 
   return (
     <Card className="py-4" isPressable>
@@ -17,11 +17,9 @@ const ProductoCard = ({ data }) => {
         <h4 className="font-bold text-large">{nombre_producto}</h4>
       </CardHeader>
       <CardBody className="overflow-visible py-2">
-        <Image
-          alt="Card background"
-          className="object-cover rounded-xl"
-          src={image || NoImage}
-          width={270}
+        <img
+          className="hover:cursor-pointer hover:opacity-80 transition duration-300"
+          src={data.imagen_principal ? data.imagen_principal : NoImage}
         />
       </CardBody>
       <CardFooter>

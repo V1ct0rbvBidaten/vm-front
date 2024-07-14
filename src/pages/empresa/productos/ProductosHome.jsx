@@ -27,7 +27,9 @@ const ProductosHome = ({ data, resetState, user }) => {
   let navigate = useNavigate();
 
   let productos =
-    data && data.detail.data !== null && data.detail.data.length > 0
+    data &&
+    data.detail.data.products !== null &&
+    data.detail.data.products.length > 0
       ? data.detail.data.products
       : [];
 
@@ -92,20 +94,20 @@ const ProductosHome = ({ data, resetState, user }) => {
         </Dropdown>
       </div>
       {productos && productos.length > 0 ? (
-        productos.map((c) => (
-          <>
-            <div className="grid grid-cols-6 gap-4 ">
+        <>
+          <div className="grid grid-cols-6 gap-4 ">
+            {productos.map((c) => (
               <ProductoCard key={c.id_producto} data={c} />
-            </div>
-            <Pagination
-              total={10}
-              initialPage={1}
-              loop
-              showControls
-              color="secondary"
-            />
-          </>
-        ))
+            ))}
+          </div>
+          <Pagination
+            total={10}
+            initialPage={1}
+            loop
+            showControls
+            color="secondary"
+          />
+        </>
       ) : (
         <div className="grid grid-cols-6 gap-4 p-4">
           <ProductoCard data={noData} />

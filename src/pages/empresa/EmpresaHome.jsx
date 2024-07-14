@@ -5,7 +5,7 @@ import Loading from "../../components/utils/Loading";
 
 const initialDinamicState = {
   page: 1,
-  page_size: 5,
+  page_size: 30,
 };
 
 const EmpresaHome = ({ user }) => {
