@@ -1,15 +1,31 @@
 import { useState } from "react";
-import { Button, Divider, Input, Textarea } from "@nextui-org/react";
+import {
+  Button,
+  Divider,
+  Input,
+  Select,
+  SelectItem,
+  Textarea,
+} from "@nextui-org/react";
 import { createProducto } from "../../../api/products";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../components/utils/Loading";
+import categoriasProductos from "../../../utils/categoriasProductos.json";
+import SingleImageUploader from "../../../components/utils/SingleImageUploader";
+import MultipleImageUploader from "../../../components/utils/MultipleImageUploader";
 
 const initialState = {
   nombre_producto: "",
   descripcion: "",
   precio: "",
+  estado_producto: "",
+  comision: "",
+  categoria: "",
+  tipo_venta: "",
+  imagen_principal: "",
+  imagenes: [],
 };
 
 const ProductoCreate = () => {
@@ -17,6 +33,8 @@ const ProductoCreate = () => {
   const user = useSelector((state) => state.user);
 
   const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState(null);
+  const [galeria, setGaleria] = useState([]);
   const [values, setValues] = useState(initialState);
 
   const handleChange = (e) => {
@@ -62,7 +80,10 @@ const ProductoCreate = () => {
       </div>
       <Divider />
       <div className="w-full p-4">
-        <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4">
+          <div className="row-span-3 h-auto ">
+            <SingleImageUploader image={image} setImage={setImage} />
+          </div>
           <Input
             size="sm"
             variant="bordered"
@@ -73,7 +94,6 @@ const ProductoCreate = () => {
             value={values.nombre_producto}
             onChange={handleChange}
           />
-
           <Input
             size="sm"
             variant="bordered"
@@ -84,19 +104,80 @@ const ProductoCreate = () => {
             value={values.precio}
             onChange={handleChange}
           />
+          <Select
+            size="sm"
+            variant="bordered"
+            name="estado_producto"
+            label="Estado producto"
+            labelPlacement="outside"
+            value={values.estado_producto}
+            placeholder="estado"
+            onChange={handleChange}
+          >
+            <SelectItem value="disponible">Disponible</SelectItem>
+            <SelectItem value="no_disponible">No Disponible</SelectItem>
+          </Select>
+          <Input
+            size="sm"
+            variant="bordered"
+            placeholder="Comisión"
+            name="comision"
+            label="Comisión"
+            labelPlacement="outside"
+            value={values.comision}
+            onChange={handleChange}
+            type="number"
+          />
+          <Select
+            size="sm"
+            variant="bordered"
+            name="categoria"
+            label="Categoria"
+            placeholder="Categoria"
+            labelPlacement="outside"
+            value={values.categoria}
+            onChange={handleChange}
+          >
+            {categoriasProductos.map((c) => (
+              <SelectItem key={c} value={c}>
+                {c}
+              </SelectItem>
+            ))}
+          </Select>
+          <Select
+            size="sm"
+            variant="bordered"
+            name="tipo_venta"
+            label="Tipo de venta"
+            placeholder="Tipo de venta"
+            labelPlacement="outside"
+            value={values.tipo_venta}
+            onChange={handleChange}
+          >
+            <SelectItem value="pago anticipado">Pago Anticipado</SelectItem>
+            <SelectItem value="postpago">Post Pago</SelectItem>
+          </Select>
           <Textarea
             placeholder="Ingrese descripción"
             variant="bordered"
             name="descripcion"
             label="Descripción"
             labelPlacement="outside"
-            className="col-span-2"
+            className="col-span-3"
             value={values.descripcion}
             onChange={handleChange}
           />
+
+          <div className="col-span-3">
+            <MultipleImageUploader
+              images={galeria}
+              setImages={setGaleria}
+              maxImages={10}
+            />
+          </div>
           <Button
             type="submit"
-            className="bg-foreground text-white  rounded-md col-span-2"
+            className="bg-foreground text-white  rounded-md col-span-3"
           >
             Crear Producto
           </Button>

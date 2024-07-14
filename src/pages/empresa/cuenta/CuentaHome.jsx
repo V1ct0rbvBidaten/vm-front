@@ -24,13 +24,21 @@ const CuentaHome = () => {
 
   const url = `cuenta-user/${user.id_usuario}`;
 
+  const urlEmpresa = `empresa/${user.id_empresa}`;
+
   const { data: data, loading: loading } = useFetchById(
     user.token,
     url,
     reload
   );
 
-  if (loading)
+  const { data: dataEmpresa, loading: loadingEmpresa } = useFetchById(
+    user.token,
+    urlEmpresa,
+    reload
+  );
+
+  if (loading || loadingEmpresa)
     return (
       <div className="flex flex-col justify-center items-center w-100 h-[400px] bg-white rounded-md shadow-md">
         <Loading />
@@ -49,6 +57,17 @@ const CuentaHome = () => {
     numero_cuenta_bancaria,
     email_cuenta_bancaria,
   } = data.detail.data;
+
+  const {
+    rut_razon_social,
+    nombre_razon_social,
+    region_razon_social,
+    comuna_razon_social,
+    direccion_razon_social,
+    rubro,
+    telefono_razon_social,
+    correo_electronico_razon_social,
+  } = dataEmpresa.detail.data;
 
   return (
     <div className="w-100 p-4 bg-white rounded-md shadow-md flex flex-col gap-4">
@@ -119,6 +138,70 @@ const CuentaHome = () => {
                     <h4 className="col-span-2 tracking-wide text-xl font-semibold">
                       Datos Empresa
                     </h4>
+                    <Input
+                      variant="bordered"
+                      label="Rut"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={rut_razon_social}
+                    />
+                    <Input
+                      variant="bordered"
+                      label="Nombre"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={nombre_razon_social}
+                    />
+                    <Input
+                      variant="bordered"
+                      label="Región"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={region_razon_social}
+                    />
+                    <Input
+                      variant="bordered"
+                      label="Comuna"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={comuna_razon_social}
+                    />
+                    <Input
+                      variant="bordered"
+                      label="Dirección"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={direccion_razon_social}
+                    />
+                    <Input
+                      variant="bordered"
+                      label="Rubro"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={rubro}
+                    />
+                    <Input
+                      variant="bordered"
+                      label="Teléfono"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={telefono_razon_social}
+                    />
+                    <Input
+                      variant="bordered"
+                      label="Correo"
+                      labelPlacement="outside"
+                      size="sm"
+                      disabled
+                      value={correo_electronico_razon_social}
+                    />
                   </div>
                 </CardBody>
               </Card>
