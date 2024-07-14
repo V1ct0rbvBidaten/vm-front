@@ -33,7 +33,7 @@ const ProductoCreate = () => {
   const user = useSelector((state) => state.user);
 
   const [loading, setLoading] = useState(false);
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   const [galeria, setGaleria] = useState([]);
   const [values, setValues] = useState(initialState);
 
@@ -43,8 +43,9 @@ const ProductoCreate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    values.imagen_principal = JSON.stringify(image);
+    values.imagen_principal = image; 
     values.imagenes = galeria;
+ 
     setLoading(true);
     createProducto(user.token, values)
       .then((res) => {
