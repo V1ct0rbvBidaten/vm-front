@@ -26,6 +26,7 @@ const initialState = {
   tipo_venta: "",
   imagen_principal: "",
   imagenes: [],
+  documento: [],
 };
 
 const ProductoCreate = () => {
@@ -49,24 +50,24 @@ const ProductoCreate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(file);
-    // values.imagen_principal = image;
-    // values.imagenes = galeria;
+    values.imagen_principal = image;
+    values.imagenes = galeria;
 
-    // setLoading(true);
-    // createProducto(user.token, values)
-    //   .then((res) => {
-    //     console.log(res);
-    //     toast.success("Producto creado con éxito");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     toast.error("Error al crear producto");
-    //   })
-    //   .finally(() => {
-    //     navigate("/empresa/home");
-    //     setValues(initialState);
-    //     setLoading(false);
-    //   });
+    setLoading(true);
+    createProducto(user.token, values)
+      .then((res) => {
+        console.log(res);
+        toast.success("Producto creado con éxito");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Error al crear producto");
+      })
+      .finally(() => {
+        navigate("/empresa/home");
+        setValues(initialState);
+        setLoading(false);
+      });
   };
 
   if (loading)
