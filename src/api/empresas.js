@@ -1,18 +1,6 @@
 import axios from "axios";
 
-export const createProducto = async (token, body) => {
-  return await axios.post(
-    `${import.meta.env.VITE_API_URL}/create-product`,
-    body,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-};
-
-export const getProductos = async (token, body) => {
+export const getEmpresas = async (token, body) => {
   let queryParams = new URLSearchParams();
 
   Object.entries(body).forEach(([key, value]) => {
@@ -34,7 +22,27 @@ export const getProductos = async (token, body) => {
   console.log(queryString);
 
   return await axios.get(
-    `${import.meta.env.VITE_API_URL}/products?${queryString}`,
+    `${import.meta.env.VITE_API_URL}/get-profiles-empresas?${queryString}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+export const getEmpresaById = async (token, id) => {
+  return await axios.get(`${import.meta.env.VITE_API_URL}/profile/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const updateEmpresa = async (token, body, id) => {
+  return await axios.put(
+    `${import.meta.env.VITE_API_URL}/empresa/${id}`,
+    body,
     {
       headers: {
         Authorization: `Bearer ${token}`,

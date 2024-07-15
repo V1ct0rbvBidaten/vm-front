@@ -68,7 +68,7 @@ const ProductoDetail = () => {
               <p>{descripcion}</p>
             </div>
             <div className="h-[10%] flex justify-between">
-              <h1 className="text-2xl font-semibold text-emerald font-semibold  text-teal-500 ">
+              <h1 className="text-2xl font-semibold text-emerald  text-teal-500 ">
                 ${precio}
               </h1>
               <Button className="bg-orange-500 text-white font-semibold tracking-widest">

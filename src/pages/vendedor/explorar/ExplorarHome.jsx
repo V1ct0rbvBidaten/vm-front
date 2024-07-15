@@ -3,6 +3,7 @@ import {
   EllipsisVerticalIcon,
   FunnelIcon,
   MagnifyingGlassIcon,
+  PlusIcon,
 } from "@heroicons/react/24/solid";
 import {
   Card,
@@ -16,77 +17,67 @@ import {
   DropdownItem,
   CardBody,
   Input,
+  useSelect,
+  Pagination,
+  Divider,
 } from "@nextui-org/react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import usePerfiles from "../../../hooks/usePerfiles";
+import { useSelector } from "react-redux";
+import Loading from "../../../components/utils/Loading";
+import EmpresaCard from "./EmpresaCard";
+
+const initialDinamicState = {
+  page: 1,
+  page_size: 30,
+};
 
 const ExplorarHome = () => {
+  const [dynamicState, setDynamicState] = useState(initialDinamicState);
+  const [reload, setReload] = useState(false);
+
   let navigate = useNavigate();
-  const list = [
-    {
-      nombre: "Empresa 1",
-      categoria: "Tecnologia",
-      productos: 23,
-      imagen: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      nombre: "Empresa 2",
-      categoria: "Tecnologia",
-      productos: 23,
-      imagen: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      nombre: "Empresa 3",
-      categoria: "Tecnologia",
-      productos: 23,
-      imagen: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      nombre: "Empresa 4",
-      categoria: "Tecnologia",
-      productos: 23,
-      imagen: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      nombre: "Empresa 5",
-      categoria: "Tecnologia",
-      productos: 23,
-      imagen: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      nombre: "Empresa 3",
-      categoria: "Tecnologia",
-      productos: 23,
-      imagen: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      nombre: "Empresa 4",
-      categoria: "Tecnologia",
-      productos: 23,
-      imagen: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      nombre: "Empresa 5",
-      categoria: "Tecnologia",
-      productos: 23,
-      imagen: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-  ];
+  const user = useSelector((state) => state.user);
+
+  const { data: data, loading } = use(user.token, dynamicState, reload);
+
+  const handleDynamicStateChange = (e) => {
+    setDynamicState({ ...dynamicState, [e.target.name]: e.target.value });
+  };
+
+  const resetState = () => {
+    setReload(!reload);
+  };
+
+  if (loading)
+    return (
+      <div className="flex flex-col justify-center items-center w-100 h-[400px] bg-white rounded-md shadow-md">
+        <Loading />
+        <p className="text-sky-500 font-semibold text-xl">Cargando...</p>
+      </div>
+    );
+
+  let profiles =
+    data &&
+    data.detail.data.profiles !== null &&
+    data.detail.data.profiles.length > 0
+      ? data.detail.data.profiles
+      : [];
 
   return (
-    <>
-      <div className="w-full bg-white rounded-md shadow-md mb-5 p-4">
-        <h1 className="text-2xl font-semibold">Empresas</h1>
-        <p p className="italic">
-          lorem ipsum lorem ipsum
-        </p>
+    <div className="flex flex-col m-0 justify-center items-center bg-white rounded-md shadow-md">
+      <div className="w-full  mb-2 p-4 flex justify-between">
+        <h1 className="text-2xl font-semibold">Explorar </h1>
       </div>
-      <div className="w-full flex gap-4 bg-white rounded-md shadow-md mb-5 p-4">
+      <Divider />
+      <div className="w-full flex gap-4  mb-2 p-4">
         <FunnelIcon className="h-6 text-slate-700" />
         <Input
           size="sm"
           radius="full"
           className="h-6 w-[300px] "
-          placeholder="Ingrese nombre de empresa"
+          placeholder="Ingrese nombre de producto"
           variant="bordered"
           startContent={<MagnifyingGlassIcon className="h-4" />}
         />
@@ -111,7 +102,7 @@ const ExplorarHome = () => {
               className="h-7 bg-slate-100 shadow-md"
               startContent={<EllipsisVerticalIcon className="h-4" />}
             >
-              Zona
+              Estado
             </Button>
           </DropdownTrigger>
           <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
@@ -121,48 +112,14 @@ const ExplorarHome = () => {
           </DropdownMenu>
         </Dropdown>
       </div>
-      <div className="grid grid-cols-6  gap-4 w-full bg-white rounded-md shadow-md p-2">
-        {list.map((c) => (
-          <Card
-            key={c.nombre}
-            isFooterBlurred
-            radius="lg"
-            className="border-none shadow-md"
-            isPressable
-            onClick={() => navigate("/vendedor/explorar/empresa/id")}
-          >
-            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-              <p className="text-tiny uppercase font-bold">{c.categoria}</p>
-              <small className="text-default-500">
-                {c.productos} Productos
-              </small>
-              <h4 className="font-bold text-large">{c.nombre}</h4>
-            </CardHeader>
-            <CardBody>
-              <Image
-                alt="Woman listing to music"
-                className="object-cover"
-                height={200}
-                src="https://nextui.org/images/hero-card.jpeg"
-                width={200}
-              />
-            </CardBody>
-            <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-              <p className="text-tiny text-white/80">Ver productos </p>
-              <Button
-                className="text-tiny text-white bg-black/20"
-                variant="flat"
-                color="default"
-                radius="lg"
-                size="sm"
-              >
-                <MagnifyingGlassIcon className="h-5" />
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
+      <div className="p-4 grid grid-cols-6 w-full gap-2">
+        {profiles
+          .filter((d) => d.es_empresa)
+          .map((profile) => (
+            <EmpresaCard data={profile} key={profile.id} />
+          ))}
       </div>
-    </>
+    </div>
   );
 };
 
