@@ -20,9 +20,9 @@ const ProductoCard = ({ data }) => {
       onClick={() => navigate(`/empresa/home/producto/${data.id_producto}`)}
     >
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <h4 className="font-bold text-large">{nombre_producto}</h4>
+        <h4 className="font-bold text-xs">{nombre_producto}</h4>
       </CardHeader>
-      <CardBody className="overflow-visible py-2 h-[200px]">
+      <CardBody className="overflow-visible py-2 h-[150px]">
         <div className="image-container ">
           <img
             className="hover:cursor-pointer hover:opacity-80 transition duration-300"
@@ -31,9 +31,9 @@ const ProductoCard = ({ data }) => {
         </div>
       </CardBody>
       <CardFooter>
-        <div className="flex flex-col w-full gap-2">
-          <span className="text-emerald-500 font-semibold text-lg border-2 rounded-md ">
-            Precio $ {precio}
+        <div className="flex  w-full gap-2 justify-start">
+          <span className="text-emerald-500 font-semibold text-lg  rounded-md ">
+            ${precio}
           </span>
         </div>
       </CardFooter>

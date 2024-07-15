@@ -95,7 +95,7 @@ const ProductosHome = ({ data, resetState, user }) => {
       </div>
       {productos && productos.length > 0 ? (
         <>
-          <div className="grid grid-cols-6 gap-4 p-4">
+          <div className="grid grid-cols-5 gap-4 p-4">
             {productos.map((c) => (
               <ProductoCard key={c.id_producto} data={c} />
             ))}
