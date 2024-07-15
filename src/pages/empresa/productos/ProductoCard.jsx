@@ -11,18 +11,24 @@ import { useNavigate } from "react-router-dom";
 
 const ProductoCard = ({ data }) => {
   const navigate = useNavigate();
-  const { nombre_producto, precio, descripcion } = data;
+  const { nombre_producto, precio, imagen_principal, id_producto } = data;
 
   return (
-    <Card className="py-4" isPressable onClick={() => navigate("/empresa/home/create-producto")}>
+    <Card
+      className="py-4"
+      isPressable
+      onClick={() => navigate(`/empresa/home/producto/${data.id_producto}`)}
+    >
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
         <h4 className="font-bold text-large">{nombre_producto}</h4>
       </CardHeader>
-      <CardBody className="overflow-visible py-2">
-        <img
-          className="hover:cursor-pointer hover:opacity-80 transition duration-300"
-          src={data.imagen_principal ? data.imagen_principal : NoImage}
-        />
+      <CardBody className="overflow-visible py-2 h-[200px]">
+        <div className="image-container ">
+          <img
+            className="hover:cursor-pointer hover:opacity-80 transition duration-300"
+            src={imagen_principal ? imagen_principal : NoImage}
+          />
+        </div>
       </CardBody>
       <CardFooter>
         <div className="flex flex-col w-full gap-2">

@@ -28,6 +28,7 @@ import CuentaEdit from "./pages/empresa/cuenta/CuentaEdit";
 import RegisterComplete from "./pages/auth/registro/RegisterComplete";
 import EmpresaDetail from "./pages/vendedor/explorar/EmpresaDetail";
 import ProductoDetail from "./pages/vendedor/explorar/Producto/ProductoDetail";
+import ProductoDetailEmpresa from "./pages/empresa/productos/ProductoDetail";
 import VentaDetail from "./pages/vendedor/ventas/VentaDetail";
 import ProductoEmpresa from "./pages/vendedor/productos/ProductoEmpresa";
 import ProductoMaletinDetail from "./pages/vendedor/productos/ProductoMaletinDetail";
@@ -63,6 +64,11 @@ const App = () => {
           />
           <Route
             exact
+            path="/empresa/home/producto/:id"
+            element={<EmpresaRoute Component={ProductoDetailEmpresa} />}
+          />
+          <Route
+            exact
             path="/empresa/ventas"
             element={<EmpresaRoute Component={VentasHome} />}
           />
@@ -89,14 +95,9 @@ const App = () => {
           />
           <Route
             exact
-            path="/vendedor/explorar/empresa/:idEmpresa/producto/:idProducto"
-            element={<VendedorRoute Component={ProductoDetail} />}
-          />
-          <Route
-            exact
             path="/vendedor/ventas"
             element={<VendedorRoute Component={VentasHomeVendedor} />}
-          />{" "}
+          />
           <Route
             exact
             path="/vendedor/ventas/:idVenta"

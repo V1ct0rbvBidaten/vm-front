@@ -36,31 +36,37 @@ const ProductoCreate = () => {
   const [image, setImage] = useState(null);
   const [galeria, setGaleria] = useState([]);
   const [values, setValues] = useState(initialState);
+  const [file, setFile] = useState(null);
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e) => {
+    setFile(Array.from(e.target.files));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    values.imagen_principal = image;
-    values.imagenes = galeria;
+    console.log(file);
+    // values.imagen_principal = image;
+    // values.imagenes = galeria;
 
-    setLoading(true);
-    createProducto(user.token, values)
-      .then((res) => {
-        console.log(res);
-        toast.success("Producto creado con éxito");
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error("Error al crear producto");
-      })
-      .finally(() => {
-        navigate("/empresa/home");
-        setValues(initialState);
-        setLoading(false);
-      });
+    // setLoading(true);
+    // createProducto(user.token, values)
+    //   .then((res) => {
+    //     console.log(res);
+    //     toast.success("Producto creado con éxito");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     toast.error("Error al crear producto");
+    //   })
+    //   .finally(() => {
+    //     navigate("/empresa/home");
+    //     setValues(initialState);
+    //     setLoading(false);
+    //   });
   };
 
   if (loading)
@@ -187,6 +193,19 @@ const ProductoCreate = () => {
               maxImages={10}
             />
           </div>
+          {file && file.length > 0 && (
+            <div>
+              {file.map((file, index) => (
+                <div key={index}>{file.name}</div>
+              ))}
+            </div>
+          )}
+          <input
+            type="file"
+            className="input-file"
+            multiple
+            onChange={handleFileChange}
+          />
           <Button
             type="submit"
             className="bg-foreground text-white  rounded-md col-span-3"
