@@ -1,120 +1,83 @@
-import {
-  ArrowRightIcon,
-  ChevronDoubleLeftIcon,
-  ChevronDoubleRightIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/solid";
-import {
-  Card,
-  Image,
-  CardFooter,
-  Button,
-  CardHeader,
-  CardBody,
-} from "@nextui-org/react";
-import { useNavigate } from "react-router-dom";
+import { Button, Divider } from "@nextui-org/react";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import useFetchById from "../../../hooks/useFetch";
+import Loading from "../../../components/utils/Loading";
+import { useState } from "react";
+import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
 
 const ProductoDetail = () => {
   let navigate = useNavigate();
-  const list = [
-    {
-      nombre: "Producto 1",
-      categoria: "Tecnologia",
-      productos: 23,
-      imagen: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-    {
-      nombre: "Producto 2",
-      categoria: "Tecnologia",
-      productos: 23,
-      imagen: "https://nextui.org/images/hero-card-complete.jpeg",
-    },
-  ];
+  let { id } = useParams();
+
+  const user = useSelector((state) => state.user);
+
+  const [reload, setReload] = useState(false);
+
+  const url = `product/${id}`;
+
+  const { data: data, loading: loading } = useFetchById(
+    user.token,
+    url,
+    reload
+  );
+
+  if (loading)
+    return (
+      <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
+        <div className="w-full  mb-2 p-4 flex justify-between">
+          <h1 className="text-2xl font-semibold">Producto</h1>
+          <Button
+            className="bg-emerald-500 text-white h-7"
+            onClick={() => navigate("/empresa/home/create-producto")}
+          >
+            Volver
+          </Button>
+        </div>
+        <Divider />
+        <Loading />
+      </div>
+    );
+
+  const { nombre_producto, precio, descripcion, imagen_principal } =
+    data.detail.data;
+
   return (
     <>
-      <div className="w-full bg-white rounded-md shadow-md mb-5 p-4">
-        <h1 className="text-2xl font-semibold">
+      <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
+        <div className="w-full  mb-2 p-4 flex justify-between">
           <Button
-            isIconOnly
-            className="bg-emerald-500  text-white h-6"
+            className="bg-emerald-500 text-white h-7"
             onClick={() => navigate("/empresa/home")}
-          >
-            <ChevronDoubleLeftIcon className="h-4" />
-          </Button>{" "}
-          Empresa Nombre
-        </h1>
-        <p className="italic">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div>
-      <div className="bg-white shadow-md p-2 rounded-md ">
-        <div className="flex justify-between">
-          <Button
-            className="h-6 bg-slate-400 text-white"
             startContent={<ChevronDoubleLeftIcon className="h-4" />}
-          ></Button>
-          <div className="flex gap-4">
-            <h1 className="font-semibold text-xl">Nombre producto</h1>
-          </div>
-          <Button
-            className="h-6 bg-slate-400 text-white"
-            endContent={<ChevronDoubleRightIcon className="h-4" />}
-          ></Button>
-        </div>
-        <div className="m-2 flex gap-2">
-          <Button className="h-6 bg-purple-500 text-white">Tecnología</Button>
-          <Button className="h-6 bg-sky-500 text-white">
-            Dispositivos moviles
-          </Button>
-          <Button className="h-6 bg-amber-500 text-white">SmarthPhone</Button>
-        </div>
-        <p className="font-semibold">Características del producto</p>
-        <p className="italic">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-        <div className="flex justify-between mt-2 border-3 p-2 rounded-md">
-          <h4 className="font-semibold text-xl">Precio $29.990</h4>
-
-          <h4 className="font-semibold text-xl text-emerald-500">
-            Ganas $2.990
-          </h4>
-        </div>
-      </div>
-      <div className="grid grid-cols-6  mt-4 gap-4 w-full bg-white rounded-md shadow-md p-2">
-        {list.map((c) => (
-          <Card
-            key={c.nombre}
-            isFooterBlurred
-            radius="lg"
-            className="border-none shadow-md"
-            isPressable
-            onClick={() =>
-              navigate(
-                "/vendedor/explorar/empresa/idEmpresa/producto/idProducto"
-              )
-            }
           >
-            <CardBody>
-              <Image
-                alt="Woman listing to music"
-                className="object-cover"
-                height={200}
-                src="https://nextui.org/images/hero-card.jpeg"
-                width={200}
-              />
-            </CardBody>
-          </Card>
-        ))}
+            Volver
+          </Button>
+        </div>
+        <Divider />
+        <div className="grid grid-cols-3 gap-4 w-full p-2">
+          <div className="imagen-portada shadow-md justify-center flex items-center row-span-2">
+            <img src={imagen_principal} />
+          </div>
+          <div className="col-span-2 flex gap-4 flex-col min-h-[500px] border-2 p-2 rounded-md">
+            <div className="h-[10%]">
+              <h1 className="text-2xl font-semibold ">{nombre_producto}</h1>
+              <Divider />
+            </div>
+            <div className="bg-slate-50 p-4 rounded-md drop-shadow-md h-[80%]">
+              <p>{descripcion}</p>
+            </div>
+            <div className="h-[10%] flex justify-between">
+              <h1 className="text-2xl font-semibold text-emerald font-semibold  text-teal-500 ">
+                ${precio}
+              </h1>
+              <Button className="bg-orange-500 text-white font-semibold tracking-widest">
+                Comisión: 2.5%
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
-      <Button className="bg-slate-500 text-white mt-2 w-full">
-        Finalizar venda
-      </Button>
     </>
   );
 };
