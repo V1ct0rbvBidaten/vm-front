@@ -3,14 +3,12 @@ import { useRef } from "react";
 
 const SingleImageUploader = ({ image, setImage }) => {
   const handleImageChange = (e) => {
+    e.preventDefault();
     const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);  
-      };
-      reader.readAsDataURL(file);
-    }
+    if (!file) return;
+
+    const newImage = URL.createObjectURL(file);
+    setImage(newImage);
   };
 
   const hiddenFileInput = useRef(null);
@@ -22,18 +20,11 @@ const SingleImageUploader = ({ image, setImage }) => {
 
   return (
     <div className="image-container shadow-lg hover:cursor-pointer">
-      {!image ? (
+      {!image && (
         <div className="uploader-container" onClick={handleClick}>
           <CameraIcon className="h-4" />
           Subir imagen
         </div>
-      ) : (
-        <img
-          className="hover:cursor-pointer hover:opacity-80 transition duration-300"
-          onClick={handleClick}
-          src={image}  
-          alt="Uploaded Image"
-        />
       )}
       <input
         type="file"
@@ -42,6 +33,14 @@ const SingleImageUploader = ({ image, setImage }) => {
         style={{ display: "none" }}
         onChange={handleImageChange}
       />
+      {image && (
+        <img
+          className="hover:cursor-pointer hover:opacity-80 transition duration-300"
+          onClick={handleClick}
+          src={image}
+          alt="Uploaded Image"
+        />
+      )}
     </div>
   );
 };

@@ -43,9 +43,9 @@ const ProductoCreate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    values.imagen_principal = image; 
+    values.imagen_principal = image;
     values.imagenes = galeria;
- 
+
     setLoading(true);
     createProducto(user.token, values)
       .then((res) => {
@@ -84,7 +84,7 @@ const ProductoCreate = () => {
       </div>
       <Divider />
       <div className="w-full p-4">
-        <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4"> 
+        <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4">
           <div className="row-span-3 h-auto ">
             <SingleImageUploader image={image} setImage={setImage} />
           </div>
