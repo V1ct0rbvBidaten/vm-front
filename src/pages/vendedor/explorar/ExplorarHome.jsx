@@ -27,6 +27,7 @@ import usePerfiles from "../../../hooks/usePerfiles";
 import { useSelector } from "react-redux";
 import Loading from "../../../components/utils/Loading";
 import EmpresaCard from "./EmpresaCard";
+import useEmpresas from "../../../hooks/useEmpresas";
 
 const initialDinamicState = {
   page: 1,
@@ -40,7 +41,7 @@ const ExplorarHome = () => {
   let navigate = useNavigate();
   const user = useSelector((state) => state.user);
 
-  const { data: data, loading } = use(user.token, dynamicState, reload);
+  const { data: data, loading } = useEmpresas(user.token, dynamicState, reload);
 
   const handleDynamicStateChange = (e) => {
     setDynamicState({ ...dynamicState, [e.target.name]: e.target.value });
