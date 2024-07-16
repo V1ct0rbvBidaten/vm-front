@@ -117,7 +117,7 @@ const ExplorarHome = () => {
         {profiles
           .filter((d) => d.es_empresa)
           .map((profile) => (
-            <EmpresaCard data={profile} key={profile.id} />
+            <EmpresaCard data={profile} key={profile.id_empresa} />
           ))}
       </div>
     </div>

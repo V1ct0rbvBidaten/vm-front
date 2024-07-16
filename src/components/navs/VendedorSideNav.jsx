@@ -274,15 +274,10 @@ const VendedorSideNav = ({ user }) => {
 
           <div className="mt-auto ml-4 mr-4 p-4 text-md">
             <User
-              name={user.name}
+              name={user.profile_name}
               classNames={{
                 name: "text-white",
               }}
-              description={
-                <Link href="#" size="sm" className="text-sky-500 capitalize">
-                  {user.role}
-                </Link>
-              }
               avatarProps={{
                 src: "https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg",
               }}

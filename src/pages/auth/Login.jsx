@@ -1,7 +1,12 @@
 import { useState } from "react";
 import LandingNav from "../../components/navs/LandingNav";
 import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
-import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
+import {
+  EnvelopeIcon,
+  EyeIcon,
+  EyeSlashIcon,
+  LockClosedIcon,
+} from "@heroicons/react/24/solid";
 
 import { Typewriter, useTypewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +21,10 @@ const initialState = {
 
 const Login = () => {
   const [values, setValues] = useState(initialState);
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => setIsVisible(!isVisible);
 
   const dispatch = useDispatch();
 
@@ -83,12 +92,26 @@ const Login = () => {
             />
             <Input
               label="Contraseña"
-              labelPlacement="outside"
               variant="bordered"
+              size="sm"
               placeholder="Ingrese su contraseña"
-              startContent={<LockClosedIcon className="h-4" />}
-              name="password"
+              labelPlacement="outside"
+              endContent={
+                <button
+                  className="focus:outline-none"
+                  type="button"
+                  onClick={toggleVisibility}
+                >
+                  {isVisible ? (
+                    <EyeSlashIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
+                  ) : (
+                    <EyeIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
+                  )}
+                </button>
+              }
+              type={isVisible ? "text" : "password"}
               value={password}
+              name="password"
               onChange={handleChange}
             />
             <Button
