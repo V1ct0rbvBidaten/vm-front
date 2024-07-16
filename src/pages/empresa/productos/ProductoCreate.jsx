@@ -37,21 +37,22 @@ const ProductoCreate = () => {
   const [image, setImage] = useState(null);
   const [galeria, setGaleria] = useState([]);
   const [values, setValues] = useState(initialState);
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   const handleFileChange = (e) => {
-    setFile(Array.from(e.target.files));
+    setFiles(Array.from(e.target.files));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(file);
+    console.log(files);
     values.imagen_principal = image;
     values.imagenes = galeria;
+    values.documento = files;
 
     setLoading(true);
     createProducto(user.token, values)
@@ -194,19 +195,27 @@ const ProductoCreate = () => {
               maxImages={10}
             />
           </div>
-          {file && file.length > 0 && (
-            <div>
-              {file.map((file, index) => (
+          <div className="col-span-3">
+            <label className="flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+              <span className="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+                <span className="font-medium text-gray-600">
+                  Adjuntar documentación <span className="text-blue-600 underline">browse</span>
+                </span>
+              </span>
+              <input type="file" name="file_upload" className="hidden" multiple onChange={handleFileChange} />
+            </label>
+          </div>
+
+          {files.length > 0 && (
+            <div className="col-span-3">
+              {files.map((file, index) => (
                 <div key={index}>{file.name}</div>
               ))}
             </div>
           )}
-          <input
-            type="file"
-            className="input-file"
-            multiple
-            onChange={handleFileChange}
-          />
           <Button
             type="submit"
             className="bg-foreground text-white  rounded-md col-span-3"
