@@ -10,13 +10,14 @@ const MultipleImageUploader = ({ maxImages = 10, images, setImages }) => {
 
   const handleImageChange = (e) => {
     e.preventDefault();
-    const files = Array.from(e.target.files);
-    if (images.length + files.length > maxImages) {
-      alert(`You can only upload a maximum of ${maxImages} images.`);
-      return;
-    }
-    const newImages = files.map((file) => URL.createObjectURL(file));
-    setImages((prevImages) => [...prevImages, ...newImages]);
+    // const files = Array.from(e.target.files);
+    // if (images.length + files.length > maxImages) {
+    //   alert(`You can only upload a maximum of ${maxImages} images.`);
+    //   return;
+    // }
+    // const newImages = files.map((file) => URL.createObjectURL(file));
+    // setImages((prevImages) => [...prevImages, ...newImages]);
+    setImages(e.target.files);
   };
 
   const handleClick = (e) => {
@@ -46,7 +47,7 @@ const MultipleImageUploader = ({ maxImages = 10, images, setImages }) => {
               <div className=" rounded-sm w-full image-container">
                 <img
                   className="hover:cursor-pointer hover:opacity-80 transition duration-300"
-                  src={images[index]}
+                  src={URL.createObjectURL(images[index])}
                   alt={`Uploaded Image ${index + 1}`}
                   onClick={() => handleRemoveImage(index)}
                 />

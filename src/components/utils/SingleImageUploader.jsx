@@ -3,12 +3,13 @@ import { useRef } from "react";
 
 const SingleImageUploader = ({ image, setImage }) => {
   const handleImageChange = (e) => {
-    e.preventDefault();
-    const file = e.target.files[0];
-    if (!file) return;
+    // e.preventDefault();
+    // const file = e.target.files[0];
+    // if (!file) return;
 
-    const newImage = URL.createObjectURL(file);
-    setImage(newImage);
+    // const newImage = URL.createObjectURL(file);
+    // setImage(newImage);
+    setImage(e.target.files[0]);
   };
 
   const hiddenFileInput = useRef(null);
@@ -26,6 +27,7 @@ const SingleImageUploader = ({ image, setImage }) => {
           Subir imagen
         </div>
       )}
+
       <input
         type="file"
         ref={hiddenFileInput}
@@ -37,7 +39,7 @@ const SingleImageUploader = ({ image, setImage }) => {
         <img
           className="hover:cursor-pointer hover:opacity-80 transition duration-300"
           onClick={handleClick}
-          src={image}
+          src={URL.createObjectURL(image)}
           alt="Uploaded Image"
         />
       )}
