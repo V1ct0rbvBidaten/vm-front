@@ -3,13 +3,16 @@ import { useRef } from "react";
 
 const SingleImageUploader = ({ image, setImage }) => {
   const handleImageChange = (e) => {
-    // e.preventDefault();
-    // const file = e.target.files[0];
-    // if (!file) return;
+    const file = e.target.files[0];
+    const reader = new FileReader();
 
-    // const newImage = URL.createObjectURL(file);
-    // setImage(newImage);
-    setImage(e.target.files[0]);
+    reader.onloadend = () => {
+      setImage(reader.result);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
   };
 
   const hiddenFileInput = useRef(null);
@@ -39,7 +42,7 @@ const SingleImageUploader = ({ image, setImage }) => {
         <img
           className="hover:cursor-pointer hover:opacity-80 transition duration-300"
           onClick={handleClick}
-          src={URL.createObjectURL(image)}
+          src={image}
           alt="Uploaded Image"
         />
       )}
