@@ -15,6 +15,8 @@ import Loading from "../../../components/utils/Loading";
 import categoriasProductos from "../../../utils/categoriasProductos.json";
 import SingleImageUploader from "../../../components/utils/SingleImageUploader";
 import MultipleImageUploader from "../../../components/utils/MultipleImageUploader";
+import InputFileUploader from "../../../components/utils/InputFileUploader";
+import { getSize } from "../../../functions/file";
 
 const initialState = {
   nombre_producto: "",
@@ -188,26 +190,37 @@ const ProductoCreate = () => {
             onChange={handleChange}
           />
 
-          <div className="col-span-3">
-            <MultipleImageUploader
-              images={galeria}
-              setImages={setGaleria}
-              maxImages={10}
-            />
-          </div>
-          {file && file.length > 0 && (
+          <div className="col-span-2 flex gap-2 flex-col">
+            <h2 className="mt-4 font-semibold">Galería</h2>
+            <Divider />
             <div>
-              {file.map((file, index) => (
-                <div key={index}>{file.name}</div>
-              ))}
+              <MultipleImageUploader
+                images={galeria}
+                setImages={setGaleria}
+                maxImages={10}
+              />
             </div>
-          )}
-          <input
-            type="file"
-            className="input-file"
-            multiple
-            onChange={handleFileChange}
-          />
+          </div>
+          <div className="flex gap-2 flex-col">
+            <h2 className="mt-4 font-semibold">Documentación</h2>
+            <Divider />
+
+            <InputFileUploader multiple handleFileChange={handleFileChange} />
+            {file && file.length > 0 && (
+              <div className="w-100 border-1">
+                {file.map((file, index) => (
+                  <div
+                    className="w-100 bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between"
+                    key={index}
+                  >
+                    <span className="text-xs">{file.name}</span>
+
+                    <span className="text-xs">{getSize(file.size)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
           <Button
             type="submit"
             className="bg-foreground text-white  rounded-md col-span-3"
