@@ -49,7 +49,7 @@ const ProductoCreate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(file);
+
     values.imagen_principal = image;
     values.imagenes = galeria;
 
@@ -141,6 +141,7 @@ const ProductoCreate = () => {
             labelPlacement="outside"
             value={values.comision}
             onChange={handleChange}
+            max={100}
             type="number"
           />
           <Select

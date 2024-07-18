@@ -7,17 +7,22 @@ import { useRef, useState } from "react";
 
 const MultipleImageUploader = ({ maxImages = 10, images, setImages }) => {
   const hiddenFileInput = useRef(null);
-
   const handleImageChange = (e) => {
-    e.preventDefault();
-    // const files = Array.from(e.target.files);
-    // if (images.length + files.length > maxImages) {
-    //   alert(`You can only upload a maximum of ${maxImages} images.`);
-    //   return;
-    // }
-    // const newImages = files.map((file) => URL.createObjectURL(file));
-    // setImages((prevImages) => [...prevImages, ...newImages]);
-    setImages(e.target.files);
+    const files = Array.from(e.target.files);
+    const newImages = [];
+
+    files.forEach((file) => {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        newImages.push(reader.result);
+        if (newImages.length === files.length) {
+          setImages((prevImages) => [...prevImages, ...newImages]);
+        }
+      };
+
+      reader.readAsDataURL(file);
+    });
   };
 
   const handleClick = (e) => {
@@ -47,7 +52,7 @@ const MultipleImageUploader = ({ maxImages = 10, images, setImages }) => {
               <div className=" rounded-sm w-full image-container">
                 <img
                   className="hover:cursor-pointer hover:opacity-80 transition duration-300"
-                  src={URL.createObjectURL(images[index])}
+                  src={images[index]}
                   alt={`Uploaded Image ${index + 1}`}
                   onClick={() => handleRemoveImage(index)}
                 />
