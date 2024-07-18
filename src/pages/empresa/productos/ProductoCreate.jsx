@@ -17,6 +17,7 @@ import SingleImageUploader from "../../../components/utils/SingleImageUploader";
 import MultipleImageUploader from "../../../components/utils/MultipleImageUploader";
 import InputFileUploader from "../../../components/utils/InputFileUploader";
 import { getSize } from "../../../functions/file";
+import { uploadFile } from "../../../api/file";
 
 const initialState = {
   nombre_producto: "",
@@ -59,6 +60,22 @@ const ProductoCreate = () => {
     createProducto(user.token, values)
       .then((res) => {
         console.log(res);
+        uploadFile(
+          user.token,
+          {
+            id_empresa: res.data.detail.data[0].id_empresa,
+            id_folder: res.data.detail.data[0].id_producto,
+          },
+          file
+        )
+          .then((res) => {
+            console.log(res);
+            toast.success("Archivo subido con éxito");
+          })
+          .catch((err) => {
+            console.log(err);
+            toast.error("Error al subir archivo");
+          });
         toast.success("Producto creado con éxito");
       })
       .catch((err) => {
@@ -206,6 +223,7 @@ const ProductoCreate = () => {
             <Divider />
 
             <InputFileUploader multiple handleFileChange={handleFileChange} />
+            {JSON.stringify(file)}
             {file && file.length > 0 && (
               <div className="w-100 border-1">
                 {file.map((file, index) => (

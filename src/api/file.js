@@ -14,7 +14,7 @@ export const uploadFile = async (token, params, file) => {
   const formData = new FormData();
 
   // Agregar el archivo a formData
-  formData.append("file", file);
+  formData.append("files", file);
 
   // Agregar los otros parámetros a formData
   Object.keys(filteredParams).forEach((key) => {
