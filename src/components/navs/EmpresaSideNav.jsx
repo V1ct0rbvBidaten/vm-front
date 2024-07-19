@@ -1,24 +1,16 @@
 import { Sidebar, Menu, SubMenu, MenuItem } from "react-pro-sidebar";
-import { Button, User } from "@nextui-org/react";
+import { User } from "@nextui-org/react";
 import {
-  ChartPieIcon,
-  NewspaperIcon,
-  AdjustmentsHorizontalIcon,
-  UsersIcon,
-  CalendarDaysIcon,
-  ArrowLeftEndOnRectangleIcon,
   UserCircleIcon,
-  CalendarIcon,
-  CheckBadgeIcon,
-  LinkIcon,
   InformationCircleIcon,
   ShoppingBagIcon,
   CreditCardIcon,
-  EnvelopeIcon,
 } from "@heroicons/react/24/solid";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { version } from "../../utils/constants";
+import LogoVemdo from "../../assets/logoVemdoBlanco.png";
+import IconoVemdo from "../../assets/iconoVemdoBlanco.png";
 
 const EmpresaSideNav = ({ user }) => {
   let navigate = useNavigate();
@@ -51,7 +43,7 @@ const EmpresaSideNav = ({ user }) => {
   const config = {
     icon: ({ active }) => {
       return {
-        color: active ? "#231f62" : "#ffff",
+        color: active ? "#28B6C6" : "#ffff",
         transition: "all .3s ease",
       };
     },
@@ -59,7 +51,7 @@ const EmpresaSideNav = ({ user }) => {
       // only apply styles on first level elements of the tree
       if (level === 0)
         return {
-          color: active ? "#231f62" : "white",
+          color: active ? "#28B6C6" : "white",
           backgroundColor: active ? "#fff" : undefined,
           borderRadius: "20px",
           margin: "5px 0px 0px 0px",
@@ -68,7 +60,7 @@ const EmpresaSideNav = ({ user }) => {
           padding: "10px",
           transition: "all .3s ease",
           "&:hover": {
-            backgroundColor: "#231f62",
+            backgroundColor: "#05d9b2",
             color: "#fff !important",
           },
         };
@@ -102,14 +94,14 @@ const EmpresaSideNav = ({ user }) => {
       collapsed={isCollapsed}
       rootStyles={{
         background:
-          "linear-gradient(0deg, rgba(35,31,98,1) 0%, rgba(40,45,134,1) 38%, rgba(34,78,150,1) 80%)",
+          "linear-gradient(0deg, rgba(21,10,48,1) 0%, rgba(44,2,97,1) 100%)",
       }}
       width="230px"
     >
       {isCollapsed ? (
         <div className="m-4 flex flex-col h-full">
           <div className="flex flex-col items-center justify-center">
-            <h1 className="font-bold text-white">V</h1>
+            <img src={IconoVemdo} className="h-[40px]" />
           </div>
 
           <Menu className="mt-5" menuItemStyles={config}>
@@ -191,10 +183,8 @@ const EmpresaSideNav = ({ user }) => {
         </div>
       ) : (
         <div className=" flex flex-col h-full">
-          <div className="flex justify-center items-center mt-8 m-4">
-            <h1 className="font-bold text-inherit text-3xl text-white">
-              VeMdo
-            </h1>
+          <div className="flex justify-center items-center mt-8 m-4 ">
+            <img src={LogoVemdo} className="h-[40px]" />
           </div>
           {/* <div className="mt-5 text-md text-white">
         <p>Menu</p>
@@ -287,6 +277,5 @@ const EmpresaSideNav = ({ user }) => {
     </Sidebar>
   );
 };
-
 
 export default EmpresaSideNav;

@@ -1,4 +1,4 @@
-import { Button, Divider } from "@nextui-org/react";
+import { Button, ButtonGroup, Divider } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchById from "../../../hooks/useFetch";
@@ -39,8 +39,16 @@ const ProductoDetail = () => {
       </div>
     );
 
-  const { nombre_producto, precio, descripcion, imagen_principal } =
-    data.detail.data;
+  const {
+    nombre_producto,
+    precio,
+    descripcion,
+    imagen_principal,
+    categoria,
+    comision,
+    estado_producto,
+    imagenes,
+  } = data.detail.data;
 
   return (
     <>
@@ -60,10 +68,13 @@ const ProductoDetail = () => {
             <img src={imagen_principal} />
           </div>
           <div className="col-span-2 flex gap-4 flex-col min-h-[500px] border-2 p-2 rounded-md">
-            <div className="h-[10%]">
+            <div className="h-[10%] items-center flex justify-between">
               <h1 className="text-2xl font-semibold ">{nombre_producto}</h1>
-              <Divider />
+              <Button className="rounded-full text-xs h-6 bg-sky-700 text-white">
+                {categoria}
+              </Button>
             </div>
+            <Divider />
             <div className="bg-slate-50 p-4 rounded-md drop-shadow-md h-[80%]">
               <p>{descripcion}</p>
             </div>
@@ -72,7 +83,7 @@ const ProductoDetail = () => {
                 ${precio}
               </h1>
               <Button className="bg-orange-500 text-white font-semibold tracking-widest">
-                Comisión: 2.5%
+                Comisión: {comision}%
               </Button>
             </div>
           </div>
