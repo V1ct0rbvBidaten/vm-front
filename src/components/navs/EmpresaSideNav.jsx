@@ -89,7 +89,7 @@ const EmpresaSideNav = ({ user }) => {
 
   return (
     <Sidebar
-      className="flex flex-col h-full overflow-y-hidden"
+      className="flex flex-col h-screen fixed overflow-y-hidden"
       collapsedWidth="90px"
       collapsed={isCollapsed}
       rootStyles={{
@@ -172,7 +172,7 @@ const EmpresaSideNav = ({ user }) => {
               })}
           </Menu>
 
-          <div className="mt-auto p-2 text-md">
+          <div className=" p-2 text-md mt-auto">
             <User
               name={user.nombre_completo}
               avatarProps={{
@@ -260,7 +260,7 @@ const EmpresaSideNav = ({ user }) => {
               })}
           </Menu>
 
-          <div className="mt-auto ml-4 mr-4 p-4 text-md">
+          <div className=" ml-4 mt-auto  mr-4 p-4 text-md">
             <User
               name={user.profile_name}
               classNames={{

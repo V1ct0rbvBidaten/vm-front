@@ -45,11 +45,11 @@ const EmpresaRoute = ({ Component }) => {
       <CreateProfile user={user} />
     ) : (
       <>
-        <div className=" flex min-h-screen">
+        <div className=" flex max-h-screen">
           <div>
             <EmpresaSideNav user={user} />
           </div>
-          <main className="p-7 w-full bg-stone-50">
+          <main className="p-7 w-full bg-stone-50 overflow-scroll">
             <div className="flex justify-between items-center gap-4 bg-white p-3 rounded-md shadow-md">
               <Button
                 isIconOnly
