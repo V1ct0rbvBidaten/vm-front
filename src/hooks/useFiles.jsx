@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getFiles } from "../api/file";
 
-function useFiles(token, body, reload) {
+function useFiles(token, body, reloadFiles) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ function useFiles(token, body, reload) {
       })
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
-  }, [body, reload]);
+  }, [body, reloadFiles]);
 
   return { data, loading, error };
 }

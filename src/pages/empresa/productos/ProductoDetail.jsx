@@ -6,41 +6,33 @@ import Loading from "../../../components/utils/Loading";
 import { useRef, useState } from "react";
 import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
 import ModalImageSlider from "../../../components/utils/ModalImageSlider";
-import useFiles from "../../../hooks/useFiles";
+import ProductosDocs from "./ProductosDocs";
 
 const ProductoDetail = () => {
-  let idIndex = useRef(0);
-
-  let navigate = useNavigate();
-  let { id } = useParams();
+  const idIndex = useRef(0);
+  const navigate = useNavigate();
+  const { id } = useParams();
 
   const user = useSelector((state) => state.user);
 
   const [reload, setReload] = useState(false);
+  const [reloadFiles, setReloadFiles] = useState(false);
+
   const [open, setOpen] = useState(false);
 
   const handleChangeOpen = (index) => {
     setOpen(!open);
-    if (open) {
-      idIndex.current = 0;
-    } else {
-      idIndex.current = index;
-    }
+    idIndex.current = open ? 0 : index;
   };
 
   const url = `product/${id}`;
 
-  const { data: data, loading: loading } = useFetchById(
-    user.token,
-    url,
-    reload
-  );
+  const { data, loading } = useFetchById(user.token, url, reload);
 
-
-  if (loading)
+  if (loading) {
     return (
       <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
-        <div className="w-full  mb-2 p-4 flex justify-between">
+        <div className="w-full mb-2 p-4 flex justify-between">
           <h1 className="text-2xl font-semibold">Producto</h1>
           <Button
             className="bg-emerald-500 text-white h-7"
@@ -53,6 +45,7 @@ const ProductoDetail = () => {
         <Loading />
       </div>
     );
+  }
 
   const {
     nombre_producto,
@@ -63,10 +56,13 @@ const ProductoDetail = () => {
     comision,
     estado_producto,
     imagenes,
+    id_producto,
   } = data.detail.data;
 
-  
-  const {data: files , loading: loadingFiles} = useFiles(user.token, {id_empresa:}, reload);
+  const body = {
+    id_folder: id_producto,
+    id_empresa: user.id_empresa,
+  };
 
   return (
     <>
@@ -77,7 +73,7 @@ const ProductoDetail = () => {
         images={imagenes[0]}
       />
       <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
-        <div className="w-full  mb-2 p-4 flex justify-between">
+        <div className="w-full mb-2 p-4 flex justify-between">
           <Button
             className="bg-emerald-500 text-white h-7"
             onClick={() => navigate("/empresa/home")}
@@ -88,12 +84,12 @@ const ProductoDetail = () => {
         </div>
         <Divider />
         <div className="grid grid-cols-3 gap-4 w-full p-2">
-          <div className="imagen-portada shadow-md justify-center flex items-center ">
-            <img src={imagen_principal} />
+          <div className="imagen-portada shadow-md justify-center flex items-center">
+            <img src={imagen_principal} alt="Imagen Principal" />
           </div>
           <div className="col-span-2 flex gap-4 flex-col min-h-[500px] border-2 p-2 rounded-md">
             <div className="h-[10%] items-center flex justify-between">
-              <h1 className="text-2xl font-semibold ">{nombre_producto}</h1>
+              <h1 className="text-2xl font-semibold">{nombre_producto}</h1>
               <Button className="rounded-full text-xs h-6 bg-sky-700 text-white">
                 {categoria}
               </Button>
@@ -103,7 +99,7 @@ const ProductoDetail = () => {
               <p>{descripcion}</p>
             </div>
             <div className="h-[10%] flex justify-between">
-              <h1 className="text-2xl font-semibold text-emerald  text-teal-500 ">
+              <h1 className="text-2xl font-semibold text-teal-500">
                 ${precio}
               </h1>
               <Button className="bg-orange-500 text-white font-semibold tracking-widest">
@@ -122,7 +118,7 @@ const ProductoDetail = () => {
                     onClick={() => handleChangeOpen(index)}
                     className="hover:cursor-pointer rounded-md shadow-md overflow-hidden"
                   >
-                    <img src={imagen} />
+                    <img src={imagen} alt={`Imagen ${index + 1}`} />
                   </div>
                 ))}
               </div>
@@ -130,6 +126,20 @@ const ProductoDetail = () => {
             <div>
               <h4 className="font-semibold">Documentación</h4>
               <Divider />
+              <ProductosDocs
+                reloadFiles={reloadFiles}
+                body={body}
+                token={user.token}
+              />
+              {/* {loadingFiles ? (
+                <Loading />
+              ) : (
+                <div>
+                  {files.map((file, index) => (
+                    <div key={index}>{file.name}</div>
+                  ))}
+                </div>
+              )} */}
             </div>
           </div>
         </div>
