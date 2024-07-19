@@ -47,7 +47,7 @@ const ProductoCreate = () => {
   };
 
   const handleFileChange = (e) => {
-    setFile(Array.from(e.target.files));
+    setFile(e.target.files);
   };
 
   const handleSubmit = (e) => {
@@ -223,7 +223,6 @@ const ProductoCreate = () => {
             <Divider />
 
             <InputFileUploader multiple handleFileChange={handleFileChange} />
-            {JSON.stringify(file)}
             {file && file.length > 0 && (
               <div className="w-100 border-1">
                 {file.map((file, index) => (
