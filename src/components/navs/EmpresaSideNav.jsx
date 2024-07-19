@@ -186,10 +186,7 @@ const EmpresaSideNav = ({ user }) => {
           <div className="flex justify-center items-center mt-8 m-4 ">
             <img src={LogoVemdo} className="h-[40px]" />
           </div>
-          {/* <div className="mt-5 text-md text-white">
-        <p>Menu</p>
-        <hr />
-      </div> */}
+
           <Menu className="m-4" menuItemStyles={config}>
             {activeMenuItem &&
               activeMenuItem.map((c) => {
