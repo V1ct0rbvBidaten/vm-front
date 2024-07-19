@@ -6,6 +6,7 @@ import Loading from "../../../components/utils/Loading";
 import { useRef, useState } from "react";
 import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
 import ModalImageSlider from "../../../components/utils/ModalImageSlider";
+import useFiles from "../../../hooks/useFiles";
 
 const ProductoDetail = () => {
   let idIndex = useRef(0);
@@ -35,6 +36,7 @@ const ProductoDetail = () => {
     reload
   );
 
+
   if (loading)
     return (
       <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
@@ -62,6 +64,9 @@ const ProductoDetail = () => {
     estado_producto,
     imagenes,
   } = data.detail.data;
+
+  
+  const {data: files , loading: loadingFiles} = useFiles(user.token, {id_empresa:}, reload);
 
   return (
     <>
