@@ -99,7 +99,7 @@ const EmpresaSideNav = ({ user }) => {
       width="230px"
     >
       {isCollapsed ? (
-        <div className="m-4 flex flex-col h-full">
+        <div className="p-4 flex flex-col h-full">
           <div className="flex flex-col items-center justify-center">
             <img src={IconoVemdo} className="h-[40px]" />
           </div>
