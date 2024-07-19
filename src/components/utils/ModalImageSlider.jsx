@@ -1,4 +1,9 @@
 import {
+  ChevronDoubleLeftIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/24/solid";
+import {
   Button,
   Modal,
   ModalContent,
@@ -8,30 +13,25 @@ import {
   Divider,
 } from "@nextui-org/react";
 
-const ModalImageSlider = ({ open, handleOpen }) => {
+const ModalImageSlider = ({ open, handleOpen, images, index }) => {
   return (
-    <Modal isOpen={open} onOpenChange={handleOpen}>
+    <Modal isOpen={open} onOpenChange={handleOpen} size="xl">
       <ModalContent>
         {(onClose) => (
           <>
-            <ModalHeader className="flex flex-col gap-1">
-              Modal Title
-            </ModalHeader>
-            <ModalBody>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                pulvinar risus non risus hendrerit venenatis. Pellentesque sit
-                amet hendrerit risus, sed porttitor quam.
-              </p>
+            <ModalBody className="mt-8">
+              {images
+                .filter((_, i) => i === index)
+                .map((image, index) => (
+                  <div key={index} className="image-preview">
+                    <img
+                      src={image}
+                      alt={`Uploaded Image ${index + 1}`}
+                      className="w-full"
+                    />
+                  </div>
+                ))}
             </ModalBody>
-            <ModalFooter>
-              <Button color="danger" variant="light" onPress={onClose}>
-                Close
-              </Button>
-              <Button color="primary" onPress={onClose}>
-                Action
-              </Button>
-            </ModalFooter>
           </>
         )}
       </ModalContent>

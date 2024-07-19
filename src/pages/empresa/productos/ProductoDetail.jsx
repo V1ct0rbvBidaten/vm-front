@@ -20,8 +20,11 @@ const ProductoDetail = () => {
 
   const handleChangeOpen = (index) => {
     setOpen(!open);
-    idIndex.current = index;
-    console.log(idIndex.current);
+    if (open) {
+      idIndex.current = 0;
+    } else {
+      idIndex.current = index;
+    }
   };
 
   const url = `product/${id}`;
@@ -103,24 +106,24 @@ const ProductoDetail = () => {
               </Button>
             </div>
           </div>
-          <div className="col-span-2 w-full grid grid-cols-3 gap-2">
+          <div className="col-span-3 w-full grid grid-cols-3 gap-2">
             <div className="col-span-2">
-              <h4>Galería</h4>
+              <h4 className="font-semibold">Galería</h4>
               <Divider />
               <div className="w-full grid-cols-5 grid gap-2 p-2">
                 {imagenes[0].map((imagen, index) => (
                   <div
                     key={index}
                     onClick={() => handleChangeOpen(index)}
-                    className="hover:cursor-pointer"
+                    className="hover:cursor-pointer rounded-md shadow-md overflow-hidden"
                   >
                     <img src={imagen} />
                   </div>
                 ))}
               </div>
             </div>
-            <div className="col-span-2">
-              <h4>Documentación</h4>
+            <div>
+              <h4 className="font-semibold">Documentación</h4>
               <Divider />
             </div>
           </div>
