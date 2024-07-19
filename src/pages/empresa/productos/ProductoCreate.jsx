@@ -40,14 +40,14 @@ const ProductoCreate = () => {
   const [image, setImage] = useState(null);
   const [galeria, setGaleria] = useState([]);
   const [values, setValues] = useState(initialState);
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState([]);
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
   const handleFileChange = (e) => {
-    setFile(e.target.files);
+    setFile([...e.target.files]);
   };
 
   const handleSubmit = (e) => {

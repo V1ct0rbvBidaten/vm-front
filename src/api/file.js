@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const uploadFile = async (token, params, file) => {
+export const uploadFile = async (token, params, files) => {
   // Filtrar los parámetros para excluir valores nulos o indefinidos
   const filteredParams = Object.entries(params).reduce((acc, [key, value]) => {
     if (value != null) {
@@ -13,8 +13,10 @@ export const uploadFile = async (token, params, file) => {
   // Crear un objeto FormData
   const formData = new FormData();
 
-  // Agregar el archivo a formData
-  formData.append("files", file);
+  // Agregar cada archivo del array files a formData
+  files.forEach((file, index) => {
+    formData.append(`files`, file);
+  });
 
   // Agregar los otros parámetros a formData
   Object.keys(filteredParams).forEach((key) => {
