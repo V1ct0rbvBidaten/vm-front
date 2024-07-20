@@ -7,16 +7,11 @@ import {
   PlusIcon,
 } from "@heroicons/react/24/solid";
 import {
-  Card,
-  Image,
-  CardFooter,
   Button,
-  CardHeader,
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  CardBody,
   Input,
   Pagination,
   Divider,

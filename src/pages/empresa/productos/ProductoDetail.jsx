@@ -124,7 +124,16 @@ const ProductoDetail = () => {
               </div>
             </div>
             <div>
-              <h4 className="font-semibold">Documentación</h4>
+              <h4 className="font-semibold">Documentación Venta</h4>
+              <Divider />
+              <ProductosDocs
+                reloadFiles={reloadFiles}
+                body={body}
+                token={user.token}
+              />
+              <h4 className="font-semibold mt-10">
+                Documentación Capacitación
+              </h4>
               <Divider />
               <ProductosDocs
                 reloadFiles={reloadFiles}

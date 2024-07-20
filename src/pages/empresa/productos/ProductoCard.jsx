@@ -22,7 +22,7 @@ const ProductoCard = ({ data }) => {
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
         <h4 className="font-bold text-xs">{nombre_producto}</h4>
       </CardHeader>
-      <CardBody className="overflow-visible py-2 h-[150px]">
+      <CardBody className="overflow-visible py-2 h-[200px]">
         <div className="image-container ">
           <img
             className="hover:cursor-pointer hover:opacity-80 transition duration-300"

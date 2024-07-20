@@ -1,23 +1,26 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Button } from "@nextui-org/react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const EmpresaCard = ({ data }) => {
+  const navigate = useNavigate();
+
+  const { id_empresa } = data;
+
   return (
-    <Card>
+    <Card
+      isPressable
+      onClick={() => navigate(`/vendedor/explorar/empresa/${id_empresa}`)}
+      className="hover:cursor-pointer"
+    >
       <CardHeader>
-        <p className="text-lg font-semibold">{data.name}</p>
+        <p className="text-lg font-semibold m-auto">Nombre Empresa</p>
       </CardHeader>
       <CardBody>
         <div className="flex flex-col items-center justify-center">
-          <img
-            src={data.logo}
-            alt={data.name}
-            className="w-20 h-20 rounded-full"
-          />
-          <p className="text-lg font-semibold text-center">{data.name}</p>
-          <p className="text-sm text-gray-500 text-center">
-            {data.description}
-          </p>
+          <Button className="w-full h-6 text-sm bg-emerald-500 text-white">
+            X Productos
+          </Button>
         </div>
       </CardBody>
     </Card>

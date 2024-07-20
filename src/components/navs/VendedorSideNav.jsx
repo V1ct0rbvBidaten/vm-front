@@ -1,30 +1,21 @@
 import { Sidebar, Menu, SubMenu, MenuItem } from "react-pro-sidebar";
-import { Button, User } from "@nextui-org/react";
+import { User } from "@nextui-org/react";
 import {
-  ChartPieIcon,
-  NewspaperIcon,
-  AdjustmentsHorizontalIcon,
-  UsersIcon,
-  CalendarDaysIcon,
-  ArrowLeftEndOnRectangleIcon,
   UserCircleIcon,
-  CalendarIcon,
-  CheckBadgeIcon,
-  LinkIcon,
   InformationCircleIcon,
-  ShoppingBagIcon,
   CreditCardIcon,
-  EnvelopeIcon,
   BriefcaseIcon,
-  MagnifyingGlassCircleIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
-import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { version } from "../../utils/constants";
+import LogoVemdo from "../../assets/logoVemdoBlanco.png";
+import IconoVemdo from "../../assets/iconoVemdoBlanco.png";
 
 const VendedorSideNav = ({ user }) => {
   let navigate = useNavigate();
+
   const dispatch = useDispatch();
   const isCollapsed = useSelector((state) => state.collapse.isCollapsed);
 
@@ -66,14 +57,14 @@ const VendedorSideNav = ({ user }) => {
   const config = {
     icon: ({ active }) => {
       return {
-        color: active ? "#231f62" : "#ffff",
+        color: active ? "#28B6C6" : "#ffff",
         transition: "all .3s ease",
       };
     },
     button: ({ level, active }) => {
       if (level === 0)
         return {
-          color: active ? "#231f62" : "white",
+          color: active ? "#28B6C6" : "white",
           backgroundColor: active ? "#fff" : undefined,
           borderRadius: "20px",
           margin: "5px 0px 0px 0px",
@@ -82,7 +73,7 @@ const VendedorSideNav = ({ user }) => {
           padding: "10px",
           transition: "all .3s ease",
           "&:hover": {
-            backgroundColor: "#231f62",
+            backgroundColor: "#05d9b2",
             color: "#fff !important",
           },
         };
@@ -103,22 +94,22 @@ const VendedorSideNav = ({ user }) => {
 
   return (
     <Sidebar
-      className="flex flex-col h-full overflow-y-hidden"
+      className="flex flex-col h-screen fixed overflow-y-hidden"
       collapsedWidth="90px"
       collapsed={isCollapsed}
       rootStyles={{
         background:
-          "linear-gradient(0deg, rgba(35,31,98,1) 0%, rgba(40,45,134,1) 38%, rgba(34,78,150,1) 80%)",
+          "linear-gradient(0deg, rgba(21,10,48,1) 0%, rgba(44,2,97,1) 100%)",
       }}
       width="230px"
     >
       {isCollapsed ? (
-        <div className=" flex flex-col h-full">
-          <div className="flex flex-col items-center justify-center m-2">
-            <h1 className="font-bold text-white">V</h1>
+        <div className="p-4 flex flex-col h-full">
+          <div className="flex flex-col items-center justify-center">
+            <img src={IconoVemdo} className="h-[40px]" />
           </div>
 
-          <Menu className="m-4" menuItemStyles={config}>
+          <Menu className="mt-5" menuItemStyles={config}>
             {activeMenuItem &&
               activeMenuItem.map((c) => {
                 if (c.type === "Menu") {
@@ -197,11 +188,10 @@ const VendedorSideNav = ({ user }) => {
         </div>
       ) : (
         <div className=" flex flex-col h-full">
-          <div className="flex justify-center items-center mt-8 m-4">
-            <h1 className="font-bold text-inherit text-3xl text-white">
-              VeMdo
-            </h1>
+          <div className="flex justify-center items-center mt-8 m-4 ">
+            <img src={LogoVemdo} className="h-[40px]" />
           </div>
+
           <Menu className="m-4" menuItemStyles={config}>
             {activeMenuItem &&
               activeMenuItem.map((c) => {

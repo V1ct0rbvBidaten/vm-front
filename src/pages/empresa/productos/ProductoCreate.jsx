@@ -219,9 +219,26 @@ const ProductoCreate = () => {
             </div>
           </div>
           <div className="flex gap-2 flex-col">
-            <h2 className="mt-4 font-semibold">Documentación</h2>
+            <h2 className="mt-4 font-semibold">Documentación Venta</h2>
             <Divider />
 
+            <InputFileUploader multiple handleFileChange={handleFileChange} />
+            {file && file.length > 0 && (
+              <div className="w-100 border-1">
+                {file.map((file, index) => (
+                  <div
+                    className="w-100 bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between"
+                    key={index}
+                  >
+                    <span className="text-xs">{file.name}</span>
+
+                    <span className="text-xs">{getSize(file.size)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+            <h4 className="font-semibold mt-12">Documentación Capacitación</h4>
+            <Divider />
             <InputFileUploader multiple handleFileChange={handleFileChange} />
             {file && file.length > 0 && (
               <div className="w-100 border-1">
