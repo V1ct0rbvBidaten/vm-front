@@ -20,8 +20,8 @@ import useProductos from "../../../hooks/useProductos";
 import Loading from "../../../components/utils/Loading";
 
 const initialState = {
-  // page: 1,
-  // page_size: 10,
+  page: 1,
+  page_size: 10,
   id_empresa: "",
 };
 
