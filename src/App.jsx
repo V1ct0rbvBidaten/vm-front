@@ -27,13 +27,15 @@ import CuentaCreate from "./pages/empresa/cuenta/CuentaCreate";
 import CuentaEdit from "./pages/empresa/cuenta/CuentaEdit";
 import RegisterComplete from "./pages/auth/registro/RegisterComplete";
 import EmpresaDetail from "./pages/vendedor/explorar/EmpresaDetail";
-import ProductoDetail from "./pages/vendedor/explorar/Producto/ProductoDetail";
+import ProductoDetail from "./pages/vendedor/explorar/Producto/ProductoDetailVendedor";
 import ProductoDetailEmpresa from "./pages/empresa/productos/ProductoDetail";
 import VentaDetail from "./pages/vendedor/ventas/VentaDetail";
 import ProductoEmpresa from "./pages/vendedor/productos/ProductoEmpresa";
 import ProductoMaletinDetail from "./pages/vendedor/productos/ProductoMaletinDetail";
 import CreateProfile from "./pages/vendedor/cuenta/CreateProfile";
 import ProductoCreate from "./pages/empresa/productos/ProductoCreate";
+import ProductoCardVendedor from "./pages/vendedor/explorar/Producto/ProductoCardVendedor";
+import ProductoDetailVendedor from "./pages/vendedor/explorar/Producto/ProductoDetailVendedor";
 
 const App = () => {
   useCheckUser();
@@ -93,6 +95,13 @@ const App = () => {
             path="/vendedor/explorar/empresa/:id"
             element={<VendedorRoute Component={EmpresaDetail} />}
           />
+
+          <Route
+            exact
+            path="/vendedor/explorar/empresa/:id/producto/:idProducto"
+            element={<VendedorRoute Component={ProductoDetailVendedor} />}
+          />
+
           <Route
             exact
             path="/vendedor/ventas"

@@ -13,8 +13,10 @@ import {
   Divider,
   Input,
   useSelect,
+  Pagination,
 } from "@nextui-org/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import ProductoCardVendedor from "./Producto/ProductoCardVendedor";
 import { useNavigate, useParams } from "react-router-dom";
 import useProductos from "../../../hooks/useProductos";
 import Loading from "../../../components/utils/Loading";
@@ -36,9 +38,15 @@ const EmpresaDetail = () => {
 
   const { data, loading } = useProductos(user.token, params, reload);
 
+  const noData = {
+    nombre_producto: "No hay productos",
+    precio: "0000",
+    descripcion: "No hay productos",
+  };
+
   if (loading)
     return (
-      <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
+      <div className="w-full bg-white rounded-md shadow-md mb-5 p-4 flex flex-col gap-2">
         <div className="flex justify-between">
           <h1 className="text-2xl font-semibold">Nombre Empresa</h1>
           <Button
@@ -59,6 +67,13 @@ const EmpresaDetail = () => {
         <Loading />
       </div>
     );
+
+  let productos =
+    data &&
+    data.detail.data.products !== null &&
+    data.detail.data.products.length > 0
+      ? data.detail.data.products
+      : [];
 
   return (
     <>
@@ -121,7 +136,27 @@ const EmpresaDetail = () => {
             </DropdownMenu>
           </Dropdown>
         </div>
-        <div>productos</div>
+        {productos && productos.length > 0 ? (
+          <>
+            <div className="grid grid-cols-6 gap-4 p-4 w-full">
+              {productos.map((c) => (
+                <ProductoCardVendedor key={c.id_producto} data={c} />
+              ))}
+            </div>
+            <Pagination
+              total={10}
+              initialPage={1}
+              loop
+              showControls
+              color="secondary"
+              className="m-4"
+            />
+          </>
+        ) : (
+          <div className="grid grid-cols-6 gap-4 p-4 w-full">
+            <ProductoCardVendedor data={noData} />
+          </div>
+        )}
       </div>
     </>
   );

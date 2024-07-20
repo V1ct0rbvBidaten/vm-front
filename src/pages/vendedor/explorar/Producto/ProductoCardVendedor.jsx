@@ -7,17 +7,21 @@ import {
   Button,
 } from "@nextui-org/react";
 import NoImage from "../../../../assets/no-image.jpg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const ProductoCard = ({ data }) => {
+const ProductoCardVendedor = ({ data }) => {
   const navigate = useNavigate();
+
+  const { id } = useParams();
   const { nombre_producto, precio, imagen_principal, id_producto } = data;
 
   return (
     <Card
       className="py-4"
       isPressable
-      onClick={() => navigate(`/empresa/home/producto/${data.id_producto}`)}
+      onClick={() =>
+        navigate(`/vendedor/explorar/empresa/${id}/producto/${id_producto}`)
+      }
     >
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
         <h4 className="font-bold text-xs">{nombre_producto}</h4>
@@ -41,4 +45,4 @@ const ProductoCard = ({ data }) => {
   );
 };
 
-export default ProductoCard;
+export default ProductoCardVendedor;

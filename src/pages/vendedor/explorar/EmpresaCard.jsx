@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const EmpresaCard = ({ data }) => {
   const navigate = useNavigate();
 
-  const { id_empresa } = data;
+  const { id_empresa, nombre_razon_social } = data;
 
   return (
     <Card
@@ -14,7 +14,9 @@ const EmpresaCard = ({ data }) => {
       className="hover:cursor-pointer"
     >
       <CardHeader>
-        <p className="text-lg font-semibold m-auto">Nombre Empresa</p>
+        <p className="text-lg font-semibold m-auto capitalize">
+          {nombre_razon_social}
+        </p>
       </CardHeader>
       <CardBody>
         <div className="flex flex-col items-center justify-center">
