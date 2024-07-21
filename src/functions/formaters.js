@@ -20,6 +20,28 @@ export function formatChileanPhoneNumber(input) {
   return `+56 9 ${numerosTelefono}`;
 }
 
+export const formatNumberToCurrency = (num) => {
+  // Ensure the input is a number
+  if (typeof num !== "number") {
+    throw new TypeError("Input must be a number");
+  }
+
+  // Convert the number to a string and split it into integer and fractional parts
+  let [integer, fraction] = num.toFixed(0).split(".");
+
+  // Reverse the integer part for easy manipulation
+  let reversed = integer.split("").reverse().join("");
+
+  // Insert dots every three digits
+  let withDots = reversed.match(/.{1,3}/g).join(".");
+
+  // Reverse it back to get the final formatted string
+  let formatted = withDots.split("").reverse().join("");
+
+  // Add dollar sign
+  return "$" + formatted;
+};
+
 export const formatRut = (rut) => {
   const rutLimpio = rut.replace(/[^0-9kK]/g, "");
   const cuerpo = rutLimpio.slice(0, -1);

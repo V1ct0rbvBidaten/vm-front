@@ -21,21 +21,15 @@ import ExplorarHome from "./pages/vendedor/explorar/ExplorarHome";
 import VendedorRoute from "./components/routes/VendedorRoute";
 import VentasHomeVendedor from "./pages/vendedor/ventas/VentasHome";
 import CuentaHomeVendedor from "./pages/vendedor/cuenta/CuentaHome";
-import ProductosHome from "./pages/vendedor/productos/ProductosHome";
 import Balance from "./pages/vendedor/balance/BalanceHome";
-import CuentaCreate from "./pages/empresa/cuenta/CuentaCreate";
 import CuentaEdit from "./pages/empresa/cuenta/CuentaEdit";
 import RegisterComplete from "./pages/auth/registro/RegisterComplete";
 import EmpresaDetail from "./pages/vendedor/explorar/EmpresaDetail";
-import ProductoDetail from "./pages/vendedor/explorar/Producto/ProductoDetailVendedor";
 import ProductoDetailEmpresa from "./pages/empresa/productos/ProductoDetail";
 import VentaDetail from "./pages/vendedor/ventas/VentaDetail";
-import ProductoEmpresa from "./pages/vendedor/productos/ProductoEmpresa";
-import ProductoMaletinDetail from "./pages/vendedor/productos/ProductoMaletinDetail";
-import CreateProfile from "./pages/vendedor/cuenta/CreateProfile";
 import ProductoCreate from "./pages/empresa/productos/ProductoCreate";
-import ProductoCardVendedor from "./pages/vendedor/explorar/Producto/ProductoCardVendedor";
 import ProductoDetailVendedor from "./pages/vendedor/explorar/Producto/ProductoDetailVendedor";
+import MaletinHome from "./pages/vendedor/maletin/MaletinHome";
 
 const App = () => {
   useCheckUser();
@@ -115,17 +109,7 @@ const App = () => {
           <Route
             exact
             path="/vendedor/productos"
-            element={<VendedorRoute Component={ProductosHome} />}
-          />
-          <Route
-            exact
-            path="/vendedor/productos/empresa/:idEmpresa"
-            element={<VendedorRoute Component={ProductoEmpresa} />}
-          />
-          <Route
-            exact
-            path="/vendedor/productos/empresa/:idEmpresa/producto/:idProducto"
-            element={<VendedorRoute Component={ProductoMaletinDetail} />}
+            element={<VendedorRoute Component={MaletinHome} />}
           />
           <Route
             exact

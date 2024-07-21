@@ -4,8 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import useFetchById from "../../../../hooks/useFetch";
 import Loading from "../../../../components/utils/Loading";
 import { useRef, useState } from "react";
-import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
+import { ChevronDoubleLeftIcon, FolderIcon } from "@heroicons/react/24/solid";
 import ModalImageSlider from "../../../../components/utils/ModalImageSlider";
+import { formatNumberToCurrency } from "../../../../functions/formaters";
 
 const ProductoDetailVendedor = () => {
   const idIndex = useRef(0);
@@ -80,6 +81,12 @@ const ProductoDetailVendedor = () => {
           >
             Volver
           </Button>
+          <Button
+            className="bg-amber-700 text-white h-7"
+            endContent={<FolderIcon className="h-4" />}
+          >
+            Agregar a mi Maletín
+          </Button>
         </div>
         <Divider />
         <div className="grid grid-cols-3 gap-4 w-full p-2">
@@ -99,10 +106,10 @@ const ProductoDetailVendedor = () => {
             </div>
             <div className="h-[10%] flex justify-between">
               <h1 className="text-2xl font-semibold text-teal-500">
-                ${precio}
+                {formatNumberToCurrency(precio)}
               </h1>
-              <Button className="bg-orange-500 text-white font-semibold tracking-widest">
-                Comisión: {comision}%
+              <Button className="bg-emerald-400 text-white font-semibold tracking-widest">
+                Comisión por venda de {formatNumberToCurrency(comision)}
               </Button>
             </div>
           </div>
