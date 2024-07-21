@@ -114,29 +114,24 @@ const ProductoDetailVendedor = () => {
             </div>
           </div>
           <div className="col-span-3 w-full grid grid-cols-3 gap-2">
-            <div className="col-span-2">
+            <div className="col-span-3">
               <h4 className="font-semibold">Galería</h4>
               <Divider />
-              <div className="w-full grid-cols-5 grid gap-2 p-2">
+              <div className="w-full grid-cols-10 grid gap-2 p-2">
                 {imagenes[0].map((imagen, index) => (
                   <div
                     key={index}
                     onClick={() => handleChangeOpen(index)}
-                    className="hover:cursor-pointer rounded-md shadow-md overflow-hidden"
+                    className="hover:cursor-pointer rounded-md shadow-md overflow-hidden h-[150px]"
                   >
-                    <img src={imagen} alt={`Imagen ${index + 1}`} />
+                    <img
+                      src={imagen}
+                      alt={`Imagen ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 ))}
               </div>
-            </div>
-            <div>
-              <h4 className="font-semibold">Documentación Venta</h4>
-              <Divider />
-
-              <h4 className="font-semibold mt-10">
-                Documentación Capacitación
-              </h4>
-              <Divider />
             </div>
           </div>
         </div>

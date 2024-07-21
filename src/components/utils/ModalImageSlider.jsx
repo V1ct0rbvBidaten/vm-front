@@ -19,15 +19,18 @@ const ModalImageSlider = ({ open, handleOpen, images, index }) => {
       <ModalContent>
         {(onClose) => (
           <>
-            <ModalBody className="mt-8">
+            <ModalBody className="mt-8 ">
               {images
                 .filter((_, i) => i === index)
                 .map((image, index) => (
-                  <div key={index} className="image-preview">
+                  <div
+                    key={index}
+                    className="  overflow-hidden h-[500px] flex justify-center items-center"
+                  >
                     <img
                       src={image}
                       alt={`Uploaded Image ${index + 1}`}
-                      className="w-full"
+                      className=" h-full object-cover"
                     />
                   </div>
                 ))}
