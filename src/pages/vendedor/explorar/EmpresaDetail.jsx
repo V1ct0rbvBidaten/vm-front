@@ -50,9 +50,10 @@ const EmpresaDetail = () => {
         <div className="flex justify-between">
           <h1 className="text-2xl font-semibold">Nombre Empresa</h1>
           <Button
-            className="bg-emerald-500  text-white h-6"
+            className="bg-emerald-500 text-white h-6"
             onClick={() => navigate("/vendedor/explorar")}
             startContent={<ChevronDoubleLeftIcon className="h-4" />}
+            aria-label="Volver"
           >
             Volver
           </Button>
@@ -81,9 +82,10 @@ const EmpresaDetail = () => {
         <div className="flex justify-between">
           <h1 className="text-2xl font-semibold">Nombre Empresa</h1>
           <Button
-            className="bg-emerald-500  text-white h-6"
+            className="bg-emerald-500 text-white h-6"
             onClick={() => navigate("/vendedor/explorar")}
             startContent={<ChevronDoubleLeftIcon className="h-4" />}
+            aria-label="Volver"
           >
             Volver
           </Button>
@@ -95,26 +97,28 @@ const EmpresaDetail = () => {
           aliquip ex ea commodo consequat.
         </p>
         <Divider />
-        <div className="w-full flex gap-4  mb-2 p-4">
-          <FunnelIcon className="h-6 text-slate-700" />
+        <div className="w-full flex gap-4 mb-2 p-4">
+          <FunnelIcon className="h-6 text-slate-700" aria-label="Filter" />
           <Input
             size="sm"
             radius="full"
-            className="h-6 w-[300px] "
+            className="h-6 w-[300px]"
             placeholder="Ingrese nombre de producto"
             variant="bordered"
             startContent={<MagnifyingGlassIcon className="h-4" />}
+            aria-label="Buscar producto"
           />
           <Dropdown>
             <DropdownTrigger>
               <Button
                 className="h-7 bg-slate-100 shadow-md"
                 startContent={<EllipsisVerticalIcon className="h-4" />}
+                aria-label="Abrir menú de categorías"
               >
                 Categoria
               </Button>
             </DropdownTrigger>
-            <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
+            <DropdownMenu variant="faded" aria-label="Menú de categorías">
               <DropdownItem key="new" shortcut="⌘N">
                 New file
               </DropdownItem>
@@ -125,11 +129,12 @@ const EmpresaDetail = () => {
               <Button
                 className="h-7 bg-slate-100 shadow-md"
                 startContent={<EllipsisVerticalIcon className="h-4" />}
+                aria-label="Abrir menú de estado"
               >
                 Estado
               </Button>
             </DropdownTrigger>
-            <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
+            <DropdownMenu variant="faded" aria-label="Menú de estado">
               <DropdownItem key="new" shortcut="⌘N">
                 New file
               </DropdownItem>
@@ -150,6 +155,7 @@ const EmpresaDetail = () => {
               showControls
               color="secondary"
               className="m-4"
+              aria-label="Paginación"
             />
           </>
         ) : (

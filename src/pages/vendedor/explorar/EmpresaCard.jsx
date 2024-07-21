@@ -12,6 +12,7 @@ const EmpresaCard = ({ data }) => {
       isPressable
       onClick={() => navigate(`/vendedor/explorar/empresa/${id_empresa}`)}
       className="hover:cursor-pointer"
+      aria-label={`Ver detalles de la empresa ${nombre_razon_social}`}
     >
       <CardHeader>
         <p className="text-lg font-semibold m-auto capitalize">
@@ -19,10 +20,11 @@ const EmpresaCard = ({ data }) => {
         </p>
       </CardHeader>
       <CardBody>
-        <div className="flex flex-col items-center justify-center">
-          <Button className="w-full h-6 text-sm bg-emerald-500 text-white">
+        <div className="flex flex-col w-100">
+          <div className="h-[100px] bg-slate-100 rounded-md "></div>
+          <span className="mt-2 font-semibold w-full  text-center">
             {product_count} Productos
-          </Button>
+          </span>
         </div>
       </CardBody>
     </Card>

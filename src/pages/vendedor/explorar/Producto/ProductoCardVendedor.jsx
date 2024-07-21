@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Image,
-  CardFooter,
-  Button,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import NoImage from "../../../../assets/no-image.jpg";
 import { useNavigate, useParams } from "react-router-dom";
 
