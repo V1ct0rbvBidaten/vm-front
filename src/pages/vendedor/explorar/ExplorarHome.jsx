@@ -113,7 +113,7 @@ const ExplorarHome = () => {
           </DropdownMenu>
         </Dropdown>
       </div>
-      <div className="p-4 grid grid-cols-8 w-full gap-2">
+      <div className="p-4 grid grid-cols-6 w-full gap-2">
         {profiles
           .filter((d) => d.es_empresa)
           .map((profile) => (

@@ -3,23 +3,26 @@ import useProductos from "../../hooks/useProductos";
 import ProductosHome from "./productos/ProductosHome";
 import Loading from "../../components/utils/Loading";
 
-const initialDinamicState = {
+const initialState = {
   page: 1,
-  page_size: 30,
+  page_size: 10,
+  sds: 23,
+  id_empresa: "",
 };
 
 const EmpresaHome = ({ user }) => {
-  const [dynamicState, setDynamicState] = useState(initialDinamicState);
+  const idEmpresa = user.id_empresa;
+
+  const [params, setParams] = useState({
+    ...initialState,
+    id_empresa: idEmpresa,
+  });
   const [reload, setReload] = useState(false);
 
-  const { data: data, loading } = useProductos(
-    user.token,
-    dynamicState,
-    reload
-  );
+  const { data: data, loading } = useProductos(user.token, params, reload);
 
-  const handleDynamicStateChange = (e) => {
-    setDynamicState({ ...dynamicState, [e.target.name]: e.target.value });
+  const handleParamsChange = (e) => {
+    setParams({ ...params, [e.target.name]: e.target.value });
   };
 
   const resetState = () => {
@@ -39,7 +42,9 @@ const EmpresaHome = ({ user }) => {
       {loading ? (
         <>Loading...</>
       ) : (
-        <ProductosHome data={data} resetState={resetState} user={user} />
+        <>
+          <ProductosHome data={data} resetState={resetState} user={user} />
+        </>
       )}
     </>
   );

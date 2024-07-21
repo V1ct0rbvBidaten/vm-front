@@ -31,8 +31,6 @@ export const getProductos = async (token, body) => {
 
   const queryString = queryParams.toString();
 
-  console.log(queryString);
-
   return await axios.get(
     `${import.meta.env.VITE_API_URL}/products?${queryString}`,
     {

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const EmpresaCard = ({ data }) => {
   const navigate = useNavigate();
 
-  const { id_empresa, nombre_razon_social } = data;
+  const { id_empresa, nombre_razon_social, product_count } = data;
 
   return (
     <Card
@@ -21,7 +21,7 @@ const EmpresaCard = ({ data }) => {
       <CardBody>
         <div className="flex flex-col items-center justify-center">
           <Button className="w-full h-6 text-sm bg-emerald-500 text-white">
-            X Productos
+            {product_count} Productos
           </Button>
         </div>
       </CardBody>
