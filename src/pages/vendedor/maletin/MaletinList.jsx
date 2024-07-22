@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useMaletines from "../../../hooks/useMaletines";
 import Loading from "../../../components/utils/Loading";
 import { Card, CardBody, Divider } from "@nextui-org/react";
@@ -11,10 +11,12 @@ const initialState = {
   page_size: 10,
 };
 
-const MaletinHome = () => {
+const MaletinList = () => {
   let navigate = useNavigate();
 
   const user = useSelector((state) => state.user);
+
+  const { idMaletin } = useParams();
 
   const { data, loading } = useMaletines(user.token, initialState);
 
@@ -76,4 +78,4 @@ const MaletinHome = () => {
   );
 };
 
-export default MaletinHome;
+export default MaletinList;

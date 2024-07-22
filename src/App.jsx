@@ -30,6 +30,7 @@ import VentaDetail from "./pages/vendedor/ventas/VentaDetail";
 import ProductoCreate from "./pages/empresa/productos/ProductoCreate";
 import ProductoDetailVendedor from "./pages/vendedor/explorar/Producto/ProductoDetailVendedor";
 import MaletinHome from "./pages/vendedor/maletin/MaletinHome";
+import MaletinList from "./pages/vendedor/maletin/MaletinList";
 
 const App = () => {
   useCheckUser();
@@ -110,6 +111,12 @@ const App = () => {
             exact
             path="/vendedor/productos"
             element={<VendedorRoute Component={MaletinHome} />}
+          />
+
+          <Route
+            exact
+            path="/vendedor/productos/:idMaletin"
+            element={<VendedorRoute Component={MaletinList} />}
           />
           <Route
             exact
