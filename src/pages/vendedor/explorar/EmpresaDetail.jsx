@@ -23,7 +23,7 @@ import Loading from "../../../components/utils/Loading";
 
 const initialState = {
   page: 1,
-  page_size: 10,
+  page_size: 36,
   id_empresa: "",
 };
 
