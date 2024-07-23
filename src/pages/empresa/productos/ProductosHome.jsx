@@ -1,6 +1,5 @@
 import ProductoCard from "./ProductoCard";
 import {
-  ArrowDownIcon,
   EllipsisVerticalIcon,
   FunnelIcon,
   MagnifyingGlassIcon,
@@ -15,10 +14,19 @@ import {
   Input,
   Pagination,
   Divider,
+  Select,
+  SelectItem,
 } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 
-const ProductosHome = ({ data, resetState, user }) => {
+const ProductosHome = ({
+  data,
+  resetState,
+  user,
+  handleParamsChange,
+  params,
+  setParams,
+}) => {
   let navigate = useNavigate();
 
   let productos =
@@ -33,6 +41,12 @@ const ProductosHome = ({ data, resetState, user }) => {
     precio: "0000",
     descripcion: "No hay productos",
   };
+
+  const { page, page_size } = params;
+
+  const totalItems = data.detail.data.total;
+
+  const pages = Math.ceil(totalItems / page_size);
 
   return (
     <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
@@ -87,22 +101,43 @@ const ProductosHome = ({ data, resetState, user }) => {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
+        <label className="flex items-center text-default-400 text-small">
+          Filas por pagina:
+          <select
+            className="bg-transparent outline-none text-default-400 text-small"
+            value={page_size}
+            name="page_size"
+            onChange={handleParamsChange}
+          >
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+          </select>
+        </label>
       </div>
       {productos && productos.length > 0 ? (
         <>
-          <div className="grid grid-cols-6 gap-4 p-4 w-full">
+          <div className="grid grid-cols-5 gap-4 p-4 w-full">
             {productos.map((c) => (
               <ProductoCard key={c.id_producto} data={c} />
             ))}
           </div>
-          <Pagination
-            total={10}
-            initialPage={1}
-            loop
-            showControls
-            color="secondary"
-            className="m-4"
-          />
+          <div className="w-full bg-stone-100 pr-10 pl-10 flex justify-between items-center">
+            <Pagination
+              total={pages}
+              initialPage={page}
+              loop
+              showControls
+              color="secondary"
+              className="m-4"
+              name={page}
+              onChange={(page) => setParams({ ...params, page: Number(page) })}
+            />
+            <span className="text-default-400 text-small">
+              Total {totalItems} registros
+            </span>
+          </div>
         </>
       ) : (
         <div className="grid grid-cols-6 gap-4 p-4 w-full">

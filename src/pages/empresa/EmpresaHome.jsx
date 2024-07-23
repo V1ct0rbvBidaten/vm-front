@@ -6,7 +6,6 @@ import Loading from "../../components/utils/Loading";
 const initialState = {
   page: 1,
   page_size: 10,
-  sds: 23,
   id_empresa: "",
 };
 
@@ -43,7 +42,14 @@ const EmpresaHome = ({ user }) => {
         <>Loading...</>
       ) : (
         <>
-          <ProductosHome data={data} resetState={resetState} user={user} />
+          <ProductosHome
+            data={data}
+            resetState={resetState}
+            user={user}
+            handleParamsChange={handleParamsChange}
+            params={params}
+            setParams={setParams}
+          />
         </>
       )}
     </>
