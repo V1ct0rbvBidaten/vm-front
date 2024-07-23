@@ -66,52 +66,33 @@ const ExplorarHome = () => {
       ? data.detail.data.profiles
       : [];
 
+  const { page, page_size } = dynamicState;
+
+  const totalItems = data.detail.data.total;
+
+  const pages = Math.ceil(totalItems / page_size);
+
   return (
     <div className="flex flex-col m-0 justify-center items-center bg-white rounded-md shadow-md">
       <div className="w-full  mb-2 p-4 flex justify-between">
         <h1 className="text-2xl font-semibold">Explorar </h1>
       </div>
       <Divider />
-      <div className="w-full flex gap-4  mb-2 p-4">
-        <FunnelIcon className="h-6 text-slate-700" />
-        <Input
-          size="sm"
-          radius="full"
-          className="h-6 w-[300px] "
-          placeholder="Ingrese nombre de producto"
-          variant="bordered"
-          startContent={<MagnifyingGlassIcon className="h-4" />}
-        />
-        <Dropdown>
-          <DropdownTrigger>
-            <Button
-              className="h-7 bg-slate-100 shadow-md"
-              startContent={<EllipsisVerticalIcon className="h-4" />}
-            >
-              Categoria
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
-            <DropdownItem key="new" shortcut="⌘N">
-              New file
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-        <Dropdown>
-          <DropdownTrigger>
-            <Button
-              className="h-7 bg-slate-100 shadow-md"
-              startContent={<EllipsisVerticalIcon className="h-4" />}
-            >
-              Estado
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
-            <DropdownItem key="new" shortcut="⌘N">
-              New file
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
+      <div className="w-full flex gap-4  mb-2 p-4 justify-end">
+        <label className="flex items-end text-default-400 text-small">
+          Filas por pagina:
+          <select
+            className="bg-transparent outline-none text-default-400 text-small"
+            value={page_size}
+            name="page_size"
+            onChange={handleDynamicStateChange}
+          >
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+          </select>
+        </label>
       </div>
       <div className="p-4 grid grid-cols-6 w-full gap-2">
         {profiles
@@ -119,6 +100,23 @@ const ExplorarHome = () => {
           .map((profile) => (
             <EmpresaCard data={profile} key={profile.id_empresa} />
           ))}
+      </div>
+      <div className="w-full bg-stone-100 pr-10 pl-10 flex justify-between items-center">
+        <Pagination
+          total={pages}
+          initialPage={page}
+          loop
+          showControls
+          color="secondary"
+          className="m-4"
+          name={page}
+          onChange={(page) =>
+            setDynamicState({ ...dynamicState, page: Number(page) })
+          }
+        />
+        <span className="text-default-400 text-small">
+          Total {totalItems} registros
+        </span>
       </div>
     </div>
   );
