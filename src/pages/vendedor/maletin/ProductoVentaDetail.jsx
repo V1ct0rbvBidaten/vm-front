@@ -83,13 +83,13 @@ const ProductoVentaDetail = () => {
         images={imagenes[0]}
       />
 
-      <ModalVenta open={openVenta} handleChangeOpen={handleOpenVenta} />
+      <ModalVenta open={openVenta} handleOpen={handleOpenVenta} />
 
       <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
         <div className="w-full mb-2 p-4 flex justify-between">
           <Button
             className="bg-emerald-500 text-white h-7"
-            onClick={() => navigate(`/vendedor/explorar/empresa/${id}`)}
+            onClick={() => navigate(`/vendedor/productos`)}
             startContent={<ChevronDoubleLeftIcon className="h-4" />}
           >
             Volver

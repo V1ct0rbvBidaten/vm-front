@@ -22,7 +22,7 @@ const MaletinHome = () => {
   if (loading) {
     return (
       <div className="w-full bg-white rounded-md shadow-md mb-5 p-4">
-        <h1 className="text-2xl font-semibold">Mis Maletines</h1>
+        <h1 className="text-2xl font-semibold">Maletín de productos</h1>
         <div className="text-center">
           <Loading />
           <p className="text-sky-500 font-semibold text-xl">Cargando...</p>

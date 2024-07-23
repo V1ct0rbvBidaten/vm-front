@@ -40,7 +40,8 @@ const ProductoCreate = () => {
   const [image, setImage] = useState(null);
   const [galeria, setGaleria] = useState([]);
   const [values, setValues] = useState(initialState);
-  const [file, setFile] = useState([]);
+  const [fileCapacitacion, setFileCapacitacion] = useState([]);
+  const [fileVenta, setFileVenta] = useState([]);
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });

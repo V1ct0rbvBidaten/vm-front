@@ -6,6 +6,8 @@ import {
   ModalFooter,
   Button,
   Input,
+  Tabs,
+  Tab,
   ButtonGroup,
 } from "@nextui-org/react";
 
@@ -29,7 +31,7 @@ const ModalVenta = ({ open, handleOpen }) => {
                   <h1 className="text-lg col-span-2 font-semibold">
                     Detalles de la venta
                   </h1>
-                  <div className="col-span-2 grid grid-cols-2 gap-4 border-1 rounded-md p-2">
+                  <div className="col-span-2 grid grid-cols-2 gap-6  p-2">
                     <span className="text-sm col-span-2">
                       Cantidad de productos:
                     </span>
@@ -60,7 +62,15 @@ const ModalVenta = ({ open, handleOpen }) => {
                         placeholder="$"
                       />
                     </div>
-                    <ButtonGroup className="w-full col-span-2">
+
+                    <span className="text-sm col-span-2">
+                      Tipo de documento:
+                    </span>
+                    <Tabs aria-label="Tabs sizes" className="w-full col-span-2">
+                      <Tab key="factura" title="Factura" />
+                      <Tab key="boleta" title="Boleta" />
+                    </Tabs>
+                    <ButtonGroup className="w-full col-span-2 ">
                       <Button
                         size="sm"
                         className="bg-stone-100  text-sm w-full"
@@ -81,60 +91,70 @@ const ModalVenta = ({ open, handleOpen }) => {
                     Datos del comprador
                   </h1>
                   <Input
+                    size="sm"
                     variant="bordered"
                     label="Nombre"
                     labelPlacement="outside"
                     placeholder="Ingrese nombre cliente"
                   />
                   <Input
+                    size="sm"
                     variant="bordered"
                     label="Rut"
                     labelPlacement="outside"
                     placeholder="Ingrese rut cliente"
                   />
                   <Input
+                    size="sm"
                     variant="bordered"
                     label="Correo"
                     labelPlacement="outside"
                     placeholder="Ingrese Correo cliente"
                   />
                   <Input
+                    size="sm"
                     variant="bordered"
                     label="Telefono"
                     labelPlacement="outside"
                     placeholder="Ingrese Telefono cliente"
                   />
                   <Input
+                    size="sm"
                     variant="bordered"
                     label="Calle"
                     labelPlacement="outside"
                     placeholder="Ingrese Calle cliente"
                   />
                   <Input
+                    size="sm"
                     variant="bordered"
                     label="Número"
                     labelPlacement="outside"
                     placeholder="Ingrese Número cliente"
                   />
                   <Input
+                    size="sm"
                     variant="bordered"
                     label="Dpto/Casa"
                     labelPlacement="outside"
                     placeholder="Ingrese Dpto/Casa cliente"
                   />
                   <Input
+                    size="sm"
                     variant="bordered"
                     label="Región"
                     labelPlacement="outside"
                     placeholder="Ingrese Región cliente"
                   />
                   <Input
+                    size="sm"
                     variant="bordered"
                     label="Ciudad"
                     labelPlacement="outside"
                     placeholder="Ingrese Ciudad cliente"
                   />
                   <Input
+                    size="sm"
                     variant="bordered"
                     label="Comuna"
                     labelPlacement="outside"

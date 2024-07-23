@@ -118,7 +118,11 @@ const ProductoDetail = () => {
                     onClick={() => handleChangeOpen(index)}
                     className="hover:cursor-pointer rounded-md shadow-md overflow-hidden"
                   >
-                    <img src={imagen} alt={`Imagen ${index + 1}`} />
+                    <img
+                      src={imagen}
+                      alt={`Imagen ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 ))}
               </div>
