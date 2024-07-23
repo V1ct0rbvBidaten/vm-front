@@ -67,8 +67,8 @@ const ProductoCreate = () => {
 
       if (fileCapacitacion.length > 0) {
         let paramsCapacitacion = {
-          id_empresa: res.data.detail.data[0].id_empresa,
-          path: `/vemdo_empresas/${res.data.detail.data[0].id_empresa}/productos/${res.data.detail.data[0].id_producto}/capacitacion`,
+          id_empresa: "vemdo-empresas",
+          path: `${res.data.detail.data[0].id_empresa}/productos/${res.data.detail.data[0].id_producto}/capacitacion`,
         };
 
         uploadFile(user.token, paramsCapacitacion, fileCapacitacion)
@@ -84,8 +84,8 @@ const ProductoCreate = () => {
 
       if (fileVenta.length > 0) {
         let paramsVenta = {
-          id_empresa: res.data.detail.data[0].id_empresa,
-          path: `/vemdo_empresas/${res.data.detail.data[0].id_empresa}/productos/${res.data.detail.data[0].id_producto}/venta`,
+          id_empresa: "vemdo-empresas",
+          path: `${res.data.detail.data[0].id_empresa}/productos/${res.data.detail.data[0].id_producto}/venta`,
         };
 
         uploadFile(user.token, paramsVenta, fileVenta)

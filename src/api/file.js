@@ -28,9 +28,9 @@ export const uploadFile = async (token, params, files) => {
   });
 
   // Agregar los otros parámetros a formData
-  // Object.keys(filteredParams).forEach((key) => {
-  //   formData.append(key, filteredParams[key]);
-  // });
+  Object.keys(params).forEach((key) => {
+    formData.append(key, params[key]);
+  });
 
   // Configuración de la solicitud, incluyendo headers
   const config = {
