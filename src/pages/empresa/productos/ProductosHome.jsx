@@ -61,8 +61,8 @@ const ProductosHome = ({
         </Button>
       </div>
       <Divider />
-      <div className="w-full flex gap-4  mb-2 p-4">
-        <FunnelIcon className="h-6 text-slate-700" />
+      <div className="w-full flex gap-4  mb-2 p-4 items-end justify-end">
+        {/* <FunnelIcon className="h-6 text-slate-700" />
         <Input
           size="sm"
           radius="full"
@@ -100,8 +100,8 @@ const ProductosHome = ({
               New file
             </DropdownItem>
           </DropdownMenu>
-        </Dropdown>
-        <label className="flex items-center text-default-400 text-small">
+        </Dropdown> */}
+        <label className="flex items-end text-default-400 text-small">
           Filas por pagina:
           <select
             className="bg-transparent outline-none text-default-400 text-small"
