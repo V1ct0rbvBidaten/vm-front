@@ -47,8 +47,12 @@ const ProductoCreate = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const handleFileChange = (e) => {
-    setFile([...e.target.files]);
+  const handleFileChangeVenta = (e) => {
+    setFileVenta([...e.target.files]);
+  };
+
+  const handleFileChangeCapacitacion = (e) => {
+    setFileCapacitacion([...e.target.files]);
   };
 
   const handleSubmit = (e) => {
@@ -67,7 +71,7 @@ const ProductoCreate = () => {
             id_empresa: res.data.detail.data[0].id_empresa,
             id_folder: res.data.detail.data[0].id_producto,
           },
-          file
+          fileVenta
         )
           .then((res) => {
             console.log(res);
@@ -223,10 +227,13 @@ const ProductoCreate = () => {
             <h2 className="mt-4 font-semibold">Documentación Venta</h2>
             <Divider />
 
-            <InputFileUploader multiple handleFileChange={handleFileChange} />
-            {file && file.length > 0 && (
+            <InputFileUploader
+              multiple
+              handleFileChange={handleFileChangeVenta}
+            />
+            {fileVenta && fileVenta.length > 0 && (
               <div className="w-100 border-1">
-                {file.map((file, index) => (
+                {fileVenta.map((file, index) => (
                   <div
                     className="w-100 bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between"
                     key={index}
@@ -240,10 +247,13 @@ const ProductoCreate = () => {
             )}
             <h4 className="font-semibold mt-12">Documentación Capacitación</h4>
             <Divider />
-            <InputFileUploader multiple handleFileChange={handleFileChange} />
-            {file && file.length > 0 && (
+            <InputFileUploader
+              multiple
+              handleFileChange={handleFileChangeCapacitacion}
+            />
+            {fileCapacitacion && fileCapacitacion.length > 0 && (
               <div className="w-100 border-1">
-                {file.map((file, index) => (
+                {fileCapacitacion.map((file, index) => (
                   <div
                     className="w-100 bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between"
                     key={index}
