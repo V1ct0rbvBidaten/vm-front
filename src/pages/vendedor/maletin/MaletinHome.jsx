@@ -6,6 +6,7 @@ import { Card, CardBody, Divider } from "@nextui-org/react";
 import { FolderIcon } from "@heroicons/react/24/solid";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import ProductoMaletinDetail from "./ProductoMaletinDetail";
+import { useState } from "react";
 
 const initialState = {
   page: 1,
@@ -14,10 +15,11 @@ const initialState = {
 
 const MaletinHome = () => {
   let navigate = useNavigate();
+  const [params, setParams] = useState(initialState);
 
   const user = useSelector((state) => state.user);
 
-  const { data, loading } = useMaletines(user.token, initialState);
+  const { data, loading } = useMaletines(user.token, params);
 
   if (loading) {
     return (

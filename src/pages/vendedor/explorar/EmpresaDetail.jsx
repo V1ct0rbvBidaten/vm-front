@@ -23,7 +23,7 @@ import Loading from "../../../components/utils/Loading";
 
 const initialState = {
   page: 1,
-  page_size: 36,
+  page_size: 10,
   id_empresa: "",
 };
 
@@ -37,6 +37,10 @@ const EmpresaDetail = () => {
   let navigate = useNavigate();
 
   const { data, loading } = useProductos(user.token, params, reload);
+
+  const handleParamsChange = (e) => {
+    setParams({ ...params, [e.target.name]: e.target.value });
+  };
 
   const noData = {
     nombre_producto: "No hay productos",
@@ -76,6 +80,12 @@ const EmpresaDetail = () => {
       ? data.detail.data.products
       : [];
 
+  const { page, page_size } = params;
+
+  const totalItems = data.detail.data.total;
+
+  const pages = Math.ceil(totalItems / page_size);
+
   return (
     <>
       <div className="w-full bg-white rounded-md shadow-md mb-5 p-4 flex flex-col gap-2">
@@ -97,66 +107,46 @@ const EmpresaDetail = () => {
           aliquip ex ea commodo consequat.
         </p>
         <Divider />
-        <div className="w-full flex gap-4 mb-2 p-4">
-          <FunnelIcon className="h-6 text-slate-700" aria-label="Filter" />
-          <Input
-            size="sm"
-            radius="full"
-            className="h-6 w-[300px]"
-            placeholder="Ingrese nombre de producto"
-            variant="bordered"
-            startContent={<MagnifyingGlassIcon className="h-4" />}
-            aria-label="Buscar producto"
-          />
-          <Dropdown>
-            <DropdownTrigger>
-              <Button
-                className="h-7 bg-slate-100 shadow-md"
-                startContent={<EllipsisVerticalIcon className="h-4" />}
-                aria-label="Abrir menú de categorías"
-              >
-                Categoria
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu variant="faded" aria-label="Menú de categorías">
-              <DropdownItem key="new" shortcut="⌘N">
-                New file
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-          <Dropdown>
-            <DropdownTrigger>
-              <Button
-                className="h-7 bg-slate-100 shadow-md"
-                startContent={<EllipsisVerticalIcon className="h-4" />}
-                aria-label="Abrir menú de estado"
-              >
-                Estado
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu variant="faded" aria-label="Menú de estado">
-              <DropdownItem key="new" shortcut="⌘N">
-                New file
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
+        <div className="w-full flex gap-4 mb-2 p-4 justify-end">
+          <label className="flex items-end text-default-400 text-small">
+            Filas por pagina:
+            <select
+              className="bg-transparent outline-none text-default-400 text-small"
+              value={page_size}
+              name="page_size"
+              onChange={handleParamsChange}
+            >
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="50">50</option>
+            </select>
+          </label>
         </div>
         {productos && productos.length > 0 ? (
           <>
-            <div className="grid grid-cols-6 gap-4 p-4 w-full">
+            <div className="grid grid-cols-5 gap-4 p-4 w-full">
               {productos.map((c) => (
                 <ProductoCardVendedor key={c.id_producto} data={c} />
               ))}
             </div>
-            <Pagination
-              total={10}
-              initialPage={1}
-              loop
-              showControls
-              color="secondary"
-              className="m-4"
-              aria-label="Paginación"
-            />
+            <div className="w-full bg-stone-100 pr-10 pl-10 flex justify-between items-center">
+              <Pagination
+                total={pages}
+                initialPage={page}
+                loop
+                showControls
+                color="secondary"
+                className="m-4"
+                name={page}
+                onChange={(page) =>
+                  setParams({ ...params, page: Number(page) })
+                }
+              />
+              <span className="text-default-400 text-small">
+                Total {totalItems} registros
+              </span>
+            </div>
           </>
         ) : (
           <div className="grid grid-cols-6 gap-4 p-4 w-full">

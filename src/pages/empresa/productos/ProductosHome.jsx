@@ -62,45 +62,6 @@ const ProductosHome = ({
       </div>
       <Divider />
       <div className="w-full flex gap-4  mb-2 p-4 items-end justify-end">
-        {/* <FunnelIcon className="h-6 text-slate-700" />
-        <Input
-          size="sm"
-          radius="full"
-          className="h-6 w-[300px] "
-          placeholder="Ingrese nombre de producto"
-          variant="bordered"
-          startContent={<MagnifyingGlassIcon className="h-4" />}
-        />
-        <Dropdown>
-          <DropdownTrigger>
-            <Button
-              className="h-7 bg-slate-100 shadow-md"
-              startContent={<EllipsisVerticalIcon className="h-4" />}
-            >
-              Categoria
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
-            <DropdownItem key="new" shortcut="⌘N">
-              New file
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-        <Dropdown>
-          <DropdownTrigger>
-            <Button
-              className="h-7 bg-slate-100 shadow-md"
-              startContent={<EllipsisVerticalIcon className="h-4" />}
-            >
-              Estado
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
-            <DropdownItem key="new" shortcut="⌘N">
-              New file
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown> */}
         <label className="flex items-end text-default-400 text-small">
           Filas por pagina:
           <select
