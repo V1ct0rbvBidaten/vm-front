@@ -62,17 +62,16 @@ const ProductoCreate = () => {
     values.imagenes = galeria;
 
     setLoading(true);
-    createProducto(user.token, values)
-      .then((res) => {
-        console.log(res);
-        uploadFile(
-          user.token,
-          {
-            id_empresa: res.data.detail.data[0].id_empresa,
-            id_folder: res.data.detail.data[0].id_producto,
-          },
-          fileVenta
-        )
+    createProducto(user.token, values).then((res) => {
+      console.log(res);
+
+      if (fileCapacitacion.length > 0) {
+        let paramsCapacitacion = {
+          id_empresa: res.data.detail.data[0].id_empresa,
+          path: `/vemdo_empresas/${res.data.detail.data[0].id_empresa}/productos/${res.data.detail.data[0].id_producto}/capacitacion`,
+        };
+
+        uploadFile(user.token, paramsCapacitacion, fileCapacitacion)
           .then((res) => {
             console.log(res);
             toast.success("Archivo subido con éxito");
@@ -81,17 +80,30 @@ const ProductoCreate = () => {
             console.log(err);
             toast.error("Error al subir archivo");
           });
-        toast.success("Producto creado con éxito");
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error("Error al crear producto");
-      })
-      .finally(() => {
-        navigate("/empresa/home");
-        setValues(initialState);
-        setLoading(false);
-      });
+      }
+
+      if (fileVenta.length > 0) {
+        let paramsVenta = {
+          id_empresa: res.data.detail.data[0].id_empresa,
+          path: `/vemdo_empresas/${res.data.detail.data[0].id_empresa}/productos/${res.data.detail.data[0].id_producto}/venta`,
+        };
+
+        uploadFile(user.token, paramsVenta, fileVenta)
+          .then((res) => {
+            console.log(res);
+            toast.success("Archivo subido con éxito");
+          })
+
+          .catch((err) => {
+            console.log(err);
+            toast.error("Error al crear producto");
+          });
+      }
+      toast.success("Producto creado con éxito");
+      navigate("/empresa/home");
+      setValues(initialState);
+      setLoading(false);
+    });
   };
 
   if (loading)
@@ -165,7 +177,6 @@ const ProductoCreate = () => {
             labelPlacement="outside"
             value={values.comision}
             onChange={handleChange}
-            max={100}
             type="number"
           />
           <Select
