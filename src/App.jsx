@@ -30,7 +30,7 @@ import VentaDetail from "./pages/vendedor/ventas/VentaDetail";
 import ProductoCreate from "./pages/empresa/productos/ProductoCreate";
 import ProductoDetailVendedor from "./pages/vendedor/explorar/Producto/ProductoDetailVendedor";
 import MaletinHome from "./pages/vendedor/maletin/MaletinHome";
-import MaletinList from "./pages/vendedor/maletin/MaletinList";
+import ProductoVentaDetail from "./pages/vendedor/maletin/ProductoVentaDetail";
 
 const App = () => {
   useCheckUser();
@@ -115,9 +115,10 @@ const App = () => {
 
           <Route
             exact
-            path="/vendedor/productos/:idMaletin"
-            element={<VendedorRoute Component={MaletinList} />}
+            path="/vendedor/productos/:idProducto"
+            element={<VendedorRoute Component={ProductoVentaDetail} />}
           />
+
           <Route
             exact
             path="/vendedor/balance"

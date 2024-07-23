@@ -12,6 +12,18 @@ export const createMaletin = async (token, body) => {
   );
 };
 
+export const updateMaletin = async (token, body, maletin_id) => {
+  return await axios.put(
+    `${import.meta.env.VITE_API_URL}/update-maletin/${maletin_id}`,
+    body,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
 export const getMaletines = async (token, body) => {
   let queryParams = new URLSearchParams();
 
@@ -65,7 +77,7 @@ export const getMaletinProducts = async (token, maletin_id, body) => {
   console.log(queryString);
 
   return await axios.get(
-    `${import.meta.env.VITE_API_URL}/maletines/${maletin_id}?${queryString}`,
+    `${import.meta.env.VITE_API_URL}/maletin/${maletin_id}?${queryString}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,

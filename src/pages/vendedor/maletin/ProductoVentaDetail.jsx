@@ -1,15 +1,19 @@
 import { Button, Divider } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import useFetchById from "../../../../hooks/useFetch";
-import Loading from "../../../../components/utils/Loading";
+import useFetchById from "../../../hooks/useFetch";
+import Loading from "../../../components/utils/Loading";
 import { useRef, useState } from "react";
-import { ChevronDoubleLeftIcon, FolderIcon } from "@heroicons/react/24/solid";
-import ModalImageSlider from "../../../../components/utils/ModalImageSlider";
-import { formatNumberToCurrency } from "../../../../functions/formaters";
-import ModalMaletin from "./ModalMaletin";
+import {
+  ChevronDoubleLeftIcon,
+  CurrencyDollarIcon,
+  FolderIcon,
+} from "@heroicons/react/24/solid";
+import ModalImageSlider from "../../../components/utils/ModalImageSlider";
+import { formatNumberToCurrency } from "../../../functions/formaters";
+import ModalVenta from "./ModalVenta";
 
-const ProductoDetailVendedor = () => {
+const ProductoVentaDetail = () => {
   const idIndex = useRef(0);
   const navigate = useNavigate();
   const { idProducto, id } = useParams();
@@ -20,15 +24,15 @@ const ProductoDetailVendedor = () => {
   const [reloadFiles, setReloadFiles] = useState(false);
 
   const [open, setOpen] = useState(false);
-  const [openModalMaletin, setOpenModalMaletin] = useState(false);
+  const [openVenta, setOpenVenta] = useState(false);
 
   const handleChangeOpen = (index) => {
     setOpen(!open);
     idIndex.current = open ? 0 : index;
   };
 
-  const handleOpenModalMaletin = () => {
-    setOpenModalMaletin(!openModalMaletin);
+  const handleOpenVenta = () => {
+    setOpenVenta(!openVenta);
   };
 
   const url = `product/${idProducto}`;
@@ -79,10 +83,7 @@ const ProductoDetailVendedor = () => {
         images={imagenes[0]}
       />
 
-      <ModalMaletin
-        open={openModalMaletin}
-        handleOpen={handleOpenModalMaletin}
-      />
+      <ModalVenta open={openVenta} handleChangeOpen={handleOpenVenta} />
 
       <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
         <div className="w-full mb-2 p-4 flex justify-between">
@@ -94,11 +95,11 @@ const ProductoDetailVendedor = () => {
             Volver
           </Button>
           <Button
-            className="bg-amber-700 text-white h-7"
-            endContent={<FolderIcon className="h-4" />}
-            onClick={handleOpenModalMaletin}
+            className="bg-green-500 text-white h-7"
+            startContent={<CurrencyDollarIcon className="h-4" />}
+            onClick={handleOpenVenta}
           >
-            Agregar a mi Maletín
+            Ingresar Venta
           </Button>
         </div>
         <Divider />
@@ -148,9 +149,10 @@ const ProductoDetailVendedor = () => {
             </div>
           </div>
         </div>
+        <Divider />
       </div>
     </>
   );
 };
 
-export default ProductoDetailVendedor;
+export default ProductoVentaDetail;

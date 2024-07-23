@@ -5,6 +5,7 @@ import Loading from "../../../components/utils/Loading";
 import { Card, CardBody, Divider } from "@nextui-org/react";
 import { FolderIcon } from "@heroicons/react/24/solid";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import ProductoMaletinDetail from "./ProductoMaletinDetail";
 
 const initialState = {
   page: 1,
@@ -30,48 +31,15 @@ const MaletinHome = () => {
     );
   }
 
-  const maletines = data.detail.data.maletines;
+  const maletin = data.detail.data.maletines[0].maletin.id_maletin;
 
   return (
     <div className="flex flex-col m-0 justify-center items-center bg-white rounded-md shadow-md">
       <div className="w-full  mb-2 p-4 flex justify-between">
-        <h1 className="text-2xl font-semibold">Mis Maletines </h1>
+        <h1 className="text-2xl font-semibold">Maletín de productos</h1>
       </div>
       <Divider />
-      <div className="grid grid-cols-6  gap-4 w-full  p-4 ">
-        {maletines.map((maletin) => (
-          <>
-            <Card
-              isPressable
-              onClick={() =>
-                navigate(`/vendedor/productos/${maletin.id_maletin}`)
-              }
-            >
-              <CardBody>
-                <div className="flex flex-col w-100">
-                  <FolderIcon className="text-sky-500" />
-                  <span className="font-semibold w-full  text-center">
-                    {maletin.nombre_maletin}
-                  </span>
-                  <span className="w-100 bg-emerald-500 text-white  p-1 text-center mt-1 rounded-full">
-                    0 Productos
-                  </span>
-                </div>
-              </CardBody>
-            </Card>
-          </>
-        ))}
-        <Card isPressable className="bg-slate-200">
-          <CardBody>
-            <div className="flex flex-col w-100">
-              <PlusCircleIcon className="text-slate-500" />
-              <span className="font-semibold w-full  text-center">
-                Agregar Maletín
-              </span>
-            </div>
-          </CardBody>
-        </Card>
-      </div>
+      <ProductoMaletinDetail maletinid={maletin} />
     </div>
   );
 };

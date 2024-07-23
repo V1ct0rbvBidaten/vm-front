@@ -6,6 +6,7 @@ import {
   CreditCardIcon,
   BriefcaseIcon,
   MagnifyingGlassIcon,
+  BuildingStorefrontIcon,
 } from "@heroicons/react/24/solid";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,9 +24,9 @@ const VendedorSideNav = ({ user }) => {
 
   const activeMenuItem = [
     {
-      name: "Explorar",
+      name: "Marketplace",
       route: "/vendedor/explorar",
-      icon: <MagnifyingGlassIcon className="h-6 w-6 " />,
+      icon: <BuildingStorefrontIcon className="h-6 w-6 " />,
       type: "Menu",
     },
     {
