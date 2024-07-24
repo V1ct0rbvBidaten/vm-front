@@ -31,24 +31,6 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
     return { location, file };
   });
 
-  const handleDeleteFile = (path) => {
-    fileInfo.path = path;
-
-    deleteFile(token, fileInfo)
-      .then((response) => {
-        if (response.status === 200) {
-          setReloadFiles(!reloadFiles);
-          toast;
-        }
-      })
-      .catch((error) => {
-        console.error("Error al eliminar el archivo:", error);
-      })
-      .finally(() => {
-        setReloadFiles(!reloadFiles);
-      });
-  };
-
   const handleDownloadFile = (file) => {
     fileInfo.path = file.location;
     fileInfo.fileName = file.file;

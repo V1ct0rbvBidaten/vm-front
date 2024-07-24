@@ -120,19 +120,19 @@ export const deleteFile = async (token, params) => {
 };
 
 export const downloadFile = async (token, params) => {
-  // Filtrar los parámetros para excluir valores nulos o indefinidos
+  // Filter the parameters to exclude null or undefined values
   let queryParams = new URLSearchParams();
 
   Object.entries(params).forEach(([key, value]) => {
     if (typeof value === "string" && value.includes(",")) {
       value.split(",").forEach((item) => {
-        if (item) queryParams.append(key, item.trim());
+        if (item.trim()) queryParams.append(key, item.trim());
       });
     } else if (Array.isArray(value)) {
       value.forEach((item) => {
         if (item) queryParams.append(key, item);
       });
-    } else if (value) {
+    } else if (value !== null && value !== undefined) {
       queryParams.append(key, value);
     }
   });
@@ -147,8 +147,10 @@ export const downloadFile = async (token, params) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        responseType: "blob", // Ensure the response is a Blob
       }
     );
+
     // Create a URL for the file
     const fileURL = window.URL.createObjectURL(new Blob([response.data]));
     const fileLink = document.createElement("a");
@@ -163,7 +165,7 @@ export const downloadFile = async (token, params) => {
     fileLink.parentNode.removeChild(fileLink);
     window.URL.revokeObjectURL(fileURL);
   } catch (error) {
-    console.error("Error al eliminar el archivo:", error);
+    console.error("Error downloading the file:", error);
     throw error;
   }
 };
