@@ -3,12 +3,14 @@ import Loading from "../../../components/utils/Loading";
 import { Button, ButtonGroup } from "@nextui-org/react";
 import { FolderIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { toast } from "react-toastify";
-import { deleteFile } from "../../../api/file";
+import { deleteFile, downloadFile } from "../../../api/file";
 import { useState } from "react";
 
 const initialState = {
   id_empresa: "vemdo-empresas",
+  bucket: "vemdo-empresas",
   path: "",
+  fileName: "",
 };
 
 const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
@@ -23,7 +25,6 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
   const fileLocations = data.detail.data.file_locations;
 
   const files = fileLocations.map((location) => {
-    console.log(location);
     const pathParts = location.split("/");
     const file = pathParts.pop();
     const path = pathParts.join("/");
@@ -32,6 +33,7 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
 
   const handleDeleteFile = (path) => {
     fileInfo.path = path;
+
     deleteFile(token, fileInfo)
       .then((response) => {
         if (response.status === 200) {
@@ -47,6 +49,18 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
       });
   };
 
+  const handleDownloadFile = (file) => {
+    fileInfo.path = file.location;
+    fileInfo.fileName = file.file;
+    downloadFile(token, fileInfo)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error("Error al descargar el archivo:", error);
+      });
+  };
+
   return (
     <div className="flex flex-col gap-2 mt-2">
       {files.map((file, index) => (
@@ -54,6 +68,7 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
           <Button
             className="w-full h-6 text-sm justify-start  bg-slate-100 text-xs font-semibold"
             startContent={<FolderIcon className=" h-4" />}
+            onClick={() => handleDownloadFile(file)}
           >
             {file.file}
           </Button>

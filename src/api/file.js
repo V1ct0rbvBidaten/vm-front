@@ -118,3 +118,52 @@ export const deleteFile = async (token, params) => {
     throw error;
   }
 };
+
+export const downloadFile = async (token, params) => {
+  // Filtrar los parámetros para excluir valores nulos o indefinidos
+  let queryParams = new URLSearchParams();
+
+  Object.entries(params).forEach(([key, value]) => {
+    if (typeof value === "string" && value.includes(",")) {
+      value.split(",").forEach((item) => {
+        if (item) queryParams.append(key, item.trim());
+      });
+    } else if (Array.isArray(value)) {
+      value.forEach((item) => {
+        if (item) queryParams.append(key, item);
+      });
+    } else if (value) {
+      queryParams.append(key, value);
+    }
+  });
+
+  const queryString = queryParams.toString();
+  console.log(params);
+
+  try {
+    const response = await axios.get(
+      `${import.meta.env.VITE_API_URL}/download-file?${queryString}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    // Create a URL for the file
+    const fileURL = window.URL.createObjectURL(new Blob([response.data]));
+    const fileLink = document.createElement("a");
+
+    fileLink.href = fileURL;
+    fileLink.setAttribute("download", params.fileName); // Set the file name and extension
+    document.body.appendChild(fileLink);
+
+    fileLink.click();
+
+    // Clean up and revoke the URL
+    fileLink.parentNode.removeChild(fileLink);
+    window.URL.revokeObjectURL(fileURL);
+  } catch (error) {
+    console.error("Error al eliminar el archivo:", error);
+    throw error;
+  }
+};
