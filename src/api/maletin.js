@@ -85,3 +85,16 @@ export const getMaletinProducts = async (token, maletin_id, body) => {
     }
   );
 };
+
+export const getProductInMaletin = async (token, maletin_id, product_id) => {
+  return await axios.get(
+    `${
+      import.meta.env.VITE_API_URL
+    }/product-in-maletin/${maletin_id}/${product_id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};

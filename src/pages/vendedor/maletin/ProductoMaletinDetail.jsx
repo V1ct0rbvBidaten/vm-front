@@ -6,12 +6,12 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Divider,
   Pagination,
 } from "@nextui-org/react";
 import { formatNumberToCurrency } from "../../../functions/formaters";
 import Loading from "../../../components/utils/Loading";
 import { useNavigate } from "react-router-dom";
+import NoImage from "../../../assets/no-image.jpg";
 
 const initialState = {
   page: 1,
@@ -95,7 +95,18 @@ const ProductoMaletinDetail = ({ maletinid }) => {
                   {product.nombre_producto}
                 </h4>
               </CardHeader>
-              <CardBody></CardBody>
+              <CardBody className="overflow-visible py-2 h-[200px]">
+                <div className="image-container ">
+                  <img
+                    className="hover:cursor-pointer hover:opacity-80 transition duration-300"
+                    src={
+                      product.imagen_principal
+                        ? product.imagen_principal
+                        : NoImage
+                    }
+                  />
+                </div>
+              </CardBody>
               <CardFooter>
                 <div className="w-full flex flex-col gap-2">
                   <span className="w-full bg-emerald-500 text-white p-1 rounded-md text-sm">

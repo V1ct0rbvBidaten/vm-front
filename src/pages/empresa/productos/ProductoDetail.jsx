@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
 import ModalImageSlider from "../../../components/utils/ModalImageSlider";
 import ProductosDocs from "./ProductosDocs";
+import { formatNumberToCurrency } from "../../../functions/formaters";
 
 const ProductoDetail = () => {
   const idIndex = useRef(0);
@@ -59,9 +60,14 @@ const ProductoDetail = () => {
     id_producto,
   } = data.detail.data;
 
-  const body = {
-    id_folder: id_producto,
-    id_empresa: user.id_empresa,
+  const bodyVenta = {
+    path: `${user.id_empresa}/productos/${id_producto}/venta`,
+    id_empresa: "vemdo-empresas",
+  };
+
+  const bodyCapacitacion = {
+    path: `${user.id_empresa}/productos/${id_producto}/capacitacion`,
+    id_empresa: "vemdo-empresas",
   };
 
   return (
@@ -89,7 +95,9 @@ const ProductoDetail = () => {
           </div>
           <div className="col-span-2 flex gap-4 flex-col min-h-[500px] border-2 p-2 rounded-md">
             <div className="h-[10%] items-center flex justify-between">
-              <h1 className="text-2xl font-semibold">{nombre_producto}</h1>
+              <h1 className="text-2xl font-semibold capitalize">
+                {nombre_producto}
+              </h1>
               <Button className="rounded-full text-xs h-6 bg-sky-700 text-white">
                 {categoria}
               </Button>
@@ -99,18 +107,17 @@ const ProductoDetail = () => {
               <p>{descripcion}</p>
             </div>
             <div className="h-[10%] flex justify-between">
-              <h1 className="text-2xl font-semibold text-teal-500">
-                ${precio}
+              <h1 className="text-2xl font-semibold text-teal-600">
+                Precio: {formatNumberToCurrency(precio)}
               </h1>
-              <Button className="bg-orange-500 text-white font-semibold tracking-widest">
-                Comisión: {comision}%
-              </Button>
+              <h1 className="text-2xl font-semibold text-teal-600">
+                Comisión: {formatNumberToCurrency(comision)}
+              </h1>
             </div>
           </div>
           <div className="col-span-3 w-full grid grid-cols-3 gap-2">
-            <div className="col-span-2">
+            <div className="col-span-2 border-1 p-2 rounded-md">
               <h4 className="font-semibold">Galería</h4>
-              <Divider />
               <div className="w-full grid-cols-5 grid gap-2 p-2">
                 {imagenes[0].map((imagen, index) => (
                   <div
@@ -128,22 +135,22 @@ const ProductoDetail = () => {
               </div>
             </div>
             <div>
-              <h4 className="font-semibold">Documentación Venta</h4>
-              <Divider />
-              <ProductosDocs
-                reloadFiles={reloadFiles}
-                body={body}
-                token={user.token}
-              />
-              <h4 className="font-semibold mt-10">
-                Documentación Capacitación
-              </h4>
-              <Divider />
-              <ProductosDocs
-                reloadFiles={reloadFiles}
-                body={body}
-                token={user.token}
-              />
+              <div className="border-1 p-2 rounded-md ">
+                <h4 className="font-semibold">Documentación Venta</h4>
+                <ProductosDocs
+                  reloadFiles={reloadFiles}
+                  body={bodyVenta}
+                  token={user.token}
+                />
+              </div>
+              <div className="border-1 p-2 rounded-md mt-2">
+                <h4 className="font-semibold ">Documentación Capacitación</h4>
+                <ProductosDocs
+                  reloadFiles={reloadFiles}
+                  body={bodyCapacitacion}
+                  token={user.token}
+                />
+              </div>
               {/* {loadingFiles ? (
                 <Loading />
               ) : (
