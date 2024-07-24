@@ -86,6 +86,7 @@ const ProductoDetailVendedor = () => {
       .finally(() => {
         handleOpenModalMaletin();
         setReload(!reload);
+        setProducto(initialStateMaletin);
       });
   };
 

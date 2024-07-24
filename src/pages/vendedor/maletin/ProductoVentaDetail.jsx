@@ -12,6 +12,7 @@ import {
 import ModalImageSlider from "../../../components/utils/ModalImageSlider";
 import { formatNumberToCurrency } from "../../../functions/formaters";
 import ModalVenta from "./ModalVenta";
+import ProductosDocs from "./ProductosDocs";
 
 const ProductoVentaDetail = () => {
   const idIndex = useRef(0);
@@ -65,13 +66,19 @@ const ProductoVentaDetail = () => {
     categoria,
     comision,
     estado_producto,
+    id_empresa,
     imagenes,
     id_producto,
   } = data.detail.data;
 
-  const body = {
-    id_folder: id_producto,
-    id_empresa: user.id_empresa,
+  const bodyVenta = {
+    path: `${id_empresa}/productos/${id_producto}/venta`,
+    id_empresa: "vemdo-empresas",
+  };
+
+  const bodyCapacitacion = {
+    path: `${id_empresa}/productos/${id_producto}/capacitacion`,
+    id_empresa: "vemdo-empresas",
   };
 
   return (
@@ -128,15 +135,14 @@ const ProductoVentaDetail = () => {
             </div>
           </div>
           <div className="col-span-3 w-full grid grid-cols-3 gap-2">
-            <div className="col-span-3">
+            <div className="col-span-2 border-1 p-2 rounded-md">
               <h4 className="font-semibold">Galería</h4>
-              <Divider />
-              <div className="w-full grid-cols-10 grid gap-2 p-2">
+              <div className="w-full grid-cols-5 grid gap-2 p-2">
                 {imagenes[0].map((imagen, index) => (
                   <div
                     key={index}
                     onClick={() => handleChangeOpen(index)}
-                    className="hover:cursor-pointer rounded-md shadow-md overflow-hidden h-[150px]"
+                    className="hover:cursor-pointer rounded-md shadow-md overflow-hidden"
                   >
                     <img
                       src={imagen}
@@ -145,6 +151,26 @@ const ProductoVentaDetail = () => {
                     />
                   </div>
                 ))}
+              </div>
+            </div>
+            <div>
+              <div className="border-1 p-2 rounded-md ">
+                <h4 className="font-semibold">Documentación Venta</h4>
+                <ProductosDocs
+                  reloadFiles={reloadFiles}
+                  body={bodyVenta}
+                  token={user.token}
+                  setReloadFiles={setReloadFiles}
+                />
+              </div>
+              <div className="border-1 p-2 rounded-md mt-2">
+                <h4 className="font-semibold ">Documentación Capacitación</h4>
+                <ProductosDocs
+                  reloadFiles={reloadFiles}
+                  body={bodyCapacitacion}
+                  token={user.token}
+                  setReloadFiles={setReloadFiles}
+                />
               </div>
             </div>
           </div>
