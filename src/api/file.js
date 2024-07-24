@@ -82,3 +82,39 @@ export const getFiles = async (token, body) => {
     }
   );
 };
+
+export const deleteFile = async (token, params) => {
+  // Filtrar los parámetros para excluir valores nulos o indefinidos
+  let queryParams = new URLSearchParams();
+
+  Object.entries(params).forEach(([key, value]) => {
+    if (typeof value === "string" && value.includes(",")) {
+      value.split(",").forEach((item) => {
+        if (item) queryParams.append(key, item.trim());
+      });
+    } else if (Array.isArray(value)) {
+      value.forEach((item) => {
+        if (item) queryParams.append(key, item);
+      });
+    } else if (value) {
+      queryParams.append(key, value);
+    }
+  });
+
+  const queryString = queryParams.toString();
+
+  try {
+    const response = await axios.delete(
+      `${import.meta.env.VITE_API_URL}/delete-files?${queryString}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response;
+  } catch (error) {
+    console.error("Error al eliminar el archivo:", error);
+    throw error;
+  }
+};

@@ -141,6 +141,7 @@ const ProductoDetail = () => {
                   reloadFiles={reloadFiles}
                   body={bodyVenta}
                   token={user.token}
+                  setReloadFiles={setReloadFiles}
                 />
               </div>
               <div className="border-1 p-2 rounded-md mt-2">
@@ -149,6 +150,7 @@ const ProductoDetail = () => {
                   reloadFiles={reloadFiles}
                   body={bodyCapacitacion}
                   token={user.token}
+                  setReloadFiles={setReloadFiles}
                 />
               </div>
               {/* {loadingFiles ? (
