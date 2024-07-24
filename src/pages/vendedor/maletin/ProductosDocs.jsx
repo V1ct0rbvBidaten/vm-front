@@ -72,13 +72,6 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
           >
             {file.file}
           </Button>
-          <Button
-            className=" h-6 text-sm justify-start text-white bg-rose-500 justify-center"
-            isIconOnly
-            onClick={() => handleDeleteFile(file.location)}
-          >
-            <TrashIcon className="text-white h-4" />
-          </Button>
         </ButtonGroup>
       ))}
     </div>
