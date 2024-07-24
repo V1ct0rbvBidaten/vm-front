@@ -10,8 +10,85 @@ import {
   Tab,
   ButtonGroup,
 } from "@nextui-org/react";
+import { useState } from "react";
+import { createVenta } from "../../../api/ventas";
+import { useSelector } from "react-redux";
 
-const ModalVenta = ({ open, handleOpen }) => {
+const initialState = {
+  id_vendedor: "",
+  id_empresa: "",
+  id_producto: "",
+  cantidad: 0,
+  precio_venta: 0,
+  estado_venta: "COMPLETADA",
+  tipo_pago: "BOLETA",
+  nombre_cliente: "",
+  apellido_cliente: "",
+  direccion_cliente: "",
+  region_cliente: "",
+  comuna_cliente: "",
+  telefono_cliente: "",
+  email: "",
+  rut_cliente: "",
+};
+
+const ModalVenta = ({ open, handleOpen, data }) => {
+  const user = useSelector((state) => state.user);
+  const [values, setValues] = useState(initialState);
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    values.id_vendedor = user.id_vendedor;
+    values.id_empresa = data.id_empresa;
+    values.id_producto = data.id_producto;
+    console.log(data);
+    console.log(values);
+    setLoading(true);
+    createVenta(user.token, values)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const {
+    cantidad,
+    precio_venta,
+    estado_venta,
+    tipo_pago,
+    nombre_cliente,
+    apellido_cliente,
+    direccion_cliente,
+    region_cliente,
+    comuna_cliente,
+    telefono_cliente,
+    email,
+    rut_cliente,
+  } = values;
+
+  const {
+    nombre_producto,
+    precio,
+    descripcion,
+    imagen_principal,
+    categoria,
+    comision,
+    estado_producto,
+    id_empresa,
+    imagenes,
+    id_producto,
+  } = data;
+
   return (
     <Modal isOpen={open} onOpenChange={handleOpen} size="5xl">
       <ModalContent>
@@ -96,6 +173,19 @@ const ModalVenta = ({ open, handleOpen }) => {
                     label="Nombre"
                     labelPlacement="outside"
                     placeholder="Ingrese nombre cliente"
+                    name="nombre_cliente"
+                    value={nombre_cliente}
+                    onChange={handleChange}
+                  />
+                  <Input
+                    size="sm"
+                    variant="bordered"
+                    label="Apellido"
+                    labelPlacement="outside"
+                    placeholder="Ingrese apellido cliente"
+                    name="apellido_cliente"
+                    value={apellido_cliente}
+                    onChange={handleChange}
                   />
                   <Input
                     size="sm"
@@ -103,6 +193,9 @@ const ModalVenta = ({ open, handleOpen }) => {
                     label="Rut"
                     labelPlacement="outside"
                     placeholder="Ingrese rut cliente"
+                    name="rut_cliente"
+                    value={rut_cliente}
+                    onChange={handleChange}
                   />
                   <Input
                     size="sm"
@@ -110,6 +203,9 @@ const ModalVenta = ({ open, handleOpen }) => {
                     label="Correo"
                     labelPlacement="outside"
                     placeholder="Ingrese Correo cliente"
+                    name="email"
+                    value={email}
+                    onChange={handleChange}
                   />
                   <Input
                     size="sm"
@@ -117,6 +213,9 @@ const ModalVenta = ({ open, handleOpen }) => {
                     label="Telefono"
                     labelPlacement="outside"
                     placeholder="Ingrese Telefono cliente"
+                    name="telefono_cliente"
+                    value={telefono_cliente}
+                    onChange={handleChange}
                   />
                   <Input
                     size="sm"
@@ -124,6 +223,9 @@ const ModalVenta = ({ open, handleOpen }) => {
                     label="Calle"
                     labelPlacement="outside"
                     placeholder="Ingrese Calle cliente"
+                    name="direccion_cliente"
+                    value={direccion_cliente}
+                    onChange={handleChange}
                   />
                   <Input
                     size="sm"
@@ -131,13 +233,18 @@ const ModalVenta = ({ open, handleOpen }) => {
                     label="Número"
                     labelPlacement="outside"
                     placeholder="Ingrese Número cliente"
+                    // name="numero_cliente"
+                    // value={direccion_cliente}
+                    // onChange={handleChange}
                   />
                   <Input
                     size="sm"
                     variant="bordered"
                     label="Dpto/Casa"
                     labelPlacement="outside"
-                    placeholder="Ingrese Dpto/Casa cliente"
+                    // placeholder="Ingrese Dpto/Casa cliente"
+                    // name="dpto_casa_cliente"
+                    // value={direccion_cliente}
                   />
                   <Input
                     size="sm"
@@ -145,6 +252,9 @@ const ModalVenta = ({ open, handleOpen }) => {
                     label="Región"
                     labelPlacement="outside"
                     placeholder="Ingrese Región cliente"
+                    name="region_cliente"
+                    value={region_cliente}
+                    onChange={handleChange}
                   />
                   <Input
                     size="sm"
@@ -159,6 +269,8 @@ const ModalVenta = ({ open, handleOpen }) => {
                     label="Comuna"
                     labelPlacement="outside"
                     placeholder="Ingrese Comuna cliente"
+                    name="comuna_cliente"
+                    value={comuna_cliente}
                   />
                 </div>
               </div>
@@ -167,7 +279,7 @@ const ModalVenta = ({ open, handleOpen }) => {
               <Button color="danger" variant="light" onPress={onClose}>
                 Cerrar
               </Button>
-              <Button color="primary" onPress={onClose}>
+              <Button color="primary" onClick={handleSubmit}>
                 Confirmar Venta
               </Button>
             </ModalFooter>

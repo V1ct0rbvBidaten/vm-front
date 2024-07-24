@@ -90,7 +90,11 @@ const ProductoVentaDetail = () => {
         images={imagenes[0]}
       />
 
-      <ModalVenta open={openVenta} handleOpen={handleOpenVenta} />
+      <ModalVenta
+        open={openVenta}
+        handleOpen={handleOpenVenta}
+        data={data.detail.data}
+      />
 
       <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
         <div className="w-full mb-2 p-4 flex justify-between">
