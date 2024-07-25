@@ -12,6 +12,18 @@ export const createProducto = async (token, body) => {
   );
 };
 
+export const updateProducto = async (token, productId, body) => {
+  return await axios.post(
+    `${import.meta.env.VITE_API_URL}/update-product/${productId}`,
+    body,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
 export const getProductos = async (token, body) => {
   let queryParams = new URLSearchParams();
 
