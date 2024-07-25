@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import EmpresaForm from "./EmpresaForm";
 import { useDispatch } from "react-redux";
 import DataBankForm from "./DataBankForm";
+import { validateFields } from "../../../../functions/forms";
 
 const initialState = {
   email: "",
@@ -71,49 +72,6 @@ const RegistroEmpresa = ({ user }) => {
       });
     } else {
       setValues({ ...values, [e.target.name]: e.target.value });
-    }
-  };
-
-  const isEqual = (contraseña, validacion_contraseña) => {
-    if (contraseña && validacion_contraseña) {
-      return contraseña === validacion_contraseña;
-    }
-    return true;
-  };
-
-  const handleClick = (direction) => {
-    let newStep = currentStep;
-
-    let passwordsEqual = isEqual(
-      values.contraseña,
-      values.validacion_contraseña
-    );
-
-    // let datosPerfil = values.nombre
-
-    if (!passwordsEqual) {
-      return toast.error("Las contraseñas no coinciden");
-    }
-
-    if (direction === "next") {
-      newStep++;
-    } else {
-      newStep--;
-    }
-
-    newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
-  };
-
-  const displayStep = (step) => {
-    switch (step) {
-      case 1:
-        return <PerfilForm handleChange={handleChange} values={values} />;
-      case 2:
-        return <DataBankForm handleChange={handleChange} values={values} />;
-      case 3:
-        return <EmpresaForm handleChange={handleChange} values={values} />;
-      default:
-        return null;
     }
   };
 
@@ -176,6 +134,38 @@ const RegistroEmpresa = ({ user }) => {
   };
 
   const handleSubmitText = "Crear perfil";
+
+  const handleClick = (direction) => {
+    let newStep = currentStep;
+
+    const fieldsToCheck = [
+      { name: "Nombres", value: values.nombre },
+      { name: "Apellidos", value: values.apellidos },
+    ];
+
+    if (!validateFields(fieldsToCheck)) return;
+
+    if (direction === "next") {
+      newStep++;
+    } else {
+      newStep--;
+    }
+
+    newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
+  };
+
+  const displayStep = (step) => {
+    switch (step) {
+      case 1:
+        return <PerfilForm handleChange={handleChange} values={values} />;
+      case 2:
+        return <DataBankForm handleChange={handleChange} values={values} />;
+      case 3:
+        return <EmpresaForm handleChange={handleChange} values={values} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
