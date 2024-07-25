@@ -138,12 +138,24 @@ const RegistroEmpresa = ({ user }) => {
   const handleClick = (direction) => {
     let newStep = currentStep;
 
-    const fieldsToCheck = [
+    const fieldsPerfil = [
       { name: "Nombres", value: values.nombre },
       { name: "Apellidos", value: values.apellidos },
     ];
 
-    if (!validateFields(fieldsToCheck)) return;
+    const fieldsBanco = [
+      { name: "Nombres", value: values.nombre },
+      { name: "Apellidos", value: values.apellidos },
+    ];
+
+    const fieldsEmpresa = [
+      { name: "Nombres", value: values.nombre },
+      { name: "Apellidos", value: values.apellidos },
+    ];
+
+    if (!validateFields(fieldsPerfil)) return;
+    if (!validateFields(fieldsBanco)) return;
+    if (!validateFields(fieldsEmpresa)) return;
 
     if (direction === "next") {
       newStep++;

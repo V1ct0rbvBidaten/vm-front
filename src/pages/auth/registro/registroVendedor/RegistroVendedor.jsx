@@ -11,6 +11,7 @@ import { completeProfile, getCurrentUser } from "../../../../api/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import DataBankForm from "./DataBankForm";
+import { validateFields } from "../../../../functions/forms";
 
 const initialState = {
   email: "",
@@ -62,6 +63,19 @@ const RegistroVendedor = ({ user }) => {
 
   const handleClick = (direction) => {
     let newStep = currentStep;
+
+    const fieldsPerfil = [
+      { name: "Nombres", value: values.nombre },
+      { name: "Apellidos", value: values.apellidos },
+    ];
+
+    const fieldsBanco = [
+      { name: "Nombres", value: values.nombre },
+      { name: "Apellidos", value: values.apellidos },
+    ];
+
+    if (!validateFields(fieldsPerfil)) return;
+    if (!validateFields(fieldsBanco)) return;
 
     if (direction === "next") {
       newStep++;
