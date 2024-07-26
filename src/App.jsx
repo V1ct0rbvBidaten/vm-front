@@ -22,7 +22,6 @@ import VendedorRoute from "./components/routes/VendedorRoute";
 import VentasHomeVendedor from "./pages/vendedor/ventas/VentasHome";
 import CuentaHomeVendedor from "./pages/vendedor/cuenta/CuentaHome";
 import Balance from "./pages/vendedor/balance/BalanceHome";
-import CuentaEdit from "./pages/empresa/cuenta/CuentaEdit";
 import RegisterComplete from "./pages/auth/registro/RegisterComplete";
 import EmpresaDetail from "./pages/vendedor/explorar/EmpresaDetail";
 import ProductoDetailEmpresa from "./pages/empresa/productos/ProductoDetail";
@@ -74,11 +73,7 @@ const App = () => {
             path="/empresa/cuenta"
             element={<EmpresaRoute Component={CuentaHome} />}
           />
-          <Route
-            exact
-            path="/empresa/cuenta/profile-edit"
-            element={<EmpresaRoute Component={CuentaEdit} />}
-          />
+
           {/* Rutes Vendedor */}
           <Route
             exact

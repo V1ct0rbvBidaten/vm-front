@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useFetchById from "../../../hooks/useFetch";
 import { useSelector } from "react-redux";
 import {
@@ -10,14 +10,25 @@ import {
   Tab,
   Divider,
 } from "@nextui-org/react";
-import {
-  EyeSlashIcon,
-  LockClosedIcon,
-  PencilSquareIcon,
-} from "@heroicons/react/24/solid";
+import { EyeSlashIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
 import Loading from "../../../components/utils/Loading";
+import DatosPersonalesDetail from "./detail/DatosPersonalesDetail";
+import { updatePerfil } from "../../../api/perfil";
+import { updateEmpresa } from "../../../api/empresas";
+import { toast } from "react-toastify";
+import DatosPersonalesUpdate from "./update/DatosPersonalesUpdate";
+
+const initialStateTogleEdit = {
+  datosPersonales: false,
+  datosEmpresa: false,
+  datosBancarios: false,
+  contrasena: false,
+};
 
 const CuentaHome = () => {
+  const [togleEdit, setTogleEdit] = useState(initialStateTogleEdit);
+  const [updateDataPerfil, setUpdateDataPerfil] = useState(null);
+  const [updateDataEmpresa, setUpdateDataEmpresa] = useState(null);
   const user = useSelector((state) => state.user);
 
   const [reload, setReload] = useState(false);
@@ -38,7 +49,12 @@ const CuentaHome = () => {
     reload
   );
 
-  if (loading || loadingEmpresa)
+  useEffect(() => {
+    if (data) setUpdateDataPerfil(data.detail.data);
+    if (dataEmpresa) setUpdateDataEmpresa(dataEmpresa.detail.data);
+  }, [data, dataEmpresa]);
+
+  if (loading || loadingEmpresa || !updateDataPerfil || !updateDataEmpresa)
     return (
       <div className="flex flex-col justify-center items-center w-100 h-[400px] bg-white rounded-md shadow-md">
         <Loading />
@@ -47,10 +63,6 @@ const CuentaHome = () => {
     );
 
   const {
-    nombres,
-    apellidos,
-    direccion,
-    telefono,
     rut_cuenta_bancaria,
     banco,
     tipo_cuenta_bancaria,
@@ -69,16 +81,58 @@ const CuentaHome = () => {
     correo_electronico_razon_social,
   } = dataEmpresa.detail.data;
 
+  const handleUpdatePerfil = (e) => {
+    e.preventDefault();
+    updatePerfil(user.token, updateDataPerfil, updateDataPerfil.id_perfil)
+      .then(() => {
+        toast.success("Perfil actualizado correctamente");
+      })
+      .catch((error) => {
+        console.error("Error al actualizar perfil: ", error);
+        toast.error("Error al actualizar perfil");
+      })
+      .finally(() => {
+        setReload(!reload);
+        setTogleEdit(initialStateTogleEdit);
+      });
+  };
+
+  const handleUpdateEmpresa = (e) => {
+    e.preventDefault();
+    updateEmpresa(user.token, updateDataPerfil, user.id_usuario)
+      .then(() => {
+        toast.success("Perfil actualizado correctamente");
+      })
+      .catch((error) => {
+        console.error("Error al actualizar perfil: ", error);
+        toast.error("Error al actualizar perfil");
+      })
+      .finally(() => {
+        setReload(!reload);
+      });
+  };
+
+  const handleChangePerfil = (e) => {
+    const { name, value } = e.target;
+    setUpdateDataPerfil({ ...updateDataPerfil, [name]: value });
+  };
+
+  const handleChangeEmpresa = (e) => {
+    const { name, value } = e.target;
+    setUpdateDataEmpresa({ ...updateDataEmpresa, [name]: value });
+  };
+
+  const handleTogleEdit = (key) => {
+    setTogleEdit({
+      ...initialStateTogleEdit,
+      [key]: !togleEdit[key],
+    });
+  };
+
   return (
     <div className="w-100 p-4 bg-white rounded-md shadow-md flex flex-col gap-4">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-semibold tracking-wide">Perfil</h1>
-        <Button
-          className="bg-emerald-500 text-white h-6"
-          startContent={<PencilSquareIcon className="h-4" />}
-        >
-          Editar perfil
-        </Button>
       </div>
       <Divider />
       <div className="mt-5">
@@ -91,42 +145,28 @@ const CuentaHome = () => {
             >
               <Card className="w-full">
                 <CardBody>
-                  <div className="grid grid-cols-2  gap-4  p-4 ">
-                    <h4 className="col-span-2 tracking-wide text-xl font-semibold">
-                      Datos Personales
-                    </h4>
-                    <Input
-                      variant="bordered"
-                      label="Nombres"
-                      labelPlacement="outside"
-                      disabled
-                      size="sm"
-                      value={nombres}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Apellidos"
-                      size="sm"
-                      labelPlacement="outside"
-                      disabled
-                      value={apellidos}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Dirección"
-                      size="sm"
-                      labelPlacement="outside"
-                      disabled
-                      value={direccion}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Teléfono"
-                      size="sm"
-                      labelPlacement="outside"
-                      disabled
-                      value={telefono}
-                    />
+                  <div className=" flex flex-col gap-4 p-4 ">
+                    <div className="flex justify-between">
+                      <h4 className="col-span-2 tracking-wide text-xl font-semibold">
+                        Datos Personales
+                      </h4>
+                      <Button
+                        className="bg-emerald-500 text-white h-6"
+                        isIconOnly
+                        onClick={() => handleTogleEdit("datosPersonales")}
+                      >
+                        <PencilSquareIcon className="h-4" />
+                      </Button>
+                    </div>
+                    {togleEdit.datosPersonales ? (
+                      <DatosPersonalesUpdate
+                        data={updateDataPerfil}
+                        handleChange={handleChangePerfil}
+                        handleSubmit={handleUpdatePerfil}
+                      />
+                    ) : (
+                      <DatosPersonalesDetail data={updateDataPerfil} />
+                    )}
                   </div>
                 </CardBody>
               </Card>
@@ -138,70 +178,6 @@ const CuentaHome = () => {
                     <h4 className="col-span-2 tracking-wide text-xl font-semibold">
                       Datos Empresa
                     </h4>
-                    <Input
-                      variant="bordered"
-                      label="Rut"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={rut_razon_social}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Nombre"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={nombre_razon_social}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Región"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={region_razon_social}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Comuna"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={comuna_razon_social}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Dirección"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={direccion_razon_social}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Rubro"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={rubro}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Teléfono"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={telefono_razon_social}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Correo"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={correo_electronico_razon_social}
-                    />
                   </div>
                 </CardBody>
               </Card>
@@ -213,51 +189,19 @@ const CuentaHome = () => {
             >
               <Card>
                 <CardBody>
-                  <div className="grid grid-cols-2  gap-4  p-4 ">
-                    <h4 className="col-span-2 tracking-wide text-xl font-semibold">
-                      Datos Bancarios
-                    </h4>
-                    <Input
-                      variant="bordered"
-                      label="Banco"
-                      labelPlacement="outside"
-                      size="sm"
-                      className="col-span-2"
-                      disabled
-                      value={banco}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Rut"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={rut_cuenta_bancaria} // rut_cuenta_bancaria  es el rut de la empresa   rut_empresa
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Tipo de cuenta"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={tipo_cuenta_bancaria}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Número de cuenta"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={numero_cuenta_bancaria}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Email"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={email_cuenta_bancaria}
-                    />
+                  <div className=" flex flex-col gap-4 p-4 ">
+                    <div className="flex justify-between">
+                      <h4 className="col-span-2 tracking-wide text-xl font-semibold">
+                        Datos Personales
+                      </h4>
+                      <Button
+                        className="bg-emerald-500 text-white h-6"
+                        isIconOnly
+                        onClick={() => handleTogleEdit("datosEmpresa")}
+                      >
+                        <PencilSquareIcon className="h-4" />
+                      </Button>
+                    </div>
                   </div>
                 </CardBody>
               </Card>

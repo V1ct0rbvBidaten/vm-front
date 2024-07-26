@@ -141,16 +141,29 @@ const RegistroEmpresa = ({ user }) => {
     const fieldsPerfil = [
       { name: "Nombres", value: values.nombre },
       { name: "Apellidos", value: values.apellidos },
+      { name: "Telefono", value: values.telefono },
+      { name: "Direccion", value: values.direccion },
+      { name: "Region", value: values.region },
+      { name: "Comuna", value: values.comuna },
     ];
 
     const fieldsBanco = [
-      { name: "Nombres", value: values.nombre },
-      { name: "Apellidos", value: values.apellidos },
+      { name: "Banco", value: values.banco },
+      { name: "Rut ", value: values.rut_cuenta_bancaria },
+      { name: "Tipo Cuenta", value: values.tipo_cuenta_bancaria },
+      { name: "Número", value: values.numero_cuenta_bancaria },
+      { name: "Email", value: values.email_cuenta_bancaria },
     ];
 
     const fieldsEmpresa = [
-      { name: "Nombres", value: values.nombre },
-      { name: "Apellidos", value: values.apellidos },
+      { name: "Rut", value: values.rut_razon_social },
+      { name: "Nombre", value: values.nombre_razon_social },
+      { name: "Dirección", value: values.direccion_razon_social },
+      { name: "Telefono", value: values.telefono_razon_social },
+      // { name: "Correo", value: values.correo_electronico_razon_social },
+      { name: "Rubro", value: values.rubro },
+      { name: "Region", value: values.region_razon_social },
+      { name: "Comuna", value: values.comuna_razon_social },
     ];
 
     if (!validateFields(fieldsPerfil)) return;
