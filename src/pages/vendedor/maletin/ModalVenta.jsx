@@ -8,11 +8,19 @@ import {
   Input,
   Tabs,
   Tab,
+  Select,
+  SelectItem,
   ButtonGroup,
 } from "@nextui-org/react";
 import { useState } from "react";
 import { createVenta } from "../../../api/ventas";
 import { useSelector } from "react-redux";
+import {
+  formatChileanPhoneNumber,
+  formatNumberToCurrency,
+  formatRut,
+} from "../../../functions/formaters";
+import regiones from "../../../utils/regiones";
 
 const initialState = {
   id_vendedor: "",
@@ -36,9 +44,37 @@ const ModalVenta = ({ open, handleOpen, data }) => {
   const user = useSelector((state) => state.user);
   const [values, setValues] = useState(initialState);
   const [loading, setLoading] = useState(false);
+  const [cantidad, setCantidad] = useState(0);
+  const [selectedRegion, setSelectedRegion] = useState("");
+  const [filteredComunas, setFilteredComunas] = useState([]);
+
+  const handleRegionChange = (event) => {
+    const { value } = event.target;
+    setSelectedRegion(value);
+    handleChange(event);
+
+    const region = regiones.Regiones.find((reg) => reg.Nombre === value);
+    if (region) {
+      setFilteredComunas(region.Comunas);
+    } else {
+      setFilteredComunas([]);
+    }
+  };
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+    if (e.target.name === "rut_cliente") {
+      setValues({
+        ...values,
+        [e.target.name]: formatRut(e.target.value),
+      });
+    } else if (e.target.name === "telefono_cliente") {
+      setValues({
+        ...values,
+        [e.target.name]: formatChileanPhoneNumber(e.target.value),
+      });
+    } else {
+      setValues({ ...values, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -62,7 +98,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
   };
 
   const {
-    cantidad,
     precio_venta,
     estado_venta,
     tipo_pago,
@@ -117,15 +152,19 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                         <Button
                           size="sm"
                           className="bg-stone-100 font-bold text-lg"
+                          onClick={() => {
+                            if (cantidad > 0) setCantidad(cantidad - 1);
+                          }}
                         >
                           -
                         </Button>
                         <Button size="sm" className="bg-white ">
-                          0 Productos
+                          {cantidad} Productos
                         </Button>
                         <Button
                           size="sm"
                           className="bg-stone-100 font-bold text-lg"
+                          onClick={() => setCantidad(cantidad + 1)}
                         >
                           +
                         </Button>
@@ -137,6 +176,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                         label="Total"
                         labelPlacement="outside-left"
                         placeholder="$"
+                        value={formatNumberToCurrency(cantidad * precio)}
                       />
                     </div>
 
@@ -246,32 +286,37 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     // name="dpto_casa_cliente"
                     // value={direccion_cliente}
                   />
-                  <Input
-                    size="sm"
+                  <Select
                     variant="bordered"
-                    label="Región"
+                    label="Región "
                     labelPlacement="outside"
-                    placeholder="Ingrese Región cliente"
+                    placeholder="Ingrese región "
                     name="region_cliente"
-                    value={region_cliente}
-                    onChange={handleChange}
-                  />
-                  <Input
-                    size="sm"
+                    value={selectedRegion}
+                    onChange={handleRegionChange}
+                  >
+                    {regiones.Regiones.map((region) => (
+                      <SelectItem key={region.Nombre} value={region.Nombre}>
+                        {region.Nombre}
+                      </SelectItem>
+                    ))}
+                  </Select>
+                  <Select
                     variant="bordered"
-                    label="Ciudad"
+                    label="Comuna "
                     labelPlacement="outside"
-                    placeholder="Ingrese Ciudad cliente"
-                  />
-                  <Input
-                    size="sm"
-                    variant="bordered"
-                    label="Comuna"
-                    labelPlacement="outside"
-                    placeholder="Ingrese Comuna cliente"
+                    placeholder="Ingrese comuna "
                     name="comuna_cliente"
                     value={comuna_cliente}
-                  />
+                    onChange={handleChange}
+                    disabled={!selectedRegion}
+                  >
+                    {filteredComunas.map((comuna) => (
+                      <SelectItem key={comuna} value={comuna}>
+                        {comuna}
+                      </SelectItem>
+                    ))}
+                  </Select>
                 </div>
               </div>
             </ModalBody>
