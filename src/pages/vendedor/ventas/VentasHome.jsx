@@ -94,14 +94,30 @@ const VentasHome = () => {
       dataIndex: "estado",
       key: "estado",
       render: (text) => {
-        if (text === "Active") {
+        if (text === "EN PROCESO") {
+          return (
+            <span className="bg-slate-200 text-slate-500  p-1 pr-4 pl-4 rounded-full hover:cursor-pointer">
+              {text}
+            </span>
+          );
+        } else if (text === "REQUIERE REVISIÓN") {
+          return (
+            <span className="bg-amber-200 text-amber-500  p-1 pr-4 pl-4 rounded-full hover:cursor-pointer">
+              {text}
+            </span>
+          );
+        } else if (text === "RECHAZADA") {
+          return (
+            <span className="bg-rose-200 text-rose-500 p-1 pr-4 pl-4 rounded-full hover:cursor-pointer">
+              {text}
+            </span>
+          );
+        } else if (text === "COMPLETADA") {
           return (
             <span className="bg-emerald-200 text-emerald-500 p-1 pr-4 pl-4 rounded-full hover:cursor-pointer">
               {text}
             </span>
           );
-        } else if (text === "Pending") {
-          return <span style={{ color: "orange" }}>{text}</span>;
         } else {
           return <span>{text}</span>;
         }
