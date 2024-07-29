@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #150a30;
+  --secondary-color: #2c0261;
+  --tertiary-color: #28b6c6;
+  --quaternary-color: #05d9b2;
+  --quinary-color: #f2e635;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   background: #14b8a6;
@@ -110,4 +118,44 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.table-primary {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 2px;
+  box-shadow: 0px 5px 10px 2px rgba(183, 183, 183, 0.48);
+  overflow: hidden;
+}
+
+.table-primary thead {
+  background: var(--secondary-color);
+}
+
+.table-primary thead tr {
+  text-align: start;
+}
+
+.table-primary tbody tr:nth-child(odd) {
+  background-color: #f5f5f5; /* Example background color */
+}
+
+.table-primary thead tr td {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 10px 10px 10px 20px;
+}
+
+.table-primary tbody tr {
+  text-align: center;
+}
+
+.table-primary tbody tr td {
+  text-align: start;
+  padding: 10px 10px 10px 20px;
+  font-size: 14px;
+  text-transform: capitalize;
 }
