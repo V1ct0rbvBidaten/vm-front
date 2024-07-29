@@ -1,11 +1,24 @@
-import { Card, CardBody, CardHeader, Button } from "@nextui-org/react";
-import React from "react";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Button,
+  Image,
+} from "@nextui-org/react";
+import NoImage from "../../../assets/no-image.jpg";
 import { useNavigate } from "react-router-dom";
 
 const EmpresaCard = ({ data }) => {
   const navigate = useNavigate();
 
-  const { id_empresa, nombre_razon_social, product_count } = data;
+  const {
+    id_empresa,
+    nombre_razon_social,
+    product_count,
+    imagen_principal,
+    background,
+  } = data;
 
   return (
     <Card
@@ -15,13 +28,16 @@ const EmpresaCard = ({ data }) => {
       aria-label={`Ver detalles de la empresa ${nombre_razon_social}`}
     >
       <CardHeader>
-        <p className="text-lg font-semibold m-auto capitalize">
-          {nombre_razon_social}
-        </p>
+        <img
+          className="h-[200px] object-cover rounded-md"
+          src={imagen_principal ? imagen_principal : NoImage}
+        />
       </CardHeader>
       <CardBody>
         <div className="flex flex-col w-100">
-          <div className="h-[100px] bg-slate-100 rounded-md "></div>
+          <p className="text-lg font-semibold m-auto capitalize">
+            {nombre_razon_social}
+          </p>
           <span className="mt-2 font-semibold w-full  text-center">
             {product_count} Productos
           </span>

@@ -31,7 +31,7 @@ import useEmpresas from "../../../hooks/useEmpresas";
 
 const initialDinamicState = {
   page: 1,
-  page_size: 30,
+  page_size: 10,
 };
 
 const ExplorarHome = () => {
@@ -94,7 +94,7 @@ const ExplorarHome = () => {
           </select>
         </label>
       </div>
-      <div className="p-4 grid grid-cols-6 w-full gap-2">
+      <div className="p-4 grid grid-cols-5 w-full gap-2">
         {profiles
           .filter((d) => d.es_empresa)
           .map((profile) => (
