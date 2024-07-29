@@ -74,8 +74,8 @@ const RegistroVendedor = ({ user }) => {
       { name: "Apellidos", value: values.apellidos },
     ];
 
-    if (!validateFields(fieldsPerfil)) return;
-    if (!validateFields(fieldsBanco)) return;
+    if (!validateFields(fieldsPerfil) && currentStep === 0) return;
+    if (!validateFields(fieldsBanco) && currentStep === 1) return;
 
     if (direction === "next") {
       newStep++;

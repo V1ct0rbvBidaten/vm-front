@@ -166,9 +166,9 @@ const RegistroEmpresa = ({ user }) => {
       { name: "Comuna", value: values.comuna_razon_social },
     ];
 
-    if (!validateFields(fieldsPerfil)) return;
-    if (!validateFields(fieldsBanco)) return;
-    if (!validateFields(fieldsEmpresa)) return;
+    if (!validateFields(fieldsPerfil) && currentStep === 0) return;
+    if (!validateFields(fieldsBanco) && currentStep === 1) return;
+    if (!validateFields(fieldsEmpresa) && currentStep === 2) return;
 
     if (direction === "next") {
       newStep++;
