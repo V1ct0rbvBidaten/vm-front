@@ -18,6 +18,8 @@ import { updateEmpresa } from "../../../api/empresas";
 import { toast } from "react-toastify";
 import DatosPersonalesUpdate from "./update/DatosPersonalesUpdate";
 import DatosPerfilEmpresaUpdate from "./update/DatosPerfilEmpresaUpdate";
+import DatosEmpresaDetail from "./detail/DatosEmpresaDetail";
+import DatosEmpresaUpdate from "./update/DatosEmpresaUpdate";
 
 const initialStateTogleEdit = {
   datosPersonales: false,
@@ -168,38 +170,17 @@ const CuentaHome = () => {
 
   return (
     <div className="w-100 p-4 bg-white rounded-md shadow-md flex flex-col gap-4">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-semibold tracking-wide">Perfil</h1>
-      </div>
-      <Divider />
+      <DatosPerfilEmpresaUpdate
+        data={updateDataEmpresa}
+        handleImagePortadaChange={handleImagePortadaChange}
+        handleImagePrincipalChange={handleImagePrincipalChange}
+        imagen_principal={imagenPrincipal}
+        background={portada}
+        handleChangeEmpresa={handleChangeEmpresa}
+      />
       <div className="mt-5">
         <div className="flex w-full flex-col">
           <Tabs aria-label="Options" isVertical={true} color="primary">
-            <Tab
-              key="datosPerfilEmpresa"
-              title="Perfil Empresa"
-              className="w-full"
-            >
-              <Card className="w-full">
-                <CardBody>
-                  <div className=" flex flex-col gap-4 p-4 ">
-                    <div className="flex justify-between">
-                      <h4 className="col-span-2 tracking-wide text-xl font-semibold">
-                        Perfil Empresa
-                      </h4>
-                    </div>
-                    <DatosPerfilEmpresaUpdate
-                      data={updateDataEmpresa}
-                      handleImagePortadaChange={handleImagePortadaChange}
-                      handleImagePrincipalChange={handleImagePrincipalChange}
-                      imagen_principal={imagenPrincipal}
-                      background={portada}
-                      handleChangeEmpresa={handleChangeEmpresa}
-                    />
-                  </div>
-                </CardBody>
-              </Card>
-            </Tab>
             <Tab
               key="datosPersonales"
               title="Datos Personales"
@@ -234,12 +215,30 @@ const CuentaHome = () => {
               </Card>
             </Tab>
             <Tab key="datosEmpresa" title="Datos Empresa" className="w-full">
-              <Card>
+              <Card className="w-full">
                 <CardBody>
-                  <div className="grid grid-cols-2  gap-4  p-4 ">
-                    <h4 className="col-span-2 tracking-wide text-xl font-semibold">
-                      Datos Empresa
-                    </h4>
+                  <div className=" flex flex-col gap-4 p-4 ">
+                    <div className="flex justify-between">
+                      <h4 className="col-span-2 tracking-wide text-xl font-semibold">
+                        Datos Personales
+                      </h4>
+                      <Button
+                        className="bg-emerald-500 text-white h-6"
+                        isIconOnly
+                        onClick={() => handleTogleEdit("datosPersonales")}
+                      >
+                        <PencilSquareIcon className="h-4" />
+                      </Button>
+                    </div>
+                    {togleEdit.datosPersonales ? (
+                      <DatosEmpresaUpdate
+                        data={updateDataEmpresa}
+                        handleChange={handleChangePerfil}
+                        handleSubmit={handleUpdatePerfil}
+                      />
+                    ) : (
+                      <DatosEmpresaDetail data={updateDataEmpresa} />
+                    )}
                   </div>
                 </CardBody>
               </Card>

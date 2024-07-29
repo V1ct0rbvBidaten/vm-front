@@ -1,24 +1,44 @@
-import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
-import { Button } from "@nextui-org/react";
-import React from "react";
+import NoProfile from "../../../assets/noprofile.webp";
+import NoImage from "../../../assets/no-image.jpg";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import useFetchById from "../../../hooks/useFetch";
+import Loading from "../../../components/utils/Loading";
+import EmpresaBanner from "../../../components/utils/EmpresaBanner";
 
 const VentasHome = () => {
+  const user = useSelector((state) => state.user);
+
+  const [reload, setReload] = useState(false);
+
+  const urlEmpresa = `empresa/${user.id_empresa}`;
+
+  const { data: dataEmpresa, loading: loadingEmpresa } = useFetchById(
+    user.token,
+    urlEmpresa,
+    reload
+  );
+
+  if (loadingEmpresa)
+    return (
+      <div className="flex flex-col justify-center items-center w-100 h-[400px] bg-white rounded-md shadow-md">
+        <Loading />
+        <p className="text-sky-500 font-semibold text-xl">Cargando...</p>
+      </div>
+    );
+
+  const {
+    descripcion,
+    rubro,
+    nombre_razon_social,
+    imagen_principal,
+    background,
+  } = dataEmpresa.detail.data;
+
   return (
     <>
-      {" "}
       <div className="w-full bg-white rounded-md shadow-md mb-5 p-4">
-        <h1 className="text-2xl font-semibold">
-          <Button isIconOnly className="bg-emerald-500  text-white h-6">
-            <ChevronDoubleLeftIcon className="h-4" />
-          </Button>{" "}
-          Empresa Nombre
-        </h1>
-        <p className="italic">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
+        <EmpresaBanner data={dataEmpresa.detail.data} />
       </div>
     </>
   );

@@ -11,6 +11,7 @@ const DatosEmpresaDetail = ({ data }) => {
     rubro,
     telefono_razon_social,
     correo_electronico_razon_social,
+    descripcion,
   } = data;
 
   return (
