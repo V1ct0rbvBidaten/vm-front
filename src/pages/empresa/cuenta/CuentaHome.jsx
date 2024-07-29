@@ -17,6 +17,7 @@ import { updatePerfil } from "../../../api/perfil";
 import { updateEmpresa } from "../../../api/empresas";
 import { toast } from "react-toastify";
 import DatosPersonalesUpdate from "./update/DatosPersonalesUpdate";
+import DatosPerfilEmpresaUpdate from "./update/DatosPerfilEmpresaUpdate";
 
 const initialStateTogleEdit = {
   datosPersonales: false,
@@ -29,6 +30,8 @@ const CuentaHome = () => {
   const [togleEdit, setTogleEdit] = useState(initialStateTogleEdit);
   const [updateDataPerfil, setUpdateDataPerfil] = useState(null);
   const [updateDataEmpresa, setUpdateDataEmpresa] = useState(null);
+  const [imagenPrincipal, setImagenPrincipal] = useState(null);
+  const [portada, setPortada] = useState(null);
   const user = useSelector((state) => state.user);
 
   const [reload, setReload] = useState(false);
@@ -52,6 +55,9 @@ const CuentaHome = () => {
   useEffect(() => {
     if (data) setUpdateDataPerfil(data.detail.data);
     if (dataEmpresa) setUpdateDataEmpresa(dataEmpresa.detail.data);
+    if (dataEmpresa)
+      setImagenPrincipal(dataEmpresa.detail.data.imagen_principal);
+    if (dataEmpresa) setPortada(dataEmpresa.detail.data.background);
   }, [data, dataEmpresa]);
 
   if (loading || loadingEmpresa || !updateDataPerfil || !updateDataEmpresa)
@@ -61,25 +67,6 @@ const CuentaHome = () => {
         <p className="text-sky-500 font-semibold text-xl">Cargando...</p>
       </div>
     );
-
-  const {
-    rut_cuenta_bancaria,
-    banco,
-    tipo_cuenta_bancaria,
-    numero_cuenta_bancaria,
-    email_cuenta_bancaria,
-  } = data.detail.data;
-
-  const {
-    rut_razon_social,
-    nombre_razon_social,
-    region_razon_social,
-    comuna_razon_social,
-    direccion_razon_social,
-    rubro,
-    telefono_razon_social,
-    correo_electronico_razon_social,
-  } = dataEmpresa.detail.data;
 
   const handleUpdatePerfil = (e) => {
     e.preventDefault();
@@ -99,7 +86,9 @@ const CuentaHome = () => {
 
   const handleUpdateEmpresa = (e) => {
     e.preventDefault();
-    updateEmpresa(user.token, updateDataPerfil, user.id_usuario)
+    updateDataEmpresa.background = portada;
+    updateDataEmpresa.imagen_principal = imagenPrincipal;
+    updateEmpresa(user.token, updateDataEmpresa, user.id_empresa)
       .then(() => {
         toast.success("Perfil actualizado correctamente");
       })
@@ -129,6 +118,54 @@ const CuentaHome = () => {
     });
   };
 
+  const handleImagePortadaChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      updateDataEmpresa.background = reader.result;
+      updateEmpresa(user.token, updateDataEmpresa, user.id_empresa)
+        .then(() => {
+          toast.success("Perfil actualizado correctamente");
+        })
+        .catch((error) => {
+          console.error("Error al actualizar perfil: ", error);
+          toast.error("Error al actualizar perfil");
+        })
+        .finally(() => {
+          setReload(!reload);
+        });
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleImagePrincipalChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      updateDataEmpresa.imagen_principal = reader.result;
+      updateEmpresa(user.token, updateDataEmpresa, user.id_empresa)
+        .then(() => {
+          toast.success("Perfil actualizado correctamente");
+        })
+        .catch((error) => {
+          console.error("Error al actualizar perfil: ", error);
+          toast.error("Error al actualizar perfil");
+        })
+        .finally(() => {
+          setReload(!reload);
+        });
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="w-100 p-4 bg-white rounded-md shadow-md flex flex-col gap-4">
       <div className="flex justify-between items-center">
@@ -138,6 +175,31 @@ const CuentaHome = () => {
       <div className="mt-5">
         <div className="flex w-full flex-col">
           <Tabs aria-label="Options" isVertical={true} color="primary">
+            <Tab
+              key="datosPerfilEmpresa"
+              title="Perfil Empresa"
+              className="w-full"
+            >
+              <Card className="w-full">
+                <CardBody>
+                  <div className=" flex flex-col gap-4 p-4 ">
+                    <div className="flex justify-between">
+                      <h4 className="col-span-2 tracking-wide text-xl font-semibold">
+                        Perfil Empresa
+                      </h4>
+                    </div>
+                    <DatosPerfilEmpresaUpdate
+                      data={updateDataEmpresa}
+                      handleImagePortadaChange={handleImagePortadaChange}
+                      handleImagePrincipalChange={handleImagePrincipalChange}
+                      imagen_principal={imagenPrincipal}
+                      background={portada}
+                      handleChangeEmpresa={handleChangeEmpresa}
+                    />
+                  </div>
+                </CardBody>
+              </Card>
+            </Tab>
             <Tab
               key="datosPersonales"
               title="Datos Personales"
