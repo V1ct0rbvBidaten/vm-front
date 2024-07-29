@@ -180,11 +180,17 @@ const CuentaHome = () => {
       />
       <div className="mt-5">
         <div className="flex w-full flex-col">
-          <Tabs aria-label="Options" isVertical={true} color="primary">
+          <Tabs
+            aria-label="Options"
+            isVertical={true}
+            variant="underlined"
+            color="primary"
+          >
             <Tab
               key="datosPersonales"
               title="Datos Personales"
-              className="w-full"
+              style={{ width: "100%", textAlign: "left" }}
+              className="w-full "
             >
               <Card className="w-full">
                 <CardBody>

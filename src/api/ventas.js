@@ -61,7 +61,7 @@ export const getVentasMerchant = async (token, body) => {
   const queryString = queryParams.toString();
 
   return await axios.get(
-    `${import.meta.env.VITE_API_URL}/ventas-merchants?${queryString}`,
+    `${import.meta.env.VITE_API_URL}/ventas-merchant?${queryString}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,

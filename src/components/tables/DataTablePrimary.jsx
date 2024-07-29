@@ -9,17 +9,25 @@ const DataTablePrimary = ({ columns, rows }) => {
         </tr>
       </thead>
       <tbody>
-        {rows.map((row, rowIndex) => (
-          <tr key={rowIndex}>
-            {columns.map((column, colIndex) => (
-              <td key={colIndex}>
-                {column.render
-                  ? column.render(row[column.dataIndex], row)
-                  : row[column.dataIndex]}
-              </td>
-            ))}
+        {rows.length > 0 ? (
+          rows.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {columns.map((column, colIndex) => (
+                <td key={colIndex}>
+                  {column.render
+                    ? column.render(row[column.dataIndex], row)
+                    : row[column.dataIndex]}
+                </td>
+              ))}
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan={columns.length} className="text-center">
+              No hay registros
+            </td>
           </tr>
-        ))}
+        )}
       </tbody>
     </table>
   );

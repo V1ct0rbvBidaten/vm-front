@@ -30,25 +30,26 @@ const DatosPerfilEmpresaUpdate = ({
   };
 
   return (
-    <div className="w-full h-auto rounded-md h-[350px] shadow-md p-2 flex justify-center relative">
-      <input
-        type="file"
-        ref={hiddenFilePerfilInput}
-        accept="image/*"
-        style={{ display: "none" }}
-        onChange={handleImagePrincipalChange}
-      />
-      <input
-        type="file"
-        ref={hiddenFilePortadaInput}
-        accept="image/*"
-        style={{ display: "none" }}
-        onChange={handleImagePortadaChange}
-      />
+    <div className="w-full  rounded-md h-[350px]  p-2 flex justify-center relative">
       <div
         className="relative h-[250px] w-full rounded-md overflow-hidden group hover:cursor-pointer"
         onClick={handleClickPortada}
       >
+        <input
+          type="file"
+          ref={hiddenFilePerfilInput}
+          accept="image/*"
+          style={{ display: "none" }}
+          onChange={handleImagePrincipalChange}
+        />
+        <input
+          type="file"
+          ref={hiddenFilePortadaInput}
+          accept="image/*"
+          style={{ display: "none" }}
+          onChange={handleImagePortadaChange}
+        />
+
         <img
           className="absolute inset-0 w-full h-full object-cover transition-opacity  duration-300 ease-in-out group-hover:opacity-30"
           src={background ? background : NoImage}
@@ -60,7 +61,7 @@ const DatosPerfilEmpresaUpdate = ({
           <img
             onClick={handleClickPerfil}
             src={imagen_principal ? imagen_principal : NoProfile}
-            className="w-20 h-20 md:w-40 md:h-40 rounded-full shadow-md object-cover hover:cursor-pointer"
+            className="w-[100px] h-[100px] rounded-full shadow-md object-cover hover:cursor-pointer"
           />
           <div className="flex flex-col items-start justify-center    w-full ml-0 md:ml-10 mr-0 md:mr-10 mt-6 md:mt-0">
             <span className="bg-sky-500  rounded-full px-4 text-white capitalize text-center md:text-left">
