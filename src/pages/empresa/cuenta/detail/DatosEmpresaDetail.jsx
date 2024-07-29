@@ -15,7 +15,7 @@ const DatosEmpresaDetail = ({ data }) => {
   } = data;
 
   return (
-    <form>
+    <form className="grid grid-cols-3 gap-2">
       <Input
         variant="flat"
         label="Rut"
@@ -52,6 +52,7 @@ const DatosEmpresaDetail = ({ data }) => {
         variant="flat"
         label="Dirección"
         labelPlacement="outside"
+        className="col-span-2"
         size="sm"
         disabled
         value={direccion_razon_social}

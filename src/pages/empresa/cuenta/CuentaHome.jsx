@@ -178,14 +178,9 @@ const CuentaHome = () => {
         background={portada}
         handleChangeEmpresa={handleChangeEmpresa}
       />
-      <div className="mt-5">
+      <div>
         <div className="flex w-full flex-col">
-          <Tabs
-            aria-label="Options"
-            isVertical={true}
-            variant="underlined"
-            color="primary"
-          >
+          <Tabs aria-label="Options" variant="underlined" color="primary">
             <Tab
               key="datosPersonales"
               title="Datos Personales"
