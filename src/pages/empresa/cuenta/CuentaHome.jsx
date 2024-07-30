@@ -102,6 +102,7 @@ const CuentaHome = () => {
       })
       .finally(() => {
         setReload(!reload);
+        setTogleEdit(initialStateTogleEdit);
       });
   };
 

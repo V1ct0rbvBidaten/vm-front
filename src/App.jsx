@@ -70,6 +70,11 @@ const App = () => {
           />
           <Route
             exact
+            path="/empresa/ventas/:idVenta"
+            element={<EmpresaRoute Component={VentaDetail} />}
+          />
+          <Route
+            exact
             path="/empresa/cuenta"
             element={<EmpresaRoute Component={CuentaHome} />}
           />

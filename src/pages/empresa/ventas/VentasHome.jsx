@@ -10,6 +10,7 @@ import {
   formatDateToDDMMYY,
   formatNumberToCurrency,
 } from "../../../functions/formaters";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   page: 1,
@@ -17,6 +18,7 @@ const initialState = {
 };
 
 const VentasHome = () => {
+  let navigate = useNavigate();
   const user = useSelector((state) => state.user);
 
   const [reload, setReload] = useState(false);
@@ -105,10 +107,13 @@ const VentasHome = () => {
     },
     {
       title: "Acciones",
-      dataIndex: "acciones",
+      dataIndex: "id_venta",
       key: "acciones",
       render: (text, record) => (
-        <Button className=" bg-emerald-700 h-8 rounded-full text-white">
+        <Button
+          className=" bg-emerald-700 h-8 rounded-full text-white"
+          onClick={() => navigate(`/empresa/ventas/${text}`)}
+        >
           Detalle
         </Button>
       ),
