@@ -38,6 +38,7 @@ const ExplorarHome = () => {
 
   let profiles =
     data &&
+    data.detail.data !== null &&
     data.detail.data.profiles !== null &&
     data.detail.data.profiles.length > 0
       ? data.detail.data.profiles
