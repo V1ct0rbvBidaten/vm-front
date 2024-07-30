@@ -20,6 +20,8 @@ import DatosPersonalesUpdate from "./update/DatosPersonalesUpdate";
 import DatosPerfilEmpresaUpdate from "./update/DatosPerfilEmpresaUpdate";
 import DatosEmpresaDetail from "./detail/DatosEmpresaDetail";
 import DatosEmpresaUpdate from "./update/DatosEmpresaUpdate";
+import DatosBancariosDetail from "./detail/DatosBancariosDetail";
+import DatosBancariosUpdate from "./update/DatosBancariosUpdate";
 
 const initialStateTogleEdit = {
   datosPersonales: false,
@@ -202,7 +204,7 @@ const CuentaHome = () => {
                         <PencilSquareIcon className="h-4" />
                       </Button>
                     </div>
-                    {togleEdit.datosPersonales ? (
+                    {togleEdit.datosEmpresa ? (
                       <DatosPersonalesUpdate
                         data={updateDataPerfil}
                         handleChange={handleChangePerfil}
@@ -221,21 +223,21 @@ const CuentaHome = () => {
                   <div className=" flex flex-col gap-4 p-4 ">
                     <div className="flex justify-between">
                       <h4 className="col-span-2 tracking-wide text-xl font-semibold">
-                        Datos Personales
+                        Datos Empresa
                       </h4>
                       <Button
                         className="bg-emerald-500 text-white h-6"
                         isIconOnly
-                        onClick={() => handleTogleEdit("datosPersonales")}
+                        onClick={() => handleTogleEdit("datosEmpresa")}
                       >
                         <PencilSquareIcon className="h-4" />
                       </Button>
                     </div>
-                    {togleEdit.datosPersonales ? (
+                    {togleEdit.datosEmpresa ? (
                       <DatosEmpresaUpdate
                         data={updateDataEmpresa}
-                        handleChange={handleChangePerfil}
-                        handleSubmit={handleUpdatePerfil}
+                        handleChange={handleChangeEmpresa}
+                        handleSubmit={handleUpdateEmpresa}
                       />
                     ) : (
                       <DatosEmpresaDetail data={updateDataEmpresa} />
@@ -254,16 +256,25 @@ const CuentaHome = () => {
                   <div className=" flex flex-col gap-4 p-4 ">
                     <div className="flex justify-between">
                       <h4 className="col-span-2 tracking-wide text-xl font-semibold">
-                        Datos Personales
+                        Datos Bancarios
                       </h4>
                       <Button
                         className="bg-emerald-500 text-white h-6"
                         isIconOnly
-                        onClick={() => handleTogleEdit("datosEmpresa")}
+                        onClick={() => handleTogleEdit("datosBancarios")}
                       >
                         <PencilSquareIcon className="h-4" />
                       </Button>
                     </div>
+                    {togleEdit.datosBancarios ? (
+                      <DatosBancariosUpdate
+                        data={updateDataPerfil}
+                        handleChange={handleChangePerfil}
+                        handleSubmit={handleUpdatePerfil}
+                      />
+                    ) : (
+                      <DatosBancariosDetail data={updateDataPerfil} />
+                    )}
                   </div>
                 </CardBody>
               </Card>
