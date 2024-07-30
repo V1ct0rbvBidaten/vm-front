@@ -72,11 +72,13 @@ const ExplorarHome = () => {
         </label>
       </div>
       <div className="p-4 grid grid-cols-5 w-full gap-2">
-        {profiles
-          .filter((d) => d.es_empresa)
-          .map((profile) => (
-            <EmpresaCard data={profile} key={profile.id_empresa} />
-          ))}
+        {profiles &&
+          profiles.length > 0 &&
+          profiles
+            .filter((d) => d.es_empresa)
+            .map((profile) => (
+              <EmpresaCard data={profile} key={profile.id_empresa} />
+            ))}
       </div>
       <div className="w-full bg-stone-100 pr-10 pl-10 flex justify-between items-center">
         <Pagination
