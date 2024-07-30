@@ -1,25 +1,12 @@
-import {
-  ChevronDoubleLeftIcon,
-  EllipsisVerticalIcon,
-  FunnelIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/solid";
-import {
-  Button,
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Divider,
-  Input,
-  useSelect,
-  Pagination,
-} from "@nextui-org/react";
+import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
+import { Button, Divider, useSelect, Pagination } from "@nextui-org/react";
 import { useState } from "react";
 import ProductoCardVendedor from "./Producto/ProductoCardVendedor";
 import { useNavigate, useParams } from "react-router-dom";
 import useProductos from "../../../hooks/useProductos";
 import Loading from "../../../components/utils/Loading";
+import useFetchById from "../../../hooks/useFetch";
+import EmpresaBanner from "../../../components/utils/EmpresaBanner";
 
 const initialState = {
   page: 1,
@@ -38,6 +25,14 @@ const EmpresaDetail = () => {
 
   const { data, loading } = useProductos(user.token, params, reload);
 
+  const urlEmpresa = `empresa/${id}`;
+
+  const { data: dataEmpresa, loading: loadingEmpresa } = useFetchById(
+    user.token,
+    urlEmpresa,
+    reload
+  );
+
   const handleParamsChange = (e) => {
     setParams({ ...params, [e.target.name]: e.target.value });
   };
@@ -48,27 +43,9 @@ const EmpresaDetail = () => {
     descripcion: "No hay productos",
   };
 
-  if (loading)
+  if (loading || loadingEmpresa)
     return (
       <div className="w-full bg-white rounded-md shadow-md mb-5 p-4 flex flex-col gap-2">
-        <div className="flex justify-between">
-          <h1 className="text-2xl font-semibold">Nombre Empresa</h1>
-          <Button
-            className="bg-emerald-500 text-white h-6"
-            onClick={() => navigate("/vendedor/explorar")}
-            startContent={<ChevronDoubleLeftIcon className="h-4" />}
-            aria-label="Volver"
-          >
-            Volver
-          </Button>
-        </div>
-        <p className="italic">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-        <Divider />
         <Loading />
       </div>
     );
@@ -89,24 +66,8 @@ const EmpresaDetail = () => {
   return (
     <>
       <div className="w-full bg-white rounded-md shadow-md mb-5 p-4 flex flex-col gap-2">
-        <div className="flex justify-between">
-          <h1 className="text-2xl font-semibold">Nombre Empresa</h1>
-          <Button
-            className="bg-emerald-500 text-white h-6"
-            onClick={() => navigate("/vendedor/explorar")}
-            startContent={<ChevronDoubleLeftIcon className="h-4" />}
-            aria-label="Volver"
-          >
-            Volver
-          </Button>
-        </div>
-        <p className="italic">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-        <Divider />
+        <EmpresaBanner data={dataEmpresa.detail.data} />
+
         <div className="w-full flex gap-4 mb-2 p-4 justify-end">
           <label className="flex items-end text-default-400 text-small">
             Filas por pagina:

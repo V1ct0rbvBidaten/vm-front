@@ -29,7 +29,7 @@ const EmpresaCard = ({ data }) => {
     >
       <CardHeader>
         <img
-          className="h-[200px] object-cover rounded-md"
+          className="h-[200px] object-cover rounded-md m-auto"
           src={imagen_principal ? imagen_principal : NoImage}
         />
       </CardHeader>

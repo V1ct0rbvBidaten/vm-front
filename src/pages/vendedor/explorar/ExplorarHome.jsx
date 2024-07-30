@@ -1,29 +1,6 @@
-import {
-  ArrowDownIcon,
-  EllipsisVerticalIcon,
-  FunnelIcon,
-  MagnifyingGlassIcon,
-  PlusIcon,
-} from "@heroicons/react/24/solid";
-import {
-  Card,
-  Image,
-  CardFooter,
-  Button,
-  CardHeader,
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  CardBody,
-  Input,
-  useSelect,
-  Pagination,
-  Divider,
-} from "@nextui-org/react";
+import { Pagination, Divider } from "@nextui-org/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import usePerfiles from "../../../hooks/usePerfiles";
 import { useSelector } from "react-redux";
 import Loading from "../../../components/utils/Loading";
 import EmpresaCard from "./EmpresaCard";
