@@ -31,25 +31,25 @@ const DatosPerfilEmpresaUpdate = ({
 
   return (
     <div className="w-full  rounded-md h-[350px]  p-2 flex justify-center relative">
+      {" "}
+      <input
+        type="file"
+        ref={hiddenFilePerfilInput}
+        accept="image/*"
+        style={{ display: "none" }}
+        onChange={handleImagePrincipalChange}
+      />
+      <input
+        type="file"
+        ref={hiddenFilePortadaInput}
+        accept="image/*"
+        style={{ display: "none" }}
+        onChange={handleImagePortadaChange}
+      />
       <div
         className="relative h-[250px] w-full rounded-md overflow-hidden group hover:cursor-pointer"
         onClick={handleClickPortada}
       >
-        <input
-          type="file"
-          ref={hiddenFilePerfilInput}
-          accept="image/*"
-          style={{ display: "none" }}
-          onChange={handleImagePrincipalChange}
-        />
-        <input
-          type="file"
-          ref={hiddenFilePortadaInput}
-          accept="image/*"
-          style={{ display: "none" }}
-          onChange={handleImagePortadaChange}
-        />
-
         <img
           className="absolute inset-0 w-full h-full object-cover transition-opacity  duration-300 ease-in-out group-hover:opacity-30"
           src={background ? background : NoImage}
