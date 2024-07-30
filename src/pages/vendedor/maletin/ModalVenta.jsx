@@ -28,7 +28,6 @@ const initialState = {
   id_producto: "",
   cantidad: 0,
   precio_venta: 0,
-  estado_venta: "COMPLETADA",
   tipo_documento: "BOLETA",
   nombre_cliente: "",
   apellido_cliente: "",

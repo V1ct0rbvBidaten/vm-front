@@ -72,7 +72,7 @@ const App = () => {
           <Route
             exact
             path="/empresa/ventas/:idVenta"
-            element={<EmpresaRoute Component={VentaDetail} />}
+            element={<EmpresaRoute Component={VentaDetailEmpresa} />}
           />
           <Route
             exact
@@ -106,7 +106,7 @@ const App = () => {
           <Route
             exact
             path="/vendedor/ventas/:idVenta"
-            element={<VendedorRoute Component={VentaDetailEmpresa} />}
+            element={<VendedorRoute Component={VentaDetail} />}
           />
           <Route
             exact
