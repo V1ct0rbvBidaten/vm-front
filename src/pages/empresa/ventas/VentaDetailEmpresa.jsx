@@ -51,7 +51,7 @@ const VentaDetailEmpresa = () => {
 
   return (
     <>
-      {data.detail.data && (
+      {data && data.detail.data && (
         <div className="w-full bg-white rounded-md shadow-md mb-5 p-4">
           <h1 className="text-2xl font-semibold">
             <Button
