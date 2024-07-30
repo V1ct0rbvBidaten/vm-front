@@ -52,14 +52,6 @@ const VentasHome = () => {
       ),
     },
     {
-      title: "Empresa",
-      dataIndex: "empresa",
-      key: "empresa",
-      render: (text, record) => (
-        <span className="font-semibold text-slate-500">{text}</span>
-      ),
-    },
-    {
       title: "Producto",
       dataIndex: "producto",
       key: "producto",

@@ -23,13 +23,13 @@ const EmpresaBanner = ({ data }) => {
         <div className="p-2 bg-white shadow-md rounded-full w-[100%] flex  justify-center  md:flex-row items-center w-100">
           <img
             src={imagen_principal ? imagen_principal : NoProfile}
-            className="w-[100px] h-[100px] md:w-30 md:h-30 rounded-full shadow-md object-cover "
+            className="w-[100px] h-[100px] rounded-full shadow-md object-cover object-center"
           />
           <div className="flex flex-col items-start justify-center    w-full ml-0 md:ml-10 mr-0 md:mr-10 mt-6 md:mt-0">
             <span className="bg-sky-500  rounded-full px-4 text-white capitalize text-center md:text-left">
               {rubro}
             </span>
-            <span className="text-lg md:text-xl font-semibold text-center md:text-left">
+            <span className="text-lg md:text-xl font-semibold text-center md:text-left capitalize">
               {nombre_razon_social}
             </span>
 
