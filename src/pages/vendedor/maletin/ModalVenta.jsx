@@ -29,7 +29,7 @@ const initialState = {
   cantidad: 0,
   precio_venta: 0,
   estado_venta: "COMPLETADA",
-  tipo_pago: "BOLETA",
+  tipo_documento: "BOLETA",
   nombre_cliente: "",
   apellido_cliente: "",
   direccion_cliente: "",
@@ -100,7 +100,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
   const {
     precio_venta,
     estado_venta,
-    tipo_pago,
+    tipo_documento,
     nombre_cliente,
     apellido_cliente,
     direccion_cliente,
