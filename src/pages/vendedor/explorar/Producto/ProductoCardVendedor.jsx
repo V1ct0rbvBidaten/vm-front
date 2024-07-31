@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
 import NoImage from "../../../../assets/no-image.jpg";
 import { useNavigate, useParams } from "react-router-dom";
+import { formatNumberToCurrency } from "../../../../functions/formaters";
 
 const ProductoCardVendedor = ({ data }) => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const ProductoCardVendedor = ({ data }) => {
       <CardFooter>
         <div className="flex  w-full gap-2 justify-start">
           <span className="text-emerald-500 font-semibold text-lg  rounded-md ">
-            ${precio}
+            {formatNumberToCurrency(precio)}
           </span>
         </div>
       </CardFooter>
