@@ -29,7 +29,6 @@ const initialState = {
   id_empresa: "",
   id_producto: "",
   cantidad: 0,
-  precio_venta: 0,
   tipo_documento: "BOLETA",
   nombre_cliente: "",
   apellido_cliente: "",
@@ -85,6 +84,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
     values.id_empresa = data.id_empresa;
     values.id_producto = data.id_producto;
     values.cantidad = cantidad;
+    values.precio_venta = data.precio;
     console.log(data);
     console.log(values);
     setLoading(true);
