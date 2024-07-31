@@ -7,7 +7,8 @@ const ProductoCardVendedor = ({ data }) => {
   const navigate = useNavigate();
 
   const { id } = useParams();
-  const { nombre_producto, precio, imagen_principal, id_producto } = data;
+  const { nombre_producto, precio, imagen_principal, id_producto, comision } =
+    data;
 
   return (
     <Card
@@ -29,9 +30,12 @@ const ProductoCardVendedor = ({ data }) => {
         </div>
       </CardBody>
       <CardFooter>
-        <div className="flex  w-full gap-2 justify-start">
-          <span className="text-emerald-500 font-semibold text-lg  rounded-md ">
-            {formatNumberToCurrency(precio)}
+        <div className="w-full flex flex-col gap-2">
+          <span className="w-full bg-emerald-500 text-white p-1 rounded-md text-sm">
+            Precio: {formatNumberToCurrency(precio)}
+          </span>
+          <span className="w-full bg-amber-500 text-white p-1 rounded-md text-sm">
+            Comisión: {formatNumberToCurrency(comision)}
           </span>
         </div>
       </CardFooter>
