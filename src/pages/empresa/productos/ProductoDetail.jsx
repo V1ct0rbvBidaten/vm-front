@@ -106,13 +106,13 @@ const ProductoDetail = () => {
             <div className="bg-slate-50 p-4 rounded-md drop-shadow-md h-[80%]">
               <p>{descripcion}</p>
             </div>
-            <div className="h-[10%] flex justify-between">
-              <h1 className="text-2xl font-semibold text-teal-600">
+            <div className=" flex justify-between">
+              <span className=" bg-emerald-500 text-white p-1 rounded-md text-sm">
                 Precio: {formatNumberToCurrency(precio)}
-              </h1>
-              <h1 className="text-2xl font-semibold text-teal-600">
+              </span>
+              <span className=" bg-amber-500 text-white p-1 rounded-md text-sm">
                 Comisión: {formatNumberToCurrency(comision)}
-              </h1>
+              </span>
             </div>
           </div>
           <div className="col-span-3 w-full grid grid-cols-3 gap-2">
