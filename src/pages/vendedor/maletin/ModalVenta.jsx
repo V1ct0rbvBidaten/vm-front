@@ -185,7 +185,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                         value={formatNumberToCurrency(cantidad * precio)}
                       />
                     </div>
-
                     <Select
                       variant="bordered"
                       label="Tipo de documento"
@@ -196,8 +195,12 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                       value={tipo_documento}
                       onChange={handleChange}
                     >
-                      <SelectItem value="BOLETA">Boleta</SelectItem>
-                      <SelectItem value="FACTURA">Factura</SelectItem>
+                      <SelectItem key="BOLETA" value="BOLETA">
+                        Boleta
+                      </SelectItem>
+                      <SelectItem key="FACTURA" value="FACTURA">
+                        Factura
+                      </SelectItem>
                     </Select>
                     <ButtonGroup className="w-full col-span-2 ">
                       <Button
