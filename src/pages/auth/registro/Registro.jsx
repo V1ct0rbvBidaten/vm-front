@@ -173,20 +173,7 @@ const Registro = () => {
                     </Button>
                   </Tab>
                 </Tabs>
-                <div className="grid grid-cols-3 gap-2 text-center items-center">
-                  <div className="w-full h-1 bg-slate-300 justify-center"></div>
-                  <div className="w-full text-slate-300 text-center">O</div>
-                  <div className="w-full h-1 bg-slate-300 justify-center"></div>
-                </div>
 
-                <div className="flex gap-4">
-                  <Button className="w-full bg-blue-700 text-white">
-                    Facebook
-                  </Button>
-                  <Button className="w-full bg-slate-700 text-white">
-                    Google
-                  </Button>
-                </div>
                 <div className="flex gap-4">
                   <p>¿Ya tienes cuenta?</p>
                   <Link href="/login">Iniciar Sesión</Link>
