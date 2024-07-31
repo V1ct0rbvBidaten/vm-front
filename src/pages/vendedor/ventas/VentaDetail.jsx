@@ -18,7 +18,7 @@ const VentaDetail = () => {
 
   const { data, loading } = useFetchById(
     user.token,
-    `venta-empresa/${idVenta}`
+    `venta-vendedor/${idVenta}`
   );
 
   if (loading)

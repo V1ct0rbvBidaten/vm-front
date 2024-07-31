@@ -1,6 +1,7 @@
 import {
   ChevronDoubleDownIcon,
   ChevronDoubleLeftIcon,
+  PaperAirplaneIcon,
   PencilSquareIcon,
 } from "@heroicons/react/24/solid";
 import { Button, Input, Textarea } from "@nextui-org/react";
@@ -8,11 +9,14 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchById from "../../../hooks/useFetch";
 import Loading from "../../../components/utils/Loading";
+import { useState } from "react";
+import Comentarios from "./Comentarios";
 
 const VentaDetailEmpresa = () => {
   let navigate = useNavigate();
 
   const user = useSelector((state) => state.user);
+  const [reload, setReload] = useState(false);
 
   const { idVenta } = useParams();
 
@@ -70,59 +74,12 @@ const VentaDetailEmpresa = () => {
             <span>Cantidad: 23</span>
           </div>
           <div className="grid grid-cols-3 gap-2">
-            <div className="col-span-2 flex justify-between mt-4  grid grid-cols-2 gap-2 rounded-md p-4 font-semibold">
-              <Input
-                label="Nombre"
-                labelPlacement="outside"
-                className="w-full"
-                variant="bordered"
-                value={nombre_cliente}
-                endContent={<PencilSquareIcon className="h-4" />}
-              />
-              <Input
-                label="Rut"
-                labelPlacement="outside"
-                className="w-full"
-                variant="bordered"
-                value={rut_cliente}
-                endContent={<PencilSquareIcon className="h-4" />}
-              />
-              <Input
-                label="Correo"
-                labelPlacement="outside"
-                className="w-full"
-                variant="bordered"
-                value={email_cliente}
-                endContent={<PencilSquareIcon className="h-4" />}
-              />
-              <Input
-                label="Telefono"
-                labelPlacement="outside"
-                className="w-full"
-                variant="bordered"
-                value={telefono_cliente}
-                endContent={<PencilSquareIcon className="h-4" />}
-              />
-              <Input
-                label="Dirección"
-                labelPlacement="outside"
-                className="w-full col-span-2"
-                variant="bordered"
-                value={direccion_cliente}
-                endContent={<PencilSquareIcon className="h-4" />}
-              />
-              <Textarea
-                label="Comentarios Adicionales"
-                labelPlacement="outside"
-                className="w-full col-span-2"
-                variant="bordered"
-                endContent={<PencilSquareIcon className="h-4" />}
-              />
+            <div className="col-span-2 flex flex-col mt-4  gap-2 h-auto ">
+              <Comentarios />
             </div>
             <div className=" flex flex-col gap-4 mt-4 border-slate-300 border rounded-md p-4 font-semibold">
-              <Button>Ver documentación</Button>
-              <Button>Descargar documentación</Button>
-              <Button>Subir documentación</Button>
+              <span>datos comprador</span>
+              <span>documentacion comprador</span>
             </div>
             <Button className="col-span-3 w-full bg-emerald-500 text-white">
               Actualizar

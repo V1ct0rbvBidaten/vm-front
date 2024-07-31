@@ -21,6 +21,8 @@ import {
   formatRut,
 } from "../../../functions/formaters";
 import regiones from "../../../utils/regiones";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const initialState = {
   id_vendedor: "",
@@ -40,6 +42,7 @@ const initialState = {
 };
 
 const ModalVenta = ({ open, handleOpen, data }) => {
+  let navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const [values, setValues] = useState(initialState);
   const [loading, setLoading] = useState(false);
@@ -87,11 +90,14 @@ const ModalVenta = ({ open, handleOpen, data }) => {
     createVenta(user.token, values)
       .then((res) => {
         console.log(res);
+        toast.success("Venta creada con éxito");
+        navigate(`/vendedor/ventas/${res.data.detail.data.id_venta}`);
       })
       .catch((err) => {
         console.log(err);
+        toast.error("Error al crear venta");
       })
-      .finally(() => {
+      .finally((res) => {
         setLoading(false);
       });
   };
