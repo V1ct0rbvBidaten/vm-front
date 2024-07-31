@@ -186,20 +186,20 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                       />
                     </div>
 
-                    <span className="text-sm col-span-2">
-                      Tipo de documento:
-                    </span>
-                    <Tabs aria-label="Tabs sizes" className="w-full col-span-2">
-                      <Tab key="factura" title="Factura" />
-                      <Tab key="boleta" title="Boleta" />
-                    </Tabs>
+                    <Select
+                      variant="bordered"
+                      label="Tipo de documento"
+                      labelPlacement="outside"
+                      placeholder="Seleccione tipo de documento"
+                      className="col-span-2"
+                      name="tipo_documento"
+                      value={tipo_documento}
+                      onChange={handleChange}
+                    >
+                      <SelectItem value="BOLETA">Boleta</SelectItem>
+                      <SelectItem value="FACTURA">Factura</SelectItem>
+                    </Select>
                     <ButtonGroup className="w-full col-span-2 ">
-                      <Button
-                        size="sm"
-                        className="bg-stone-100  text-sm w-full"
-                      >
-                        Descargar Documentación
-                      </Button>
                       <Button
                         size="sm"
                         className="bg-sky-700  text-sm w-full text-white"
@@ -266,32 +266,14 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                   <Input
                     size="sm"
                     variant="bordered"
-                    label="Calle"
+                    label="Dirección"
                     labelPlacement="outside"
                     placeholder="Ingrese Calle cliente"
                     name="direccion_cliente"
                     value={direccion_cliente}
                     onChange={handleChange}
                   />
-                  <Input
-                    size="sm"
-                    variant="bordered"
-                    label="Número"
-                    labelPlacement="outside"
-                    placeholder="Ingrese Número cliente"
-                    // name="numero_cliente"
-                    // value={direccion_cliente}
-                    // onChange={handleChange}
-                  />
-                  <Input
-                    size="sm"
-                    variant="bordered"
-                    label="Dpto/Casa"
-                    labelPlacement="outside"
-                    // placeholder="Ingrese Dpto/Casa cliente"
-                    // name="dpto_casa_cliente"
-                    // value={direccion_cliente}
-                  />
+
                   <Select
                     variant="bordered"
                     label="Región "
