@@ -84,6 +84,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
     values.id_vendedor = user.id_vendedor;
     values.id_empresa = data.id_empresa;
     values.id_producto = data.id_producto;
+    values.cantidad = cantidad;
     console.log(data);
     console.log(values);
     setLoading(true);

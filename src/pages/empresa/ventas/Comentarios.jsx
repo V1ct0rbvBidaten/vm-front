@@ -24,6 +24,11 @@ const Comentarios = () => {
     e.preventDefault();
     console.log(mensaje);
     setLoading(true);
+    if (mensaje === "") {
+      toast.error("El mensaje no puede estar vacío");
+      setLoading(false);
+      return;
+    }
     createComentario(user.token, idVenta, { comentario: mensaje })
       .then((res) => {
         console.log(res);
@@ -49,13 +54,12 @@ const Comentarios = () => {
     return (
       <>
         <div
-          className="w-full  min-h-[200px] bg-slate-50 rounded-md p-4 flex flex-col gap-2"
+          className="w-full  h-full bg-slate-50 rounded-md p-4 flex flex-col gap-2"
           style={{
             boxShadow:
               "inset 0 10px 15px -3px rgba(0, 0, 0, 0.1), inset 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
           }}
         >
-          {" "}
           <div></div>
         </div>
 
@@ -84,13 +88,13 @@ const Comentarios = () => {
   return (
     <>
       <div
-        className="w-full  min-h-[200px] bg-slate-350 rounded-md p-4 flex flex-col gap-2"
+        className="w-full h-full bg-slate-350 rounded-md p-4 flex flex-col gap-2"
         style={{
           boxShadow:
             "inset 0 10px 15px -3px rgba(0, 0, 0, 0.1), inset 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
         }}
       >
-        <div>
+        <div className="h-100">
           {mensajes && mensajes.length > 0 ? (
             mensajes.map((msg, index) => (
               <>

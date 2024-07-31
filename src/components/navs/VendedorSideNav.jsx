@@ -41,12 +41,12 @@ const VendedorSideNav = ({ user }) => {
       icon: <BriefcaseIcon className="h-6 w-6 " />,
       type: "Menu",
     },
-    {
-      name: "Balance",
-      route: "/vendedor/balance",
-      icon: <CreditCardIcon className="h-6 w-6 " />,
-      type: "Menu",
-    },
+    // {
+    //   name: "Balance",
+    //   route: "/vendedor/balance",
+    //   icon: <CreditCardIcon className="h-6 w-6 " />,
+    //   type: "Menu",
+    // },
     {
       name: "Mi cuenta",
       icon: <UserCircleIcon className="h-6 w-6 " />,
