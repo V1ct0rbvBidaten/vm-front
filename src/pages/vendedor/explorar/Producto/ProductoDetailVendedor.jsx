@@ -72,7 +72,7 @@ const ProductoDetailVendedor = () => {
   };
 
   const handleUpdateMaletin = () => {
-    producto.productos_ids.push(idProducto);
+    producto.productos_ids = idProducto;
     const idMaletin = maletines.detail.data.maletines[0].maletin.id_maletin;
 
     updateMaletin(user.token, producto, idMaletin)

@@ -116,3 +116,15 @@ export const formatDateToDDMMYY = (dateString) => {
 
   return `${day}-${month}-${year}`;
 };
+
+export const formatDateToHHMMDDMMYY = (dateString) => {
+  const date = new Date(dateString);
+
+  const hora = String(date.getHours()).padStart(2, "0");
+  const minutos = String(date.getMinutes()).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero-indexed
+  const year = date.getFullYear();
+
+  return `${hora}:${minutos} ${day}-${month}-${year}`;
+};
