@@ -31,6 +31,9 @@ import ProductoDetailVendedor from "./pages/vendedor/explorar/Producto/ProductoD
 import MaletinHome from "./pages/vendedor/maletin/MaletinHome";
 import ProductoVentaDetail from "./pages/vendedor/maletin/ProductoVentaDetail";
 import VentaDetailEmpresa from "./pages/empresa/ventas/VentaDetailEmpresa";
+import Contacto from "./pages/Contacto";
+import Ayuda from "./pages/Ayuda";
+import Conocenos from "./pages/Conocenos";
 
 const App = () => {
   useCheckUser();
@@ -41,6 +44,9 @@ const App = () => {
       <div className="flex-1 overflow-y-scroll">
         <Routes>
           <Route exact path="/" element={<Landing />} />
+          <Route exact path="/contacto" element={<Contacto />} />
+          <Route exact path="/ayuda" element={<Ayuda />} />
+          <Route exact path="/conocenos" element={<Conocenos />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/registro" element={<Registro />} />
           <Route

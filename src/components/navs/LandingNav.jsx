@@ -11,8 +11,10 @@ import {
 } from "@nextui-org/react";
 import { useState } from "react";
 import Logo from "../../assets/logoFondoBlanco.png";
+import { useNavigate } from "react-router-dom";
 
 const LandingNav = () => {
+  let navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
@@ -38,17 +40,25 @@ const LandingNav = () => {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="/">
+          <Link
+            color="foreground"
+            href="#"
+            onClick={() => navigate("/conocenos")}
+          >
             Conocenos
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="#" onClick={() => navigate("/ayuda")}>
             Ayuda
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link
+            color="foreground"
+            href="#"
+            onClick={() => navigate("/contacto")}
+          >
             Contacto
           </Link>
         </NavbarItem>
