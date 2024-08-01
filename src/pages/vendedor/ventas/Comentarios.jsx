@@ -46,7 +46,7 @@ const Comentarios = () => {
   return (
     <>
       <div
-        className="w-full h-full bg-slate-350 rounded-md p-4 flex flex-col gap-2"
+        className="w-full h-full bg-slate-350 rounded-md p-4 flex flex-col gap-2 overflow-y-scroll"
         style={{
           boxShadow:
             "inset 0 10px 15px -3px rgba(0, 0, 0, 0.1), inset 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
