@@ -37,7 +37,7 @@ const ProductoCardVendedor = ({ data }) => {
       <CardFooter>
         <div className="w-full flex flex-col gap-2">
           <span className="w-full bg-emerald-500 text-white p-1 rounded-md text-sm">
-            Precio: {formatNumberToCurrency(precio)}
+            Precio: {formatNumberToCurrency(precio || 0)}
           </span>
           <span className="w-full bg-amber-500 text-white p-1 rounded-md text-sm">
             Comisión: {formatNumberToCurrency(comision_seller || 0)}

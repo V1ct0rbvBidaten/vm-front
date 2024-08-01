@@ -206,7 +206,7 @@ const ProductoDetailVendedor = () => {
             </div>
             <div className=" flex justify-between">
               <span className=" bg-emerald-500 text-white p-1 rounded-md text-sm">
-                Precio: {formatNumberToCurrency(precio)}
+                Precio: {formatNumberToCurrency(precio || 0)}
               </span>
               <span className=" bg-amber-500 text-white p-1 rounded-md text-sm">
                 Comisión: {formatNumberToCurrency(comision_seller || 0)}

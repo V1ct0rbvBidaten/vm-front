@@ -39,7 +39,7 @@ const EmpresaDetail = () => {
 
   const noData = {
     nombre_producto: "No hay productos",
-    precio: "0000",
+    precio: 0,
     descripcion: "No hay productos",
   };
 

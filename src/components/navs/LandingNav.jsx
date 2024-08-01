@@ -38,14 +38,14 @@ const LandingNav = () => {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-20" justify="center">
         <NavbarItem>
           <Link
             color="foreground"
             href="#"
             onClick={() => navigate("/conocenos")}
           >
-            Conocenos
+            Conócenos
           </Link>
         </NavbarItem>
         <NavbarItem>

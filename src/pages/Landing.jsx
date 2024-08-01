@@ -33,7 +33,7 @@ const Landing = () => {
           </div>
 
           <div className="flex gap-4 ">
-            <Button className="h-8 w-60 bg-v4 text-white">Unete ahora!</Button>
+            <Button className="h-8 w-60 bg-v4 text-white">Únete ahora!</Button>
             <Button className="h-8 w-60 bg-white">Saber más</Button>
           </div>
         </div>
@@ -41,7 +41,7 @@ const Landing = () => {
       {/* Saber mas */}
       <div className="grid grid-cols-3 gap-4 p-20 w-full   ">
         <div className="gap-4">
-          <h1 className="text-4xl font-bold text-v4 mb-4 text-left">¿Que es</h1>
+          <h1 className="text-4xl font-bold text-v4 mb-4 text-left">¿Qué es</h1>
           <div className="flex  justify-start gap-4 items-end">
             <img src={Logo2} className="w-[300px]" />
 

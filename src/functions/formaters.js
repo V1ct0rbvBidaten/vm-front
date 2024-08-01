@@ -21,6 +21,7 @@ export function formatChileanPhoneNumber(input) {
 }
 
 export const formatNumberToCurrency = (num) => {
+  console.log(num);
   // Ensure the input is a number
   if (typeof num !== "number") {
     throw new TypeError("Input must be a number");
