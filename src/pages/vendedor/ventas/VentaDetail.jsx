@@ -258,6 +258,7 @@ const VentaDetail = () => {
                 body={paramsVenta}
                 token={user.token}
                 setReloadFiles={setReloadFiles}
+                bucket={"vemdo-ventas"}
               />
               <Tabs aria-label="Options">
                 <Tab key="uploadDocs" title="Subir Documentación">
@@ -295,6 +296,7 @@ const VentaDetail = () => {
                         body={bodyVenta}
                         token={user.token}
                         setReloadFiles={setReloadFiles}
+                        bucket={"vemdo-empresas"}
                       />
                     </div>
 
@@ -307,6 +309,7 @@ const VentaDetail = () => {
                         body={bodyCapacitacion}
                         token={user.token}
                         setReloadFiles={setReloadFiles}
+                        bucket={"vemdo-empresas"}
                       />
                     </div>
                   </div>

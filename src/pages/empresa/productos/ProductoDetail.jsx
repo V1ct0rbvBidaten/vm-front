@@ -229,6 +229,7 @@ const ProductoDetail = () => {
                     body={bodyVenta}
                     token={user.token}
                     setReloadFiles={setReloadFiles}
+                    bucket={"vemdo-empresas"}
                   />
                   <div className="mt-3">
                     <InputFileUploader
@@ -267,6 +268,7 @@ const ProductoDetail = () => {
                     body={bodyCapacitacion}
                     token={user.token}
                     setReloadFiles={setReloadFiles}
+                    bucket={"vemdo-empresas"}
                   />
                   <div className="mt-3">
                     <InputFileUploader

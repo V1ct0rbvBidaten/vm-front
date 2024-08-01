@@ -165,6 +165,7 @@ const ProductoVentaDetail = () => {
                   body={bodyVenta}
                   token={user.token}
                   setReloadFiles={setReloadFiles}
+                  bucket={"vemdo-empresas"}
                 />
               </div>
               <div className="border-1 p-2 rounded-md mt-2">
@@ -174,6 +175,7 @@ const ProductoVentaDetail = () => {
                   body={bodyCapacitacion}
                   token={user.token}
                   setReloadFiles={setReloadFiles}
+                  bucket={"vemdo-empresas"}
                 />
               </div>
             </div>

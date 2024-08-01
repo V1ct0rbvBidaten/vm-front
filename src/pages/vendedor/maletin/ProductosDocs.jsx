@@ -7,13 +7,19 @@ import { deleteFile, downloadFile } from "../../../api/file";
 import { useState } from "react";
 
 const initialState = {
-  id_empresa: "vemdo-empresas",
-  bucket: "vemdo-empresas",
+  id_empresa: "",
+  bucket: "",
   path: "",
   fileName: "",
 };
 
-const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
+const ProductosDocs = ({
+  body,
+  reloadFiles,
+  token,
+  setReloadFiles,
+  bucket,
+}) => {
   const [fileInfo, setFileInfo] = useState(initialState);
 
   const { data, loading: loadingFiles } = useFiles(token, body, reloadFiles);
@@ -34,6 +40,8 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
   const handleDownloadFile = (file) => {
     fileInfo.path = file.location;
     fileInfo.fileName = file.file;
+    fileInfo.bucket = bucket;
+    fileInfo.id_empresa = bucket;
     downloadFile(token, fileInfo)
       .then((response) => {
         console.log(response);

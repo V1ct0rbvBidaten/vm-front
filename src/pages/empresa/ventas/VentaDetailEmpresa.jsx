@@ -308,6 +308,7 @@ const VentaDetailEmpresa = () => {
                 reloadFiles={reloadFiles}
                 body={bodyVenta}
                 token={user.token}
+                bucket={"vemdo-ventas"}
                 setReloadFiles={setReloadFiles}
               />
               {/* <Tabs aria-label="Options">
