@@ -12,6 +12,18 @@ export const createVenta = async (token, body) => {
   );
 };
 
+export const updateVenta = async (token, id, body) => {
+  return await axios.put(
+    `${import.meta.env.VITE_API_URL}/update-venta/${id}`,
+    body,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
 export const getVentasSeller = async (token, body) => {
   let queryParams = new URLSearchParams();
 

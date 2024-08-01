@@ -13,7 +13,7 @@ export const createProducto = async (token, body) => {
 };
 
 export const updateProducto = async (token, productId, body) => {
-  return await axios.post(
+  return await axios.put(
     `${import.meta.env.VITE_API_URL}/update-product/${productId}`,
     body,
     {

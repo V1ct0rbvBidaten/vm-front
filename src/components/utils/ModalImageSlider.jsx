@@ -20,6 +20,7 @@ const ModalImageSlider = ({ open, handleOpen, images, index }) => {
         {(onClose) => (
           <>
             <ModalBody className="mt-8 ">
+              {open ? <span>open</span> : <span>close</span>}
               {images
                 .filter((_, i) => i === index)
                 .map((image, index) => (

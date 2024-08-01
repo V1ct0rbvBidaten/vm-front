@@ -8,9 +8,11 @@ import { Button } from "@nextui-org/react";
 import DataTablePrimary from "../../../components/tables/DataTablePrimary";
 import {
   formatDateToDDMMYY,
+  formatDateToHHMMDDMMYY,
   formatNumberToCurrency,
 } from "../../../functions/formaters";
 import { useNavigate } from "react-router-dom";
+import { ClockIcon } from "@heroicons/react/24/solid";
 
 const initialState = {
   page: 1,
@@ -48,15 +50,26 @@ const VentasHome = () => {
       dataIndex: "fecha_venta",
       key: "fecha_venta",
       render: (text, record) => (
-        <span className="font-semibold text-slate-500">
-          {formatDateToDDMMYY(text)}
-        </span>
+        <div className="flex w-full justify-start items-center gap-2">
+          <ClockIcon className="h-4 text-slate-500" />
+          <span className="font-semibold text-slate-500">
+            {formatDateToHHMMDDMMYY(text)}
+          </span>
+        </div>
       ),
     },
     {
       title: "Producto",
       dataIndex: "producto",
       key: "producto",
+      render: (text, record) => (
+        <span className="font-semibold text-slate-500">{text}</span>
+      ),
+    },
+    {
+      title: "Cantidad",
+      dataIndex: "cantidad",
+      key: "cantidad",
       render: (text, record) => (
         <span className="font-semibold text-slate-500">{text}</span>
       ),
@@ -106,7 +119,7 @@ const VentasHome = () => {
       },
     },
     {
-      title: "Acciones",
+      title: "Detalle",
       dataIndex: "id_venta",
       key: "acciones",
       render: (text, record) => (

@@ -12,11 +12,11 @@ const InputFileUploader = ({ handleFileChange }) => {
   return (
     <>
       <button
-        className="w-100 bg-teal-500 flex justify-center items-center p-2 rounded-md shadow-md  text-white"
+        className="w-full bg-teal-500 flex justify-center items-center px-2 rounded-md shadow-md  text-white"
         onClick={handleClick}
       >
-        <DocumentArrowUpIcon className="h-6" />
-        Subir archivos
+        <DocumentArrowUpIcon className="h-4" />
+        <span className="text-sm">Subir archivos</span>
       </button>
       <input
         className="inputfile"

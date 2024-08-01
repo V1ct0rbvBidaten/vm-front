@@ -20,8 +20,10 @@ import Loading from "../../../components/utils/Loading";
 import DataTablePrimary from "../../../components/tables/DataTablePrimary";
 import {
   formatDateToDDMMYY,
+  formatDateToHHMMDDMMYY,
   formatNumberToCurrency,
 } from "../../../functions/formaters";
+import { ClockIcon } from "@heroicons/react/24/solid";
 
 const initialState = {
   page: 1,
@@ -58,9 +60,12 @@ const VentasHome = () => {
       dataIndex: "fecha_venta",
       key: "fecha_venta",
       render: (text, record) => (
-        <span className="font-semibold text-slate-500">
-          {formatDateToDDMMYY(text)}
-        </span>
+        <div className="flex w-full justify-start items-center gap-2">
+          <ClockIcon className="h-4 text-slate-500" />
+          <span className="font-semibold text-slate-500">
+            {formatDateToHHMMDDMMYY(text)}
+          </span>
+        </div>
       ),
     },
     {

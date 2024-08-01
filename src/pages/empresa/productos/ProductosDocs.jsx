@@ -19,7 +19,7 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
   const { data, loading: loadingFiles } = useFiles(token, body, reloadFiles);
 
   if (loadingFiles) {
-    return <Loading />;
+    return <>Cargando....</>;
   }
 
   const fileLocations = data.detail.data.file_locations;
@@ -43,10 +43,10 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
       })
       .catch((error) => {
         console.error("Error al eliminar el archivo:", error);
-      })
-      .finally(() => {
-        setReloadFiles(!reloadFiles);
       });
+    // .finally(() => {
+    //   setReloadFiles(!reloadFiles);
+    // });
   };
 
   const handleDownloadFile = (file) => {

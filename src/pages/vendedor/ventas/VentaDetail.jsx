@@ -1,23 +1,38 @@
-import {
-  ChevronDoubleDownIcon,
-  ChevronDoubleLeftIcon,
-  PaperAirplaneIcon,
-  PencilSquareIcon,
-} from "@heroicons/react/24/solid";
-import { Button, Divider, Input, Textarea } from "@nextui-org/react";
+import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
+import { Button, Divider, Tabs, Tab } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetchById from "../../../hooks/useFetch";
 import Loading from "../../../components/utils/Loading";
 import { useState } from "react";
 import Comentarios from "./Comentarios";
-import { formatDateToDDMMYY } from "../../../functions/formaters";
+import {
+  formatDateToDDMMYY,
+  formatNumberToCurrency,
+} from "../../../functions/formaters";
+import { getSize } from "../../../functions/file";
+import ProductosDocs from "../maletin/ProductosDocs";
+import { uploadFile } from "../../../api/file";
+import { toast } from "react-toastify";
+import InputFileUploader from "../../../components/utils/InputFileUploader";
 
 const VentaDetail = () => {
   let navigate = useNavigate();
 
   const user = useSelector((state) => state.user);
+  const [reloadFiles, setReloadFiles] = useState(false);
   const [reload, setReload] = useState(false);
+
+  const [fileCapacitacion, setFileCapacitacion] = useState([]);
+  const [fileVenta, setFileVenta] = useState([]);
+
+  const handleFileChangeVenta = (e) => {
+    setFileVenta([...e.target.files]);
+  };
+
+  const handleFileChangeCapacitacion = (e) => {
+    setFileCapacitacion([...e.target.files]);
+  };
 
   const { idVenta } = useParams();
 
@@ -42,6 +57,7 @@ const VentaDetail = () => {
     producto,
     cantidad,
     estado_venta,
+    precio_venta,
     tipo_documento,
     nombre_cliente,
     apellido_cliente,
@@ -52,11 +68,45 @@ const VentaDetail = () => {
     email_cliente,
     rut_cliente,
     id_venta,
-  } = data.detail.data.ventas;
+    id_empresa,
+    id_producto,
+  } = data.detail.data;
+
+  const bodyVenta = {
+    path: `${id_empresa}/productos/${id_producto}/venta`,
+    id_empresa: "vemdo-empresas",
+  };
+
+  const bodyCapacitacion = {
+    path: `${id_empresa}/productos/${id_producto}/capacitacion`,
+    id_empresa: "vemdo-empresas",
+  };
+
+  const paramsVenta = {
+    id_empresa: "vemdo-ventas",
+    path: `${id_venta}`,
+  };
+
+  const uploadFileVenta = () => {
+    uploadFile(user.token, paramsVenta, fileVenta)
+      .then((res) => {
+        console.log(res);
+        toast.success("Archivo subido con éxito");
+      })
+
+      .catch((err) => {
+        console.log(err);
+        toast.error("Error al crear producto");
+      })
+      .finally(() => {
+        setReloadFiles(!reloadFiles);
+        setFileVenta([]);
+      });
+  };
 
   return (
     <>
-      {data && data.detail.data.ventas && (
+      {data && data.detail.data && (
         <div className="w-full bg-white rounded-md shadow-md mb-5 p-4">
           <div className="flex justify-between">
             <h1 className="text-2xl font-semibold">
@@ -106,9 +156,6 @@ const VentaDetail = () => {
             <div className=" flex flex-col gap-4 mt-4 col-span-2 border-slate-300 border rounded-md p-4 font-semibold">
               <h1>Datos Venta</h1>
               <div className="flex gap-2 mt-4  p-2 font-semibold">
-                {/* <span> {producto}</span>
-                <span> {total_venta}</span>
-                <span> {cantidad}</span> */}
                 <table className="min-w-full border-collapse ">
                   <tbody>
                     <tr className="border-b">
@@ -132,21 +179,24 @@ const VentaDetail = () => {
                         Precio
                       </td>
                       <td className="p-1 text-sm">
-                        {cantidad !== 0 ? total_venta / cantidad : 0}
+                        {precio_venta !== 0
+                          ? formatNumberToCurrency(precio_venta)
+                          : formatNumberToCurrency(0)}
                       </td>
                       <td className="p-1 font-semibold bg-stone-100 text-sm">
                         Cantidad
                       </td>
-                      <td className="p-1 text-sm">{cantidad}</td>
-                    </tr>{" "}
-                    <tr className="border-b">
+                      <td className="p-1 text-sm">{cantidad}</td>{" "}
                       <td className="p-1 font-semibold bg-stone-100 text-sm">
                         Total Venta
                       </td>
                       <td className="p-1 text-sm" colSpan="3">
-                        {total_venta}
+                        {total_venta !== 0
+                          ? formatNumberToCurrency(total_venta)
+                          : formatNumberToCurrency(0)}
                       </td>
-                    </tr>
+                    </tr>{" "}
+                    <tr className="border-b"></tr>
                   </tbody>
                 </table>
               </div>
@@ -158,49 +208,42 @@ const VentaDetail = () => {
                     <tbody>
                       <tr className="border-b">
                         <td className="p-1 font-semibold bg-stone-100 text-sm">
-                          Rut Cliente
+                          Rut
                         </td>
                         <td className="p-1 text-sm">{rut_cliente}</td>
-                      </tr>
-                      <tr className="border-b">
                         <td className="p-1 font-semibold bg-stone-100 text-sm">
-                          Nombre Cliente
-                        </td>
-                        <td className="p-1 text-sm">{nombre_cliente}</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-1 font-semibold bg-stone-100 text-sm">
-                          Apellido Cliente
-                        </td>
-                        <td className="p-1 text-sm">{apellido_cliente}</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-1 font-semibold bg-stone-100 text-sm">
-                          Direccion Cliente
-                        </td>
-                        <td className="p-1 text-sm">{direccion_cliente}</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-1 font-semibold bg-stone-100 text-sm">
-                          Region Cliente
-                        </td>
-                        <td className="p-1 text-sm">{region_cliente}</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-1 font-semibold bg-stone-100 text-sm">
-                          Comuna Cliente
-                        </td>
-                        <td className="p-1 text-sm">{comuna_cliente}</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-1 font-semibold bg-stone-100 text-sm">
-                          Telefono Cliente
+                          Teléfono
                         </td>
                         <td className="p-1 text-sm">{telefono_cliente}</td>
                       </tr>
                       <tr className="border-b">
                         <td className="p-1 font-semibold bg-stone-100 text-sm">
-                          Email Cliente
+                          Nombre
+                        </td>
+                        <td className="p-1 text-sm">{nombre_cliente}</td>
+                        <td className="p-1 font-semibold bg-stone-100 text-sm">
+                          Apellido
+                        </td>
+                        <td className="p-1 text-sm">{apellido_cliente}</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="p-1 font-semibold bg-stone-100 text-sm">
+                          Direccion
+                        </td>
+                        <td className="p-1 text-sm">{direccion_cliente}</td>
+                        <td className="p-1 font-semibold bg-stone-100 text-sm">
+                          Region
+                        </td>
+                        <td className="p-1 text-sm">{region_cliente}</td>
+                      </tr>
+                      <tr className="border-b"></tr>
+                      <tr className="border-b">
+                        <td className="p-1 font-semibold bg-stone-100 text-sm">
+                          Comuna
+                        </td>
+                        <td className="p-1 text-sm">{comuna_cliente}</td>
+                        <td className="p-1 font-semibold bg-stone-100 text-sm">
+                          Email
                         </td>
                         <td className="p-1 text-sm">{email_cliente}</td>
                       </tr>
@@ -209,11 +252,67 @@ const VentaDetail = () => {
                 </div>
               </div>
               <Divider />
-              <span>Documentación Venta</span>
+              <h2 className="font-semibold">Documentación </h2>
+              <ProductosDocs
+                reloadFiles={reloadFiles}
+                body={paramsVenta}
+                token={user.token}
+                setReloadFiles={setReloadFiles}
+              />
+              <Tabs aria-label="Options">
+                <Tab key="uploadDocs" title="Subir Documentación">
+                  <InputFileUploader
+                    multiple
+                    handleFileChange={handleFileChangeVenta}
+                  />
+                  {fileVenta && fileVenta.length > 0 && (
+                    <div className="w-100 border-1">
+                      {fileVenta.map((file, index) => (
+                        <div
+                          className="w-100 bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between"
+                          key={index}
+                        >
+                          <span className="text-xs">{file.name}</span>
+
+                          <span className="text-xs">{getSize(file.size)}</span>
+                        </div>
+                      ))}
+                      <Button
+                        className="w-full text-xs h-6 bg-foreground text-white"
+                        onClick={uploadFileVenta}
+                      >
+                        Guardar
+                      </Button>
+                    </div>
+                  )}
+                </Tab>
+                <Tab key="downloadDocs" title="Descargar Documentación">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <h2 className="font-semibold">Documentación Venta</h2>
+                      <ProductosDocs
+                        reloadFiles={reloadFiles}
+                        body={bodyVenta}
+                        token={user.token}
+                        setReloadFiles={setReloadFiles}
+                      />
+                    </div>
+
+                    <div>
+                      <h2 className="font-semibold">
+                        Documentación Capacitación
+                      </h2>
+                      <ProductosDocs
+                        reloadFiles={reloadFiles}
+                        body={bodyCapacitacion}
+                        token={user.token}
+                        setReloadFiles={setReloadFiles}
+                      />
+                    </div>
+                  </div>
+                </Tab>
+              </Tabs>
             </div>
-            <Button className="col-span-3 w-full bg-emerald-500 text-white">
-              Actualizar
-            </Button>
           </div>
         </div>
       )}
