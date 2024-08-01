@@ -141,7 +141,7 @@ const ProductoDetailVendedor = () => {
     descripcion,
     imagen_principal,
     categoria,
-    comision,
+    comision_seller,
     imagenes,
     id_producto,
   } = data.detail.data;
@@ -209,7 +209,7 @@ const ProductoDetailVendedor = () => {
                 Precio: {formatNumberToCurrency(precio)}
               </span>
               <span className=" bg-amber-500 text-white p-1 rounded-md text-sm">
-                Comisión: {formatNumberToCurrency(comision)}
+                Comisión: {formatNumberToCurrency(comision_seller || 0)}
               </span>
             </div>
           </div>

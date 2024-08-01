@@ -113,7 +113,7 @@ const VentaDetail = () => {
               <Button
                 isIconOnly
                 className="bg-emerald-500  text-white h-6"
-                onClick={() => navigate("/empresa/ventas")}
+                onClick={() => navigate("/vendedor/ventas")}
               >
                 <ChevronDoubleLeftIcon className="h-4" />
               </Button>

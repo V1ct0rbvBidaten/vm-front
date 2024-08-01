@@ -113,7 +113,8 @@ const ProductoMaletinDetail = ({ maletinid }) => {
                     Precio: {formatNumberToCurrency(product.precio)}
                   </span>
                   <span className="w-full bg-amber-500 text-white p-1 rounded-md text-sm">
-                    Comisión: {formatNumberToCurrency(product.comision)}
+                    Comisión:{" "}
+                    {formatNumberToCurrency(product.comision_seller || 0)}
                   </span>
                 </div>
               </CardFooter>

@@ -56,8 +56,8 @@ const ProductosDocs = ({
       {files.map((file, index) => (
         <ButtonGroup key={index}>
           <Button
-            className="w-full h-6 text-sm justify-start  bg-slate-100 text-xs font-semibold"
-            startContent={<FolderIcon className=" h-4" />}
+            className="w-full h-6 justify-start  bg-slate-100 text-xs font-semibold"
+            startContent={<FolderIcon className="h-4" />}
             onClick={() => handleDownloadFile(file)}
           >
             {file.file}
