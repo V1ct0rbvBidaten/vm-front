@@ -137,7 +137,7 @@ const VentaDetail = () => {
                 {estado_venta}
               </Button>
             ) : estado_venta === "COMPLETADA" ? (
-              <Button className="bg-rose-200 text-emerald-500 p-1 pr-4 pl-4 rounded-full">
+              <Button className="bg-emerald-200 text-emerald-500 p-1 pr-4 pl-4 rounded-full">
                 {estado_venta}
               </Button>
             ) : (

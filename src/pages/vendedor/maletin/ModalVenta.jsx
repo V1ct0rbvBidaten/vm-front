@@ -202,14 +202,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                         Factura
                       </SelectItem>
                     </Select>
-                    <ButtonGroup className="w-full col-span-2 ">
-                      <Button
-                        size="sm"
-                        className="bg-sky-700  text-sm w-full text-white"
-                      >
-                        Subir Documentación
-                      </Button>
-                    </ButtonGroup>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 p-4 border-1 rounded-md">
