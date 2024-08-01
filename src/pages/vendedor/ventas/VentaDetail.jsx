@@ -70,6 +70,7 @@ const VentaDetail = () => {
     id_venta,
     id_empresa,
     id_producto,
+    comision_seller,
   } = data.detail.data;
 
   const bodyVenta = {
@@ -170,9 +171,11 @@ const VentaDetail = () => {
                       <td className="p-1 font-semibold bg-stone-100 text-sm">
                         Vendedor
                       </td>
-                      <td className="p-1 text-sm" colSpan="3">
-                        {vendedor}
+                      <td className="p-1 text-sm">{vendedor}</td>
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Tipo Documento
                       </td>
+                      <td className="p-1 text-sm">{tipo_documento}</td>
                     </tr>
                     <tr className="border-b">
                       <td className="p-1 font-semibold bg-stone-100 text-sm">
@@ -187,16 +190,25 @@ const VentaDetail = () => {
                         Cantidad
                       </td>
                       <td className="p-1 text-sm">{cantidad}</td>{" "}
+                    </tr>
+                    <tr className="border-b">
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Comisión
+                      </td>
+                      <td className="p-1 text-sm">
+                        {comision_seller && comision_seller !== 0
+                          ? formatNumberToCurrency(comision_seller)
+                          : formatNumberToCurrency(0)}
+                      </td>
                       <td className="p-1 font-semibold bg-stone-100 text-sm">
                         Total Venta
                       </td>
-                      <td className="p-1 text-sm" colSpan="3">
+                      <td className="p-1 text-sm">
                         {total_venta !== 0
                           ? formatNumberToCurrency(total_venta)
                           : formatNumberToCurrency(0)}
                       </td>
-                    </tr>{" "}
-                    <tr className="border-b"></tr>
+                    </tr>
                   </tbody>
                 </table>
               </div>

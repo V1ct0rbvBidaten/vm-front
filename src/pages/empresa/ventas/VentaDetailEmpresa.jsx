@@ -74,6 +74,7 @@ const VentaDetailEmpresa = () => {
     id_venta,
     id_empresa,
     id_producto,
+    comision_vemdo,
   } = data.detail.data;
 
   const bodyVenta = {
@@ -190,7 +191,7 @@ const VentaDetailEmpresa = () => {
                 {estado_venta}
               </Button>
             ) : estado_venta === "COMPLETADA" ? (
-              <Button className="bg-rose-200 text-emerald-500 p-1 pr-4 pl-4 rounded-full">
+              <Button className="bg-emerald-200 text-emerald-500 p-1 pr-4 pl-4 rounded-full">
                 {estado_venta}
               </Button>
             ) : (
@@ -223,16 +224,18 @@ const VentaDetailEmpresa = () => {
                       <td className="p-1 font-semibold bg-stone-100 text-sm">
                         Vendedor
                       </td>
-                      <td className="p-1 text-sm" colSpan="3">
-                        {vendedor}
+                      <td className="p-1 text-sm">{vendedor}</td>
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Tipo Documento
                       </td>
+                      <td className="p-1 text-sm">{tipo_documento}</td>
                     </tr>
                     <tr className="border-b">
                       <td className="p-1 font-semibold bg-stone-100 text-sm">
                         Precio
                       </td>
                       <td className="p-1 text-sm">
-                        {cantidad !== 0
+                        {precio_venta !== 0
                           ? formatNumberToCurrency(precio_venta)
                           : formatNumberToCurrency(0)}
                       </td>
@@ -240,14 +243,25 @@ const VentaDetailEmpresa = () => {
                         Cantidad
                       </td>
                       <td className="p-1 text-sm">{cantidad}</td>{" "}
+                    </tr>{" "}
+                    <tr className="border-b">
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Comisión
+                      </td>
+                      <td className="p-1 text-sm">
+                        {comision_vemdo && comision_vemdo !== 0
+                          ? formatNumberToCurrency(comision_vemdo)
+                          : formatNumberToCurrency(0)}
+                      </td>
                       <td className="p-1 font-semibold bg-stone-100 text-sm">
                         Total Venta
                       </td>
                       <td className="p-1 text-sm" colSpan="3">
-                        {formatNumberToCurrency(total_venta)}
+                        {total_venta && total_venta !== 0
+                          ? formatNumberToCurrency(total_venta)
+                          : formatNumberToCurrency(0)}
                       </td>
-                    </tr>{" "}
-                    <tr className="border-b"></tr>
+                    </tr>
                   </tbody>
                 </table>
               </div>
