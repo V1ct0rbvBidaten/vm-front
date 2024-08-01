@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Input, Select, SelectItem } from "@nextui-org/react";
+import {
+  Input,
+  Select,
+  SelectItem,
+  Autocomplete,
+  AutocompleteItem,
+} from "@nextui-org/react";
 import regiones from "../../../../utils/regiones";
 
 const EmpresaForm = ({ values, handleChange }) => {
@@ -16,6 +22,36 @@ const EmpresaForm = ({ values, handleChange }) => {
 
   const [selectedRegion, setSelectedRegion] = useState(region_razon_social);
   const [filteredComunas, setFilteredComunas] = useState([]);
+  const [selectedRubro, setSelectedRubro] = useState(rubro);
+
+  const rubros_sii = {
+    category: [
+      {
+        categoria: "PRODUCCIÓN AGROPECUARIA",
+        items: [
+          {
+            codigo: "11111.0",
+            description: "Cereales, oleaginosas, forrajeras",
+          },
+          { codigo: "11112.0", description: "Arroz" },
+        ],
+      },
+      {
+        categoria: "GANADERÍA",
+        items: [
+          { codigo: "11211.0", description: "Ganado bovino" },
+          { codigo: "11212.0", description: "Ganado ovino" },
+        ],
+      },
+    ],
+  };
+
+  const items = rubros_sii.category.flatMap((category) =>
+    category.items.map((item) => ({
+      key: item.codigo,
+      label: `${category.categoria} - ${item.description}`,
+    }))
+  );
 
   const handleRegionChange = (event) => {
     const { value } = event.target;
@@ -28,6 +64,17 @@ const EmpresaForm = ({ values, handleChange }) => {
     } else {
       setFilteredComunas([]);
     }
+  };
+
+  const handleRubroChange = (key) => {
+    setSelectedRubro(key);
+    const event = {
+      target: {
+        name: "rubro",
+        value: key,
+      },
+    };
+    handleChange(event);
   };
 
   return (
@@ -50,15 +97,20 @@ const EmpresaForm = ({ values, handleChange }) => {
         value={correo_electronico_razon_social}
         onChange={handleChange}
       />
-      <Input
-        variant="bordered"
+      <Autocomplete
         label="Rubro"
         labelPlacement="outside"
         placeholder="Ingrese rubro empresa"
-        name="rubro"
-        value={rubro}
-        onChange={handleChange}
-      />
+        items={items}
+        selectedKey={selectedRubro}
+        onSelectionChange={handleRubroChange}
+      >
+        {(item) => (
+          <AutocompleteItem key={item.key}>
+            {item.label.split(" - ")[1]}
+          </AutocompleteItem>
+        )}
+      </Autocomplete>
       <Input
         variant="bordered"
         label="Nombre razón social"
@@ -67,7 +119,7 @@ const EmpresaForm = ({ values, handleChange }) => {
         name="nombre_razon_social"
         value={nombre_razon_social}
         onChange={handleChange}
-      />{" "}
+      />
       <Input
         variant="bordered"
         label="Dirección "

@@ -70,12 +70,6 @@ const EmpresaRoute = ({ Component }) => {
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu aria-label="Static Actions">
-                  <DropdownSection title="Mi cuenta" showDivider>
-                    <DropdownItem key="perfil">Perfil</DropdownItem>
-                    <DropdownItem key="configuraciones">
-                      Configuraciones
-                    </DropdownItem>
-                  </DropdownSection>
                   <DropdownItem
                     key="delete"
                     startContent={<PowerIcon className="h-4" />}

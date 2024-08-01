@@ -1,4 +1,5 @@
 import { Input, Select, SelectItem } from "@nextui-org/react";
+import bancos from "../../../../utils/bancos.json";
 
 const DataBankForm = ({ handleChange, values }) => {
   const {
@@ -11,7 +12,7 @@ const DataBankForm = ({ handleChange, values }) => {
 
   return (
     <div className="grid grid-cols-2 items-center gap-4">
-      <Input
+      <Select
         variant="bordered"
         label="Nombre banco"
         labelPlacement="outside"
@@ -19,7 +20,33 @@ const DataBankForm = ({ handleChange, values }) => {
         name="banco"
         value={banco}
         onChange={handleChange}
-      />
+      >
+        {bancos.map((banco) => (
+          <SelectItem key={banco} value={banco}>
+            {banco}
+          </SelectItem>
+        ))}
+      </Select>
+
+      <Select
+        variant="bordered"
+        label="Tipo de cuenta bancaria"
+        labelPlacement="outside"
+        placeholder="Ingrese tipo cuenta bancaria"
+        name="tipo_cuenta_bancaria"
+        value={tipo_cuenta_bancaria}
+        onChange={handleChange}
+      >
+        <SelectItem key="vista" value="vista">
+          Vista
+        </SelectItem>
+        <SelectItem key="corriente" value="corriente">
+          Corriente
+        </SelectItem>
+        <SelectItem key="ahorro" value="ahorro">
+          Ahorro
+        </SelectItem>
+      </Select>
       <Input
         variant="bordered"
         label="Rut cuenta"

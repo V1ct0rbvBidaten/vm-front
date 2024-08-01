@@ -45,6 +45,7 @@ const initialState = {
 const RegistroEmpresa = ({ user }) => {
   const [values, setValues] = useState(initialState);
   const [currentStep, setCurrentStep] = useState(1);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   let navigate = useNavigate();
@@ -111,6 +112,8 @@ const RegistroEmpresa = ({ user }) => {
       },
     };
 
+    setLoading(true);
+
     completeProfile(profileData)
       .then((res) => {
         toast.success(res.data.detail.message);
@@ -130,6 +133,9 @@ const RegistroEmpresa = ({ user }) => {
       })
       .catch((err) => {
         toast.success(err.data.detail.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -196,7 +202,13 @@ const RegistroEmpresa = ({ user }) => {
     <>
       <Stepper currentStep={currentStep} steps={steps} />
       <div className="border-2 p-4 mt-4 mb-4 rounded-md">
-        {displayStep(currentStep)}
+        {loading ? (
+          <div className="flex justify-center items-center h-32">
+            <Spinner />
+          </div>
+        ) : (
+          displayStep(currentStep)
+        )}
       </div>
       <StepperControls
         handleClick={handleClick}

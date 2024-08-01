@@ -1,18 +1,14 @@
 import { useState } from "react";
 import LandingNav from "../../components/navs/LandingNav";
-import { Button, Input, Link, Tabs, Tab } from "@nextui-org/react";
-import {
-  EnvelopeIcon,
-  EyeIcon,
-  EyeSlashIcon,
-  LockClosedIcon,
-} from "@heroicons/react/24/solid";
+import { Button, Input, Link } from "@nextui-org/react";
+import { EnvelopeIcon, EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 
 import { Typewriter, useTypewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
 import { getCurrentUser, login } from "../../api/auth";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
+import { Spinner } from "@nextui-org/react";
 
 const initialState = {
   email: "",
@@ -23,6 +19,7 @@ const Login = () => {
   const [values, setValues] = useState(initialState);
 
   const [isVisible, setIsVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
@@ -39,6 +36,8 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
     login(values)
       .then((res) => {
         let token = res.data.detail.data.access_token;
@@ -66,6 +65,9 @@ const Login = () => {
       .catch((err) => {
         console.log(err);
         toast.error(err.response.data.detail.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -80,46 +82,56 @@ const Login = () => {
               Iniciar Sesión
             </h1>
 
-            <Input
-              label="Correo"
-              labelPlacement="outside"
-              variant="bordered"
-              placeholder="Ingrese su correo"
-              startContent={<EnvelopeIcon className="h-4" />}
-              name="email"
-              value={email}
-              onChange={handleChange}
-            />
-            <Input
-              label="Contraseña"
-              variant="bordered"
-              size="sm"
-              placeholder="Ingrese su contraseña"
-              labelPlacement="outside"
-              endContent={
-                <button
-                  className="focus:outline-none"
-                  type="button"
-                  onClick={toggleVisibility}
+            {loading ? (
+              <>
+                <Spinner />
+              </>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <Input
+                  required
+                  label="Correo"
+                  labelPlacement="outside"
+                  variant="bordered"
+                  placeholder="Ingrese su correo"
+                  startContent={<EnvelopeIcon className="h-4" />}
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                />
+                <Input
+                  label="Contraseña"
+                  variant="bordered"
+                  size="sm"
+                  required
+                  placeholder="Ingrese su contraseña"
+                  labelPlacement="outside"
+                  endContent={
+                    <button
+                      className="focus:outline-none"
+                      type="button"
+                      onClick={toggleVisibility}
+                    >
+                      {isVisible ? (
+                        <EyeSlashIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
+                      ) : (
+                        <EyeIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
+                      )}
+                    </button>
+                  }
+                  type={isVisible ? "text" : "password"}
+                  value={password}
+                  name="password"
+                  onChange={handleChange}
+                />
+                <Button
+                  className="w-full mt-4 bg-gradient-to-br from-rose-400  to-rose-500 text-white"
+                  type="submit"
                 >
-                  {isVisible ? (
-                    <EyeSlashIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
-                  ) : (
-                    <EyeIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
-                  )}
-                </button>
-              }
-              type={isVisible ? "text" : "password"}
-              value={password}
-              name="password"
-              onChange={handleChange}
-            />
-            <Button
-              className="w-full mt-4 bg-gradient-to-br from-rose-400  to-rose-500 text-white"
-              onClick={handleSubmit}
-            >
-              Iniciar Sesión
-            </Button>
+                  Iniciar Sesión
+                </Button>
+              </form>
+            )}
 
             <div className="flex  gap-4">
               <p>¿No tienes cuenta?</p>
