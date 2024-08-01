@@ -13,7 +13,13 @@ const initialState = {
   fileName: "",
 };
 
-const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
+const ProductosDocs = ({
+  body,
+  reloadFiles,
+  token,
+  setReloadFiles,
+  bucket,
+}) => {
   const [fileInfo, setFileInfo] = useState(initialState);
 
   const { data, loading: loadingFiles } = useFiles(token, body, reloadFiles);
@@ -33,6 +39,8 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
 
   const handleDeleteFile = (path) => {
     fileInfo.path = path;
+    fileInfo.bucket = bucket;
+    fileInfo.id_empresa = bucket;
 
     deleteFile(token, fileInfo)
       .then((response) => {
@@ -52,6 +60,8 @@ const ProductosDocs = ({ body, reloadFiles, token, setReloadFiles }) => {
   const handleDownloadFile = (file) => {
     fileInfo.path = file.location;
     fileInfo.fileName = file.file;
+    fileInfo.bucket = bucket;
+    fileInfo.id_empresa = bucket;
     downloadFile(token, fileInfo)
       .then((response) => {
         console.log(response);
