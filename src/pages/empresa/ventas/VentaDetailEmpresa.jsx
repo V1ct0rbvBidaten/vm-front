@@ -74,7 +74,7 @@ const VentaDetailEmpresa = () => {
     id_venta,
     id_empresa,
     id_producto,
-    comision_vemdo,
+    comision,
   } = data.detail.data;
 
   const bodyVenta = {
@@ -249,8 +249,8 @@ const VentaDetailEmpresa = () => {
                         Comisión
                       </td>
                       <td className="p-1 text-sm">
-                        {comision_vemdo && comision_vemdo !== 0
-                          ? formatNumberToCurrency(comision_vemdo)
+                        {comision && comision !== 0
+                          ? formatNumberToCurrency(comision)
                           : formatNumberToCurrency(0)}
                       </td>
                       <td className="p-1 font-semibold bg-stone-100 text-sm">
