@@ -10,14 +10,15 @@ import {
   Button,
 } from "@nextui-org/react";
 import { useState } from "react";
+import Logo from "../../assets/logoFondoBlanco.png";
 
 const LandingNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    "Inicio",
-    "Empresas",
-    "Nosotros",
+    "Conocenos",
+    "Ayuda",
+    "Contacto",
     "Iniciar Sesión",
     "Registrarse",
   ];
@@ -30,9 +31,7 @@ const LandingNav = () => {
         />
         <NavbarBrand>
           <Link href="/" color="foreground">
-            <h1 className="font-bold text-inherit text-3xl bg-gradient-to-br from-purple-300 via-purple-400 to-purple-700 bg-clip-text text-transparent">
-              VeMdo
-            </h1>
+            <img src={Logo} className="w-[120px]" />
           </Link>
         </NavbarBrand>
       </NavbarContent>
@@ -40,33 +39,30 @@ const LandingNav = () => {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
           <Link color="foreground" href="/">
-            Inicio
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#" aria-current="page">
-            Empresas
+            Conocenos
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="#">
-            Nosotros
+            Ayuda
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            Contacto
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden sm:flex">
-          <Link
-            href="/login"
-            className="text-sky-500 font-semibold text-lg font-normal"
-          >
+          <Link href="/login" className="text-v3 font-bold text-lg font-normal">
             Ingresar
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Button
             as={Link}
-            className="bg-gradient-to-r from-sky-500  to-sky-600  text-white rounded-full"
+            className="bg-gradient-to-r from-v4  to-v3 text-white rounded-full"
             href="/registro"
           >
             Registrarse

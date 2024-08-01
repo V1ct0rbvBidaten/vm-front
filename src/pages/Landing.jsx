@@ -8,32 +8,21 @@ import {
 } from "@nextui-org/react";
 import LandingNav from "../components/navs/LandingNav";
 import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
-import juanCarlos from "../assets/juanCarlos.jpg";
-import ignacioBueno from "../assets/ignacioBueno.jpg";
-import hugoCastro from "../assets/hugoCastro.jpg";
-import reinerNarr from "../assets/reinerNarr.jpg";
+import Logo from "../assets/logoFondoOscuro.png";
+import Logo2 from "../assets/logoFondoBlanco.png";
+import Portal from "../assets/portal.png";
 
 const Landing = () => {
   return (
     <>
       <LandingNav />
       {/* Hero section */}
-      <div className="bg-gradient-to-br from-purple-600  to-sky-700  w-full flex p-[150px]  background-landing">
+      <div className="  w-full flex p-[150px]  background-landing  items-center justify-center">
         <div className="flex gap-4 flex-col">
-          <h1 className="text-4xl text-white max-w-[650px]">
-            Únete ahora y comienza a ganar Dinero con{" "}
-            <span className="font-bold text-inherit text-5xl bg-gradient-to-br from-purple-200 via-purple-300 to-purple-500 bg-clip-text text-transparent">
-              VeMdo
-            </span>{" "}
-          </h1>
-          <div className="text-xl bg-white rounded-full pl-6 pr-6 p-1 font-semibold text-blue-500">
+          <img src={Logo} className="w-[500px]" />
+          <div className="text-xl bg-white rounded-full pl-6 pr-6 p-1 font-semibold text-v3">
             <Typewriter
-              words={[
-                "Más ingresos",
-                "Más productos",
-                "Más ventas",
-                "Mejor catalogo",
-              ]}
+              words={["Vende más", "Vende mucho", "Vende mejor"]}
               loop={5}
               cursor
               cursorStyle="_"
@@ -42,210 +31,61 @@ const Landing = () => {
               delaySpeed={1000}
             />
           </div>
-          <p className="text-white">
-            ¿Quieres generar ingresos? Puedes vender todas nuestras marcas sin
-            postular, sin invertir ni mantener stock.
-          </p>
+
           <div className="flex gap-4 ">
-            <Button className="h-8 w-60 bg-purple-500 text-white">
-              Unete ahora!
-            </Button>
+            <Button className="h-8 w-60 bg-v4 text-white">Unete ahora!</Button>
             <Button className="h-8 w-60 bg-white">Saber más</Button>
           </div>
         </div>
       </div>
       {/* Saber mas */}
-      <div className="grid grid-cols-3 p-20 w-full   ">
+      <div className="grid grid-cols-3 gap-4 p-20 w-full   ">
         <div className="gap-4">
-          <h1 className="text-4xl font-bold text-purple-500 mb-4 text-right">
-            ¿Como ganar dinero con VeMdo?
-          </h1>
-          <p className="text-right">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          <h1 className="text-4xl font-bold text-v4 mb-4 text-left">¿Que es</h1>
+          <div className="flex  justify-start gap-4 items-end">
+            <img src={Logo2} className="w-[300px]" />
+
+            <h1 className=" font-bold text-v4  text-right text-5xl">?</h1>
+          </div>
+          <p className="text-justify mt-5 text-lg ">
+            Nuestra plataforma da acceso a una red de vendedores para que las
+            empresas puedan comercializar productos de alto valor y que
+            requieren de una venta más consultiva, donde las empresas tengan
+            costos de venta 100% variables.
+          </p>
+          <p className="text-justify mt-5 text-lg ">
+            Finalmente, somos un medio para que las empresas se conecten con sus
+            vendedores independientes.
           </p>
         </div>
-        <div className="col-span-2 max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8">
-          <Card className="col-span-12 sm:col-span-4 h-[300px]">
-            <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-              <p className="text-tiny text-white/60 uppercase font-bold">
-                What to watch
-              </p>
-              <h4 className="text-white font-medium text-large">
-                Stream the Acme event
-              </h4>
-            </CardHeader>
-            <Image
-              removeWrapper
-              alt="Card background"
-              className="z-0 w-full h-full object-cover"
-              src="https://nextui.org/images/card-example-4.jpeg"
-            />
-          </Card>
-          <Card className="col-span-12 sm:col-span-4 h-[300px]">
-            <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-              <p className="text-tiny text-white/60 uppercase font-bold">
-                Plant a tree
-              </p>
-              <h4 className="text-white font-medium text-large">
-                Contribute to the planet
-              </h4>
-            </CardHeader>
-            <Image
-              removeWrapper
-              alt="Card background"
-              className="z-0 w-full h-full object-cover"
-              src="https://nextui.org/images/card-example-3.jpeg"
-            />
-          </Card>
-          <Card className="col-span-12 sm:col-span-4 h-[300px]">
-            <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-              <p className="text-tiny text-white/60 uppercase font-bold">
-                Supercharged
-              </p>
-              <h4 className="text-white font-medium text-large">
-                Creates beauty like a beast
-              </h4>
-            </CardHeader>
-            <Image
-              removeWrapper
-              alt="Card background"
-              className="z-0 w-full h-full object-cover"
-              src="https://nextui.org/images/card-example-2.jpeg"
-            />
-          </Card>
-          <Card
-            isFooterBlurred
-            className="w-full h-[300px] col-span-12 sm:col-span-5"
-          >
-            <CardHeader className="absolute z-10 top-1 flex-col items-start">
-              <p className="text-tiny text-white/60 uppercase font-bold">New</p>
-              <h4 className="text-black font-medium text-2xl">Acme camera</h4>
-            </CardHeader>
-            <Image
-              removeWrapper
-              alt="Card example background"
-              className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
-              src="https://nextui.org/images/card-example-6.jpeg"
-            />
-            <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
-              <div>
-                <p className="text-black text-tiny">Available soon.</p>
-                <p className="text-black text-tiny">Get notified.</p>
-              </div>
-              <Button
-                className="text-tiny"
-                color="primary"
-                radius="full"
-                size="sm"
-              >
-                Notify Me
-              </Button>
-            </CardFooter>
-          </Card>
-          <Card
-            isFooterBlurred
-            className="w-full h-[300px] col-span-12 sm:col-span-7"
-          >
-            <CardHeader className="absolute z-10 top-1 flex-col items-start">
-              <p className="text-tiny text-white/60 uppercase font-bold">
-                Your day your way
-              </p>
-              <h4 className="text-white/90 font-medium text-xl">
-                Your checklist for better sleep
-              </h4>
-            </CardHeader>
-            <Image
-              removeWrapper
-              alt="Relaxing app background"
-              className="z-0 w-full h-full object-cover"
-              src="https://nextui.org/images/card-example-5.jpeg"
-            />
-            <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-              <div className="flex flex-grow gap-2 items-center">
-                <Image
-                  alt="Breathing app icon"
-                  className="rounded-full w-10 h-11 bg-black"
-                  src="https://nextui.org/images/breathing-app-icon.jpeg"
-                />
-                <div className="flex flex-col">
-                  <p className="text-tiny text-white/60">Breathing App</p>
-                  <p className="text-tiny text-white/60">
-                    Get a good night's sleep.
-                  </p>
-                </div>
-              </div>
-              <Button radius="full" size="sm">
-                Get App
-              </Button>
-            </CardFooter>
-          </Card>
+        <div className="col-span-2 max-w-[900px] ">
+          <img src={Portal} className=" w-full rounded-md shadow-2xl" />
         </div>
       </div>
-      <div className="flex flex-col mt-5 bg-gradient-to-br from-purple-600  to-sky-700 p-20">
+      <div className="flex flex-col mt-5 bg-gradient-to-br from-v4 to-v3 p-20">
         <h1 className="text-4xl font-bold text-white mb-4 text-center">
-          Lorem ipsum
+          ¿Cómo lo hacemos?
         </h1>
-        <p className="text-white">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+        <p className="text-white text-center">
+          Por un lado, atraemos vendedores a nuestra plataforma y por otro lado
+          buscamos empresas para que suban sus productos a la plataforma. Luego,
+          los vendedores eligen qué quieren vender y finalmente ingresan las
+          ventas a través del portal.
         </p>
       </div>
-      <div className="flex flex-col mt-5 p-20">
-        <h1 className="text-4xl font-bold text-purple-700 mb-4 text-center">
-          Nuestro Equipo
-        </h1>
-        <p className="text-center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-        {/* <div className="grid grid-cols-4 mt-10">
-          <div className="flex items-center justify-center flex-col">
-            <div className="rounded-full overflow-hidden h-[200px] w-[200px]">
-              <img src={juanCarlos} height={200} width={200} />
-            </div>
-            <h1 className="text-purple-700 font-bold text-xl">
-              Juan Carlos Pizarro
-            </h1>
-            <h4 className="font-bold text-xl ">CEO</h4>
-          </div>
-          <div className="flex items-center justify-center flex-col">
-            <div className="rounded-full overflow-hidden h-[200px] w-[200px]">
-              <img src={reinerNarr} height={200} width={200} />
-            </div>
-            <h1 className="text-purple-700 font-bold text-xl">Reiner Narr</h1>
-            <h4 className="font-bold text-xl ">CMO</h4>
-          </div>
-          <div className="flex items-center justify-center flex-col">
-            <div className="rounded-full overflow-hidden h-[200px] w-[200px]">
-              <img src={hugoCastro} height={200} width={200} />
-            </div>
-            <h1 className="text-purple-700 font-bold text-xl">Hugo Castro</h1>
-            <h4 className="font-bold text-xl ">CPO</h4>
-          </div>
-
-          <div className="flex items-center justify-center flex-col">
-            <div className="flex justify-center items-center h-[200px] w-[200px] overflow-hidden rounded-full ">
-              <img src={ignacioBueno} height={200} width={200} />
-            </div>
-            <h1 className="text-purple-700 font-bold text-xl">
-              Ignacio Sandoval
-            </h1>
-            <h4 className="font-bold text-xl ">CTO</h4>
-          </div>
-        </div> */}
+      <div className="grid grid-cols-3 gap-4 p-32">
+        <div className="flex flex-col justify-center items-center gap-4 ">
+          <h1 className="font-bold text-5xl">Vendedores</h1>
+          <span className="font-bold text-5xl">400</span>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-4 border-r-2 border-l-2">
+          <h1 className="font-bold text-5xl">Empresas</h1>
+          <span className="font-bold text-5xl">100</span>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-4">
+          <h1 className="font-bold text-5xl">Productos</h1>
+          <span className="font-bold text-5xl">1000</span>
+        </div>
       </div>
     </>
   );

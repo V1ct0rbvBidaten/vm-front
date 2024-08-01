@@ -29,11 +29,12 @@
 }
 
 .background-landing {
-  /* background-image: url("https://static.vecteezy.com/system/resources/previews/014/175/864/non_2x/blue-circle-gradient-abstract-background-for-wallpaper-landing-page-or-website-banner-eps-10-editable-vector.jpg"); */
-  /* You might want to add additional properties for better styling */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: calc(100vh - 64px);
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
 }
 
 .register-container {

@@ -13,7 +13,11 @@ export default {
     current: "currentColor",
     extend: {
       colors: {
-        // light mode
+        v1: "#150a30",
+        v2: "#2c0261",
+        v3: "#28b6c6",
+        v4: "#05d9b2",
+        v5: "#f2e635",
         tremor: {
           brand: {
             faint: colors.blue[50],
