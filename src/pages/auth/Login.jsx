@@ -162,10 +162,6 @@ const Login = () => {
                 delaySpeed={1000}
               />
             </span>
-            <p className="text-white text-center w-[500px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
           </div>
         </div>
       </div>

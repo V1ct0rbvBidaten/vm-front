@@ -22,7 +22,7 @@ const Landing = () => {
           <img src={Logo} className="w-[500px]" />
           <div className="text-xl bg-white rounded-full pl-6 pr-6 p-1 font-semibold text-v3">
             <Typewriter
-              words={["Vende más", "Vende mucho", "Vende mejor"]}
+              words={["Vendo más", "Vendo mucho", "Vendo mejor"]}
               loop={5}
               cursor
               cursorStyle="_"
