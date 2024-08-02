@@ -73,7 +73,7 @@ const Landing = () => {
           ventas a través del portal.
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-4 p-32">
+      {/* <div className="grid grid-cols-3 gap-4 p-32">
         <div className="flex flex-col justify-center items-center gap-4 ">
           <h1 className="font-bold text-5xl">Vendedores</h1>
           <span className="font-bold text-5xl">400</span>
@@ -86,7 +86,7 @@ const Landing = () => {
           <h1 className="font-bold text-5xl">Productos</h1>
           <span className="font-bold text-5xl">1000</span>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
