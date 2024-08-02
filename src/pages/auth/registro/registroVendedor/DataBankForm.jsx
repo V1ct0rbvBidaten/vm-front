@@ -21,7 +21,7 @@ const DataBankForm = ({ handleChange, values }) => {
         value={banco}
         onChange={handleChange}
       >
-        {bancos.map((banco) => (
+        {bancos.banks.map((banco) => (
           <SelectItem key={banco} value={banco}>
             {banco}
           </SelectItem>
