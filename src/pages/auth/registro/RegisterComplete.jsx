@@ -71,7 +71,8 @@ const RegisterComplete = () => {
           });
       })
       .catch((err) => {
-        toast.success(err.data.detail.message);
+        console.log(err);
+        toast.success(err.response.data.detail.message);
       });
   };
 

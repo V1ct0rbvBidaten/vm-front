@@ -14,6 +14,7 @@ import EmpresaForm from "./EmpresaForm";
 import { useDispatch } from "react-redux";
 import DataBankForm from "./DataBankForm";
 import { validateFields } from "../../../../functions/forms";
+import { Spinner } from "@nextui-org/react";
 
 const initialState = {
   email: "",
