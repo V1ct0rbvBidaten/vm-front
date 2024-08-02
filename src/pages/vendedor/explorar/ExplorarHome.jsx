@@ -38,15 +38,17 @@ const ExplorarHome = () => {
 
   let profiles =
     data &&
-    data.detail.data !== null &&
-    data.detail.data.profiles !== null &&
+    data.detail &&
+    data.detail.data &&
+    data.detail.data.profiles &&
     data.detail.data.profiles.length > 0
       ? data.detail.data.profiles
       : [];
 
   const { page, page_size } = dynamicState;
 
-  const totalItems = data.detail.data.total;
+  const totalItems =
+    data && data.detail && data.detail.data ? data.detail.data.total : [];
 
   const pages = Math.ceil(totalItems / page_size);
 
