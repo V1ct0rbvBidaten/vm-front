@@ -5,10 +5,12 @@ import {
   SelectItem,
   Autocomplete,
   AutocompleteItem,
+  AutocompleteSection,
 } from "@nextui-org/react";
 import regiones from "../../../../utils/regiones";
+import rubro_sii from "../../../../utils/rubros_sii";
 
-const EmpresaForm = ({ values, handleChange }) => {
+const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
   const {
     rut_razon_social,
     nombre_razon_social,
@@ -17,41 +19,13 @@ const EmpresaForm = ({ values, handleChange }) => {
     correo_electronico_razon_social,
     region_razon_social,
     comuna_razon_social,
-    rubro,
   } = values;
 
   const [selectedRegion, setSelectedRegion] = useState(region_razon_social);
   const [filteredComunas, setFilteredComunas] = useState([]);
   const [selectedRubro, setSelectedRubro] = useState(rubro);
 
-  const rubros_sii = {
-    category: [
-      {
-        categoria: "PRODUCCIÓN AGROPECUARIA",
-        items: [
-          {
-            codigo: "11111.0",
-            description: "Cereales, oleaginosas, forrajeras",
-          },
-          { codigo: "11112.0", description: "Arroz" },
-        ],
-      },
-      {
-        categoria: "GANADERÍA",
-        items: [
-          { codigo: "11211.0", description: "Ganado bovino" },
-          { codigo: "11212.0", description: "Ganado ovino" },
-        ],
-      },
-    ],
-  };
-
-  const items = rubros_sii.category.flatMap((category) =>
-    category.items.map((item) => ({
-      key: item.codigo,
-      label: `${category.categoria} - ${item.description}`,
-    }))
-  );
+  const data = rubro_sii.category;
 
   const handleRegionChange = (event) => {
     const { value } = event.target;
@@ -99,17 +73,28 @@ const EmpresaForm = ({ values, handleChange }) => {
       />
       <Autocomplete
         label="Rubro"
-        labelPlacement="outside"
-        placeholder="Ingrese rubro empresa"
-        items={items}
-        selectedKey={selectedRubro}
-        onSelectionChange={handleRubroChange}
+        variant="bordered"
+        placeholder="Seleccione rubro"
+        className="w-100"
+        selectedKey={rubro}
+        onSelectionChange={setRubro}
       >
-        {(item) => (
-          <AutocompleteItem key={item.key}>
-            {item.label.split(" - ")[1]}
-          </AutocompleteItem>
-        )}
+        {data.map((item) => (
+          <AutocompleteSection
+            showDivider
+            title={item.categoria}
+            key={item.categoria}
+          >
+            {item.items.map((subitem) => (
+              <AutocompleteItem
+                key={subitem.description}
+                value={subitem.description}
+              >
+                {subitem.description}
+              </AutocompleteItem>
+            ))}
+          </AutocompleteSection>
+        ))}
       </Autocomplete>
       <Input
         variant="bordered"

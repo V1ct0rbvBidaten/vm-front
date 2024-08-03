@@ -10,7 +10,7 @@ import {
   Button,
 } from "@nextui-org/react";
 import { useState } from "react";
-import Logo from "../../assets/logoFondoBlanco.png";
+import Logo from "../../assets/logoFondoBlanco.svg";
 import { useNavigate } from "react-router-dom";
 
 const LandingNav = () => {

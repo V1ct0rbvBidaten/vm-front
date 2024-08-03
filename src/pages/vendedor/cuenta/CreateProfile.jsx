@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import RegistroVendedor from "../../auth/registro/registroVendedor/RegistroVendedor";
 import RegistroEmpresa from "../../auth/registro/registroEmpresa/RegistroEmpresa";
+import Logo from "../../../assets/logoFondoBlanco.svg";
 
 const CreateProfile = ({ user }) => {
   const dispatch = useDispatch();
@@ -25,9 +26,7 @@ const CreateProfile = ({ user }) => {
   return (
     <div className="h-full w-screen p-10 ">
       <div className="flex  justify-between gradient-border relative pb-5">
-        <span className="font-bold text-inherit text-5xl bg-gradient-to-br from-purple-200 via-purple-300 to-purple-500 bg-clip-text text-transparent">
-          VeMdo
-        </span>
+        <img src={Logo} className="w-32" />
         <Button
           className="bg-foreground text-white rounded-full"
           startContent={<PowerIcon className="h-4" />}
@@ -37,9 +36,9 @@ const CreateProfile = ({ user }) => {
         </Button>
       </div>
       <div className="w-full flex justify-center items-center flex-col pt-5 mt-5 rounded-md border-1 pb-5">
-        <h1 className="text-xl font-semibold">
-          Para poder ingresar veMdo es necesario que termine de crear su perfil.
-        </h1>
+        <p className="text-md font-semibold">
+          Para poder ingresar vemdo es necesario que termine de crear su perfil.
+        </p>
         <div className="w-[70%]">
           {esEmpresa ? (
             <RegistroEmpresa user={user} />

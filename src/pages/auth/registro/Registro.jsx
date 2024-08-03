@@ -9,6 +9,7 @@ import { signup, verifyCode } from "../../../api/auth";
 import { Typewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import LogoFondoNegro from "../../../assets/logoFondoNegro.svg";
 
 const initialState = {
   email: "",
@@ -95,17 +96,17 @@ const Registro = () => {
       <LandingNav />
       <div className="flex justify-center p-10 register-container bg-slate-100">
         <div className="bg-white w-full rounded-md shadow-lg grid grid-cols-3 border-1">
-          <div className="flex flex-col p-10 justify-center gap-2 text-center">
-            <h1 className="text-3xl font-normal text-slate-500 mt-8">
+          <div className="flex flex-col p-10 justify-center gap-6 text-left">
+            <h1 className="text-5xl font-semibold  text-v2 mt-8">
               Registrarse
             </h1>
             {loading ? ( // Mostrar el spinner cuando loading es true
               <Loading size="xl" />
             ) : emailSend ? (
               <div className="flex flex-col gap-4 ">
-                <p>
-                  Un codigo de verificación fue enviado a su correo favor
-                  ingresar a continuación para continuar con su registro.
+                <p className="text-left">
+                  Un código de verificación fue enviado a su correo. Favor de
+                  ingresarlo a continuación para continuar con su registro.
                 </p>
 
                 <h2 className="text-2xl font-semibold">
@@ -130,7 +131,6 @@ const Registro = () => {
                 <Tabs
                   key="tipoUsuario"
                   variant="underlined"
-                  color="secondary"
                   aria-label="Tabs variants"
                   onSelectionChange={(key) => setSelectedTab(key)}
                 >
@@ -147,7 +147,7 @@ const Registro = () => {
                       onChange={handleChange}
                     />
                     <Button
-                      className="w-full mt-4 bg-gradient-to-br from-purple-400 to-purple-500 text-white"
+                      className="w-full mt-4 bg-gradient-to-br from-v4 to-v3 text-white"
                       onClick={handleRegister}
                     >
                       Registrarse
@@ -166,7 +166,7 @@ const Registro = () => {
                       onChange={handleChange}
                     />
                     <Button
-                      className="w-full mt-4 bg-gradient-to-br from-rose-300 to-rose-500 text-white"
+                      className="w-full mt-4 bg-gradient-to-br from-v4 to-v3 text-white"
                       onClick={handleRegister}
                     >
                       Registrarse
@@ -176,27 +176,20 @@ const Registro = () => {
 
                 <div className="flex gap-4">
                   <p>¿Ya tienes cuenta?</p>
-                  <Link href="/login">Iniciar Sesión</Link>
+                  <Link href="/login" className="text-v3 font-semibold">
+                    Iniciar Sesión
+                  </Link>
                 </div>
               </>
             )}
           </div>
-          <div className="gap-2 col-span-2 bg-gradient-to-br from-purple-600 to-sky-700 rounded-tr-md rounded-br-md p-20 flex items-center flex-col justify-center">
-            <h1 className="font-semibold text-3xl text-white">
-              En{" "}
-              <span className="font-bold text-inherit text-5xl bg-gradient-to-br from-purple-200 via-purple-300 to-purple-500 bg-clip-text text-transparent">
-                VeMdo
-              </span>{" "}
-              encuentra
-            </h1>
-            <span className="text-emerald-500 w-30 text-xl pl-5 pr-5 bg-white rounded-full p-2">
+          <div className="gap-2 col-span-2 background-vemdo rounded-tr-md rounded-br-md p-20 flex items-center flex-col justify-center">
+            <span>
+              <img src={LogoFondoNegro} />
+            </span>
+            <span className="text-v4 w-[500px] text-xl pl-5 pr-5 bg-white rounded-full p-2">
               <Typewriter
-                words={[
-                  "Más ingresos",
-                  "Más productos",
-                  "Más ventas",
-                  "Mejor catalogo",
-                ]}
+                words={["Vendo más", "Vendo mucho", "Vendo mejor"]}
                 loop={5}
                 cursor
                 cursorStyle="_"

@@ -10,7 +10,7 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { version } from "../../utils/constants";
 import LogoVemdo from "../../assets/logoVemdoBlanco.png";
-import IconoVemdo from "../../assets/iconoVemdoBlanco.png";
+import IconoVemdo from "../../assets/iconoVemdoBlanco.svg";
 
 const EmpresaSideNav = ({ user }) => {
   let navigate = useNavigate();

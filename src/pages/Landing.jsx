@@ -8,8 +8,8 @@ import {
 } from "@nextui-org/react";
 import LandingNav from "../components/navs/LandingNav";
 import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
-import Logo from "../assets/logoFondoOscuro.png";
-import Logo2 from "../assets/logoFondoBlanco.png";
+import Logo from "../assets/logoFondoNegro.svg";
+import Logo2 from "../assets/logoFondoBlanco.svg";
 import Portal from "../assets/portal.png";
 
 const Landing = () => {

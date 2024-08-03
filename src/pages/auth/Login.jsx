@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { getCurrentUser, login } from "../../api/auth";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
+import LogoFondoNegro from "../../assets/logoFondoNegro.svg";
 import { Spinner } from "@nextui-org/react";
 
 const initialState = {
@@ -77,8 +78,8 @@ const Login = () => {
       <LandingNav />
       <div className="flex justify-center p-10  register-container  bg-slate-100">
         <div className="bg-white w-full rounded-md shadow-lg grid grid-cols-3 border-1">
-          <div className="flex flex-col p-10 justify-center gap-2 text-center">
-            <h1 className="text-3xl font-normal text-slate-500  mt-8 ">
+          <div className="flex flex-col p-10 justify-center gap-6 text-left">
+            <h1 className="text-5xl font-semibold  text-v2 mt-8">
               Iniciar Sesión
             </h1>
 
@@ -125,7 +126,7 @@ const Login = () => {
                   onChange={handleChange}
                 />
                 <Button
-                  className="w-full mt-4 bg-gradient-to-br from-rose-400  to-rose-500 text-white"
+                  className="w-full mt-4 bg-gradient-to-br from-v4 to-v3 text-white"
                   type="submit"
                 >
                   Iniciar Sesión
@@ -135,25 +136,18 @@ const Login = () => {
 
             <div className="flex  gap-4">
               <p>¿No tienes cuenta?</p>
-              <Link href="/registro">Registrarse</Link>
+              <Link href="/registro" className="text-v3 font-semibold">
+                Registrarse
+              </Link>
             </div>
           </div>
-          <div className="gap-2 col-span-2 bg-gradient-to-br from-purple-600  to-sky-700 rounded-tr-md rounded-br-md  p-20 flex items-center flex-col justify-center">
-            <h1 className="font-semibold text-3xl text-white">
-              En{" "}
-              <span className="font-bold text-inherit text-5xl bg-gradient-to-br from-purple-200 via-purple-300 to-purple-500 bg-clip-text text-transparent">
-                VeMdo
-              </span>{" "}
-              encuentra
-            </h1>
-            <span className="text-emerald-500 w-30 text-xl pl-5 pr-5 bg-white rounded-full p-2">
+          <div className="gap-2 col-span-2 background-vemdo rounded-tr-md rounded-br-md p-20 flex items-center flex-col justify-center">
+            <span>
+              <img src={LogoFondoNegro} />
+            </span>
+            <span className="text-v4 w-[500px] text-xl pl-5 pr-5 bg-white rounded-full p-2">
               <Typewriter
-                words={[
-                  "Más ingresos",
-                  "Más productos",
-                  "Más ventas",
-                  "Mejor catalogo",
-                ]}
+                words={["Vendo más", "Vendo mucho", "Vendo mejor"]}
                 loop={5}
                 cursor
                 cursorStyle="_"

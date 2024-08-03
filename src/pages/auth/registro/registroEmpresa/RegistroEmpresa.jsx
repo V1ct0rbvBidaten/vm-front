@@ -47,6 +47,7 @@ const RegistroEmpresa = ({ user }) => {
   const [values, setValues] = useState(initialState);
   const [currentStep, setCurrentStep] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [rubro, setRubro] = useState("cat");
   const dispatch = useDispatch();
 
   let navigate = useNavigate();
@@ -173,9 +174,13 @@ const RegistroEmpresa = ({ user }) => {
       { name: "Comuna", value: values.comuna_razon_social },
     ];
 
-    // if (!validateFields(fieldsPerfil) && currentStep === 1) return;
-    // if (!validateFields(fieldsBanco) && currentStep === 2) return;
-    // if (!validateFields(fieldsEmpresa) && currentStep === 3) return;
+    if (currentStep === 1 && !validateFields(fieldsPerfil)) {
+      return;
+    } else if (currentStep === 2 && !validateFields(fieldsBanco)) {
+      return;
+    } else if (currentStep === 3 && !validateFields(fieldsEmpresa)) {
+      return;
+    }
 
     if (direction === "next") {
       newStep++;

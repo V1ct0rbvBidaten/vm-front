@@ -7,6 +7,7 @@ import { useRef, useState, useCallback } from "react";
 import {
   ChevronDoubleLeftIcon,
   PencilSquareIcon,
+  TrashIcon,
 } from "@heroicons/react/24/solid";
 import ModalImageSlider from "../../../components/utils/ModalImageSlider";
 import ProductosDocs from "./ProductosDocs";
@@ -16,6 +17,7 @@ import InputFileUploader from "../../../components/utils/InputFileUploader";
 import { getSize } from "../../../functions/file";
 import { uploadFile } from "../../../api/file";
 import { toast } from "react-toastify";
+import { updateProducto } from "../../../api/products";
 
 const ProductoDetail = () => {
   const idIndex = useRef(0);
@@ -140,6 +142,19 @@ const ProductoDetail = () => {
       });
   };
 
+  const deteleProducto = () => {
+    updateProducto(user.token, id, { es_activo: false })
+      .then((res) => {
+        console.log(res);
+        toast.error("Producto eliminado con éxito");
+        navigate("/empresa/home");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Error al eliminar producto");
+      });
+  };
+
   return (
     <>
       <ModalImageSlider
@@ -157,13 +172,23 @@ const ProductoDetail = () => {
           >
             Volver
           </Button>
-          <Button
-            className="bg-emerald-500 text-white h-7"
-            onClick={toggleEdit}
-            isIconOnly
-          >
-            <PencilSquareIcon className="h-4" />
-          </Button>
+          <div className="flex gap-2">
+            <Button
+              className="bg-emerald-500 text-white h-7"
+              onClick={toggleEdit}
+              isIconOnly
+            >
+              <PencilSquareIcon className="h-4" />
+            </Button>
+
+            <Button
+              className="bg-rose-500 text-white h-7"
+              onClick={deteleProducto}
+              isIconOnly
+            >
+              <TrashIcon className="h-4" />
+            </Button>
+          </div>
         </div>
         <Divider />
         {edit ? (
