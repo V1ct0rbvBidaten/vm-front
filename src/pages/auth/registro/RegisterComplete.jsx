@@ -48,6 +48,14 @@ const RegisterComplete = () => {
     return true;
   };
 
+  const isRightFormat = (contraseña) => {
+    const hasCapitalLetter = /[A-Z]/.test(contraseña);
+    const isLongEnough = contraseña.length > 8;
+
+    console.log(hasCapitalLetter, isLongEnough);
+    return hasCapitalLetter && isLongEnough;
+  };
+
   const handleSubmit = () => {
     let data = values;
 
@@ -132,6 +140,7 @@ const RegisterComplete = () => {
               values={values}
               handleChange={handleChange}
               isEqual={isEqual}
+              isRightFormat={isRightFormat}
             />
             <Button
               onClick={handleOpen}

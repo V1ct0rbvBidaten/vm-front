@@ -2,7 +2,13 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { Input } from "@nextui-org/react";
 import { useState } from "react";
 
-const RegistroUsuario = ({ email, values, handleChange, isEqual }) => {
+const RegistroUsuario = ({
+  email,
+  values,
+  handleChange,
+  isEqual,
+  isRightFormat,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -68,8 +74,17 @@ const RegistroUsuario = ({ email, values, handleChange, isEqual }) => {
         onChange={handleChange}
       />
       {!isEqual(contraseña, validacion_contraseña) && (
+        <div className="flex flex-col gap-2">
+          <p className="text-rose-500 text-left ml-0 text-xs italic">
+            *** Las contraseñas no coinciden.
+          </p>
+        </div>
+      )}
+
+      {!isRightFormat(contraseña) && (
         <p className="text-rose-500 text-left ml-0 text-xs italic">
-          *** Las contraseñas no coinciden.
+          *** La contraseña debe ser mayor a 8 caracteres y contener al menos
+          una mayuscula.
         </p>
       )}
     </div>
