@@ -30,6 +30,7 @@ const PerfilForm = ({ handleChange, values }) => {
         placeholder="Ingrese su nombre"
         name="nombres"
         value={nombres}
+        isRequired
         onChange={handleChange}
       />
 
@@ -41,6 +42,7 @@ const PerfilForm = ({ handleChange, values }) => {
         name="apellidos"
         value={apellidos}
         onChange={handleChange}
+        isRequired
       />
       <Input
         variant="bordered"
@@ -49,6 +51,7 @@ const PerfilForm = ({ handleChange, values }) => {
         placeholder="Ingrese su dirección"
         name="direccion"
         value={direccion}
+        isRequired
         onChange={handleChange}
       />
       <Input
@@ -57,6 +60,7 @@ const PerfilForm = ({ handleChange, values }) => {
         labelPlacement="outside"
         placeholder="+56 9"
         name="telefono"
+        isRequired
         value={telefono}
         onChange={handleChange}
       />
@@ -65,6 +69,7 @@ const PerfilForm = ({ handleChange, values }) => {
         label="Región "
         labelPlacement="outside"
         placeholder="Ingrese región "
+        isRequired
         name="region"
         value={selectedRegion}
         onChange={handleRegionChange}
@@ -78,6 +83,7 @@ const PerfilForm = ({ handleChange, values }) => {
       <Select
         variant="bordered"
         label="Comuna "
+        isRequired
         labelPlacement="outside"
         placeholder="Ingrese comuna "
         name="comuna"

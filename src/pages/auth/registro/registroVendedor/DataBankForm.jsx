@@ -17,6 +17,7 @@ const DataBankForm = ({ handleChange, values }) => {
         label="Nombre banco"
         labelPlacement="outside"
         placeholder="Ingrese su banco"
+        isRequired
         name="banco"
         value={banco}
         onChange={handleChange}
@@ -33,6 +34,7 @@ const DataBankForm = ({ handleChange, values }) => {
         label="Rut cuenta"
         labelPlacement="outside"
         placeholder="Ingrese rut cuenta"
+        isRequired
         name="rut_cuenta_bancaria"
         value={rut_cuenta_bancaria}
         onChange={handleChange}
@@ -41,6 +43,7 @@ const DataBankForm = ({ handleChange, values }) => {
         variant="bordered"
         label="Tipo de cuenta bancaria"
         labelPlacement="outside"
+        isRequired
         placeholder="Ingrese tipo cuenta bancaria"
         name="tipo_cuenta_bancaria"
         value={tipo_cuenta_bancaria}
@@ -61,6 +64,7 @@ const DataBankForm = ({ handleChange, values }) => {
         label="Número de cuenta bancaria"
         labelPlacement="outside"
         placeholder="Ingrese número cuenta bancaria"
+        isRequired
         name="numero_cuenta_bancaria"
         value={numero_cuenta_bancaria}
         onChange={handleChange}
@@ -72,6 +76,7 @@ const DataBankForm = ({ handleChange, values }) => {
         placeholder="Ingrese email cuenta bancaria"
         name="email_cuenta_bancaria"
         value={email_cuenta_bancaria}
+        isRequired
         onChange={handleChange}
         type="email"
       />

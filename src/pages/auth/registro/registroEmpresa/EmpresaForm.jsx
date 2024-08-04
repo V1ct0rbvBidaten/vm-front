@@ -58,6 +58,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
         label="Rut razón social"
         labelPlacement="outside"
         placeholder="Ingrese rut empresa"
+        isRequired
         name="rut_razon_social"
         value={rut_razon_social}
         onChange={handleChange}
@@ -67,6 +68,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
         label="Correo "
         labelPlacement="outside"
         placeholder="Ingrese correo empresa"
+        isRequired
         name="correo_electronico_razon_social"
         value={correo_electronico_razon_social}
         onChange={handleChange}
@@ -74,6 +76,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
       <Autocomplete
         label="Rubro"
         variant="bordered"
+        isRequired
         placeholder="Seleccione rubro"
         className="w-100 col-span-2"
         selectedKey={rubro}
@@ -97,6 +100,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
         variant="bordered"
         label="Nombre razón social"
         labelPlacement="outside"
+        isRequired
         placeholder="Ingrese nombre empresa"
         name="nombre_razon_social"
         value={nombre_razon_social}
@@ -107,6 +111,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
         label="Dirección "
         labelPlacement="outside"
         placeholder="Ingrese dirección empresa"
+        isRequired
         name="direccion_razon_social"
         value={direccion_razon_social}
         onChange={handleChange}
@@ -116,6 +121,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
         label="Telefono "
         labelPlacement="outside"
         placeholder="+56 9"
+        isRequired
         name="telefono_razon_social"
         value={telefono_razon_social}
         onChange={handleChange}
@@ -123,6 +129,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
       <Select
         variant="bordered"
         label="Región razón social"
+        isRequired
         labelPlacement="outside"
         placeholder="Ingrese región empresa"
         name="region_razon_social"
@@ -139,6 +146,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
         variant="bordered"
         label="Comuna razón social"
         labelPlacement="outside"
+        isRequired
         placeholder="Ingrese comuna empresa"
         name="comuna_razon_social"
         value={comuna_razon_social}
