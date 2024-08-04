@@ -84,7 +84,7 @@ const RegistroUsuario = ({
       {!isRightFormat(contraseña) && (
         <p className="text-rose-500 text-left ml-0 text-xs italic">
           *** La contraseña debe ser mayor a 8 caracteres y contener al menos
-          una mayuscula.
+          una mayúscula.
         </p>
       )}
     </div>

@@ -30,7 +30,8 @@ const Registro = () => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
   };
 
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
     setLoading(true); // Activar el spinner
     const dataToSend = {
       ...registerData,
@@ -63,7 +64,8 @@ const Registro = () => {
   };
   const { email } = registerData;
 
-  const handleVerificationSubmit = () => {
+  const handleVerificationSubmit = (e) => {
+    e.preventDefault();
     setLoading(true);
     const code = inputsRef.current.map((input) => input.value).join("");
 
