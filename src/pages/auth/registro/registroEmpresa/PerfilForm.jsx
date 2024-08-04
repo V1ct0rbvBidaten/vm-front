@@ -55,7 +55,7 @@ const PerfilForm = ({ handleChange, values }) => {
         variant="bordered"
         label="Telefono"
         labelPlacement="outside"
-        placeholder="Ingrese su telefono"
+        placeholder="+56 9"
         name="telefono"
         value={telefono}
         onChange={handleChange}

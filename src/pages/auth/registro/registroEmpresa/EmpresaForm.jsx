@@ -118,7 +118,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
         variant="bordered"
         label="Telefono "
         labelPlacement="outside"
-        placeholder="Ingrese telefono empresa"
+        placeholder="+56 9"
         name="telefono_razon_social"
         value={telefono_razon_social}
         onChange={handleChange}
