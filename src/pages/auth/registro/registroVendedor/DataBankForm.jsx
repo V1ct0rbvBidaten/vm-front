@@ -28,25 +28,6 @@ const DataBankForm = ({ handleChange, values }) => {
         ))}
       </Select>
 
-      <Select
-        variant="bordered"
-        label="Tipo de cuenta bancaria"
-        labelPlacement="outside"
-        placeholder="Ingrese tipo cuenta bancaria"
-        name="tipo_cuenta_bancaria"
-        value={tipo_cuenta_bancaria}
-        onChange={handleChange}
-      >
-        <SelectItem key="vista" value="vista">
-          Vista
-        </SelectItem>
-        <SelectItem key="corriente" value="corriente">
-          Corriente
-        </SelectItem>
-        <SelectItem key="ahorro" value="ahorro">
-          Ahorro
-        </SelectItem>
-      </Select>
       <Input
         variant="bordered"
         label="Rut cuenta"
