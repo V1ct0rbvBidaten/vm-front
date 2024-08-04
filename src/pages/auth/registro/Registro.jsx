@@ -87,6 +87,7 @@ const Registro = () => {
       })
       .catch((err) => {
         toast.error(err.response.data.detail.message);
+        navigate("/login");
       })
       .finally(() => {
         setLoading(false);
