@@ -34,6 +34,7 @@ import VentaDetailEmpresa from "./pages/empresa/ventas/VentaDetailEmpresa";
 import Contacto from "./pages/Contacto";
 import Ayuda from "./pages/Ayuda";
 import Conocenos from "./pages/Conocenos";
+import ResetPassword from "./pages/auth/ResetPassword";
 
 const App = () => {
   useCheckUser();
@@ -49,6 +50,7 @@ const App = () => {
           <Route exact path="/conocenos" element={<Conocenos />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/registro" element={<Registro />} />
+          <Route exact path="/reset-password" element={<ResetPassword />} />
           <Route
             exact
             path="/registro/completar-perfil"

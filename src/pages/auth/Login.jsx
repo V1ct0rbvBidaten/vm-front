@@ -134,11 +134,21 @@ const Login = () => {
               </form>
             )}
 
-            <div className="flex  gap-4">
-              <p>¿No tienes cuenta?</p>
-              <Link href="/registro" className="text-v3 font-semibold">
-                Registrarse
-              </Link>
+            <div className="flex flex-col w-full  gap-4">
+              <div className="flex gap-2">
+                <p>¿No tienes cuenta?</p>
+                <Link href="/registro" className="text-v3 font-semibold">
+                  Registrarse
+                </Link>
+              </div>
+              <div>
+                <Link
+                  href="/reset-password"
+                  className="text-v3 text-sm font-semibold"
+                >
+                  Olvide mi contraseña
+                </Link>
+              </div>
             </div>
           </div>
           <div className="gap-2 col-span-2 background-vemdo rounded-tr-md rounded-br-md p-20 flex items-center flex-col justify-center">
