@@ -90,7 +90,8 @@ const RegisterComplete = () => {
 
   const handleScroll = (e) => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;
-    if (scrollTop + clientHeight >= scrollHeight) {
+    console.log({ scrollTop, scrollHeight, clientHeight });
+    if (scrollTop + clientHeight + 1 >= scrollHeight) {
       setEndReached(true);
     } else {
       setEndReached(false);

@@ -1,6 +1,6 @@
 import React from "react";
 
-const TerminoCondiciones = () => {
+const TerminoCondiciones = (onScroll) => {
   return (
     <div className="p-6">
       <p className="mb-4">

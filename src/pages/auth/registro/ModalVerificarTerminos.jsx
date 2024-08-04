@@ -28,7 +28,7 @@ const ModalVerificarTerminos = ({
             <ModalHeader className="flex flex-col gap-1">
               Términos y Condiciones: Empresa
             </ModalHeader>
-            <ModalBody onScroll={onScroll}>
+            <ModalBody onScroll={onScroll} className="p-0">
               <TerminoCondiciones />
             </ModalBody>
             <ModalFooter>
