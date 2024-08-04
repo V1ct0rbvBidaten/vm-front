@@ -177,6 +177,7 @@ const ProductoCreate = () => {
             labelPlacement="outside"
             value={values.comision}
             onChange={handleChange}
+            max={values.precio}
             type="number"
           />
           <Select

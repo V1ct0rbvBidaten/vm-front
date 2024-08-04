@@ -8,7 +8,7 @@ import {
   AutocompleteSection,
 } from "@nextui-org/react";
 import regiones from "../../../../utils/regiones";
-import rubro_sii from "../../../../utils/rubros_sii";
+import rubros from "../../../../utils/rubros";
 
 const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
   const {
@@ -25,7 +25,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
   const [filteredComunas, setFilteredComunas] = useState([]);
   const [selectedRubro, setSelectedRubro] = useState(rubro);
 
-  const data = rubro_sii.category;
+  // const data = rubro_sii.category;
 
   const handleRegionChange = (event) => {
     const { value } = event.target;
@@ -75,22 +75,19 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
         label="Rubro"
         variant="bordered"
         placeholder="Seleccione rubro"
-        className="w-100"
+        className="w-100 col-span-2"
         selectedKey={rubro}
         onSelectionChange={setRubro}
       >
-        {data.map((item) => (
+        {rubros.map((item) => (
           <AutocompleteSection
             showDivider
-            title={item.categoria}
-            key={item.categoria}
+            title={item.Categoria}
+            key={item.Categoria}
           >
-            {item.items.map((subitem) => (
-              <AutocompleteItem
-                key={subitem.description}
-                value={subitem.description}
-              >
-                {subitem.description}
+            {item.Items.map((subitem) => (
+              <AutocompleteItem key={subitem.Campo1} value={subitem.Campo1}>
+                {subitem.Campo1}
               </AutocompleteItem>
             ))}
           </AutocompleteSection>

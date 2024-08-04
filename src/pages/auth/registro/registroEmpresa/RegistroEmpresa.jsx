@@ -47,7 +47,7 @@ const RegistroEmpresa = ({ user }) => {
   const [values, setValues] = useState(initialState);
   const [currentStep, setCurrentStep] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [rubro, setRubro] = useState("cat");
+  const [rubro, setRubro] = useState("");
   const dispatch = useDispatch();
 
   let navigate = useNavigate();
@@ -96,7 +96,7 @@ const RegistroEmpresa = ({ user }) => {
         comuna: data.comuna,
         region: data.region,
         telefono: data.telefono,
-        rubro: data.rubro,
+        rubro: rubro,
         es_vendedor: data.es_vendedor,
         rut_razon_social: data.rut_razon_social,
         nombre_razon_social: data.nombre_razon_social,
@@ -198,7 +198,14 @@ const RegistroEmpresa = ({ user }) => {
       case 2:
         return <DataBankForm handleChange={handleChange} values={values} />;
       case 3:
-        return <EmpresaForm handleChange={handleChange} values={values} />;
+        return (
+          <EmpresaForm
+            handleChange={handleChange}
+            values={values}
+            rubro={rubro}
+            setRubro={setRubro}
+          />
+        );
       default:
         return null;
     }

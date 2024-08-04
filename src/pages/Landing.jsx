@@ -11,8 +11,10 @@ import { Typewriter, Cursor, useTypewriter } from "react-simple-typewriter";
 import Logo from "../assets/logoFondoNegro.svg";
 import Logo2 from "../assets/logoFondoBlanco.svg";
 import Portal from "../assets/portal.png";
+import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
+  let navigate = useNavigate();
   return (
     <>
       <LandingNav />
@@ -33,8 +35,18 @@ const Landing = () => {
           </div>
 
           <div className="flex gap-4 ">
-            <Button className="h-8 w-60 bg-v4 text-white">Únete ahora!</Button>
-            <Button className="h-8 w-60 bg-white">Saber más</Button>
+            <Button
+              className="h-8 w-60 bg-v4 text-white"
+              onClick={() => navigate("/registro")}
+            >
+              Únete ahora!
+            </Button>
+            <Button
+              className="h-8 w-60 bg-white"
+              onClick={() => navigate("/conocenos")}
+            >
+              Saber más
+            </Button>
           </div>
         </div>
       </div>

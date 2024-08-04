@@ -1,0 +1,3868 @@
+[
+    {
+        "Categoria": " CULTIVO DE PLANTAS NO PERENNES",
+        "Items": [
+            {
+                "Campo": "011101",
+                "Campo1": "CULTIVO DE TRIGO"
+            },
+            {
+                "Campo": "011102",
+                "Campo1": "CULTIVO DE MAÍZ"
+            },
+            {
+                "Campo": "011103",
+                "Campo1": "CULTIVO DE AVENA"
+            },
+            {
+                "Campo": "011104",
+                "Campo1": "CULTIVO DE CEBADA"
+            },
+            {
+                "Campo": "011105",
+                "Campo1": "CULTIVO DE OTROS CEREALES (EXCEPTO TRIGO, MAÍZ, AVENA Y CEBADA)"
+            },
+            {
+                "Campo": "011106",
+                "Campo1": "CULTIVO DE POROTOS"
+            },
+            {
+                "Campo": "011107",
+                "Campo1": "CULTIVO DE LUPINO"
+            },
+            {
+                "Campo": "011108",
+                "Campo1": "CULTIVO DE OTRAS LEGUMBRES (EXCEPTO POROTOS Y LUPINO)"
+            },
+            {
+                "Campo": "011109",
+                "Campo1": "CULTIVO DE SEMILLAS DE RAPS"
+            },
+            {
+                "Campo": "011110",
+                "Campo1": "CULTIVO DE SEMILLAS DE MARAVILLA (GIRASOL)"
+            },
+            {
+                "Campo": "011111",
+                "Campo1": "CULTIVO DE SEMILLAS DE CEREALES, LEGUMBRES Y OLEAGINOSAS (EXCEPTO SEMILLAS\n                                            DE RAPS Y MARAVILLA)"
+            },
+            {
+                "Campo": "011200",
+                "Campo1": "CULTIVO DE ARROZ"
+            },
+            {
+                "Campo": "011301",
+                "Campo1": "CULTIVO DE PAPAS"
+            },
+            {
+                "Campo": "011302",
+                "Campo1": "CULTIVO DE CAMOTES"
+            },
+            {
+                "Campo": "011303",
+                "Campo1": "CULTIVO DE OTROS TUBÉRCULOS (EXCEPTO PAPAS Y CAMOTES)"
+            },
+            {
+                "Campo": "011304",
+                "Campo1": "CULTIVO DE REMOLACHA AZUCARERA"
+            },
+            {
+                "Campo": "011305",
+                "Campo1": "CULTIVO DE SEMILLAS DE HORTALIZAS"
+            },
+            {
+                "Campo": "011306",
+                "Campo1": "CULTIVO DE HORTALIZAS Y MELONES "
+            },
+            {
+                "Campo": "011400",
+                "Campo1": "CULTIVO DE CAÑA DE AZÚCAR"
+            },
+            {
+                "Campo": "011500",
+                "Campo1": "CULTIVO DE TABACO"
+            },
+            {
+                "Campo": "011600",
+                "Campo1": "CULTIVO DE PLANTAS DE FIBRA"
+            },
+            {
+                "Campo": "011901",
+                "Campo1": "CULTIVO DE FLORES"
+            },
+            {
+                "Campo": "011902",
+                "Campo1": "CULTIVOS FORRAJEROS EN PRADERAS MEJORADAS O SEMBRADAS; CULTIVOS\n                                            SUPLEMENTARIOS FORRAJEROS"
+            },
+            {
+                "Campo": "011903",
+                "Campo1": "CULTIVOS DE SEMILLAS DE FLORES; CULTIVO DE SEMILLAS DE PLANTAS FORRAJERAS\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "CULTIVO DE PLANTAS PERENNES",
+        "Items": [
+            {
+                "Campo": "012111",
+                "Campo1": "CULTIVO DE UVA DESTINADA A LA PRODUCCIÓN DE PISCO Y AGUARDIENTE"
+            },
+            {
+                "Campo": "012112",
+                "Campo1": "CULTIVO DE UVA DESTINADA A LA PRODUCCIÓN DE VINO"
+            },
+            {
+                "Campo": "012120",
+                "Campo1": "CULTIVO DE UVA PARA MESA"
+            },
+            {
+                "Campo": "012200",
+                "Campo1": "CULTIVO DE FRUTAS TROPICALES Y SUBTROPICALES (INCLUYE EL CULTIVO DE PALTAS)\n                                        "
+            },
+            {
+                "Campo": "012300",
+                "Campo1": "CULTIVO DE CÍTRICOS"
+            },
+            {
+                "Campo": "012400",
+                "Campo1": "CULTIVO DE FRUTAS DE PEPITA Y DE HUESO"
+            },
+            {
+                "Campo": "012501",
+                "Campo1": "CULTIVO DE SEMILLAS DE FRUTAS"
+            },
+            {
+                "Campo": "012502",
+                "Campo1": "CULTIVO DE OTROS FRUTOS Y NUECES DE ÁRBOLES Y ARBUSTOS"
+            },
+            {
+                "Campo": "012600",
+                "Campo1": "CULTIVO DE FRUTOS OLEAGINOSOS (INCLUYE EL CULTIVO DE ACEITUNAS)"
+            },
+            {
+                "Campo": "012700",
+                "Campo1": "CULTIVO DE PLANTAS CON LAS QUE SE PREPARAN BEBIDAS (INCLUYE EL CULTIVO DE\n                                            CAFÉ, TÉ Y MATE)"
+            },
+            {
+                "Campo": "012801",
+                "Campo1": "CULTIVO DE ESPECIAS"
+            },
+            {
+                "Campo": "012802",
+                "Campo1": "CULTIVO DE PLANTAS AROMÁTICAS, MEDICINALES Y FARMACÉUTICAS\n                                        "
+            },
+            {
+                "Campo": "012900",
+                "Campo1": "CULTIVO DE OTRAS PLANTAS PERENNES"
+            }
+        ]
+    },
+    {
+        "Categoria": "PROPAGACIÓN DE PLANTAS",
+        "Items": [
+            {
+                "Campo": "013000",
+                "Campo1": "CULTIVO DE PLANTAS VIVAS INCLUIDA LA PRODUCCIÓN EN VIVEROS (EXCEPTO\n                                            VIVEROS FORESTALES)"
+            }
+        ]
+    },
+    {
+        "Categoria": "GANADERÍA ",
+        "Items": [
+            {
+                "Campo": "014101",
+                "Campo1": "CRÍA DE GANADO BOVINO PARA LA PRODUCCIÓN LECHERA"
+            },
+            {
+                "Campo": "014102",
+                "Campo1": "CRÍA DE GANADO BOVINO PARA LA PRODUCCIÓN DE CARNE O COMO\n                                            GANADO REPRODUCTOR"
+            },
+            {
+                "Campo": "014200",
+                "Campo1": "CRÍA DE CABALLOS Y OTROS EQUINOS"
+            },
+            {
+                "Campo": "014300",
+                "Campo1": "CRÍA DE LLAMAS, ALPACAS, VICUÑAS, GUANACOS Y OTROS\n                                            CAMÉLIDOS"
+            },
+            {
+                "Campo": "014410",
+                "Campo1": "CRÍA DE OVEJAS (OVINOS)"
+            },
+            {
+                "Campo": "014420",
+                "Campo1": "CRÍA DE CABRAS (CAPRINOS)"
+            },
+            {
+                "Campo": "014500",
+                "Campo1": "CRÍA DE CERDOS"
+            },
+            {
+                "Campo": "014601",
+                "Campo1": "CRÍA DE AVES DE CORRAL PARA LA PRODUCCIÓN DE CARNE"
+            },
+            {
+                "Campo": "014602",
+                "Campo1": "CRÍA DE AVES DE CORRAL PARA LA PRODUCCIÓN DE HUEVOS"
+            },
+            {
+                "Campo": "014901",
+                "Campo1": "APICULTURA"
+            },
+            {
+                "Campo": "014909",
+                "Campo1": "CRÍA DE OTROS ANIMALES N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "CULTIVO DE PRODUCTOS AGRÍCOLAS EN COMBINACIÓN CON LA\n                                                CRÍA DE ANIMALES ",
+        "Items": [
+            {
+                "Campo": "015000",
+                "Campo1": "CULTIVO DE PRODUCTOS AGRÍCOLAS EN COMBINACIÓN CON LA\n                                            CRÍA DE ANIMALES (EXPLOTACIÓN MIXTA)"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE APOYO A LA AGRICULTURA Y LA GANADERÍA Y\n                                                ACTIVIDADES POSCOSECHA  ",
+        "Items": [
+            {
+                "Campo": "016100",
+                "Campo1": "ACTIVIDADES DE APOYO A LA AGRICULTURA"
+            },
+            {
+                "Campo": "016200",
+                "Campo1": "ACTIVIDADES DE APOYO A LA GANADERÍA"
+            },
+            {
+                "Campo": "016300",
+                "Campo1": "ACTIVIDADES POSCOSECHA"
+            },
+            {
+                "Campo": "016400",
+                "Campo1": "TRATAMIENTO DE SEMILLAS PARA PROPAGACIÓN"
+            }
+        ]
+    },
+    {
+        "Categoria": "CAZA ORDINARIA Y MEDIANTE TRAMPAS Y ACTIVIDADES DE SERVICIOS\n                                                CONEXAS            \n                                        ",
+        "Items": [
+            {
+                "Campo": "017000",
+                "Campo1": "CAZA ORDINARIA Y MEDIANTE TRAMPAS Y ACTIVIDADES DE SERVICIOS CONEXAS"
+            }
+        ]
+    },
+    {
+        "Categoria": "SILVICULTURA Y OTRAS ACTIVIDADES\n                                                FORESTALES                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "021001",
+                "Campo1": "EXPLOTACIÓN DE VIVEROS FORESTALES"
+            },
+            {
+                "Campo": "021002",
+                "Campo1": "SILVICULTURA Y OTRAS ACTIVIDADES FORESTALES (EXCEPTO EXPLOTACIÓN DE\n                                            VIVEROS FORESTALES)"
+            }
+        ]
+    },
+    {
+        "Categoria": "EXTRACCIÓN DE\n                                                MADERA                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "022000",
+                "Campo1": "EXTRACCIÓN DE MADERA"
+            }
+        ]
+    },
+    {
+        "Categoria": "RECOLECCIÓN DE PRODUCTOS FORESTALES DISTINTOS DE LA\n                                                MADERA              \n                                        ",
+        "Items": [
+            {
+                "Campo": "023000",
+                "Campo1": "RECOLECCIÓN DE PRODUCTOS FORESTALES DISTINTOS DE LA MADERA"
+            }
+        ]
+    },
+    {
+        "Categoria": "SERVICIOS DE APOYO A LA\n                                                SILVICULTURA                \n                                        ",
+        "Items": [
+            {
+                "Campo": "024001",
+                "Campo1": "SERVICIOS DE FORESTACIÓN A CAMBIO DE UNA RETRIBUCIÓN O POR\n                                            CONTRATA"
+            },
+            {
+                "Campo": "024002",
+                "Campo1": "SERVICIOS DE CORTA DE MADERA A CAMBIO DE UNA RETRIBUCIÓN O POR\n                                            CONTRATA"
+            },
+            {
+                "Campo": "024003",
+                "Campo1": "SERVICIOS DE EXTINCIÓN Y PREVENCIÓN DE INCENDIOS FORESTALES\n                                        "
+            },
+            {
+                "Campo": "024009",
+                "Campo1": "OTROS SERVICIOS DE APOYO A LA SILVICULTURA N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "PESCA                     \n                                        ",
+        "Items": [
+            {
+                "Campo": "031110",
+                "Campo1": "PESCA MARÍTIMA INDUSTRIAL, EXCEPTO DE BARCOS FACTORÍA"
+            },
+            {
+                "Campo": "031120",
+                "Campo1": "PESCA MARÍTIMA ARTESANAL"
+            },
+            {
+                "Campo": "031130",
+                "Campo1": "RECOLECCIÓN Y EXTRACCIÓN DE PRODUCTOS MARINOS"
+            },
+            {
+                "Campo": "031140",
+                "Campo1": "SERVICIOS RELACIONADOS CON LA PESCA MARÍTIMA"
+            },
+            {
+                "Campo": "031200",
+                "Campo1": "PESCA DE AGUA DULCE"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACUICULTURA                     \n                                        ",
+        "Items": [
+            {
+                "Campo": "032110",
+                "Campo1": "CULTIVO Y CRIANZA DE PECES MARINOS"
+            },
+            {
+                "Campo": "032120",
+                "Campo1": "CULTIVO, REPRODUCCIÓN Y MANEJO DE ALGAS MARINAS"
+            },
+            {
+                "Campo": "032130",
+                "Campo1": "REPRODUCCIÓN Y CRÍA DE MOLUSCOS, CRUSTÁCEOS Y GUSANOS\n                                            MARINOS"
+            },
+            {
+                "Campo": "032140",
+                "Campo1": "SERVICIOS RELACIONADOS CON LA ACUICULTURA MARINA"
+            },
+            {
+                "Campo": "032200",
+                "Campo1": "ACUICULTURA DE AGUA DULCE"
+            }
+        ]
+    },
+    {
+        "Categoria": "EXTRACCIÓN Y PROCESAMIENTO DE\n                                                COBRE                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "040000",
+                "Campo1": "EXTRACCIÓN Y PROCESAMIENTO DE COBRE"
+            }
+        ]
+    },
+    {
+        "Categoria": "EXTRACCIÓN DE CARBÓN DE\n                                                PIEDRA                \n                                        ",
+        "Items": [
+            {
+                "Campo": "051000",
+                "Campo1": "EXTRACCIÓN DE CARBÓN DE PIEDRA"
+            }
+        ]
+    },
+    {
+        "Categoria": "EXTRACCIÓN DE\n                                                LIGNITO                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "052000",
+                "Campo1": "EXTRACCIÓN DE LIGNITO"
+            }
+        ]
+    },
+    {
+        "Categoria": "EXTRACCIÓN DE PETRÓLEO\n                                                CRUDO                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "061000",
+                "Campo1": "EXTRACCIÓN DE PETRÓLEO CRUDO"
+            }
+        ]
+    },
+    {
+        "Categoria": "EXTRACCIÓN DE GAS\n                                                NATURAL                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "062000",
+                "Campo1": "EXTRACCIÓN DE GAS NATURAL"
+            }
+        ]
+    },
+    {
+        "Categoria": "EXTRACCIÓN DE MINERALES DE\n                                                HIERRO                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "071000",
+                "Campo1": "EXTRACCIÓN DE MINERALES DE HIERRO"
+            },
+            {
+                "Campo": "072100",
+                "Campo1": "EXTRACCIÓN DE MINERALES DE URANIO Y TORIO"
+            },
+            {
+                "Campo": "072910",
+                "Campo1": "EXTRACCIÓN DE ORO Y PLATA"
+            },
+            {
+                "Campo": "072991",
+                "Campo1": "EXTRACCIÓN DE ZINC Y PLOMO"
+            },
+            {
+                "Campo": "072992",
+                "Campo1": "EXTRACCIÓN DE MANGANESO"
+            },
+            {
+                "Campo": "072999",
+                "Campo1": "EXTRACCIÓN DE OTROS MINERALES METALÍFEROS NO FERROSOS N.C.P.\n                                            (EXCEPTO ZINC, PLOMO Y MANGANESO)"
+            }
+        ]
+    },
+    {
+        "Categoria": "EXTRACCIÓN DE PIEDRA, ARENA Y\n                                                ARCILLA                \n                                        ",
+        "Items": [
+            {
+                "Campo": "081000",
+                "Campo1": "EXTRACCIÓN DE PIEDRA, ARENA Y ARCILLA"
+            }
+        ]
+    },
+    {
+        "Categoria": "EXPLOTACIÓN DE MINAS Y CANTERAS\n                                                N.C.P.                \n                                        ",
+        "Items": [
+            {
+                "Campo": "089110",
+                "Campo1": "EXTRACCIÓN Y PROCESAMIENTO DE LITIO"
+            },
+            {
+                "Campo": "089190",
+                "Campo1": "EXTRACCIÓN DE MINERALES PARA LA FABRICACIÓN DE ABONOS Y\n                                            PRODUCTOS QUÍMICOS N.C.P."
+            },
+            {
+                "Campo": "089200",
+                "Campo1": "EXTRACCIÓN DE TURBA"
+            },
+            {
+                "Campo": "089300",
+                "Campo1": "EXTRACCIÓN DE SAL"
+            },
+            {
+                "Campo": "089900",
+                "Campo1": "EXPLOTACIÓN DE OTRAS MINAS Y CANTERAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE APOYO PARA LA EXTRACCIÓN DE PETRÓLEO Y\n                                                GAS\n                                                NATURAL           \n                                        ",
+        "Items": [
+            {
+                "Campo": "091001",
+                "Campo1": "ACTIVIDADES DE APOYO PARA LA EXTRACCIÓN DE PETRÓLEO Y GAS\n                                            NATURAL PRESTADOS POR EMPRESAS"
+            },
+            {
+                "Campo": "091002",
+                "Campo1": "ACTIVIDADES DE APOYO PARA LA EXTRACCIÓN DE PETRÓLEO Y GAS\n                                            NATURAL PRESTADOS POR PROFESIONALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE APOYO PARA LA EXPLOTACIÓN DE OTRAS MINAS Y\n                                                CANTERAS           \n                                        ",
+        "Items": [
+            {
+                "Campo": "099001",
+                "Campo1": "ACTIVIDADES DE APOYO PARA LA EXPLOTACIÓN DE OTRAS MINAS Y CANTERAS\n                                            PRESTADOS POR EMPRESAS"
+            },
+            {
+                "Campo": "099002",
+                "Campo1": "ACTIVIDADES DE APOYO PARA LA EXPLOTACIÓN DE OTRAS MINAS Y CANTERAS\n                                            PRESTADOS POR PROFESIONALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ELABORACIÓN Y CONSERVACIÓN DE\n                                                CARNE                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "101011",
+                "Campo1": "EXPLOTACIÓN DE MATADEROS DE BOVINOS, OVINOS, EQUINOS, CAPRINOS,\n                                            PORCINOS Y CAMÉLIDOS "
+            },
+            {
+                "Campo": "101019",
+                "Campo1": "EXPLOTACIÓN DE MATADEROS DE AVES Y DE OTROS TIPOS DE ANIMALES N.C.P.\n                                        "
+            },
+            {
+                "Campo": "101020",
+                "Campo1": "ELABORACIÓN Y CONSERVACIÓN DE CARNE Y PRODUCTOS\n                                            CÁRNICOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ELABORACIÓN Y CONSERVACIÓN DE PESCADO,\n                                                CRUSTÁCEOS Y\n                                                MOLUSCOS              \n                                        ",
+        "Items": [
+            {
+                "Campo": "102010",
+                "Campo1": "PRODUCCIÓN DE HARINA DE PESCADO"
+            },
+            {
+                "Campo": "102020",
+                "Campo1": "ELABORACIÓN Y CONSERVACIÓN DE SALMÓNIDOS"
+            },
+            {
+                "Campo": "102030",
+                "Campo1": "ELABORACIÓN Y CONSERVACIÓN DE OTROS PESCADOS, EN PLANTAS EN\n                                            TIERRA (EXCEPTO BARCOS FACTORÍA)"
+            },
+            {
+                "Campo": "102040",
+                "Campo1": "ELABORACIÓN Y CONSERVACIÓN DE CRUSTÁCEOS, MOLUSCOS Y\n                                            OTROS PRODUCTOS ACUÁTICOS, EN PLANTAS EN TIERRA"
+            },
+            {
+                "Campo": "102050",
+                "Campo1": "ACTIVIDADES DE ELABORACIÓN Y CONSERVACIÓN DE PESCADO,\n                                            REALIZADAS EN BARCOS FACTORÍA"
+            },
+            {
+                "Campo": "102060",
+                "Campo1": "ELABORACIÓN Y PROCESAMIENTO DE ALGAS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ELABORACIÓN Y CONSERVACIÓN DE FRUTAS, LEGUMBRES Y\n                                                HORTALIZAS              \n                                        ",
+        "Items": [
+            {
+                "Campo": "103000",
+                "Campo1": "ELABORACIÓN Y CONSERVACIÓN DE FRUTAS, LEGUMBRES Y HORTALIZAS\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "ELABORACIÓN DE ACEITES Y GRASAS DE ORIGEN VEGETAL Y\n                                                ANIMAL            \n                                        ",
+        "Items": [
+            {
+                "Campo": "104000",
+                "Campo1": "ELABORACIÓN DE ACEITES Y GRASAS DE ORIGEN VEGETAL Y ANIMAL (EXCEPTO\n                                            ELABORACIÓN DE MANTEQUILLA)"
+            }
+        ]
+    },
+    {
+        "Categoria": "ELABORACIÓN DE PRODUCTOS\n                                                LÁCTEOS                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "105000",
+                "Campo1": "ELABORACIÓN DE PRODUCTOS LÁCTEOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ELABORACIÓN DE PRODUCTOS DE MOLINERÍA, ALMIDONES Y\n                                                PRODUCTOS DERIVADOS DEL\n                                                ALMIDÓN           \n                                        ",
+        "Items": [
+            {
+                "Campo": "106101",
+                "Campo1": "MOLIENDA DE TRIGO: PRODUCCIÓN DE HARINA, SÉMOLA Y\n                                            GRÁNULOS"
+            },
+            {
+                "Campo": "106102",
+                "Campo1": "MOLIENDA DE ARROZ; PRODUCCIÓN DE HARINA DE ARROZ"
+            },
+            {
+                "Campo": "106109",
+                "Campo1": "ELABORACIÓN DE OTROS PRODUCTOS DE MOLINERÍA N.C.P."
+            },
+            {
+                "Campo": "106200",
+                "Campo1": "ELABORACIÓN DE ALMIDONES Y PRODUCTOS DERIVADOS DEL ALMIDÓN\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "ELABORACIÓN DE OTROS PRODUCTOS\n                                                ALIMENTICIOS                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "107100",
+                "Campo1": "ELABORACIÓN DE PRODUCTOS DE PANADERÍA Y PASTELERÍA"
+            },
+            {
+                "Campo": "107200",
+                "Campo1": "ELABORACIÓN DE AZÚCAR"
+            },
+            {
+                "Campo": "107300",
+                "Campo1": "ELABORACIÓN DE CACAO, CHOCOLATE Y DE PRODUCTOS DE CONFITERÍA\n                                        "
+            },
+            {
+                "Campo": "107400",
+                "Campo1": "ELABORACIÓN DE MACARRONES, FIDEOS, ALCUZCUZ Y PRODUCTOS\n                                            FARINÁCEOS SIMILARES"
+            },
+            {
+                "Campo": "107500",
+                "Campo1": "ELABORACIÓN DE COMIDAS Y PLATOS PREPARADOS ENVASADOS, ROTULADOS Y CON\n                                            INFORMACIÓN NUTRICIONAL"
+            },
+            {
+                "Campo": "107901",
+                "Campo1": "ELABORACIÓN DE TÉ, CAFÉ, MATE E INFUSIONES DE HIERBAS\n                                        "
+            },
+            {
+                "Campo": "107902",
+                "Campo1": "ELABORACIÓN DE LEVADURAS NATURALES O ARTIFICIALES"
+            },
+            {
+                "Campo": "107903",
+                "Campo1": "ELABORACIÓN DE VINAGRES, MOSTAZAS, MAYONESAS Y CONDIMENTOS EN GENERAL\n                                        "
+            },
+            {
+                "Campo": "107909",
+                "Campo1": "ELABORACIÓN DE OTROS PRODUCTOS ALIMENTICIOS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ELABORACIÓN DE PIENSOS PREPARADOS PARA\n                                                ANIMALES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "108000",
+                "Campo1": "ELABORACIÓN DE PIENSOS PREPARADOS PARA ANIMALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ELABORACIÓN DE BEBIDAS ALCOHÓLICAS Y NO\n                                                ALCOHÓLICAS               \n                                        ",
+        "Items": [
+            {
+                "Campo": "110110",
+                "Campo1": "ELABORACIÓN DE PISCO (INDUSTRIAS PISQUERAS)"
+            },
+            {
+                "Campo": "110120",
+                "Campo1": "DESTILACIÓN, RECTIFICACIÓN Y MEZCLAS DE BEBIDAS\n                                            ALCOHÓLICAS; EXCEPTO PISCO"
+            },
+            {
+                "Campo": "110200",
+                "Campo1": "ELABORACIÓN DE VINOS"
+            },
+            {
+                "Campo": "110300",
+                "Campo1": "ELABORACIÓN DE BEBIDAS MALTEADAS Y DE MALTA"
+            },
+            {
+                "Campo": "110401",
+                "Campo1": "ELABORACIÓN DE BEBIDAS NO ALCOHÓLICAS"
+            },
+            {
+                "Campo": "110402",
+                "Campo1": "PRODUCCIÓN DE AGUAS MINERALES Y OTRAS AGUAS EMBOTELLADAS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ELABORACIÓN DE PRODUCTOS DE\n                                                TABACO                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "120001",
+                "Campo1": "ELABORACIÓN DE CIGARROS Y CIGARRILLOS"
+            },
+            {
+                "Campo": "120009",
+                "Campo1": "ELABORACIÓN DE OTROS PRODUCTOS DE TABACO N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "HILATURA, TEJEDURA Y ACABADO DE PRODUCTOS\n                                                TEXTILES               \n                                        ",
+        "Items": [
+            {
+                "Campo": "131100",
+                "Campo1": "PREPARACIÓN E HILATURA DE FIBRAS TEXTILES"
+            },
+            {
+                "Campo": "131200",
+                "Campo1": "TEJEDURA DE PRODUCTOS TEXTILES"
+            },
+            {
+                "Campo": "131300",
+                "Campo1": "ACABADO DE PRODUCTOS TEXTILES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE OTROS PRODUCTOS\n                                                TEXTILES                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "139100",
+                "Campo1": "FABRICACIÓN DE TEJIDOS DE PUNTO Y GANCHILLO"
+            },
+            {
+                "Campo": "139200",
+                "Campo1": "FABRICACIÓN DE ARTÍCULOS CONFECCIONADOS DE MATERIALES\n                                            TEXTILES, EXCEPTO PRENDAS DE VESTIR"
+            },
+            {
+                "Campo": "139300",
+                "Campo1": "FABRICACIÓN DE TAPICES Y ALFOMBRAS"
+            },
+            {
+                "Campo": "139400",
+                "Campo1": "FABRICACIÓN DE CUERDAS, CORDELES, BRAMANTES Y REDES"
+            },
+            {
+                "Campo": "139900",
+                "Campo1": "FABRICACIÓN DE OTROS PRODUCTOS TEXTILES N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PRENDAS DE VESTIR, EXCEPTO PRENDAS DE\n                                                PIEL            \n                                        ",
+        "Items": [
+            {
+                "Campo": "141001",
+                "Campo1": "FABRICACIÓN DE PRENDAS DE VESTIR DE MATERIALES TEXTILES Y SIMILARES\n                                        "
+            },
+            {
+                "Campo": "141002",
+                "Campo1": "FABRICACIÓN DE PRENDAS DE VESTIR DE CUERO NATURAL O ARTIFICIAL"
+            },
+            {
+                "Campo": "141003",
+                "Campo1": "FABRICACIÓN DE ACCESORIOS DE VESTIR"
+            },
+            {
+                "Campo": "141004",
+                "Campo1": "FABRICACIÓN DE ROPA DE TRABAJO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE ARTÍCULOS DE\n                                                PIEL                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "142000",
+                "Campo1": "FABRICACIÓN DE ARTÍCULOS DE PIEL"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE ARTÍCULOS DE PUNTO Y\n                                                GANCHILLO               \n                                        ",
+        "Items": [
+            {
+                "Campo": "143000",
+                "Campo1": "FABRICACIÓN DE ARTÍCULOS DE PUNTO Y GANCHILLO"
+            }
+        ]
+    },
+    {
+        "Categoria": "CURTIDO Y ADOBO DE CUEROS; FABRICACIÓN PRODUCTOS DE CUERO;\n                                                ADOBO Y TEÑIDO DE PIELES",
+        "Items": [
+            {
+                "Campo": "151100",
+                "Campo1": "CURTIDO Y ADOBO DE CUEROS; ADOBO Y TEÑIDO DE PIELES"
+            },
+            {
+                "Campo": "151200",
+                "Campo1": "FABRICACIÓN DE MALETAS, BOLSOS Y ARTÍCULOS SIMILARES,\n                                            ARTÍCULOS DE TALABARTERÍA Y GUARNICIONERÍA"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE\n                                                CALZADO                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "152000",
+                "Campo1": "FABRICACIÓN DE CALZADO"
+            }
+        ]
+    },
+    {
+        "Categoria": "ASERRADO Y ACEPILLADURA DE\n                                                MADERA                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "161000",
+                "Campo1": "ASERRADO Y ACEPILLADURA DE MADERA"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PRODUCTOS DE MADERA, CORCHO, PAJA Y MATERIALES\n                                                TRENZABLES            \n                                        ",
+        "Items": [
+            {
+                "Campo": "162100",
+                "Campo1": "FABRICACIÓN DE HOJAS DE MADERA PARA ENCHAPADO Y TABLEROS A BASE DE\n                                            MADERA"
+            },
+            {
+                "Campo": "162200",
+                "Campo1": "FABRICACIÓN DE PARTES Y PIEZAS DE CARPINTERÍA PARA EDIFICIOS Y\n                                            CONSTRUCCIONES"
+            },
+            {
+                "Campo": "162300",
+                "Campo1": "FABRICACIÓN DE RECIPIENTES DE MADERA"
+            },
+            {
+                "Campo": "162900",
+                "Campo1": "FABRICACIÓN DE OTROS PRODUCTOS DE MADERA, DE ARTÍCULOS DE\n                                            CORCHO, PAJA Y MATERIALES TRENZABLES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PAPEL Y DE PRODUCTOS DE\n                                                PAPEL              \n                                        ",
+        "Items": [
+            {
+                "Campo": "170110",
+                "Campo1": "FABRICACIÓN DE CELULOSA Y OTRAS PASTAS DE MADERA"
+            },
+            {
+                "Campo": "170190",
+                "Campo1": "FABRICACIÓN DE PAPEL Y CARTÓN PARA SU POSTERIOR USO INDUSTRIAL\n                                            N.C.P."
+            },
+            {
+                "Campo": "170200",
+                "Campo1": "FABRICACIÓN DE PAPEL Y CARTÓN ONDULADO Y DE ENVASES DE PAPEL Y\n                                            CARTÓN"
+            },
+            {
+                "Campo": "170900",
+                "Campo1": "FABRICACIÓN DE OTROS ARTÍCULOS DE PAPEL Y CARTÓN"
+            }
+        ]
+    },
+    {
+        "Categoria": "IMPRESIÓN Y ACTIVIDADES DE SERVICIOS RELACIONADAS CON LA\n                                                IMPRESIÓN             \n                                        ",
+        "Items": [
+            {
+                "Campo": "181101",
+                "Campo1": "IMPRESIÓN DE LIBROS"
+            },
+            {
+                "Campo": "181109",
+                "Campo1": "OTRAS ACTIVIDADES DE IMPRESIÓN N.C.P."
+            },
+            {
+                "Campo": "181200",
+                "Campo1": "ACTIVIDADES DE SERVICIOS RELACIONADAS CON LA IMPRESIÓN"
+            }
+        ]
+    },
+    {
+        "Categoria": "REPRODUCCIÓN DE\n                                                GRABACIONES                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "182000",
+                "Campo1": "REPRODUCCIÓN DE GRABACIONES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PRODUCTOS DE HORNOS DE\n                                                COQUE               \n                                        ",
+        "Items": [
+            {
+                "Campo": "191000",
+                "Campo1": "FABRICACIÓN DE PRODUCTOS DE HORNOS DE COQUE"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PRODUCTOS DE LA REFINACIÓN DEL\n                                                PETRÓLEO              \n                                        ",
+        "Items": [
+            {
+                "Campo": "192000",
+                "Campo1": "FABRICACIÓN DE PRODUCTOS DE LA REFINACIÓN DEL PETRÓLEO\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN SUSTANCIAS QUÍMICAS BÁSICAS, ABONOS\n                                                Y COMPUESTOS DE NITRÓGENO, PLÁSTICOS Y CAUCHO\n                                                SINT.",
+        "Items": [
+            {
+                "Campo": "201101",
+                "Campo1": "FABRICACIÓN DE CARBÓN VEGETAL (EXCEPTO ACTIVADO);\n                                            FABRICACIÓN DE BRIQUETAS DE CARBÓN VEGETAL"
+            },
+            {
+                "Campo": "201109",
+                "Campo1": "FABRICACIÓN DE OTRAS SUSTANCIAS QUÍMICAS BÁSICAS N.C.P.\n                                        "
+            },
+            {
+                "Campo": "201200",
+                "Campo1": "FABRICACIÓN DE ABONOS Y COMPUESTOS DE NITRÓGENO"
+            },
+            {
+                "Campo": "201300",
+                "Campo1": "FABRICACIÓN DE PLÁSTICOS Y CAUCHO SINTÉTICO EN FORMAS\n                                            PRIMARIAS"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE OTROS PRODUCTOS\n                                                QUÍMICOS                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "202100",
+                "Campo1": "FABRICACIÓN DE PLAGUICIDAS Y OTROS PRODUCTOS QUÍMICOS DE USO\n                                            AGROPECUARIO"
+            },
+            {
+                "Campo": "202200",
+                "Campo1": "FABRICACIÓN DE PINTURAS, BARNICES Y PRODUCTOS DE REVESTIMIENTO,\n                                            TINTAS DE IMPRENTA Y MASILLAS"
+            },
+            {
+                "Campo": "202300",
+                "Campo1": "FABRICACIÓN DE JABONES Y DETERGENTES, PREPARADOS PARA LIMPIAR,\n                                            PERFUMES Y PREPARADOS DE TOCADOR"
+            },
+            {
+                "Campo": "202901",
+                "Campo1": "FABRICACIÓN DE EXPLOSIVOS Y PRODUCTOS PIROTÉCNICOS"
+            },
+            {
+                "Campo": "202909",
+                "Campo1": "FABRICACIÓN DE OTROS PRODUCTOS QUÍMICOS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE FIBRAS\n                                                ARTIFICIALES                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "203000",
+                "Campo1": "FABRICACIÓN DE FIBRAS ARTIFICIALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PRODUCTOS FARMACÉUTICOS, SUSTANCIAS\n                                                QUÍMICAS MEDICINALES Y PRODUCTOS BOTÁNICOS",
+        "Items": [
+            {
+                "Campo": "210000",
+                "Campo1": "FABRICACIÓN DE PRODUCTOS FARMACÉUTICOS, SUSTANCIAS\n                                            QUÍMICAS MEDICINALES Y PRODUCTOS BOTÁNICOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PRODUCTOS DE\n                                                CAUCHO                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "221100",
+                "Campo1": "FABRICACIÓN DE CUBIERTAS Y CÁMARAS DE CAUCHO; RECAUCHUTADO Y\n                                            RENOVACIÓN DE CUBIERTAS DE CAUCHO"
+            },
+            {
+                "Campo": "221900",
+                "Campo1": "FABRICACIÓN DE OTROS PRODUCTOS DE CAUCHO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PRODUCTOS DE\n                                                PLÁSTICO                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "222000",
+                "Campo1": "FABRICACIÓN DE PRODUCTOS DE PLÁSTICO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE VIDRIO Y PRODUCTOS DE\n                                                VIDRIO               \n                                        ",
+        "Items": [
+            {
+                "Campo": "231001",
+                "Campo1": "FABRICACIÓN DE VIDRIO PLANO"
+            },
+            {
+                "Campo": "231002",
+                "Campo1": "FABRICACIÓN DE VIDRIO HUECO"
+            },
+            {
+                "Campo": "231003",
+                "Campo1": "FABRICACIÓN DE FIBRAS DE VIDRIO"
+            },
+            {
+                "Campo": "231009",
+                "Campo1": "FABRICACIÓN DE PRODUCTOS DE VIDRIO N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PRODUCTOS MINERALES NO METÁLICOS\n                                                N.C.P.               \n                                        ",
+        "Items": [
+            {
+                "Campo": "239100",
+                "Campo1": "FABRICACIÓN DE PRODUCTOS REFRACTARIOS"
+            },
+            {
+                "Campo": "239200",
+                "Campo1": "FABRICACIÓN DE MATERIALES DE CONSTRUCCIÓN DE ARCILLA"
+            },
+            {
+                "Campo": "239300",
+                "Campo1": "FABRICACIÓN DE OTROS PRODUCTOS DE PORCELANA Y DE CERÁMICA"
+            },
+            {
+                "Campo": "239400",
+                "Campo1": "FABRICACIÓN DE CEMENTO, CAL Y YESO"
+            },
+            {
+                "Campo": "239500",
+                "Campo1": "FABRICACIÓN DE ARTÍCULOS DE HORMIGÓN, CEMENTO Y YESO\n                                        "
+            },
+            {
+                "Campo": "239600",
+                "Campo1": "CORTE, TALLA Y ACABADO DE LA PIEDRA"
+            },
+            {
+                "Campo": "239900",
+                "Campo1": "FABRICACIÓN DE OTROS PRODUCTOS MINERALES NO METÁLICOS N.C.P.\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "INDUSTRIAS BÁSICAS DE HIERRO Y\n                                                ACERO                \n                                        ",
+        "Items": [
+            {
+                "Campo": "241000",
+                "Campo1": "INDUSTRIAS BÁSICAS DE HIERRO Y ACERO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PRODUCTOS PRIMARIOS DE METALES PRECIOSOS Y\n                                                OTROS METALES NO\n                                                FERROSOS          \n                                        ",
+        "Items": [
+            {
+                "Campo": "242001",
+                "Campo1": "FABRICACIÓN DE PRODUCTOS PRIMARIOS DE COBRE"
+            },
+            {
+                "Campo": "242002",
+                "Campo1": "FABRICACIÓN DE PRODUCTOS PRIMARIOS DE ALUMINIO"
+            },
+            {
+                "Campo": "242009",
+                "Campo1": "FABRICACIÓN DE PRODUCTOS PRIMARIOS DE METALES PRECIOSOS Y DE OTROS\n                                            METALES NO FERROSOS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "FUNDICIÓN DE\n                                                METALES                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "243100",
+                "Campo1": "FUNDICIÓN DE HIERRO Y ACERO"
+            },
+            {
+                "Campo": "243200",
+                "Campo1": "FUNDICIÓN DE METALES NO FERROSOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PRODUCTOS METÁLICOS PARA USO\n                                                ESTRUCTURAL, TANQUES, DEPÓSITOS, RECIPIENTES DE METAL\n                                        ",
+        "Items": [
+            {
+                "Campo": "251100",
+                "Campo1": "FABRICACIÓN DE PRODUCTOS METÁLICOS PARA USO ESTRUCTURAL"
+            },
+            {
+                "Campo": "251201",
+                "Campo1": "FABRICACIÓN DE RECIPIENTES DE METAL PARA GASES COMPRIMIDOS O LICUADOS\n                                        "
+            },
+            {
+                "Campo": "251209",
+                "Campo1": "FABRICACIÓN DE TANQUES, DEPÓSITOS Y RECIPIENTES DE METAL\n                                            N.C.P."
+            },
+            {
+                "Campo": "251300",
+                "Campo1": "FABRICACIÓN DE GENERADORES DE VAPOR, EXCEPTO CALDERAS DE AGUA\n                                            CALIENTE PARA CALEFACCIÓN CENTRAL"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE ARMAS Y\n                                                MUNICIONES                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "252000",
+                "Campo1": "FABRICACIÓN DE ARMAS Y MUNICIONES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE OTROS PRODUCTOS ELABORADOS DE METAL;\n                                                ACTIVIDADES DE SERVICIOS DE TRABAJO DE METALES",
+        "Items": [
+            {
+                "Campo": "259100",
+                "Campo1": "FORJA, PRENSADO, ESTAMPADO Y LAMINADO DE METALES; PULVIMETALURGIA"
+            },
+            {
+                "Campo": "259200",
+                "Campo1": "TRATAMIENTO Y REVESTIMIENTO DE METALES; MAQUINADO"
+            },
+            {
+                "Campo": "259300",
+                "Campo1": "FABRICACIÓN DE ARTÍCULOS DE CUCHILLERÍA, HERRAMIENTAS\n                                            DE MANO Y ARTÍCULOS DE FERRETERÍA"
+            },
+            {
+                "Campo": "259900",
+                "Campo1": "FABRICACIÓN DE OTROS PRODUCTOS ELABORADOS DE METAL N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE COMPONENTES Y TABLEROS\n                                                ELECTRÓNICOS                \n                                        ",
+        "Items": [
+            {
+                "Campo": "261000",
+                "Campo1": "FABRICACIÓN DE COMPONENTES Y TABLEROS ELECTRÓNICOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE COMPUTADORES Y EQUIPO\n                                                PERIFÉRICO                \n                                        ",
+        "Items": [
+            {
+                "Campo": "262000",
+                "Campo1": "FABRICACIÓN DE COMPUTADORES Y EQUIPO PERIFÉRICO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE EQUIPO DE\n                                                COMUNICACIONES                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "263000",
+                "Campo1": "FABRICACIÓN DE EQUIPO DE COMUNICACIONES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE APARATOS ELECTRÓNICOS DE\n                                                CONSUMO                \n                                        ",
+        "Items": [
+            {
+                "Campo": "264000",
+                "Campo1": "FABRICACIÓN DE APARATOS ELECTRÓNICOS DE CONSUMO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE EQUIPO DE MEDICIÓN, PRUEBA,\n                                                NAVEGACIÓN Y CONTROL Y DE\n                                                RELOJES          \n                                        ",
+        "Items": [
+            {
+                "Campo": "265100",
+                "Campo1": "FABRICACIÓN DE EQUIPO DE MEDICIÓN, PRUEBA, NAVEGACIÓN Y\n                                            CONTROL"
+            },
+            {
+                "Campo": "265200",
+                "Campo1": "FABRICACIÓN DE RELOJES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE EQUIPO DE IRRADIACIÓN Y EQUIPO\n                                                ELECTRÓNICO DE USO MÉDICO Y\n                                                TERAPÉUTICO         \n                                        ",
+        "Items": [
+            {
+                "Campo": "266000",
+                "Campo1": "FABRICACIÓN DE EQUIPO DE IRRADIACIÓN Y EQUIPO\n                                            ELECTRÓNICO DE USO MÉDICO Y TERAPÉUTICO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE INSTRUMENTOS ÓPTICOS Y EQUIPO\n                                                FOTOGRÁFICO               \n                                        ",
+        "Items": [
+            {
+                "Campo": "267000",
+                "Campo1": "FABRICACIÓN DE INSTRUMENTOS ÓPTICOS Y EQUIPO\n                                            FOTOGRÁFICO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE SOPORTES MAGNÉTICOS Y\n                                                ÓPTICOS                \n                                        ",
+        "Items": [
+            {
+                "Campo": "268000",
+                "Campo1": "FABRICACIÓN DE SOPORTES MAGNÉTICOS Y ÓPTICOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE MOTORES, GENERADORES Y TRANSFORMADORES\n                                                ELÉCTRICOS, APARATOS DE DISTRIBUCIÓN Y CONTROL\n                                        ",
+        "Items": [
+            {
+                "Campo": "271000",
+                "Campo1": "FABRICACIÓN DE MOTORES, GENERADORES Y TRANSFORMADORES\n                                            ELÉCTRICOS, APARATOS DE DISTRIBUCIÓN Y CONTROL"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PILAS, BATERÍAS Y\n                                                ACUMULADORES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "272000",
+                "Campo1": "FABRICACIÓN DE PILAS, BATERÍAS Y ACUMULADORES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE CABLES Y DISPOSITIVOS DE\n                                                CABLEADO               \n                                        ",
+        "Items": [
+            {
+                "Campo": "273100",
+                "Campo1": "FABRICACIÓN DE CABLES DE FIBRA ÓPTICA"
+            },
+            {
+                "Campo": "273200",
+                "Campo1": "FABRICACIÓN DE OTROS HILOS Y CABLES ELÉCTRICOS"
+            },
+            {
+                "Campo": "273300",
+                "Campo1": "FABRICACIÓN DE DISPOSITIVOS DE CABLEADO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE EQUIPO ELÉCTRICO DE\n                                                ILUMINACIÓN                \n                                        ",
+        "Items": [
+            {
+                "Campo": "274000",
+                "Campo1": "FABRICACIÓN DE EQUIPO ELÉCTRICO DE ILUMINACIÓN"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE APARATOS DE USO\n                                                DOMÉSTICO                \n                                        ",
+        "Items": [
+            {
+                "Campo": "275000",
+                "Campo1": "FABRICACIÓN DE APARATOS DE USO DOMÉSTICO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE OTROS TIPOS DE EQUIPO\n                                                ELÉCTRICO               \n                                        ",
+        "Items": [
+            {
+                "Campo": "279000",
+                "Campo1": "FABRICACIÓN DE OTROS TIPOS DE EQUIPO ELÉCTRICO"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE MAQUINARIA DE USO\n                                                GENERAL                \n                                        ",
+        "Items": [
+            {
+                "Campo": "281100",
+                "Campo1": "FABRICACIÓN DE MOTORES Y TURBINAS, EXCEPTO PARA AERONAVES,\n                                            VEHÍCULOS AUTOMOTORES Y MOTOCICLETAS"
+            },
+            {
+                "Campo": "281200",
+                "Campo1": "FABRICACIÓN DE EQUIPO DE PROPULSIÓN DE FLUIDOS"
+            },
+            {
+                "Campo": "281300",
+                "Campo1": "FABRICACIÓN DE OTRAS BOMBAS, COMPRESORES, GRIFOS Y VÁLVULAS\n                                        "
+            },
+            {
+                "Campo": "281400",
+                "Campo1": "FABRICACIÓN DE COJINETES, ENGRANAJES, TRENES DE ENGRANAJES Y PIEZAS\n                                            DE TRANSMISIÓN"
+            },
+            {
+                "Campo": "281500",
+                "Campo1": "FABRICACIÓN DE HORNOS, CALDERAS Y QUEMADORES"
+            },
+            {
+                "Campo": "281600",
+                "Campo1": "FABRICACIÓN DE EQUIPO DE ELEVACIÓN Y MANIPULACIÓN"
+            },
+            {
+                "Campo": "281700",
+                "Campo1": "FABRICACIÓN DE MAQUINARIA Y EQUIPO DE OFICINA (EXCEPTO COMPUTADORES Y\n                                            EQUIPO PERIFÉRICO)"
+            },
+            {
+                "Campo": "281800",
+                "Campo1": "FABRICACIÓN DE HERRAMIENTAS DE MANO MOTORIZADAS"
+            },
+            {
+                "Campo": "281900",
+                "Campo1": "FABRICACIÓN DE OTROS TIPOS DE MAQUINARIA DE USO GENERAL"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE MAQUINARIA DE USO\n                                                ESPECIAL                \n                                        ",
+        "Items": [
+            {
+                "Campo": "282100",
+                "Campo1": "FABRICACIÓN DE MAQUINARIA AGROPECUARIA Y FORESTAL"
+            },
+            {
+                "Campo": "282200",
+                "Campo1": "FABRICACIÓN DE MAQUINARIA PARA LA CONFORMACIÓN DE METALES Y DE\n                                            MÁQUINAS HERRAMIENTA"
+            },
+            {
+                "Campo": "282300",
+                "Campo1": "FABRICACIÓN DE MAQUINARIA METALÚRGICA"
+            },
+            {
+                "Campo": "282400",
+                "Campo1": "FABRICACIÓN DE MAQUINARIA PARA LA EXPLOTACIÓN DE MINAS Y\n                                            CANTERAS Y PARA OBRAS DE CONSTRUCCIÓN"
+            },
+            {
+                "Campo": "282500",
+                "Campo1": "FABRICACIÓN DE MAQUINARIA PARA LA ELABORACIÓN DE ALIMENTOS,\n                                            BEBIDAS Y TABACO"
+            },
+            {
+                "Campo": "282600",
+                "Campo1": "FABRICACIÓN DE MAQUINARIA PARA LA ELABORACIÓN DE PRODUCTOS\n                                            TEXTILES, PRENDAS DE VESTIR Y CUEROS"
+            },
+            {
+                "Campo": "282900",
+                "Campo1": "FABRICACIÓN DE OTROS TIPOS DE MAQUINARIA DE USO ESPECIAL"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE VEHÍCULOS\n                                                AUTOMOTORES                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "291000",
+                "Campo1": "FABRICACIÓN DE VEHÍCULOS AUTOMOTORES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE CARROCERÍAS PARA VEHÍCULOS\n                                                AUTOMOTORES; FABRICACIÓN DE REMOLQUES Y SEMIRREMOLQUES\n                                        ",
+        "Items": [
+            {
+                "Campo": "292000",
+                "Campo1": "FABRICACIÓN DE CARROCERÍAS PARA VEHÍCULOS AUTOMOTORES;\n                                            FABRICACIÓN DE REMOLQUES Y SEMIRREMOLQUES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE PARTES, PIEZAS Y ACCESORIOS PARA\n                                                VEHÍCULOS\n                                                AUTOMOTORES             \n                                        ",
+        "Items": [
+            {
+                "Campo": "293000",
+                "Campo1": "FABRICACIÓN DE PARTES, PIEZAS Y ACCESORIOS PARA VEHÍCULOS\n                                            AUTOMOTORES"
+            }
+        ]
+    },
+    {
+        "Categoria": "CONSTRUCCIÓN DE BUQUES Y OTRAS\n                                                EMBARCACIONES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "301100",
+                "Campo1": "CONSTRUCCIÓN DE BUQUES, EMBARCACIONES MENORES Y ESTRUCTURAS FLOTANTES\n                                        "
+            },
+            {
+                "Campo": "301200",
+                "Campo1": "CONSTRUCCIÓN DE EMBARCACIONES DE RECREO Y DE DEPORTE"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE LOCOMOTORAS Y MATERIAL\n                                                RODANTE                \n                                        ",
+        "Items": [
+            {
+                "Campo": "302000",
+                "Campo1": "FABRICACIÓN DE LOCOMOTORAS Y MATERIAL RODANTE"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE AERONAVES, NAVES ESPACIALES Y MAQUINARIA\n                                                CONEXA              \n                                        ",
+        "Items": [
+            {
+                "Campo": "303000",
+                "Campo1": "FABRICACIÓN DE AERONAVES, NAVES ESPACIALES Y MAQUINARIA CONEXA"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE VEHÍCULOS MILITARES DE\n                                                COMBATE                \n                                        ",
+        "Items": [
+            {
+                "Campo": "304000",
+                "Campo1": "FABRICACIÓN DE VEHÍCULOS MILITARES DE COMBATE"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE EQUIPO DE TRANSPORTE\n                                                N.C.P.                \n                                        ",
+        "Items": [
+            {
+                "Campo": "309100",
+                "Campo1": "FABRICACIÓN DE MOTOCICLETAS"
+            },
+            {
+                "Campo": "309200",
+                "Campo1": "FABRICACIÓN DE BICICLETAS Y DE SILLAS DE RUEDAS"
+            },
+            {
+                "Campo": "309900",
+                "Campo1": "FABRICACIÓN DE OTROS TIPOS DE EQUIPO DE TRANSPORTE N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE\n                                                MUEBLES                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "310001",
+                "Campo1": "FABRICACIÓN DE MUEBLES PRINCIPALMENTE DE MADERA"
+            },
+            {
+                "Campo": "310009",
+                "Campo1": "FABRICACIÓN DE COLCHONES; FABRICACIÓN DE OTROS MUEBLES N.C.P.\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE JOYAS, BISUTERÍA Y ARTÍCULOS\n                                                CONEXOS               \n                                        ",
+        "Items": [
+            {
+                "Campo": "321100",
+                "Campo1": "FABRICACIÓN DE JOYAS Y ARTÍCULOS CONEXOS"
+            },
+            {
+                "Campo": "321200",
+                "Campo1": "FABRICACIÓN DE BISUTERÍA Y ARTÍCULOS CONEXOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE INSTRUMENTOS\n                                                MUSICALES                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "322000",
+                "Campo1": "FABRICACIÓN DE INSTRUMENTOS MUSICALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE ARTÍCULOS DE\n                                                DEPORTE                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "323000",
+                "Campo1": "FABRICACIÓN DE ARTÍCULOS DE DEPORTE"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE JUEGOS Y\n                                                JUGUETES                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "324000",
+                "Campo1": "FABRICACIÓN DE JUEGOS Y JUGUETES"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE INSTRUMENTOS Y MATERIALES MÉDICOS Y\n                                                ODONTOLÓGICOS              \n                                        ",
+        "Items": [
+            {
+                "Campo": "325001",
+                "Campo1": "ACTIVIDADES DE LABORATORIOS DENTALES"
+            },
+            {
+                "Campo": "325009",
+                "Campo1": "FABRICACIÓN DE INSTRUMENTOS Y MATERIALES MÉDICOS,\n                                            OFTALMOLÓGICOS Y ODONTOLÓGICOS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS INDUSTRIAS MANUFACTURERAS\n                                                N.C.P.                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "329000",
+                "Campo1": "OTRAS INDUSTRIAS MANUFACTURERAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "REPARACIÓN DE PRODUCTOS ELABORADOS DE METAL, MAQUINARIA Y\n                                                EQUIPO             \n                                        ",
+        "Items": [
+            {
+                "Campo": "331100",
+                "Campo1": "REPARACIÓN DE PRODUCTOS ELABORADOS DE METAL"
+            },
+            {
+                "Campo": "331201",
+                "Campo1": "REPARACIÓN DE MAQUINARIA AGROPECUARIA Y FORESTAL"
+            },
+            {
+                "Campo": "331202",
+                "Campo1": "REPARACIÓN DE MAQUINARIA METALÚRGICA, PARA LA MINERÍA,\n                                            EXTRACCIÓN DE PETRÓLEO Y PARA LA CONSTRUCCIÓN"
+            },
+            {
+                "Campo": "331203",
+                "Campo1": "REPARACIÓN DE MAQUINARIA PARA LA ELABORACIÓN DE ALIMENTOS,\n                                            BEBIDAS Y TABACO"
+            },
+            {
+                "Campo": "331204",
+                "Campo1": "REPARACIÓN DE MAQUINARIA PARA PRODUCIR TEXTILES, PRENDAS DE VESTIR,\n                                            ARTÍCULOS DE CUERO Y CALZADO  "
+            },
+            {
+                "Campo": "331209",
+                "Campo1": "REPARACIÓN DE OTRO TIPO DE MAQUINARIA Y EQUIPOS INDUSTRIALES N.C.P.\n                                        "
+            },
+            {
+                "Campo": "331301",
+                "Campo1": "REPARACIÓN DE EQUIPO DE MEDICIÓN, PRUEBA, NAVEGACIÓN Y\n                                            CONTROL"
+            },
+            {
+                "Campo": "331309",
+                "Campo1": "REPARACIÓN DE OTROS EQUIPOS ELECTRÓNICOS Y ÓPTICOS\n                                            N.C.P."
+            },
+            {
+                "Campo": "331400",
+                "Campo1": "REPARACIÓN DE EQUIPO ELÉCTRICO (EXCEPTO REPARACIÓN DE\n                                            EQUIPO Y ENSERES DOMÉSTICOS)"
+            },
+            {
+                "Campo": "331501",
+                "Campo1": "REPARACIÓN DE BUQUES, EMBARCACIONES MENORES Y ESTRUCTURAS FLOTANTES\n                                        "
+            },
+            {
+                "Campo": "331502",
+                "Campo1": "REPARACIÓN DE AERONAVES Y NAVES ESPACIALES"
+            },
+            {
+                "Campo": "331509",
+                "Campo1": "REPARACIÓN DE OTROS EQUIPOS DE TRANSPORTE N.C.P., EXCEPTO\n                                            VEHÍCULOS AUTOMOTORES"
+            },
+            {
+                "Campo": "331900",
+                "Campo1": "REPARACIÓN DE OTROS TIPOS DE EQUIPO"
+            }
+        ]
+    },
+    {
+        "Categoria": "INSTALACIÓN DE MAQUINARIA Y EQUIPOS\n                                                INDUSTRIALES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "332000",
+                "Campo1": "INSTALACIÓN DE MAQUINARIA Y EQUIPOS INDUSTRIALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "GENERACIÓN, TRANSMISIÓN Y DISTRIBUCIÓN DE\n                                                ENERGÍA\n                                                ELÉCTRICA               \n                                        ",
+        "Items": [
+            {
+                "Campo": "351011",
+                "Campo1": "GENERACIÓN DE ENERGÍA ELÉCTRICA EN CENTRALES\n                                            HIDROELÉCTRICAS"
+            },
+            {
+                "Campo": "351012",
+                "Campo1": "GENERACIÓN DE ENERGÍA ELÉCTRICA EN CENTRALES\n                                            TERMOELÉCTRICAS"
+            },
+            {
+                "Campo": "351019",
+                "Campo1": "GENERACIÓN DE ENERGÍA ELÉCTRICA EN OTRAS CENTRALES\n                                            N.C.P."
+            },
+            {
+                "Campo": "351020",
+                "Campo1": "TRANSMISIÓN DE ENERGÍA ELÉCTRICA"
+            },
+            {
+                "Campo": "351030",
+                "Campo1": "DISTRIBUCIÓN DE ENERGÍA ELÉCTRICA"
+            }
+        ]
+    },
+    {
+        "Categoria": "FABRICACIÓN DE GAS; DISTRIBUCIÓN DE COMBUSTIBLES\n                                                GASEOSOS POR\n                                                TUBERÍAS             \n                                        ",
+        "Items": [
+            {
+                "Campo": "352010",
+                "Campo1": "REGASIFICACIÓN DE GAS NATURAL LICUADO (GNL)"
+            },
+            {
+                "Campo": "352020",
+                "Campo1": "FABRICACIÓN DE GAS; DISTRIBUCIÓN DE COMBUSTIBLES GASEOSOS POR\n                                            TUBERÍA, EXCEPTO REGASIFICACIÓN DE GNL"
+            }
+        ]
+    },
+    {
+        "Categoria": "SUMINISTRO DE VAPOR Y DE AIRE\n                                                ACONDICIONADO               \n                                        ",
+        "Items": [
+            {
+                "Campo": "353001",
+                "Campo1": "SUMINISTRO DE VAPOR Y DE AIRE ACONDICIONADO"
+            },
+            {
+                "Campo": "353002",
+                "Campo1": "ELABORACIÓN DE HIELO (EXCEPTO FABRICACIÓN DE HIELO SECO)"
+            }
+        ]
+    },
+    {
+        "Categoria": "CAPTACIÓN, TRATAMIENTO Y DISTRIBUCIÓN DE\n                                                AGUA                \n                                        ",
+        "Items": [
+            {
+                "Campo": "360000",
+                "Campo1": "CAPTACIÓN, TRATAMIENTO Y DISTRIBUCIÓN DE AGUA"
+            }
+        ]
+    },
+    {
+        "Categoria": "EVACUACIÓN DE AGUAS\n                                                RESIDUALES                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "370000",
+                "Campo1": "EVACUACIÓN Y TRATAMIENTO DE AGUAS SERVIDAS"
+            }
+        ]
+    },
+    {
+        "Categoria": "RECOGIDA DE\n                                                DESECHOS                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "381100",
+                "Campo1": "RECOGIDA DE DESECHOS NO PELIGROSOS"
+            },
+            {
+                "Campo": "381200",
+                "Campo1": "RECOGIDA DE DESECHOS PELIGROSOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "TRATAMIENTO Y ELIMINACIÓN DE\n                                                DESECHOS                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "382100",
+                "Campo1": "TRATAMIENTO Y ELIMINACIÓN DE DESECHOS NO PELIGROSOS"
+            },
+            {
+                "Campo": "382200",
+                "Campo1": "TRATAMIENTO Y ELIMINACIÓN DE DESECHOS PELIGROSOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "RECUPERACIÓN DE\n                                                MATERIALES                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "383001",
+                "Campo1": "RECUPERACIÓN Y RECICLAMIENTO DE DESPERDICIOS Y DESECHOS\n                                            METÁLICOS"
+            },
+            {
+                "Campo": "383002",
+                "Campo1": "RECUPERACIÓN Y RECICLAMIENTO DE PAPEL"
+            },
+            {
+                "Campo": "383003",
+                "Campo1": "RECUPERACIÓN Y RECICLAMIENTO DE VIDRIO"
+            },
+            {
+                "Campo": "383009",
+                "Campo1": "RECUPERACIÓN Y RECICLAMIENTO DE OTROS DESPERDICIOS Y DESECHOS N.C.P.\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE DESCONTAMINACIÓN Y OTROS SERVICIOS DE\n                                                GESTIÓN DE\n                                                DESECHOS            \n                                        ",
+        "Items": [
+            {
+                "Campo": "390000",
+                "Campo1": "ACTIVIDADES DE DESCONTAMINACIÓN Y OTROS SERVICIOS DE GESTIÓN\n                                            DE DESECHOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "CONSTRUCCIÓN DE\n                                            EDIFICIOS                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "410010",
+                "Campo1": "CONSTRUCCIÓN DE EDIFICIOS PARA USO RESIDENCIAL"
+            },
+            {
+                "Campo": "410020",
+                "Campo1": "CONSTRUCCIÓN DE EDIFICIOS PARA USO NO RESIDENCIAL"
+            }
+        ]
+    },
+    {
+        "Categoria": "CONSTRUCCIÓN DE CARRETERAS Y LÍNEAS DE\n                                            FERROCARRIL               \n                                        ",
+        "Items": [
+            {
+                "Campo": "421000",
+                "Campo1": "CONSTRUCCIÓN DE CARRETERAS Y LÍNEAS DE FERROCARRIL"
+            }
+        ]
+    },
+    {
+        "Categoria": "CONSTRUCCIÓN DE PROYECTOS DE SERVICIO\n                                            PÚBLICO                \n                                        ",
+        "Items": [
+            {
+                "Campo": "422000",
+                "Campo1": "CONSTRUCCIÓN DE PROYECTOS DE SERVICIO PÚBLICO"
+            }
+        ]
+    },
+    {
+        "Categoria": "CONSTRUCCIÓN DE OTRAS OBRAS DE INGENIERÍA\n                                            CIVIL               \n                                        ",
+        "Items": [
+            {
+                "Campo": "429000",
+                "Campo1": "CONSTRUCCIÓN DE OTRAS OBRAS DE INGENIERÍA CIVIL"
+            }
+        ]
+    },
+    {
+        "Categoria": "DEMOLICIÓN Y PREPARACIÓN DEL\n                                            TERRENO                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "431100",
+                "Campo1": "DEMOLICIÓN"
+            },
+            {
+                "Campo": "431200",
+                "Campo1": "PREPARACIÓN DEL TERRENO"
+            }
+        ]
+    },
+    {
+        "Categoria": "INSTALACIONES ELÉCTRICAS, DE GASFITERÍA Y OTRAS INSTALACIONES\n                                            PARA OBRAS DE CONSTRUCCIÓN ",
+        "Items": [
+            {
+                "Campo": "432100",
+                "Campo1": "INSTALACIONES ELÉCTRICAS"
+            },
+            {
+                "Campo": "432200",
+                "Campo1": "INSTALACIONES DE GASFITERÍA, CALEFACCIÓN Y AIRE ACONDICIONADO\n                                        "
+            },
+            {
+                "Campo": "432900",
+                "Campo1": "OTRAS INSTALACIONES PARA OBRAS DE CONSTRUCCIÓN"
+            }
+        ]
+    },
+    {
+        "Categoria": "TERMINACIÓN Y ACABADO DE\n                                            EDIFICIOS                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "433000",
+                "Campo1": "TERMINACIÓN Y ACABADO DE EDIFICIOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES ESPECIALIZADAS DE\n                                            CONSTRUCCIÓN                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "439000",
+                "Campo1": "OTRAS ACTIVIDADES ESPECIALIZADAS DE CONSTRUCCIÓN"
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA DE VEHÍCULOS\n                                            AUTOMOTORES                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "451001",
+                "Campo1": "VENTA AL POR MAYOR DE VEHÍCULOS AUTOMOTORES"
+            },
+            {
+                "Campo": "451002",
+                "Campo1": "VENTA AL POR MENOR DE VEHÍCULOS AUTOMOTORES NUEVOS O USADOS (INCLUYE\n                                            COMPRAVENTA)"
+            }
+        ]
+    },
+    {
+        "Categoria": "MANTENIMIENTO Y REPARACIÓN DE VEHÍCULOS\n                                            AUTOMOTORES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "452001",
+                "Campo1": "SERVICIO DE LAVADO DE VEHÍCULOS AUTOMOTORES"
+            },
+            {
+                "Campo": "452002",
+                "Campo1": "MANTENIMIENTO Y REPARACIÓN DE VEHÍCULOS AUTOMOTORES"
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA DE PARTES, PIEZAS Y ACCESORIOS PARA VEHÍCULOS\n                                            AUTOMOTORES             \n                                        ",
+        "Items": [
+            {
+                "Campo": "453000",
+                "Campo1": "VENTA DE PARTES, PIEZAS Y ACCESORIOS PARA VEHÍCULOS AUTOMOTORES"
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA, MANTENIMIENTO Y REPARACIÓN DE MOTOCICLETAS Y SUS PARTES,\n                                            PIEZAS Y\n                                            ACCESORIOS          ",
+        "Items": [
+            {
+                "Campo": "454001",
+                "Campo1": "VENTA DE MOTOCICLETAS"
+            },
+            {
+                "Campo": "454002",
+                "Campo1": "VENTA DE PARTES, PIEZAS Y ACCESORIOS DE MOTOCICLETAS"
+            },
+            {
+                "Campo": "454003",
+                "Campo1": "MANTENIMIENTO Y REPARACIÓN DE MOTOCICLETAS"
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MAYOR A CAMBIO DE UNA RETRIBUCIÓN O POR\n                                            CONTRATA          ",
+        "Items": [
+            {
+                "Campo": "461001",
+                "Campo1": "CORRETAJE AL POR MAYOR DE PRODUCTOS AGRÍCOLAS"
+            },
+            {
+                "Campo": "461002",
+                "Campo1": "CORRETAJE AL POR MAYOR DE GANADO"
+            },
+            {
+                "Campo": "461009",
+                "Campo1": "OTROS TIPOS DE CORRETAJES O REMATES AL POR MAYOR N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MAYOR DE MATERIAS PRIMAS AGROPECUARIAS Y ANIMALES\n                                            VIVOS           ",
+        "Items": [
+            {
+                "Campo": "462010",
+                "Campo1": "VENTA AL POR MAYOR DE MATERIAS PRIMAS AGRÍCOLAS"
+            },
+            {
+                "Campo": "462020",
+                "Campo1": "VENTA AL POR MAYOR DE ANIMALES VIVOS"
+            },
+            {
+                "Campo": "462090",
+                "Campo1": "VENTA AL POR MAYOR DE OTRAS MATERIAS PRIMAS AGROPECUARIAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MAYOR DE ALIMENTOS, BEBIDAS Y\n                                            TABACO             \n                                        ",
+        "Items": [
+            {
+                "Campo": "463011",
+                "Campo1": "VENTA AL POR MAYOR DE FRUTAS Y VERDURAS"
+            },
+            {
+                "Campo": "463012",
+                "Campo1": "VENTA AL POR MAYOR DE CARNE Y PRODUCTOS CÁRNICOS"
+            },
+            {
+                "Campo": "463013",
+                "Campo1": "VENTA AL POR MAYOR DE PRODUCTOS DEL MAR (PESCADOS, MARISCOS Y ALGAS)"
+            },
+            {
+                "Campo": "463014",
+                "Campo1": "VENTA AL POR MAYOR DE PRODUCTOS DE CONFITERÍA"
+            },
+            {
+                "Campo": "463019",
+                "Campo1": "VENTA AL POR MAYOR DE HUEVOS, LÁCTEOS, ABARROTES Y DE OTROS ALIMENTOS\n                                            N.C.P."
+            },
+            {
+                "Campo": "463020",
+                "Campo1": "VENTA AL POR MAYOR DE BEBIDAS ALCOHÓLICAS Y NO ALCOHÓLICAS\n                                        "
+            },
+            {
+                "Campo": "463030",
+                "Campo1": "VENTA AL POR MAYOR DE TABACO"
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MAYOR DE ENSERES\n                                            DOMÉSTICOS               \n                                        ",
+        "Items": [
+            {
+                "Campo": "464100",
+                "Campo1": "VENTA AL POR MAYOR DE PRODUCTOS TEXTILES, PRENDAS DE VESTIR Y CALZADO"
+            },
+            {
+                "Campo": "464901",
+                "Campo1": "VENTA AL POR MAYOR DE MUEBLES, EXCEPTO MUEBLES DE OFICINA"
+            },
+            {
+                "Campo": "464902",
+                "Campo1": "VENTA AL POR MAYOR DE ARTÍCULOS ELÉCTRICOS Y\n                                            ELECTRÓNICOS PARA EL HOGAR"
+            },
+            {
+                "Campo": "464903",
+                "Campo1": "VENTA AL POR MAYOR DE ARTÍCULOS DE PERFUMERÍA, DE TOCADOR Y\n                                            COSMÉTICOS"
+            },
+            {
+                "Campo": "464904",
+                "Campo1": "VENTA AL POR MAYOR DE ARTÍCULOS DE PAPELERÍA Y ESCRITORIO"
+            },
+            {
+                "Campo": "464905",
+                "Campo1": "VENTA AL POR MAYOR DE LIBROS"
+            },
+            {
+                "Campo": "464906",
+                "Campo1": "VENTA AL POR MAYOR DE DIARIOS Y REVISTAS"
+            },
+            {
+                "Campo": "464907",
+                "Campo1": "VENTA AL POR MAYOR DE PRODUCTOS FARMACÉUTICOS Y MEDICINALES \n                                        "
+            },
+            {
+                "Campo": "464908",
+                "Campo1": "VENTA AL POR MAYOR DE INSTRUMENTOS CIENTÍFICOS Y QUIRÚRGICOS\n                                        "
+            },
+            {
+                "Campo": "464909",
+                "Campo1": "VENTA AL POR MAYOR DE OTROS ENSERES DOMÉSTICOS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MAYOR DE MAQUINARIA, EQUIPO Y\n                                            MATERIALES             \n                                        ",
+        "Items": [
+            {
+                "Campo": "465100",
+                "Campo1": "VENTA AL POR MAYOR DE COMPUTADORES, EQUIPO PERIFÉRICO Y PROGRAMAS\n                                            INFORMÁTICOS"
+            },
+            {
+                "Campo": "465200",
+                "Campo1": "VENTA AL POR MAYOR DE EQUIPO, PARTES Y PIEZAS ELECTRÓNICOS Y DE\n                                            TELECOMUNICACIONES"
+            },
+            {
+                "Campo": "465300",
+                "Campo1": "VENTA AL POR MAYOR DE MAQUINARIA, EQUIPO Y MATERIALES AGROPECUARIOS"
+            },
+            {
+                "Campo": "465901",
+                "Campo1": "VENTA AL POR MAYOR DE MAQUINARIA METALÚRGICA, PARA LA MINERÍA,\n                                            EXTRACCIÓN DE PETRÓLEO Y CONSTRUCCIÓN"
+            },
+            {
+                "Campo": "465902",
+                "Campo1": "VENTA AL POR MAYOR DE MAQUINARIA PARA LA ELABORACIÓN DE ALIMENTOS,\n                                            BEBIDAS Y TABACO"
+            },
+            {
+                "Campo": "465903",
+                "Campo1": "VENTA AL POR MAYOR DE MAQUINARIA PARA LA INDUSTRIA TEXTIL, DEL CUERO Y DEL\n                                            CALZADO"
+            },
+            {
+                "Campo": "465904",
+                "Campo1": "VENTA AL POR MAYOR DE MAQUINARIA Y EQUIPO DE OFICINA; VENTA AL POR MAYOR DE\n                                            MUEBLES DE OFICINA"
+            },
+            {
+                "Campo": "465905",
+                "Campo1": "VENTA AL POR MAYOR DE EQUIPO DE TRANSPORTE(EXCEPTO VEHÍCULOS\n                                            AUTOMOTORES, MOTOCICLETAS Y BICICLETAS)"
+            },
+            {
+                "Campo": "465909",
+                "Campo1": "VENTA AL POR MAYOR DE OTROS TIPOS DE MAQUINARIA Y EQUIPO N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE VENTA AL POR MAYOR\n                                            ESPECIALIZADA              \n                                        ",
+        "Items": [
+            {
+                "Campo": "466100",
+                "Campo1": "VENTA AL POR MAYOR DE COMBUSTIBLES SÓLIDOS, LÍQUIDOS Y\n                                            GASEOSOS Y PRODUCTOS CONEXOS"
+            },
+            {
+                "Campo": "466200",
+                "Campo1": "VENTA AL POR MAYOR DE METALES Y MINERALES METALÍFEROS"
+            },
+            {
+                "Campo": "466301",
+                "Campo1": "VENTA AL POR MAYOR DE MADERA EN BRUTO Y PRODUCTOS PRIMARIOS DE LA\n                                            ELABORACIÓN DE MADERA"
+            },
+            {
+                "Campo": "466302",
+                "Campo1": "VENTA AL POR MAYOR DE MATERIALES DE CONSTRUCCIÓN, ARTÍCULOS DE\n                                            FERRETERÍA, GASFITERÍA Y CALEFACCIÓN"
+            },
+            {
+                "Campo": "466901",
+                "Campo1": "VENTA AL POR MAYOR DE PRODUCTOS QUÍMICOS"
+            },
+            {
+                "Campo": "466902",
+                "Campo1": "VENTA AL POR MAYOR DE DESECHOS METÁLICOS (CHATARRA)"
+            },
+            {
+                "Campo": "466909",
+                "Campo1": "VENTA AL POR MAYOR DE DESPERDICIOS, DESECHOS Y OTROS PRODUCTOS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MAYOR NO\n                                            ESPECIALIZADA                \n                                        ",
+        "Items": [
+            {
+                "Campo": "469000",
+                "Campo1": "VENTA AL POR MAYOR NO ESPECIALIZADA"
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MENOR EN COMERCIOS NO\n                                            ESPECIALIZADOS              \n                                        ",
+        "Items": [
+            {
+                "Campo": "471100",
+                "Campo1": "VENTA AL POR MENOR EN COMERCIOS DE ALIMENTOS, BEBIDAS O TABACO\n                                            (SUPERMERCADOS E HIPERMERCADOS)"
+            },
+            {
+                "Campo": "471910",
+                "Campo1": "VENTA AL POR MENOR EN COMERCIOS DE VESTUARIO Y PRODUCTOS PARA EL HOGAR\n                                            (GRANDES TIENDAS)"
+            },
+            {
+                "Campo": "471990",
+                "Campo1": "OTRAS ACTIVIDADES DE VENTA AL POR MENOR EN COMERCIOS NO ESPECIALIZADOS\n                                            N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MENOR DE ALIMENTOS, BEBIDAS Y TABACO EN COMERCIOS\n                                            ESPECIALIZADOS          \n                                        ",
+        "Items": [
+            {
+                "Campo": "472101",
+                "Campo1": "VENTA AL POR MENOR DE ALIMENTOS EN COMERCIOS ESPECIALIZADOS (ALMACENES\n                                            PEQUEÑOS Y MINIMARKET)"
+            },
+            {
+                "Campo": "472102",
+                "Campo1": "VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE CARNE Y PRODUCTOS\n                                            CÁRNICOS "
+            },
+            {
+                "Campo": "472103",
+                "Campo1": "VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE FRUTAS Y VERDURAS\n                                            (VERDULERÍAS)"
+            },
+            {
+                "Campo": "472104",
+                "Campo1": "VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE PESCADO, MARISCOS Y\n                                            PRODUCTOS CONEXOS"
+            },
+            {
+                "Campo": "472105",
+                "Campo1": "VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE PRODUCTOS DE\n                                            PANADERÍA Y PASTELERÍA"
+            },
+            {
+                "Campo": "472109",
+                "Campo1": "VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE HUEVOS, CONFITES Y\n                                            PRODUCTOS ALIMENTICIOS N.C.P."
+            },
+            {
+                "Campo": "472200",
+                "Campo1": "VENTA AL POR MENOR DE BEBIDAS ALCOHÓLICAS Y NO ALCOHÓLICAS EN\n                                            COMERCIOS ESPECIALIZADOS (BOTILLERÍAS)"
+            },
+            {
+                "Campo": "472300",
+                "Campo1": "VENTA AL POR MENOR DE TABACO Y PRODUCTOS DE TABACO EN COMERCIOS\n                                            ESPECIALIZADOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MENOR DE COMBUSTIBLES PARA VEHÍCULOS AUTOMOTORES EN\n                                            COMERCIOS\n                                            ESPECIALIZADOS          \n                                        ",
+        "Items": [
+            {
+                "Campo": "473000",
+                "Campo1": "VENTA AL POR MENOR DE COMBUSTIBLES PARA VEHÍCULOS AUTOMOTORES EN\n                                            COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "474100",
+                "Campo1": "VENTA AL POR MENOR DE COMPUTADORES, EQUIPO PERIFÉRICO, PROGRAMAS\n                                            INFORMÁTICOS Y EQUIPO DE TELECOM."
+            },
+            {
+                "Campo": "474200",
+                "Campo1": "VENTA AL POR MENOR DE EQUIPO DE SONIDO Y DE VIDEO EN COMERCIOS\n                                            ESPECIALIZADOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MENOR DE OTROS ENSERES DOMÉSTICOS EN COMERCIOS\n                                            ESPECIALIZADOS           \n                                        ",
+        "Items": [
+            {
+                "Campo": "475100",
+                "Campo1": "VENTA AL POR MENOR DE TELAS, LANAS, HILOS Y SIMILARES EN COMERCIOS\n                                            ESPECIALIZADOS"
+            },
+            {
+                "Campo": "475201",
+                "Campo1": "VENTA AL POR MENOR DE ARTÍCULOS DE FERRETERÍA Y MATERIALES DE\n                                            CONSTRUCCIÓN "
+            },
+            {
+                "Campo": "475202",
+                "Campo1": "VENTA AL POR MENOR DE PINTURAS, BARNICES Y LACAS EN COMERCIOS ESPECIALIZADOS\n                                        "
+            },
+            {
+                "Campo": "475203",
+                "Campo1": "VENTA AL POR MENOR DE PRODUCTOS DE VIDRIO EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "475300",
+                "Campo1": "VENTA AL POR MENOR DE TAPICES, ALFOMBRAS Y CUBRIMIENTOS PARA PAREDES Y PISOS\n                                        "
+            },
+            {
+                "Campo": "475901",
+                "Campo1": "VENTA AL POR MENOR DE MUEBLES Y COLCHONES EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "475902",
+                "Campo1": "VENTA AL POR MENOR DE INSTRUMENTOS MUSICALES EN COMERCIOS ESPECIALIZADOS\n                                        "
+            },
+            {
+                "Campo": "475909",
+                "Campo1": "VENTA AL POR MENOR DE APARATOS ELÉCTRICOS, TEXTILES PARA EL HOGAR Y\n                                            OTROS ENSERES DOMÉSTICOS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MENOR DE PRODUCTOS CULTURALES Y RECREATIVOS EN COMERCIOS\n                                            ESPECIALIZADOS          \n                                        ",
+        "Items": [
+            {
+                "Campo": "476101",
+                "Campo1": "VENTA AL POR MENOR DE LIBROS EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "476102",
+                "Campo1": "VENTA AL POR MENOR DE DIARIOS Y REVISTAS EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "476103",
+                "Campo1": "VENTA AL POR MENOR DE ARTÍCULOS DE PAPELERÍA Y ESCRITORIO EN\n                                            COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "476200",
+                "Campo1": "VENTA AL POR MENOR DE GRABACIONES DE MÚSICA Y DE VIDEO EN COMERCIOS\n                                            ESPECIALIZADOS"
+            },
+            {
+                "Campo": "476301",
+                "Campo1": "VENTA AL POR MENOR DE ARTÍCULOS DE CAZA Y PESCA EN COMERCIOS\n                                            ESPECIALIZADOS"
+            },
+            {
+                "Campo": "476302",
+                "Campo1": "VENTA AL POR MENOR DE BICICLETAS Y SUS REPUESTOS EN COMERCIOS ESPECIALIZADOS\n                                        "
+            },
+            {
+                "Campo": "476309",
+                "Campo1": "VENTA AL POR MENOR DE OTROS ARTÍCULOS Y EQUIPOS DE DEPORTE N.C.P.\n                                        "
+            },
+            {
+                "Campo": "476400",
+                "Campo1": "VENTA AL POR MENOR DE JUEGOS Y JUGUETES EN COMERCIOS ESPECIALIZADOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MENOR DE OTROS PRODUCTOS EN COMERCIOS\n                                            ESPECIALIZADOS            \n                                        ",
+        "Items": [
+            {
+                "Campo": "477101",
+                "Campo1": "VENTA AL POR MENOR DE CALZADO EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477102",
+                "Campo1": "VENTA AL POR MENOR DE PRENDAS Y ACCESORIOS DE VESTIR EN COMERCIOS\n                                            ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477103",
+                "Campo1": "VENTA AL POR MENOR DE CARTERAS, MALETAS Y OTROS ACCESORIOS DE VIAJE EN\n                                            COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477201",
+                "Campo1": "VENTA AL POR MENOR DE PRODUCTOS FARMACÉUTICOS Y MEDICINALES EN\n                                            COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477202",
+                "Campo1": "VENTA AL POR MENOR DE ARTÍCULOS ORTOPÉDICOS EN COMERCIOS\n                                            ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477203",
+                "Campo1": "VENTA AL POR MENOR DE ARTÍCULOS DE PERFUMERÍA, DE TOCADOR Y\n                                            COSMÉTICOS EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477310",
+                "Campo1": "VENTA AL POR MENOR DE GAS LICUADO EN BOMBONAS (CILINDROS) EN COMERCIOS\n                                            ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477391",
+                "Campo1": "VENTA AL POR MENOR DE ALIMENTO Y ACCESORIOS PARA MASCOTAS EN COMERCIOS\n                                            ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477392",
+                "Campo1": "VENTA AL POR MENOR DE ARMAS Y MUNICIONES EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477393",
+                "Campo1": "VENTA AL POR MENOR DE ARTÍCULOS ÓPTICOS EN COMERCIOS\n                                            ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477394",
+                "Campo1": "VENTA AL POR MENOR DE ARTÍCULOS DE JOYERÍA, BISUTERÍA Y\n                                            RELOJERÍA EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477395",
+                "Campo1": "VENTA AL POR MENOR DE CARBÓN, LEÑA Y OTROS COMBUSTIBLES DE USO\n                                            DOMÉSTICO EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477396",
+                "Campo1": "VENTA AL POR MENOR DE RECUERDOS, ARTESANÍAS Y ARTÍCULOS\n                                            RELIGIOSOS EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477397",
+                "Campo1": "VENTA AL POR MENOR DE FLORES, PLANTAS, ARBOLES, SEMILLAS Y ABONOS EN\n                                            COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477398",
+                "Campo1": "VENTA AL POR MENOR DE MASCOTAS EN COMERCIOS ESPECIALIZADOS"
+            },
+            {
+                "Campo": "477399",
+                "Campo1": "VENTA AL POR MENOR DE OTROS PRODUCTOS EN COMERCIOS ESPECIALIZADOS N.C.P.\n                                        "
+            },
+            {
+                "Campo": "477401",
+                "Campo1": "VENTA AL POR MENOR DE ANTIGÜEDADES EN COMERCIOS"
+            },
+            {
+                "Campo": "477402",
+                "Campo1": "VENTA AL POR MENOR DE ROPA USADA EN COMERCIOS"
+            },
+            {
+                "Campo": "477409",
+                "Campo1": "VENTA AL POR MENOR DE OTROS ARTÍCULOS DE SEGUNDA MANO EN COMERCIOS\n                                            N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MENOR EN PUESTOS DE VENTA Y\n                                            MERCADOS            \n                                        ",
+        "Items": [
+            {
+                "Campo": "478100",
+                "Campo1": "VENTA AL POR MENOR DE ALIMENTOS, BEBIDAS Y TABACO EN PUESTOS DE VENTA Y\n                                            MERCADOS (INCLUYE FERIAS)"
+            },
+            {
+                "Campo": "478200",
+                "Campo1": "VENTA AL POR MENOR DE PRODUCTOS TEXTILES, PRENDAS DE VESTIR Y CALZADO EN\n                                            PUESTOS DE VENTA Y MERCADOS"
+            },
+            {
+                "Campo": "478900",
+                "Campo1": "VENTA AL POR MENOR DE OTROS PRODUCTOS EN PUESTOS DE VENTA Y MERCADOS\n                                            (INCLUYE FERIAS)"
+            }
+        ]
+    },
+    {
+        "Categoria": "VENTA AL POR MENOR NO REALIZADA EN COMERCIOS, PUESTOS DE VENTA O\n                                            MERCADOS         ",
+        "Items": [
+            {
+                "Campo": "479100",
+                "Campo1": "VENTA AL POR MENOR POR CORREO, POR INTERNET Y VÍA TELEFÓNICA\n                                        "
+            },
+            {
+                "Campo": "479901",
+                "Campo1": "VENTA AL POR MENOR REALIZADA POR INDEPENDIENTES EN LA LOCOMOCIÓN\n                                            COLECTIVA (LEY 20.388)"
+            },
+            {
+                "Campo": "479902",
+                "Campo1": "VENTA AL POR MENOR MEDIANTE MAQUINAS EXPENDEDORAS"
+            },
+            {
+                "Campo": "479903",
+                "Campo1": "VENTA AL POR MENOR POR COMISIONISTAS (NO DEPENDIENTES DE COMERCIOS)"
+            },
+            {
+                "Campo": "479909",
+                "Campo1": "OTRAS ACTIVIDADES DE VENTA POR MENOR NO REALIZADAS EN COMERCIOS, PUESTOS DE\n                                            VENTA O MERCADOS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "TRANSPORTE POR\n                                            FERROCARRIL                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "491100",
+                "Campo1": "TRANSPORTE INTERURBANO DE PASAJEROS POR FERROCARRIL"
+            },
+            {
+                "Campo": "491200",
+                "Campo1": "TRANSPORTE DE CARGA POR FERROCARRIL"
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE TRANSPORTE POR VÍA\n                                            TERRESTRE               \n                                        ",
+        "Items": [
+            {
+                "Campo": "492110",
+                "Campo1": "TRANSPORTE URBANO Y SUBURBANO DE PASAJEROS VÍA METRO Y METROTREN"
+            },
+            {
+                "Campo": "492120",
+                "Campo1": "TRANSPORTE URBANO Y SUBURBANO DE PASAJEROS VÍA LOCOMOCIÓN\n                                            COLECTIVA"
+            },
+            {
+                "Campo": "492130",
+                "Campo1": "TRANSPORTE DE PASAJEROS VÍA TAXI COLECTIVO"
+            },
+            {
+                "Campo": "492190",
+                "Campo1": "OTRAS ACTIVIDADES DE TRANSPORTE URBANO Y SUBURBANO DE PASAJEROS POR\n                                            VÍA TERRESTRE N.C.P."
+            },
+            {
+                "Campo": "492210",
+                "Campo1": "SERVICIOS DE TRANSPORTE DE ESCOLARES"
+            },
+            {
+                "Campo": "492220",
+                "Campo1": "SERVICIOS DE TRANSPORTE DE TRABAJADORES"
+            },
+            {
+                "Campo": "492230",
+                "Campo1": "SERVICIOS DE TRANSPORTE DE PASAJEROS EN TAXIS LIBRES Y RADIOTAXIS"
+            },
+            {
+                "Campo": "492240",
+                "Campo1": "SERVICIOS DE TRANSPORTE A TURISTAS"
+            },
+            {
+                "Campo": "492250",
+                "Campo1": "TRANSPORTE DE PASAJEROS EN BUSES INTERURBANOS "
+            },
+            {
+                "Campo": "492290",
+                "Campo1": "OTRAS ACTIVIDADES DE TRANSPORTE DE PASAJEROS POR VÍA TERRESTRE N.C.P.\n                                        "
+            },
+            {
+                "Campo": "492300",
+                "Campo1": "TRANSPORTE DE CARGA POR CARRETERA"
+            }
+        ]
+    },
+    {
+        "Categoria": "TRANSPORTE POR\n                                            TUBERÍAS                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "493010",
+                "Campo1": "TRANSPORTE POR OLEODUCTOS"
+            },
+            {
+                "Campo": "493020",
+                "Campo1": "TRANSPORTE POR GASODUCTOS"
+            },
+            {
+                "Campo": "493090",
+                "Campo1": "OTRAS ACTIVIDADES DE TRANSPORTE POR TUBERÍAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "TRANSPORTE MARÍTIMO Y DE\n                                            CABOTAJE                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "501100",
+                "Campo1": "TRANSPORTE DE PASAJEROS MARÍTIMO Y DE CABOTAJE"
+            },
+            {
+                "Campo": "501200",
+                "Campo1": "TRANSPORTE DE CARGA MARÍTIMO Y DE CABOTAJE"
+            }
+        ]
+    },
+    {
+        "Categoria": "TRANSPORTE POR VÍAS DE NAVEGACIÓN\n                                            INTERIORES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "502100",
+                "Campo1": "TRANSPORTE DE PASAJEROS POR VÍAS DE NAVEGACIÓN INTERIORES"
+            },
+            {
+                "Campo": "502200",
+                "Campo1": "TRANSPORTE DE CARGA POR VÍAS DE NAVEGACIÓN INTERIORES"
+            }
+        ]
+    },
+    {
+        "Categoria": "TRANSPORTE DE PASAJEROS POR VÍA\n                                            AÉREA                \n                                        ",
+        "Items": [
+            {
+                "Campo": "511000",
+                "Campo1": "TRANSPORTE DE PASAJEROS POR VÍA AÉREA"
+            }
+        ]
+    },
+    {
+        "Categoria": "TRANSPORTE DE CARGA POR VÍA\n                                            AÉREA                \n                                        ",
+        "Items": [
+            {
+                "Campo": "512000",
+                "Campo1": "TRANSPORTE DE CARGA POR VÍA AÉREA"
+            }
+        ]
+    },
+    {
+        "Categoria": "ALMACENAMIENTO Y\n                                            DEPÓSITO                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "521001",
+                "Campo1": "EXPLOTACIÓN DE FRIGORÍFICOS PARA ALMACENAMIENTO Y\n                                            DEPÓSITO"
+            },
+            {
+                "Campo": "521009",
+                "Campo1": "OTROS SERVICIOS DE ALMACENAMIENTO Y DEPÓSITO N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE APOYO AL\n                                            TRANSPORTE                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "522110",
+                "Campo1": "EXPLOTACIÓN DE TERMINALES TERRESTRES DE PASAJEROS"
+            },
+            {
+                "Campo": "522120",
+                "Campo1": "EXPLOTACIÓN DE ESTACIONAMIENTOS DE VEHÍCULOS AUTOMOTORES Y\n                                            PARQUÍMETROS"
+            },
+            {
+                "Campo": "522130",
+                "Campo1": "SERVICIOS PRESTADOS POR CONCESIONARIOS DE CARRETERAS"
+            },
+            {
+                "Campo": "522190",
+                "Campo1": "ACTIVIDADES DE SERVICIOS VINCULADAS AL TRANSPORTE TERRESTRE N.C.P."
+            },
+            {
+                "Campo": "522200",
+                "Campo1": "ACTIVIDADES DE SERVICIOS VINCULADAS AL TRANSPORTE ACUÁTICO"
+            },
+            {
+                "Campo": "522300",
+                "Campo1": "ACTIVIDADES DE SERVICIOS VINCULADAS AL TRANSPORTE AÉREO"
+            },
+            {
+                "Campo": "522400",
+                "Campo1": "MANIPULACIÓN DE LA CARGA"
+            },
+            {
+                "Campo": "522910",
+                "Campo1": "AGENCIAS DE ADUANAS"
+            },
+            {
+                "Campo": "522920",
+                "Campo1": "AGENCIAS DE NAVES"
+            },
+            {
+                "Campo": "522990",
+                "Campo1": "OTRAS ACTIVIDADES DE APOYO AL TRANSPORTE N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES\n                                            POSTALES                    \n                                        ",
+        "Items": [
+            {
+                "Campo": "531000",
+                "Campo1": "ACTIVIDADES POSTALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE\n                                            MENSAJERÍA                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "532000",
+                "Campo1": "ACTIVIDADES DE MENSAJERÍA"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE ALOJAMIENTO PARA ESTANCIAS\n                                            CORTAS                \n                                        ",
+        "Items": [
+            {
+                "Campo": "551001",
+                "Campo1": "ACTIVIDADES DE HOTELES"
+            },
+            {
+                "Campo": "551002",
+                "Campo1": "ACTIVIDADES DE MOTELES"
+            },
+            {
+                "Campo": "551003",
+                "Campo1": "ACTIVIDADES DE RESIDENCIALES PARA TURISTAS"
+            },
+            {
+                "Campo": "551009",
+                "Campo1": "OTRAS ACTIVIDADES DE ALOJAMIENTO PARA TURISTAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE CAMPAMENTOS, PARQUES DE VEHÍCULOS DE RECREO Y PARQUES\n                                            DE CARAVANAS          \n                                        ",
+        "Items": [
+            {
+                "Campo": "552000",
+                "Campo1": "ACTIVIDADES DE CAMPING Y DE PARQUES PARA CASAS RODANTES"
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE\n                                            ALOJAMIENTO                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "559001",
+                "Campo1": "ACTIVIDADES DE RESIDENCIALES PARA ESTUDIANTES Y TRABAJADORES "
+            },
+            {
+                "Campo": "559009",
+                "Campo1": "OTRAS ACTIVIDADES DE ALOJAMIENTO N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE RESTAURANTES Y DE SERVICIO MÓVIL DE\n                                            COMIDAS             \n                                        ",
+        "Items": [
+            {
+                "Campo": "561000",
+                "Campo1": "ACTIVIDADES DE RESTAURANTES Y DE SERVICIO MÓVIL DE COMIDAS"
+            }
+        ]
+    },
+    {
+        "Categoria": "SUMINISTRO DE COMIDAS POR ENCARGO Y OTRAS ACTIVIDADES DE SERVICIO DE\n                                            COMIDAS          ",
+        "Items": [
+            {
+                "Campo": "562100",
+                "Campo1": "SUMINISTRO DE COMIDAS POR ENCARGO (SERVICIOS DE BANQUETERÍA)"
+            },
+            {
+                "Campo": "562900",
+                "Campo1": "SUMINISTRO INDUSTRIAL DE COMIDAS POR ENCARGO; CONCESIÓN DE SERVICIOS\n                                            DE ALIMENTACIÓN "
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE SERVICIO DE\n                                            BEBIDAS                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "563001",
+                "Campo1": "ACTIVIDADES DE DISCOTECAS Y CABARET (NIGHT CLUB), CON PREDOMINIO DEL\n                                            SERVICIO DE BEBIDAS"
+            },
+            {
+                "Campo": "563009",
+                "Campo1": "OTRAS ACTIVIDADES DE SERVICIO DE BEBIDAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "EDICIÓN DE LIBROS Y PUBLICACIONES PERIÓDICAS Y OTRAS\n                                            ACTIVIDADES DE\n                                            EDICIÓN           \n                                        ",
+        "Items": [
+            {
+                "Campo": "581100",
+                "Campo1": "EDICIÓN DE LIBROS"
+            },
+            {
+                "Campo": "581200",
+                "Campo1": "EDICIÓN DE DIRECTORIOS Y LISTAS DE CORREO"
+            },
+            {
+                "Campo": "581300",
+                "Campo1": "EDICIÓN DE DIARIOS, REVISTAS Y OTRAS PUBLICACIONES PERIÓDICAS\n                                        "
+            },
+            {
+                "Campo": "581900",
+                "Campo1": "OTRAS ACTIVIDADES DE EDICIÓN"
+            }
+        ]
+    },
+    {
+        "Categoria": "EDICIÓN DE PROGRAMAS\n                                            INFORMÁTICOS                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "582000",
+                "Campo1": "EDICIÓN DE PROGRAMAS INFORMÁTICOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE PRODUCCIÓN DE PELÍCULAS\n                                            CINEMATOGRÁFICAS, VIDEOS Y PROGRAMAS DE\n                                            TELEVISIÓN           \n                                        ",
+        "Items": [
+            {
+                "Campo": "591100",
+                "Campo1": "ACTIVIDADES DE PRODUCCIÓN DE PELÍCULAS\n                                            CINEMATOGRÁFICAS, VIDEOS Y PROGRAMAS DE TELEVISIÓN"
+            },
+            {
+                "Campo": "591200",
+                "Campo1": "ACTIVIDADES DE POSTPRODUCCIÓN DE PELÍCULAS\n                                            CINEMATOGRÁFICAS, VIDEOS Y PROGRAMAS DE TELEVISIÓN"
+            },
+            {
+                "Campo": "591300",
+                "Campo1": "ACTIVIDADES DE DISTRIBUCIÓN DE PELÍCULAS\n                                            CINEMATOGRÁFICAS, VIDEOS Y PROGRAMAS DE TELEVISIÓN"
+            },
+            {
+                "Campo": "591400",
+                "Campo1": "ACTIVIDADES DE EXHIBICIÓN DE PELÍCULAS CINEMATOGRÁFICAS\n                                            Y CINTAS DE VIDEO"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE GRABACIÓN DE SONIDO Y EDICIÓN DE\n                                            MÚSICA             \n                                        ",
+        "Items": [
+            {
+                "Campo": "592000",
+                "Campo1": "ACTIVIDADES DE GRABACIÓN DE SONIDO Y EDICIÓN DE MÚSICA\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "TRANSMISIONES DE\n                                            RADIO                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "601000",
+                "Campo1": "TRANSMISIONES DE RADIO"
+            }
+        ]
+    },
+    {
+        "Categoria": "PROGRAMACIÓN Y TRANSMISIONES DE\n                                            TELEVISIÓN                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "602000",
+                "Campo1": "PROGRAMACIÓN Y TRANSMISIONES DE TELEVISIÓN"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE TELECOMUNICACIONES\n                                            ALÁMBRICAS                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "611010",
+                "Campo1": "TELEFONÍA FIJA"
+            },
+            {
+                "Campo": "611020",
+                "Campo1": "TELEFONÍA LARGA DISTANCIA"
+            },
+            {
+                "Campo": "611030",
+                "Campo1": "TELEVISIÓN DE PAGO POR CABLE"
+            },
+            {
+                "Campo": "611090",
+                "Campo1": "OTROS SERVICIOS DE TELECOMUNICACIONES ALÁMBRICAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE TELECOMUNICACIONES\n                                            INALÁMBRICAS                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "612010",
+                "Campo1": "TELEFONÍA MÓVIL CELULAR"
+            },
+            {
+                "Campo": "612020",
+                "Campo1": "RADIOCOMUNICACIONES MÓVILES"
+            },
+            {
+                "Campo": "612030",
+                "Campo1": "TELEVISIÓN DE PAGO INALÁMBRICA"
+            },
+            {
+                "Campo": "612090",
+                "Campo1": "OTROS SERVICIOS DE TELECOMUNICACIONES INALÁMBRICAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE TELECOMUNICACIONES POR\n                                            SATÉLITE                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "613010",
+                "Campo1": "TELEFONÍA MÓVIL SATELITAL"
+            },
+            {
+                "Campo": "613020",
+                "Campo1": "TELEVISIÓN DE PAGO SATELITAL"
+            },
+            {
+                "Campo": "613090",
+                "Campo1": "OTROS SERVICIOS DE TELECOMUNICACIONES POR SATÉLITE N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE\n                                            TELECOMUNICACIONES                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "619010",
+                "Campo1": "CENTROS DE LLAMADOS Y CENTROS DE ACCESO A INTERNET"
+            },
+            {
+                "Campo": "619090",
+                "Campo1": "OTRAS ACTIVIDADES DE TELECOMUNICACIONES N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE PROGRAMACIÓN INFORMÁTICA, CONSULTORÍA\n                                            INFORMÁTICA Y ACTIVIDADES\n                                            CONEXAS             \n                                        ",
+        "Items": [
+            {
+                "Campo": "620100",
+                "Campo1": "ACTIVIDADES DE PROGRAMACIÓN INFORMÁTICA"
+            },
+            {
+                "Campo": "620200",
+                "Campo1": "ACTIVIDADES DE CONSULTORÍA DE INFORMÁTICA Y DE GESTIÓN\n                                            DE INSTALACIONES INFORMÁTICAS"
+            },
+            {
+                "Campo": "620900",
+                "Campo1": "OTRAS ACTIVIDADES DE TECNOLOGÍA DE LA INFORMACIÓN Y DE\n                                            SERVICIOS INFORMÁTICOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "PROCESAMIENTO DE DATOS, HOSPEDAJE Y ACTIVIDADES CONEXAS; PORTALES\n                                            WEB             \n                                        ",
+        "Items": [
+            {
+                "Campo": "631100",
+                "Campo1": "PROCESAMIENTO DE DATOS, HOSPEDAJE Y ACTIVIDADES CONEXAS"
+            },
+            {
+                "Campo": "631200",
+                "Campo1": "PORTALES WEB"
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE SERVICIOS DE\n                                            INFORMACIÓN                \n                                        ",
+        "Items": [
+            {
+                "Campo": "639100",
+                "Campo1": "ACTIVIDADES DE AGENCIAS DE NOTICIAS"
+            },
+            {
+                "Campo": "639900",
+                "Campo1": "OTRAS ACTIVIDADES DE SERVICIOS DE INFORMACIÓN N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "INTERMEDIACIÓN\n                                            MONETARIA                    \n                                        ",
+        "Items": [
+            {
+                "Campo": "641100",
+                "Campo1": "BANCA CENTRAL"
+            },
+            {
+                "Campo": "641910",
+                "Campo1": "ACTIVIDADES BANCARIAS"
+            },
+            {
+                "Campo": "641990",
+                "Campo1": "OTROS TIPOS DE INTERMEDIACIÓN MONETARIA N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE SOCIEDADES DE\n                                            CARTERA                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "642000",
+                "Campo1": "ACTIVIDADES DE SOCIEDADES DE CARTERA"
+            }
+        ]
+    },
+    {
+        "Categoria": "FONDOS Y SOCIEDADES DE INVERSIÓN Y ENTIDADES FINANCIERAS\n                                            SIMILARES             \n                                        ",
+        "Items": [
+            {
+                "Campo": "643000",
+                "Campo1": "FONDOS Y SOCIEDADES DE INVERSIÓN Y ENTIDADES FINANCIERAS SIMILARES\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE SERVICIOS FINANCIEROS, EXCEPTO LAS DE SEGUROS Y FONDOS\n                                            DE PENSIONES         ",
+        "Items": [
+            {
+                "Campo": "649100",
+                "Campo1": "LEASING FINANCIERO"
+            },
+            {
+                "Campo": "649201",
+                "Campo1": "FINANCIERAS"
+            },
+            {
+                "Campo": "649202",
+                "Campo1": "ACTIVIDADES DE CRÉDITO PRENDARIO"
+            },
+            {
+                "Campo": "649203",
+                "Campo1": "CAJAS DE COMPENSACIÓN"
+            },
+            {
+                "Campo": "649209",
+                "Campo1": "OTRAS ACTIVIDADES DE CONCESIÓN DE CRÉDITO N.C.P."
+            },
+            {
+                "Campo": "649900",
+                "Campo1": "OTRAS ACTIVIDADES DE SERVICIOS FINANCIEROS, EXCEPTO LAS DE SEGUROS Y FONDOS\n                                            DE PENSIONES N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "SEGUROS                     \n                                        ",
+        "Items": [
+            {
+                "Campo": "651100",
+                "Campo1": "SEGUROS DE VIDA"
+            },
+            {
+                "Campo": "651210",
+                "Campo1": "SEGUROS GENERALES, EXCEPTO ACTIVIDADES DE ISAPRES"
+            },
+            {
+                "Campo": "651220",
+                "Campo1": "ACTIVIDADES DE ISAPRES"
+            }
+        ]
+    },
+    {
+        "Categoria": "REASEGUROS                     \n                                        ",
+        "Items": [
+            {
+                "Campo": "652000",
+                "Campo1": "REASEGUROS"
+            }
+        ]
+    },
+    {
+        "Categoria": "FONDOS DE\n                                            PENSIONES                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "653000",
+                "Campo1": "FONDOS DE PENSIONES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES AUXILIARES DE SERVICIOS FINANCIEROS, EXCEPTO LAS DE SEGUROS Y\n                                            FONDOS DE PENSIONES",
+        "Items": [
+            {
+                "Campo": "661100",
+                "Campo1": "ADMINISTRACIÓN DE MERCADOS FINANCIEROS"
+            },
+            {
+                "Campo": "661201",
+                "Campo1": "ACTIVIDADES DE SECURITIZADORAS"
+            },
+            {
+                "Campo": "661202",
+                "Campo1": "CORREDORES DE BOLSA"
+            },
+            {
+                "Campo": "661203",
+                "Campo1": "AGENTES DE VALORES"
+            },
+            {
+                "Campo": "661204",
+                "Campo1": "ACTIVIDADES DE CASAS DE CAMBIO Y OPERADORES DE DIVISA"
+            },
+            {
+                "Campo": "661209",
+                "Campo1": "OTROS SERVICIOS DE CORRETAJE DE VALORES Y COMMODITIES N.C.P."
+            },
+            {
+                "Campo": "661901",
+                "Campo1": "ACTIVIDADES DE CÁMARAS DE COMPENSACIÓN"
+            },
+            {
+                "Campo": "661902",
+                "Campo1": "ADMINISTRACIÓN DE TARJETAS DE CRÉDITO"
+            },
+            {
+                "Campo": "661903",
+                "Campo1": "EMPRESAS DE ASESORÍA Y CONSULTORÍA EN INVERSIÓN\n                                            FINANCIERA; SOCIEDADES DE APOYO AL GIRO"
+            },
+            {
+                "Campo": "661904",
+                "Campo1": "ACTIVIDADES DE CLASIFICADORAS DE RIESGO"
+            },
+            {
+                "Campo": "661909",
+                "Campo1": "OTRAS ACTIVIDADES AUXILIARES DE LAS ACTIVIDADES DE SERVICIOS FINANCIEROS\n                                            N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES AUXILIARES DE LAS ACTIVIDADES DE SEGUROS Y FONDOS DE\n                                            PENSIONES           \n                                        ",
+        "Items": [
+            {
+                "Campo": "662100",
+                "Campo1": "EVALUACIÓN DE RIESGOS Y DAÑOS (INCLUYE ACTIVIDADES DE\n                                            LIQUIDADORES DE SEGUROS)"
+            },
+            {
+                "Campo": "662200",
+                "Campo1": "ACTIVIDADES DE AGENTES Y CORREDORES DE SEGUROS"
+            },
+            {
+                "Campo": "662900",
+                "Campo1": "OTRAS ACTIVIDADES AUXILIARES DE LAS ACTIVIDADES DE SEGUROS Y FONDOS DE\n                                            PENSIONES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE GESTIÓN DE\n                                            FONDOS                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "663010",
+                "Campo1": "ADMINISTRADORAS DE FONDOS DE PENSIONES (AFP)"
+            },
+            {
+                "Campo": "663091",
+                "Campo1": "ADMINISTRADORAS DE FONDOS DE INVERSIÓN"
+            },
+            {
+                "Campo": "663092",
+                "Campo1": "ADMINISTRADORAS DE FONDOS MUTUOS"
+            },
+            {
+                "Campo": "663093",
+                "Campo1": "ADMINISTRADORAS DE FICES (FONDOS DE INVERSIÓN DE CAPITAL EXTRANJERO)\n                                        "
+            },
+            {
+                "Campo": "663094",
+                "Campo1": "ADMINISTRADORAS DE FONDOS PARA LA VIVIENDA"
+            },
+            {
+                "Campo": "663099",
+                "Campo1": "ADMINISTRADORAS DE FONDOS PARA OTROS FINES N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES INMOBILIARIAS REALIZADAS CON BIENES PROPIOS O\n                                            ARRENDADOS              \n                                        ",
+        "Items": [
+            {
+                "Campo": "681011",
+                "Campo1": "ALQUILER DE BIENES INMUEBLES AMOBLADOS O CON EQUIPOS Y MAQUINARIAS"
+            },
+            {
+                "Campo": "681012",
+                "Campo1": "COMPRA, VENTA Y ALQUILER (EXCEPTO AMOBLADOS) DE INMUEBLES"
+            },
+            {
+                "Campo": "681020",
+                "Campo1": "SERVICIOS IMPUTADOS DE ALQUILER DE VIVIENDAS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES INMOBILIARIAS REALIZADAS A CAMBIO DE UNA\n                                                RETRIBUCIÓN O POR\n                                                CONTRATA           \n                                        ",
+        "Items": [
+            {
+                "Campo": "682000",
+                "Campo1": "ACTIVIDADES INMOBILIARIAS REALIZADAS A CAMBIO DE UNA RETRIBUCIÓN O\n                                            POR CONTRATA"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES\n                                                JURÍDICAS                    \n                                        ",
+        "Items": [
+            {
+                "Campo": "691001",
+                "Campo1": "SERVICIOS DE ASESORAMIENTO Y REPRESENTACIÓN JURÍDICA"
+            },
+            {
+                "Campo": "691002",
+                "Campo1": "SERVICIO NOTARIAL"
+            },
+            {
+                "Campo": "691003",
+                "Campo1": "CONSERVADOR DE BIENES RAÍCES"
+            },
+            {
+                "Campo": "691004",
+                "Campo1": "RECEPTORES JUDICIALES"
+            },
+            {
+                "Campo": "691009",
+                "Campo1": "SERVICIOS DE ARBITRAJE; SÍNDICOS DE QUIEBRA Y PERITOS JUDICIALES;\n                                            OTRAS ACTIVIDADES JURÍDICAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE CONTABILIDAD, TENEDURÍA DE LIBROS Y\n                                                AUDITORÍA; CONSULTORÍA\n                                                FISCAL            \n                                        ",
+        "Items": [
+            {
+                "Campo": "692000",
+                "Campo1": "ACTIVIDADES DE CONTABILIDAD, TENEDURÍA DE LIBROS Y AUDITORÍA;\n                                            CONSULTORÍA FISCAL"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE OFICINAS\n                                                PRINCIPALES                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "701000",
+                "Campo1": "ACTIVIDADES DE OFICINAS PRINCIPALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE CONSULTORÍA DE\n                                                GESTIÓN                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "702000",
+                "Campo1": "ACTIVIDADES DE CONSULTORÍA DE GESTIÓN"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE ARQUITECTURA E INGENIERÍA Y ACTIVIDADES\n                                                CONEXAS DE CONSULTORÍA\n                                                TÉCNICA           \n                                        ",
+        "Items": [
+            {
+                "Campo": "711001",
+                "Campo1": "SERVICIOS DE ARQUITECTURA (DISEÑO DE EDIFICIOS, DIBUJO DE PLANOS DE\n                                            CONSTRUCCIÓN, ENTRE OTROS)"
+            },
+            {
+                "Campo": "711002",
+                "Campo1": "EMPRESAS DE SERVICIOS DE INGENIERÍA Y ACTIVIDADES CONEXAS DE\n                                            CONSULTORÍA TÉCNICA "
+            },
+            {
+                "Campo": "711003",
+                "Campo1": "SERVICIOS PROFESIONALES DE INGENIERÍA Y ACTIVIDADES CONEXAS DE\n                                            CONSULTORÍA TÉCNICA "
+            }
+        ]
+    },
+    {
+        "Categoria": "ENSAYOS Y ANÁLISIS\n                                                TÉCNICOS                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "712001",
+                "Campo1": "ACTIVIDADES DE PLANTAS DE REVISIÓN TÉCNICA PARA\n                                            VEHÍCULOS AUTOMOTORES"
+            },
+            {
+                "Campo": "712009",
+                "Campo1": "OTROS SERVICIOS DE ENSAYOS Y ANÁLISIS TÉCNICOS (EXCEPTO\n                                            ACTIVIDADES DE PLANTAS DE REVISIÓN TÉCNICA)"
+            }
+        ]
+    },
+    {
+        "Categoria": "INVESTIGACIONES Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS\n                                            NATURALES Y LA INGENIERÍA",
+        "Items": [
+            {
+                "Campo": "721000",
+                "Campo1": "INVESTIGACIONES Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS\n                                            NATURALES Y LA INGENIERÍA"
+            }
+        ]
+    },
+    {
+        "Categoria": "INVESTIGACIONES Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS\n                                            SOCIALES Y LAS HUMANIDADES",
+        "Items": [
+            {
+                "Campo": "722000",
+                "Campo1": "INVESTIGACIONES Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS\n                                            SOCIALES Y LAS HUMANIDADES"
+            }
+        ]
+    },
+    {
+        "Categoria": "PUBLICIDAD                     \n                                        ",
+        "Items": [
+            {
+                "Campo": "731001",
+                "Campo1": "SERVICIOS DE PUBLICIDAD PRESTADOS POR EMPRESAS"
+            },
+            {
+                "Campo": "731002",
+                "Campo1": "SERVICIOS DE PUBLICIDAD PRESTADOS POR PROFESIONALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ESTUDIOS DE MERCADO Y ENCUESTAS DE OPINIÓN\n                                            PÚBLICA              \n                                        ",
+        "Items": [
+            {
+                "Campo": "732000",
+                "Campo1": "ESTUDIOS DE MERCADO Y ENCUESTAS DE OPINIÓN PÚBLICA"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES ESPECIALIZADAS DE\n                                            DISEÑO                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "741001",
+                "Campo1": "ACTIVIDADES DE DISEÑO DE VESTUARIO"
+            },
+            {
+                "Campo": "741002",
+                "Campo1": "ACTIVIDADES DE DISEÑO Y DECORACIÓN DE INTERIORES"
+            },
+            {
+                "Campo": "741009",
+                "Campo1": "OTRAS ACTIVIDADES ESPECIALIZADAS DE DISEÑO N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE\n                                            FOTOGRAFÍA                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "742001",
+                "Campo1": "SERVICIOS DE REVELADO, IMPRESIÓN Y AMPLIACIÓN DE\n                                            FOTOGRAFÍAS"
+            },
+            {
+                "Campo": "742002",
+                "Campo1": "SERVICIOS Y ACTIVIDADES DE FOTOGRAFÍA "
+            },
+            {
+                "Campo": "742003",
+                "Campo1": "SERVICIOS PERSONALES DE FOTOGRAFÍA "
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS\n                                            N.C.P.               \n                                        ",
+        "Items": [
+            {
+                "Campo": "749001",
+                "Campo1": "ASESORÍA Y GESTIÓN EN LA COMPRA O VENTA DE PEQUEÑAS Y\n                                            MEDIANAS EMPRESAS"
+            },
+            {
+                "Campo": "749002",
+                "Campo1": "SERVICIOS DE TRADUCCIÓN E INTERPRETACIÓN PRESTADOS POR\n                                            EMPRESAS"
+            },
+            {
+                "Campo": "749003",
+                "Campo1": "SERVICIOS PERSONALES DE TRADUCCIÓN E INTERPRETACIÓN"
+            },
+            {
+                "Campo": "749004",
+                "Campo1": "ACTIVIDADES DE AGENCIAS Y AGENTES DE REPRESENTACIÓN DE ACTORES,\n                                            DEPORTISTAS Y OTRAS FIGURAS PÚBLICAS"
+            },
+            {
+                "Campo": "749009",
+                "Campo1": "OTRAS ACTIVIDADES PROFESIONALES, CIENTÍFICAS Y TÉCNICAS N.C.P.\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES\n                                            VETERINARIAS                    \n                                        ",
+        "Items": [
+            {
+                "Campo": "750001",
+                "Campo1": "ACTIVIDADES DE CLÍNICAS VETERINARIAS"
+            },
+            {
+                "Campo": "750002",
+                "Campo1": "ACTIVIDADES DE VETERINARIOS, TÉCNICOS Y OTRO PERSONAL AUXILIAR,\n                                            PRESTADOS DE FORMA INDEPENDIENTE"
+            }
+        ]
+    },
+    {
+        "Categoria": "ALQUILER Y ARRENDAMIENTO DE VEHÍCULOS\n                                            AUTOMOTORES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "771000",
+                "Campo1": "ALQUILER DE VEHÍCULOS AUTOMOTORES SIN CHOFER"
+            }
+        ]
+    },
+    {
+        "Categoria": "ALQUILER Y ARRENDAMIENTO DE EFECTOS PERSONALES Y ENSERES\n                                            DOMÉSTICOS             \n                                        ",
+        "Items": [
+            {
+                "Campo": "772100",
+                "Campo1": "ALQUILER Y ARRENDAMIENTO DE EQUIPO RECREATIVO Y DEPORTIVO"
+            },
+            {
+                "Campo": "772200",
+                "Campo1": "ALQUILER DE CINTAS DE VIDEO Y DISCOS"
+            },
+            {
+                "Campo": "772900",
+                "Campo1": "ALQUILER DE OTROS EFECTOS PERSONALES Y ENSERES DOMÉSTICOS (INCLUYE\n                                            MOBILIARIO PARA EVENTOS)"
+            }
+        ]
+    },
+    {
+        "Categoria": "ALQUILER Y ARRENDAMIENTO DE OTROS TIPOS DE MAQUINARIA, EQUIPO Y BIENES\n                                            TANGIBLES          ",
+        "Items": [
+            {
+                "Campo": "773001",
+                "Campo1": "ALQUILER DE EQUIPOS DE TRANSPORTE SIN OPERARIO, EXCEPTO VEHÍCULOS\n                                            AUTOMOTORES"
+            },
+            {
+                "Campo": "773002",
+                "Campo1": "ALQUILER DE MAQUINARIA Y EQUIPO AGROPECUARIO, FORESTAL, DE\n                                            CONSTRUCCIÓN E ING. CIVIL, SIN OPERARIOS"
+            },
+            {
+                "Campo": "773003",
+                "Campo1": "ALQUILER DE MAQUINARIA Y EQUIPO DE OFICINA, SIN OPERARIOS (SIN SERVICIO\n                                            ADMINISTRATIVO)"
+            },
+            {
+                "Campo": "773009",
+                "Campo1": "ALQUILER DE OTROS TIPOS DE MAQUINARIAS Y EQUIPOS SIN OPERARIO N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ARRENDAMIENTO DE PROPIEDAD INTELECTUAL Y SIMILARES, EXCEPTO OBRAS PROTEGIDAS\n                                            POR DERECHOS DE AUTOR",
+        "Items": [
+            {
+                "Campo": "774000",
+                "Campo1": "ARRENDAMIENTO DE PROPIEDAD INTELECTUAL Y SIMILARES, EXCEPTO OBRAS PROTEGIDAS\n                                            POR DERECHOS DE AUTOR"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE AGENCIAS DE\n                                            EMPLEO                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "781000",
+                "Campo1": "ACTIVIDADES DE AGENCIAS DE EMPLEO"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE AGENCIAS DE EMPLEO\n                                            TEMPORAL                \n                                        ",
+        "Items": [
+            {
+                "Campo": "782000",
+                "Campo1": "ACTIVIDADES DE AGENCIAS DE EMPLEO TEMPORAL (INCLUYE EMPRESAS DE SERVICIOS\n                                            TRANSITORIOS)"
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE DOTACIÓN DE RECURSOS\n                                            HUMANOS               \n                                        ",
+        "Items": [
+            {
+                "Campo": "783000",
+                "Campo1": "OTRAS ACTIVIDADES DE DOTACIÓN DE RECURSOS HUMANOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE AGENCIAS DE VIAJES Y OPERADORES\n                                            TURÍSTICOS              \n                                        ",
+        "Items": [
+            {
+                "Campo": "791100",
+                "Campo1": "ACTIVIDADES DE AGENCIAS DE VIAJES"
+            },
+            {
+                "Campo": "791200",
+                "Campo1": "ACTIVIDADES DE OPERADORES TURÍSTICOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "OTROS SERVICIOS DE RESERVAS Y ACTIVIDADES\n                                            CONEXAS               \n                                        ",
+        "Items": [
+            {
+                "Campo": "799000",
+                "Campo1": "OTROS SERVICIOS DE RESERVAS Y ACTIVIDADES CONEXAS (INCLUYE VENTA DE ENTRADAS\n                                            PARA TEATRO, Y OTROS)"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE SEGURIDAD\n                                            PRIVADA                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "801001",
+                "Campo1": "SERVICIOS DE SEGURIDAD PRIVADA PRESTADOS POR EMPRESAS"
+            },
+            {
+                "Campo": "801002",
+                "Campo1": "SERVICIO DE TRANSPORTE DE VALORES EN VEHÍCULOS BLINDADOS"
+            },
+            {
+                "Campo": "801003",
+                "Campo1": "SERVICIOS DE SEGURIDAD PRIVADA PRESTADOS POR INDEPENDIENTES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE SERVICIOS DE SISTEMAS DE\n                                            SEGURIDAD               \n                                        ",
+        "Items": [
+            {
+                "Campo": "802000",
+                "Campo1": "ACTIVIDADES DE SERVICIOS DE SISTEMAS DE SEGURIDAD (INCLUYE SERVICIOS DE\n                                            CERRAJERÍA)"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE\n                                            INVESTIGACIÓN                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "803000",
+                "Campo1": "ACTIVIDADES DE INVESTIGACIÓN (INCLUYE ACTIVIDADES DE INVESTIGADORES Y\n                                            DETECTIVES PRIVADOS)"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES COMBINADAS DE APOYO A\n                                            INSTALACIONES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "811000",
+                "Campo1": "ACTIVIDADES COMBINADAS DE APOYO A INSTALACIONES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE\n                                            LIMPIEZA                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "812100",
+                "Campo1": "LIMPIEZA GENERAL DE EDIFICIOS"
+            },
+            {
+                "Campo": "812901",
+                "Campo1": "DESRATIZACIÓN, DESINFECCIÓN Y EXTERMINIO DE PLAGAS NO\n                                            AGRÍCOLAS"
+            },
+            {
+                "Campo": "812909",
+                "Campo1": "OTRAS ACTIVIDADES DE LIMPIEZA DE EDIFICIOS E INSTALACIONES INDUSTRIALES\n                                            N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE PAISAJISMO Y SERVICIOS DE MANTENIMIENTO\n                                            CONEXOS              \n                                        ",
+        "Items": [
+            {
+                "Campo": "813000",
+                "Campo1": "ACTIVIDADES DE PAISAJISMO, SERVICIOS DE JARDINERÍA Y SERVICIOS\n                                            CONEXOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES ADMINISTRATIVAS Y DE APOYO DE\n                                            OFICINA               \n                                        ",
+        "Items": [
+            {
+                "Campo": "821100",
+                "Campo1": "ACTIVIDADES COMBINADAS DE SERVICIOS ADMINISTRATIVOS DE OFICINA"
+            },
+            {
+                "Campo": "821900",
+                "Campo1": "FOTOCOPIADO, PREPARACIÓN DE DOCUMENTOS Y OTRAS ACTIVIDADES\n                                            ESPECIALIZADAS DE APOYO DE OFICINA"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE\n                                            CALL-CENTER                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "822000",
+                "Campo1": "ACTIVIDADES DE CALL-CENTER"
+            }
+        ]
+    },
+    {
+        "Categoria": "ORGANIZACIÓN DE CONVENCIONES Y EXPOSICIONES\n                                            COMERCIALES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "823000",
+                "Campo1": "ORGANIZACIÓN DE CONVENCIONES Y EXPOSICIONES COMERCIALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE SERVICIOS DE APOYO A LAS EMPRESAS\n                                            N.C.P.             \n                                        ",
+        "Items": [
+            {
+                "Campo": "829110",
+                "Campo1": "ACTIVIDADES DE AGENCIAS DE COBRO"
+            },
+            {
+                "Campo": "829120",
+                "Campo1": "ACTIVIDADES DE AGENCIAS DE CALIFICACIÓN CREDITICIA"
+            },
+            {
+                "Campo": "829200",
+                "Campo1": "ACTIVIDADES DE ENVASADO Y EMPAQUETADO"
+            },
+            {
+                "Campo": "829900",
+                "Campo1": "OTRAS ACTIVIDADES DE SERVICIOS DE APOYO A LAS EMPRESAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ADMINISTRACIÓN DEL ESTADO Y APLICACIÓN DE LA POLÍTICA\n                                            ECONÓMICA Y SOCIAL DE LA\n                                            COMUNIDAD        ",
+        "Items": [
+            {
+                "Campo": "841100",
+                "Campo1": "ACTIVIDADES DE LA ADMINISTRACIÓN PÚBLICA EN GENERAL"
+            },
+            {
+                "Campo": "841200",
+                "Campo1": "REGULACIÓN DE LAS ACTIVIDADES DE ORGANISMOS QUE PRESTAN SERVICIOS\n                                            SANITARIOS, EDUCATIVOS, CULTURALES"
+            },
+            {
+                "Campo": "841300",
+                "Campo1": "REGULACIÓN Y FACILITACIÓN DE LA ACTIVIDAD ECONÓMICA\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "PRESTACIÓN DE SERVICIOS A LA COMUNIDAD EN\n                                            GENERAL              \n                                        ",
+        "Items": [
+            {
+                "Campo": "842100",
+                "Campo1": "RELACIONES EXTERIORES"
+            },
+            {
+                "Campo": "842200",
+                "Campo1": "ACTIVIDADES DE DEFENSA"
+            },
+            {
+                "Campo": "842300",
+                "Campo1": "ACTIVIDADES DE MANTENIMIENTO DEL ORDEN PÚBLICO Y DE SEGURIDAD"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE PLANES DE SEGURIDAD SOCIAL DE AFILIACIÓN\n                                            OBLIGATORIA             \n                                        ",
+        "Items": [
+            {
+                "Campo": "843010",
+                "Campo1": "FONDO NACIONAL DE SALUD (FONASA) "
+            },
+            {
+                "Campo": "843020",
+                "Campo1": "INSTITUTO DE PREVISIÓN SOCIAL (IPS)"
+            },
+            {
+                "Campo": "843090",
+                "Campo1": "OTROS PLANES DE SEGURIDAD SOCIAL DE AFILIACIÓN OBLIGATORIA N.C.P.\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "ENSEÑANZA PREESCOLAR, PRIMARIA, SECUNDARIA CIENTÍFICO\n                                            HUMANISTA Y TÉCNICO PROFESIONAL",
+        "Items": [
+            {
+                "Campo": "850011",
+                "Campo1": "ENSEÑANZA PREESCOLAR PÚBLICA"
+            },
+            {
+                "Campo": "850012",
+                "Campo1": "ENSEÑANZA PRIMARIA, SECUNDARIA CIENTÍFICO HUMANISTA Y\n                                            TÉCNICO PROFESIONAL PÚBLICA"
+            },
+            {
+                "Campo": "850021",
+                "Campo1": "ENSEÑANZA PREESCOLAR PRIVADA"
+            },
+            {
+                "Campo": "850022",
+                "Campo1": "ENSEÑANZA PRIMARIA, SECUNDARIA CIENTÍFICO HUMANISTA Y\n                                            TÉCNICO PROFESIONAL PRIVADA"
+            }
+        ]
+    },
+    {
+        "Categoria": "ENSEÑANZA\n                                            SUPERIOR                    \n                                        ",
+        "Items": [
+            {
+                "Campo": "853110",
+                "Campo1": "ENSEÑANZA SUPERIOR EN UNIVERSIDADES PÚBLICAS"
+            },
+            {
+                "Campo": "853120",
+                "Campo1": "ENSEÑANZA SUPERIOR EN UNIVERSIDADES PRIVADAS"
+            },
+            {
+                "Campo": "853201",
+                "Campo1": "ENSEÑANZA SUPERIOR EN INSTITUTOS PROFESIONALES"
+            },
+            {
+                "Campo": "853202",
+                "Campo1": "ENSEÑANZA SUPERIOR EN CENTROS DE FORMACIÓN TÉCNICA"
+            }
+        ]
+    },
+    {
+        "Categoria": "OTROS TIPOS DE\n                                            ENSEÑANZA                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "854100",
+                "Campo1": "ENSEÑANZA DEPORTIVA Y RECREATIVA"
+            },
+            {
+                "Campo": "854200",
+                "Campo1": "ENSEÑANZA CULTURAL"
+            },
+            {
+                "Campo": "854901",
+                "Campo1": "ENSEÑANZA PREUNIVERSITARIA"
+            },
+            {
+                "Campo": "854902",
+                "Campo1": "SERVICIOS PERSONALES DE EDUCACIÓN"
+            },
+            {
+                "Campo": "854909",
+                "Campo1": "OTROS TIPOS DE ENSEÑANZA N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE APOYO A LA\n                                            ENSEÑANZA                \n                                        ",
+        "Items": [
+            {
+                "Campo": "855000",
+                "Campo1": "ACTIVIDADES DE APOYO A LA ENSEÑANZA"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE HOSPITALES PÚBLICOS Y\n                                            PRIVADOS                \n                                        ",
+        "Items": [
+            {
+                "Campo": "861010",
+                "Campo1": "ACTIVIDADES DE HOSPITALES Y CLÍNICAS PÚBLICAS"
+            },
+            {
+                "Campo": "861020",
+                "Campo1": "ACTIVIDADES DE HOSPITALES Y CLÍNICAS PRIVADAS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE MÉDICOS Y\n                                            ODONTÓLOGOS                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "862010",
+                "Campo1": "ACTIVIDADES DE CENTROS DE SALUD MUNICIPALIZADOS (SERVICIOS DE SALUD\n                                            PÚBLICA)"
+            },
+            {
+                "Campo": "862021",
+                "Campo1": "CENTROS MÉDICOS PRIVADOS (ESTABLECIMIENTOS DE ATENCIÓN\n                                            AMBULATORIA)"
+            },
+            {
+                "Campo": "862022",
+                "Campo1": "CENTROS DE ATENCIÓN ODONTOLÓGICA PRIVADOS (ESTABLECIMIENTOS DE\n                                            ATENCIÓN AMBULATORIA)"
+            },
+            {
+                "Campo": "862031",
+                "Campo1": "SERVICIOS DE MÉDICOS PRESTADOS DE FORMA INDEPENDIENTE"
+            },
+            {
+                "Campo": "862032",
+                "Campo1": "SERVICIOS DE ODONTÓLOGOS PRESTADOS DE FORMA INDEPENDIENTE"
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE ATENCIÓN DE LA SALUD\n                                            HUMANA              \n                                        ",
+        "Items": [
+            {
+                "Campo": "869010",
+                "Campo1": "ACTIVIDADES DE LABORATORIOS CLÍNICOS Y BANCOS DE SANGRE"
+            },
+            {
+                "Campo": "869091",
+                "Campo1": "OTROS SERVICIOS DE ATENCIÓN DE LA SALUD HUMANA PRESTADOS POR EMPRESAS\n                                        "
+            },
+            {
+                "Campo": "869092",
+                "Campo1": "SERVICIOS PRESTADOS DE FORMA INDEPENDIENTE POR OTROS PROFESIONALES DE LA\n                                            SALUD"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE ATENCIÓN DE ENFERMERÍA EN\n                                            INSTITUCIONES               \n                                        ",
+        "Items": [
+            {
+                "Campo": "871000",
+                "Campo1": "ACTIVIDADES DE ATENCIÓN DE ENFERMERÍA EN INSTITUCIONES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE ATENCIÓN EN INSTITUCIONES PARA PERSONAS CON\n                                            DISCAPACIDAD MENTAL Y TOXICÓMANOS ",
+        "Items": [
+            {
+                "Campo": "872000",
+                "Campo1": "ACTIVIDADES DE ATENCIÓN EN INSTITUCIONES PARA PERSONAS CON\n                                            DISCAPACIDAD MENTAL Y TOXICÓMANOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE ATENCIÓN EN INSTITUCIONES PARA PERSONAS DE EDAD Y\n                                            PERSONAS CON\n                                            DISCAPACIDAD         ",
+        "Items": [
+            {
+                "Campo": "873000",
+                "Campo1": "ACTIVIDADES DE ATENCIÓN EN INSTITUCIONES PARA PERSONAS DE EDAD Y\n                                            PERSONAS CON DISCAPACIDAD FÍSICA"
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE ATENCIÓN EN\n                                            INSTITUCIONES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "879000",
+                "Campo1": "OTRAS ACTIVIDADES DE ATENCIÓN EN INSTITUCIONES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE ASISTENCIA SOCIAL SIN ALOJAMIENTO PARA PERSONAS DE EDAD Y\n                                            PERSONAS CON DISCAPACIDAD",
+        "Items": [
+            {
+                "Campo": "881000",
+                "Campo1": "ACTIVIDADES DE ASISTENCIA SOCIAL SIN ALOJAMIENTO PARA PERSONAS DE EDAD Y\n                                            PERSONAS CON DISCAPACIDAD"
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE ASISTENCIA SOCIAL SIN\n                                            ALOJAMIENTO               \n                                        ",
+        "Items": [
+            {
+                "Campo": "889000",
+                "Campo1": "OTRAS ACTIVIDADES DE ASISTENCIA SOCIAL SIN ALOJAMIENTO"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES CREATIVAS, ARTÍSTICAS Y DE\n                                            ENTRETENIMIENTO                \n                                        ",
+        "Items": [
+            {
+                "Campo": "900001",
+                "Campo1": "SERVICIOS DE PRODUCCIÓN DE OBRAS DE TEATRO, CONCIERTOS,\n                                            ESPECTÁCULOS DE DANZA, OTRAS PROD. ESCÉNICAS"
+            },
+            {
+                "Campo": "900002",
+                "Campo1": "ACTIVIDADES ARTÍSTICAS REALIZADAS POR BANDAS DE MÚSICA,\n                                            COMPAÑÍAS DE TEATRO, CIRCENSES Y SIMILARES"
+            },
+            {
+                "Campo": "900003",
+                "Campo1": "ACTIVIDADES DE ARTISTAS REALIZADAS DE FORMA INDEPENDIENTE: ACTORES,\n                                            MÚSICOS, ESCRITORES, ENTRE OTROS"
+            },
+            {
+                "Campo": "900004",
+                "Campo1": "SERVICIOS PRESTADOS POR PERIODISTAS INDEPENDIENTES"
+            },
+            {
+                "Campo": "900009",
+                "Campo1": "OTRAS ACTIVIDADES CREATIVAS, ARTÍSTICAS Y DE ENTRETENIMIENTO N.C.P.\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE BIBLIOTECAS, ARCHIVOS Y MUSEOS Y OTRAS ACTIVIDADES\n                                            CULTURALES            \n                                        ",
+        "Items": [
+            {
+                "Campo": "910100",
+                "Campo1": "ACTIVIDADES DE BIBLIOTECAS Y ARCHIVOS"
+            },
+            {
+                "Campo": "910200",
+                "Campo1": "ACTIVIDADES DE MUSEOS, GESTIÓN DE LUGARES Y EDIFICIOS\n                                            HISTÓRICOS"
+            },
+            {
+                "Campo": "910300",
+                "Campo1": "ACTIVIDADES DE JARDINES BOTÁNICOS, ZOOLÓGICOS Y RESERVAS\n                                            NATURALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE JUEGOS DE AZAR Y\n                                            APUESTAS               \n                                        ",
+        "Items": [
+            {
+                "Campo": "920010",
+                "Campo1": "ACTIVIDADES DE CASINOS DE JUEGOS"
+            },
+            {
+                "Campo": "920090",
+                "Campo1": "OTRAS ACTIVIDADES DE JUEGOS DE AZAR Y APUESTAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES\n                                            DEPORTIVAS                    \n                                        ",
+        "Items": [
+            {
+                "Campo": "931101",
+                "Campo1": "HIPÓDROMOS"
+            },
+            {
+                "Campo": "931102",
+                "Campo1": "GESTIÓN DE SALAS DE BILLAR; GESTIÓN DE SALAS DE BOLOS\n                                            (BOWLING)"
+            },
+            {
+                "Campo": "931109",
+                "Campo1": "GESTIÓN DE OTRAS INSTALACIONES DEPORTIVAS N.C.P."
+            },
+            {
+                "Campo": "931201",
+                "Campo1": "ACTIVIDADES DE CLUBES DE FÚTBOL AMATEUR Y PROFESIONAL"
+            },
+            {
+                "Campo": "931209",
+                "Campo1": "ACTIVIDADES DE OTROS CLUBES DEPORTIVOS N.C.P."
+            },
+            {
+                "Campo": "931901",
+                "Campo1": "PROMOCIÓN Y ORGANIZACIÓN DE COMPETENCIAS DEPORTIVAS"
+            },
+            {
+                "Campo": "931909",
+                "Campo1": "OTRAS ACTIVIDADES DEPORTIVAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE ESPARCIMIENTO Y\n                                            RECREATIVAS                \n                                        ",
+        "Items": [
+            {
+                "Campo": "932100",
+                "Campo1": "ACTIVIDADES DE PARQUES DE ATRACCIONES Y PARQUES TEMÁTICOS"
+            },
+            {
+                "Campo": "932901",
+                "Campo1": "GESTIÓN DE SALAS DE POOL; GESTIÓN (EXPLOTACIÓN) DE\n                                            JUEGOS ELECTRÓNICOS"
+            },
+            {
+                "Campo": "932909",
+                "Campo1": "OTRAS ACTIVIDADES DE ESPARCIMIENTO Y RECREATIVAS N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE ASOCIACIONES EMPRESARIALES, PROFESIONALES Y DE\n                                            EMPLEADORES              \n                                        ",
+        "Items": [
+            {
+                "Campo": "941100",
+                "Campo1": "ACTIVIDADES DE ASOCIACIONES EMPRESARIALES Y DE EMPLEADORES"
+            },
+            {
+                "Campo": "941200",
+                "Campo1": "ACTIVIDADES DE ASOCIACIONES PROFESIONALES"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE\n                                            SINDICATOS                   \n                                        ",
+        "Items": [
+            {
+                "Campo": "942000",
+                "Campo1": "ACTIVIDADES DE SINDICATOS"
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE OTRAS\n                                            ASOCIACIONES                  \n                                        ",
+        "Items": [
+            {
+                "Campo": "949100",
+                "Campo1": "ACTIVIDADES DE ORGANIZACIONES RELIGIOSAS"
+            },
+            {
+                "Campo": "949200",
+                "Campo1": "ACTIVIDADES DE ORGANIZACIONES POLÍTICAS"
+            },
+            {
+                "Campo": "949901",
+                "Campo1": "ACTIVIDADES DE CENTROS DE MADRES"
+            },
+            {
+                "Campo": "949902",
+                "Campo1": "ACTIVIDADES DE CLUBES SOCIALES"
+            },
+            {
+                "Campo": "949903",
+                "Campo1": "FUNDACIONES Y CORPORACIONES; ASOCIACIONES QUE PROMUEVEN ACTIVIDADES\n                                            CULTURALES O RECREATIVAS"
+            },
+            {
+                "Campo": "949904",
+                "Campo1": "CONSEJO DE ADMINISTRACIÓN DE EDIFICIOS Y CONDOMINIOS"
+            },
+            {
+                "Campo": "949909",
+                "Campo1": "ACTIVIDADES DE OTRAS ASOCIACIONES N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "REPARACIÓN DE COMPUTADORES Y EQUIPO DE\n                                            COMUNICACIONES               \n                                        ",
+        "Items": [
+            {
+                "Campo": "951100",
+                "Campo1": "REPARACIÓN DE COMPUTADORES Y EQUIPO PERIFÉRICO"
+            },
+            {
+                "Campo": "951200",
+                "Campo1": "REPARACIÓN DE EQUIPO DE COMUNICACIONES (INCLUYE LA REPARACIÓN\n                                            TELÉFONOS CELULARES)"
+            }
+        ]
+    },
+    {
+        "Categoria": "REPARACIÓN DE EFECTOS PERSONALES Y ENSERES\n                                            DOMÉSTICOS               \n                                        ",
+        "Items": [
+            {
+                "Campo": "952100",
+                "Campo1": "REPARACIÓN DE APARATOS ELECTRÓNICOS DE CONSUMO (INCLUYE\n                                            APARATOS DE TELEVISIÓN Y RADIO)"
+            },
+            {
+                "Campo": "952200",
+                "Campo1": "REPARACIÓN DE APARATOS DE USO DOMÉSTICO, EQUIPO\n                                            DOMÉSTICO Y DE JARDINERÍA"
+            },
+            {
+                "Campo": "952300",
+                "Campo1": "REPARACIÓN DE CALZADO Y DE ARTÍCULOS DE CUERO"
+            },
+            {
+                "Campo": "952400",
+                "Campo1": "REPARACIÓN DE MUEBLES Y ACCESORIOS DOMÉSTICOS"
+            },
+            {
+                "Campo": "952900",
+                "Campo1": "REPARACIÓN DE OTROS EFECTOS PERSONALES Y ENSERES DOMÉSTICOS\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "OTRAS ACTIVIDADES DE SERVICIOS\n                                            PERSONALES                 \n                                        ",
+        "Items": [
+            {
+                "Campo": "960100",
+                "Campo1": "LAVADO Y LIMPIEZA, INCLUIDA LA LIMPIEZA EN SECO, DE PRODUCTOS TEXTILES Y DE\n                                            PIEL"
+            },
+            {
+                "Campo": "960200",
+                "Campo1": "PELUQUERÍA Y OTROS TRATAMIENTOS DE BELLEZA"
+            },
+            {
+                "Campo": "960310",
+                "Campo1": "SERVICIOS FUNERARIOS"
+            },
+            {
+                "Campo": "960320",
+                "Campo1": "SERVICIOS DE CEMENTERIOS"
+            },
+            {
+                "Campo": "960901",
+                "Campo1": "SERVICIOS DE ADIESTRAMIENTO, GUARDERÍA, PELUQUERÍA, PASEO DE\n                                            MASCOTAS (EXCEPTO ACT. VETERINARIAS)"
+            },
+            {
+                "Campo": "960902",
+                "Campo1": "ACTIVIDADES DE SALONES DE MASAJES, BAÑOS TURCOS, SAUNAS, SERVICIO DE\n                                            BAÑOS PÚBLICOS"
+            },
+            {
+                "Campo": "960909",
+                "Campo1": "OTRAS ACTIVIDADES DE SERVICIOS PERSONALES N.C.P."
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE LOS HOGARES COMO EMPLEADORES DE PERSONAL\n                                            DOMÉSTICO             \n                                        ",
+        "Items": [
+            {
+                "Campo": "970000",
+                "Campo1": "ACTIVIDADES DE LOS HOGARES COMO EMPLEADORES DE PERSONAL DOMÉSTICO\n                                        "
+            }
+        ]
+    },
+    {
+        "Categoria": "ACTIVIDADES DE ORGANIZACIONES Y ÓRGANOS\n                                            EXTRATERRITORIALES                \n                                        ",
+        "Items": [
+            {
+                "Campo": "990000",
+                "Campo1": "ACTIVIDADES DE ORGANIZACIONES Y ÓRGANOS EXTRATERRITORIALES"
+            }
+        ]
+    }
+]
