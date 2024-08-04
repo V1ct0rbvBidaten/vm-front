@@ -34,6 +34,7 @@ const RegisterComplete = () => {
 
   const handleOpen = () => {
     setOpen(!open);
+    setEndReached(false);
   };
 
   const handleChange = (e) => {
