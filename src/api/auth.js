@@ -8,9 +8,28 @@ export const login = async (userData) => {
   return await axios.post(`${import.meta.env.VITE_API_URL}/login`, userData);
 };
 
+export const changePassword = async (token, body) => {
+  return await axios.post(
+    `${import.meta.env.VITE_API_URL}/change-password`,
+    body,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
 export const resetPassword = async (email) => {
   return await axios.post(
     `${import.meta.env.VITE_API_URL}/request-password-reset`,
+    email
+  );
+};
+
+export const resetPasswordConfirm = async (email) => {
+  return await axios.post(
+    `${import.meta.env.VITE_API_URL}/reset-password`,
     email
   );
 };

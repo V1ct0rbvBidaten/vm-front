@@ -3,8 +3,10 @@ import Logo from "../../assets/logoFondoBlanco.svg";
 import { Button, Input } from "@nextui-org/react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import { resetPassword } from "../../api/auth";
+import { useNavigate, useParams } from "react-router-dom";
+import { resetPassword, resetPasswordConfirm } from "../../api/auth";
+import { useJwt } from "react-jwt";
+import { useLocation } from "react-router-dom";
 
 const initialState = {
   contraseña: "",
@@ -12,8 +14,17 @@ const initialState = {
   email: "",
 };
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
 const ResetPassword = () => {
   let navigate = useNavigate();
+
+  const query = useQuery();
+  const token = query.get("token");
+
+  const { decodedToken, isExpired } = useJwt(token);
 
   const [values, setValues] = useState(initialState);
   const [isVisible, setIsVisible] = useState(false);
@@ -58,6 +69,19 @@ const ResetPassword = () => {
       });
   };
 
+  const handleSubmit = () => {
+    resetPasswordConfirm({ token, new_password: contraseña })
+      .then((res) => {
+        toast.success(res.data.message);
+        navigate("/login");
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
+  };
+
+  const { sub } = decodedToken;
+
   return (
     <>
       <div className="h-full w-screen p-10 ">
@@ -67,7 +91,86 @@ const ResetPassword = () => {
         <div className="w-full flex justify-center items-center flex-col pt-5 mt-5 rounded-md border-1 pb-5">
           <div className="w-[40%]">
             <div className="flex  flex-col  gap-4 mt-2">
-              {emailSendt ? (
+              {token ? (
+                <div className="flex flex-col gap-4">
+                  <Input
+                    variant="bordered"
+                    label="Email"
+                    isDisabled
+                    value={sub}
+                    labelPlacement="outside"
+                  />
+                  <Input
+                    label="Contraseña"
+                    variant="bordered"
+                    size="sm"
+                    placeholder="Ingresa tu contraseña"
+                    labelPlacement="outside"
+                    endContent={
+                      <button
+                        className="focus:outline-none"
+                        type="button"
+                        onClick={toggleVisibility}
+                      >
+                        {isVisible ? (
+                          <EyeSlashIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
+                        ) : (
+                          <EyeIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
+                        )}
+                      </button>
+                    }
+                    type={isVisible ? "text" : "password"}
+                    value={contraseña}
+                    name="contraseña"
+                    onChange={handleChange}
+                  />
+
+                  <Input
+                    variant="bordered"
+                    label="Re-Ingrese Contraseña"
+                    labelPlacement="outside"
+                    placeholder="Ingrese nuevamente su contraseña"
+                    endContent={
+                      <button
+                        className="focus:outline-none"
+                        type="button"
+                        onClick={toggleVisibility}
+                      >
+                        {isVisible ? (
+                          <EyeSlashIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
+                        ) : (
+                          <EyeIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
+                        )}
+                      </button>
+                    }
+                    type={isVisible ? "text" : "password"}
+                    className=" "
+                    name="validacion_contraseña"
+                    value={validacion_contraseña}
+                    onChange={handleChange}
+                  />
+                  {!isEqual(contraseña, validacion_contraseña) && (
+                    <div className="flex flex-col gap-2">
+                      <p className="text-rose-500 text-left ml-0 text-xs italic">
+                        *** Las contraseñas no coinciden.
+                      </p>
+                    </div>
+                  )}
+
+                  {!isRightFormat(contraseña) && (
+                    <p className="text-rose-500 text-left ml-0 text-xs italic">
+                      *** La contraseña debe ser mayor a 8 caracteres y contener
+                      al menos una mayúscula.
+                    </p>
+                  )}
+                  <Button
+                    className="bg-foreground text-white rounded-full"
+                    onClick={handleSubmit}
+                  >
+                    Restablecer contraseña
+                  </Button>
+                </div>
+              ) : emailSendt ? (
                 <div className="flex flex-col gap-4">
                   <p className="text-lg font-semibold">
                     Hemos enviado un correo con las instrucciones para

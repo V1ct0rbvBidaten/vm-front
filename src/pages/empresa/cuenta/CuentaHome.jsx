@@ -15,6 +15,7 @@ import Loading from "../../../components/utils/Loading";
 import DatosPersonalesDetail from "./detail/DatosPersonalesDetail";
 import { updatePerfil } from "../../../api/perfil";
 import { updateEmpresa } from "../../../api/empresas";
+import { changePassword } from "../../../api/auth";
 import { toast } from "react-toastify";
 import DatosPersonalesUpdate from "./update/DatosPersonalesUpdate";
 import DatosPerfilEmpresaUpdate from "./update/DatosPerfilEmpresaUpdate";
@@ -22,6 +23,8 @@ import DatosEmpresaDetail from "./detail/DatosEmpresaDetail";
 import DatosEmpresaUpdate from "./update/DatosEmpresaUpdate";
 import DatosBancariosDetail from "./detail/DatosBancariosDetail";
 import DatosBancariosUpdate from "./update/DatosBancariosUpdate";
+import PasswordUpdate from "./update/PasswordUpdate";
+import PasswordDetail from "./detail/PasswordDetail";
 
 const initialStateTogleEdit = {
   datosPersonales: false,
@@ -30,11 +33,17 @@ const initialStateTogleEdit = {
   contrasena: false,
 };
 
+const initialStatePassword = {
+  current_password: "",
+  new_password: "",
+};
+
 const CuentaHome = () => {
   const [togleEdit, setTogleEdit] = useState(initialStateTogleEdit);
   const [updateDataPerfil, setUpdateDataPerfil] = useState(null);
   const [updateDataEmpresa, setUpdateDataEmpresa] = useState(null);
   const [imagenPrincipal, setImagenPrincipal] = useState(null);
+  const [newPassword, setNewPassword] = useState(initialStatePassword);
   const [portada, setPortada] = useState(null);
   const user = useSelector((state) => state.user);
 
@@ -71,6 +80,27 @@ const CuentaHome = () => {
         <p className="text-sky-500 font-semibold text-xl">Cargando...</p>
       </div>
     );
+
+  const handleUpdatePassword = (e) => {
+    e.preventDefault();
+    changePassword(user.token, newPassword, user.id_usuario)
+      .then(() => {
+        toast.success("Contraseña actualizada correctamente");
+      })
+      .catch((error) => {
+        console.error("Error al actualizar contraseña: ", error);
+        toast.error("Error al actualizar contraseña");
+      })
+      .finally(() => {
+        setReload(!reload);
+        setNewPassword(initialStatePassword);
+      });
+  };
+
+  const passwordChange = (e) => {
+    const { name, value } = e.target;
+    setNewPassword({ ...newPassword, [name]: value });
+  };
 
   const handleUpdatePerfil = (e) => {
     e.preventDefault();
@@ -283,31 +313,28 @@ const CuentaHome = () => {
             <Tab key="contrasena" title="Contraseña" className="w-full">
               <Card>
                 <CardBody>
-                  <div className="grid grid-cols-2  gap-4  p-4 ">
-                    <h4 className="col-span-3 tracking-wide text-xl font-semibold">
-                      Contraseña
-                    </h4>
-                    <Input
-                      variant="bordered"
-                      label="Mi correo"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={user.correo_electronico}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Contraseña"
-                      labelPlacement="outside"
-                      size="sm"
-                      endContent={
-                        <button className="focus:outline-none" type="button">
-                          <EyeSlashIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
-                        </button>
-                      }
-                      type={"password"}
-                      value={user.password}
-                    />
+                  <div className=" flex flex-col gap-4 p-4 ">
+                    <div className="flex justify-between">
+                      <h4 className="col-span-2 tracking-wide text-xl font-semibold">
+                        Contraseña
+                      </h4>
+                      <Button
+                        className="bg-emerald-500 text-white h-6"
+                        onClick={() => handleTogleEdit("contrasena")}
+                      >
+                        <PencilSquareIcon className="h-4" />
+                        Cambiar Contraseña
+                      </Button>
+                    </div>
+                    {togleEdit.contrasena ? (
+                      <PasswordUpdate
+                        data={newPassword}
+                        handleChange={passwordChange}
+                        handleSubmit={handleUpdatePassword}
+                      />
+                    ) : (
+                      <PasswordDetail user={user} />
+                    )}
                   </div>
                 </CardBody>
               </Card>
