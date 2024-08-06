@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 
 const MultipleImageUploader = ({ maxImages = 10, images, setImages }) => {
   const hiddenFileInput = useRef(null);
+
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     const newImages = [];
@@ -32,6 +33,7 @@ const MultipleImageUploader = ({ maxImages = 10, images, setImages }) => {
 
   const handleRemoveImage = (e, index) => {
     e.preventDefault();
+    e.stopPropagation();
     setImages((prevImages) => prevImages.filter((_, i) => i !== index));
   };
 
@@ -47,17 +49,16 @@ const MultipleImageUploader = ({ maxImages = 10, images, setImages }) => {
       />
       <div className="grid grid-cols-5 gap-2">
         {Array.from({ length: maxImages }, (_, index) => (
-          <div key={index} className="image-preview">
+          <div key={index} className="relative">
             {images[index] ? (
-              <div className=" rounded-sm w-full image-container">
+              <div className="image-container rounded-[10px] shadow-md w-full bg-gray-200 flex justify-center items-center hover:cursor-pointer">
                 <img
                   className="hover:cursor-pointer hover:opacity-80 transition duration-300"
                   src={images[index]}
                   alt={`Uploaded Image ${index + 1}`}
-                  onClick={() => handleRemoveImage(index)}
                 />
                 <button
-                  className="rounded-sm h-7  bg-rose-500 absolute flex justify-center items-center text-white p-2 bottom-0 w-full"
+                  className="rounded-sm h-7 bg-rose-500 absolute flex justify-center items-center text-white p-2 bottom-0 w-full"
                   onClick={(e) => handleRemoveImage(e, index)}
                 >
                   <TrashIcon className="h-5" />
@@ -65,7 +66,7 @@ const MultipleImageUploader = ({ maxImages = 10, images, setImages }) => {
               </div>
             ) : (
               <div
-                className="skeleton h-32 rounded-[10px] shadow-md w-full bg-gray-200 animate-pulse flex justify-center items-center hover:cursor-pointer"
+                className="skeleton h-[180px] rounded-[10px] shadow-md w-full bg-gray-200 animate-pulse flex justify-center items-center hover:cursor-pointer"
                 onClick={handleClick}
               >
                 <PlusCircleIcon className="h-6" />
