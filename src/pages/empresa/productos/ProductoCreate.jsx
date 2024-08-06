@@ -62,48 +62,56 @@ const ProductoCreate = () => {
     values.imagenes = galeria;
 
     setLoading(true);
-    createProducto(user.token, values).then((res) => {
-      console.log(res);
+    createProducto(user.token, values)
+      .then((res) => {
+        console.log(res);
 
-      if (fileCapacitacion.length > 0) {
-        let paramsCapacitacion = {
-          id_empresa: "vemdo-empresas",
-          path: `${res.data.detail.data[0].id_empresa}/productos/${res.data.detail.data[0].id_producto}/capacitacion`,
-        };
+        if (fileCapacitacion.length > 0) {
+          let paramsCapacitacion = {
+            id_empresa: "vemdo-empresas",
+            path: `${res.data.detail.data[0].id_empresa}/productos/${res.data.detail.data[0].id_producto}/capacitacion`,
+          };
 
-        uploadFile(user.token, paramsCapacitacion, fileCapacitacion)
-          .then((res) => {
-            console.log(res);
-            toast.success("Archivo subido con éxito");
-          })
-          .catch((err) => {
-            console.log(err);
-            toast.error("Error al subir archivo");
-          });
-      }
+          uploadFile(user.token, paramsCapacitacion, fileCapacitacion)
+            .then((res) => {
+              console.log(res);
+              toast.success("Archivo subido con éxito");
+            })
+            .catch((err) => {
+              console.log(err);
+              toast.error("Error al subir archivo");
+            });
+        }
 
-      if (fileVenta.length > 0) {
-        let paramsVenta = {
-          id_empresa: "vemdo-empresas",
-          path: `${res.data.detail.data[0].id_empresa}/productos/${res.data.detail.data[0].id_producto}/venta`,
-        };
+        if (fileVenta.length > 0) {
+          let paramsVenta = {
+            id_empresa: "vemdo-empresas",
+            path: `${res.data.detail.data[0].id_empresa}/productos/${res.data.detail.data[0].id_producto}/venta`,
+          };
 
-        uploadFile(user.token, paramsVenta, fileVenta)
-          .then((res) => {
-            console.log(res);
-            toast.success("Archivo subido con éxito");
-          })
+          uploadFile(user.token, paramsVenta, fileVenta)
+            .then((res) => {
+              console.log(res);
+              toast.success("Archivo subido con éxito");
+            })
 
-          .catch((err) => {
-            console.log(err);
-            toast.error("Error al crear producto");
-          });
-      }
-      toast.success("Producto creado con éxito");
-      navigate("/empresa/home");
-      setValues(initialState);
-      setLoading(false);
-    });
+            .catch((err) => {
+              console.log(err);
+              toast.error("Error al crear producto");
+            });
+        }
+        toast.success("Producto creado con éxito");
+        navigate("/empresa/home");
+        setValues(initialState);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Error al crear producto");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   if (loading)
@@ -139,6 +147,7 @@ const ProductoCreate = () => {
             label="Nombre"
             labelPlacement="outside"
             value={values.nombre_producto}
+            isRequired
             onChange={handleChange}
           />
           <Input
@@ -148,6 +157,7 @@ const ProductoCreate = () => {
             name="precio"
             label="Precio"
             labelPlacement="outside"
+            isRequired
             value={values.precio}
             onChange={handleChange}
           />
@@ -157,6 +167,7 @@ const ProductoCreate = () => {
             name="estado_producto"
             label="Estado producto"
             labelPlacement="outside"
+            isRequired
             value={values.estado_producto}
             placeholder="estado"
             onChange={handleChange}
@@ -174,6 +185,7 @@ const ProductoCreate = () => {
             placeholder="Comisión"
             name="comision"
             label="Comisión"
+            isRequired
             labelPlacement="outside"
             value={values.comision}
             onChange={handleChange}
@@ -185,6 +197,7 @@ const ProductoCreate = () => {
             variant="bordered"
             name="categoria"
             label="Categoria"
+            isRequired
             placeholder="Categoria"
             labelPlacement="outside"
             value={values.categoria}
@@ -202,6 +215,7 @@ const ProductoCreate = () => {
             name="tipo_venta"
             label="Tipo de venta"
             placeholder="Tipo de venta"
+            isRequired
             labelPlacement="outside"
             value={values.tipo_venta}
             onChange={handleChange}
@@ -218,6 +232,7 @@ const ProductoCreate = () => {
             variant="bordered"
             name="descripcion"
             label="Descripción"
+            isRequired
             labelPlacement="outside"
             className="col-span-3"
             value={values.descripcion}
