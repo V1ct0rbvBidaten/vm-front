@@ -1,23 +1,17 @@
 import ProductoCard from "./ProductoCard";
-import {
-  EllipsisVerticalIcon,
-  FunnelIcon,
-  MagnifyingGlassIcon,
-  PlusIcon,
-} from "@heroicons/react/24/solid";
+import { PlusIcon } from "@heroicons/react/24/solid";
+import NoImage from "../../../assets/no-image.jpg";
 import {
   Button,
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Input,
   Pagination,
   Divider,
-  Select,
-  SelectItem,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
 } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
+import { formatNumberToCurrency } from "../../../functions/formaters";
 
 const ProductosHome = ({
   data,
@@ -102,7 +96,26 @@ const ProductosHome = ({
         </>
       ) : (
         <div className="grid grid-cols-6 gap-4 p-4 w-full">
-          <ProductoCard data={noData} />
+          <Card className="py-4" isPressable>
+            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+              <h4 className="font-bold text-xs">{noData.nombre_producto}</h4>
+            </CardHeader>
+            <CardBody className="overflow-visible py-2 h-[200px]">
+              <div className="image-container ">
+                <img
+                  className="hover:cursor-pointer hover:opacity-80 transition duration-300"
+                  src={NoImage}
+                />
+              </div>
+            </CardBody>
+            <CardFooter>
+              <div className="flex  w-full gap-2 justify-start">
+                <span className="text-emerald-500 font-semibold text-lg  rounded-md ">
+                  {formatNumberToCurrency(noData.precio)}
+                </span>
+              </div>
+            </CardFooter>
+          </Card>
         </div>
       )}
     </div>

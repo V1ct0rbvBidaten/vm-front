@@ -112,10 +112,10 @@ const Registro = () => {
                   ingresarlo a continuación para continuar con su registro.
                 </p>
 
-                <h2 className="text-2xl font-semibold">
+                <h2 className="text-2xl font-semibold text-center">
                   <CountdownTimer time={timeCountDown} />
                 </h2>
-                <div className="space-x-2">
+                <div className="space-x-2 text-center ">
                   <VerificationCodeInput inputsRef={inputsRef} />
                 </div>
                 {loading ? ( // Mostrar el spinner cuando loading es true
