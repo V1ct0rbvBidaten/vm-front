@@ -87,7 +87,7 @@ const VendedorSideNav = ({ user }) => {
   };
 
   const versionFormat = (
-    <div className="flex gap-2 text-slate-500 text-xs italic  mt-2 hover:cursor-pointer hover:transition-all hover:text-slate-500 font-semibold bg-stone-100 p-1 rounded-full hover:bg-stone-400 hover:text-white">
+    <div className="flex gap-2 text-slate-500 text-xs italic  mt-2  font-semibold bg-stone-100 p-1 rounded-full">
       <InformationCircleIcon className="h-4" />
       <span>VeMdo Versión - {version[0].version}</span>
     </div>
@@ -177,15 +177,6 @@ const VendedorSideNav = ({ user }) => {
                 }
               })}
           </Menu>
-
-          <div className="mt-auto p-2 text-md">
-            <User
-              name={user.nombre_completo}
-              avatarProps={{
-                src: "https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg",
-              }}
-            />
-          </div>
         </div>
       ) : (
         <div className=" flex flex-col h-full">
@@ -263,18 +254,7 @@ const VendedorSideNav = ({ user }) => {
               })}
           </Menu>
 
-          <div className="mt-auto ml-4 mr-4 p-4 text-md">
-            <User
-              name={user.profile_name}
-              classNames={{
-                name: "text-white",
-              }}
-              avatarProps={{
-                src: "https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg",
-              }}
-            />
-            {versionFormat}
-          </div>
+          <div className="mt-auto ml-4 mr-4 p-4 text-md">{versionFormat}</div>
         </div>
       )}
     </Sidebar>

@@ -84,12 +84,12 @@ const VendedorRoute = ({ Component }) => {
               <Component user={user} />
             </div>
           </main>
-          <Button
+          {/* <Button
             className="h-14 w-14 rounded-2xl bg-emerald-300 shadow-lg text-white fixed bottom-10 right-10 p-2"
             isIconOnly
           >
             <ChatBubbleLeftRightIcon />
-          </Button>
+          </Button> */}
         </div>
       </>
     )

@@ -18,6 +18,7 @@ import MultipleImageUploader from "../../../components/utils/MultipleImageUpload
 import InputFileUploader from "../../../components/utils/InputFileUploader";
 import { getSize } from "../../../functions/file";
 import { uploadFile } from "../../../api/file";
+import { TrashIcon } from "@heroicons/react/24/solid";
 
 const initialState = {
   nombre_producto: "",
@@ -48,11 +49,11 @@ const ProductoCreate = () => {
   };
 
   const handleFileChangeVenta = (e) => {
-    setFileVenta([...e.target.files]);
+    setFileVenta((prevFiles) => [...prevFiles, ...e.target.files]);
   };
 
   const handleFileChangeCapacitacion = (e) => {
-    setFileCapacitacion([...e.target.files]);
+    setFileCapacitacion((prevFiles) => [...prevFiles, ...e.target.files]);
   };
 
   const handleSubmit = (e) => {
@@ -112,6 +113,16 @@ const ProductoCreate = () => {
       .finally(() => {
         setLoading(false);
       });
+  };
+
+  const handleRemoveFileVenta = (index) => {
+    let newFiles = fileVenta.filter((file, i) => i !== index);
+    setFileVenta(newFiles);
+  };
+
+  const handleRemoveFileCapacitacion = (index) => {
+    let newFiles = fileCapacitacion.filter((file, i) => i !== index);
+    setFileCapacitacion(newFiles);
   };
 
   if (loading)
@@ -259,15 +270,23 @@ const ProductoCreate = () => {
               handleFileChange={handleFileChangeVenta}
             />
             {fileVenta && fileVenta.length > 0 && (
-              <div className="w-100 border-1">
+              <div className="w-100 border-1 px-1">
                 {fileVenta.map((file, index) => (
                   <div
-                    className="w-100 bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between"
                     key={index}
+                    className="flex justify-between items-center gap-1"
                   >
-                    <span className="text-xs">{file.name}</span>
+                    <div className="w-full bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between">
+                      <span className="text-xs">{file.name}</span>
 
-                    <span className="text-xs">{getSize(file.size)}</span>
+                      <span className="text-xs">{getSize(file.size)}</span>
+                    </div>
+                    <div
+                      className=" w-6 bg-rose-500 h-full p-1 text-white rounded-md hover:cursor-pointer hover:bg-rose-400"
+                      onClick={() => handleRemoveFileVenta(index)}
+                    >
+                      <TrashIcon className="h-full" />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -282,12 +301,20 @@ const ProductoCreate = () => {
               <div className="w-100 border-1">
                 {fileCapacitacion.map((file, index) => (
                   <div
-                    className="w-100 bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between"
                     key={index}
+                    className="flex justify-between items-center gap-1"
                   >
-                    <span className="text-xs">{file.name}</span>
+                    <div className="w-full bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between">
+                      <span className="text-xs">{file.name}</span>
 
-                    <span className="text-xs">{getSize(file.size)}</span>
+                      <span className="text-xs">{getSize(file.size)}</span>
+                    </div>
+                    <div
+                      className=" w-6 bg-rose-500 h-full p-1 text-white rounded-md hover:cursor-pointer hover:bg-rose-400"
+                      onClick={() => handleRemoveFileCapacitacion(index)}
+                    >
+                      <TrashIcon className="h-full" />
+                    </div>
                   </div>
                 ))}
               </div>

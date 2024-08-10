@@ -180,14 +180,15 @@ const ProductoDetail = () => {
             >
               <PencilSquareIcon className="h-4" />
             </Button>
-
-            <Button
-              className="bg-rose-500 text-white h-7"
-              onClick={deteleProducto}
-              isIconOnly
-            >
-              <TrashIcon className="h-4" />
-            </Button>
+            {edit && (
+              <Button
+                className="bg-rose-500 text-white h-7"
+                onClick={deteleProducto}
+                isIconOnly
+              >
+                <TrashIcon className="h-4" />
+              </Button>
+            )}
           </div>
         </div>
         <Divider />
@@ -261,6 +262,7 @@ const ProductoDetail = () => {
                       multiple
                       handleFileChange={handleFileChangeVenta}
                     />
+
                     {fileVenta && fileVenta.length > 0 && (
                       <div className="w-100 px-2">
                         {fileVenta.map((file, index) => (

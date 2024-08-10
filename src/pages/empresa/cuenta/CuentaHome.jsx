@@ -45,6 +45,7 @@ const CuentaHome = () => {
   const [imagenPrincipal, setImagenPrincipal] = useState(null);
   const [newPassword, setNewPassword] = useState(initialStatePassword);
   const [portada, setPortada] = useState(null);
+  const [loadingSubmit, setLoadingSubmit] = useState(false);
   const user = useSelector((state) => state.user);
 
   const [reload, setReload] = useState(false);
@@ -73,7 +74,13 @@ const CuentaHome = () => {
     if (dataEmpresa) setPortada(dataEmpresa.detail.data.background);
   }, [data, dataEmpresa]);
 
-  if (loading || loadingEmpresa || !updateDataPerfil || !updateDataEmpresa)
+  if (
+    loading ||
+    loadingEmpresa ||
+    !updateDataPerfil ||
+    !updateDataEmpresa ||
+    loadingSubmit
+  )
     return (
       <div className="flex flex-col justify-center items-center w-100 h-[400px] bg-white rounded-md shadow-md">
         <Loading />
@@ -158,6 +165,7 @@ const CuentaHome = () => {
     const reader = new FileReader();
 
     reader.onloadend = () => {
+      setLoadingSubmit(true);
       updateDataEmpresa.background = reader.result;
       updateEmpresa(user.token, updateDataEmpresa, user.id_empresa)
         .then(() => {
@@ -169,6 +177,7 @@ const CuentaHome = () => {
         })
         .finally(() => {
           setReload(!reload);
+          setLoadingSubmit(false);
         });
     };
 
@@ -182,6 +191,7 @@ const CuentaHome = () => {
     const reader = new FileReader();
 
     reader.onloadend = () => {
+      setLoadingSubmit(true);
       updateDataEmpresa.imagen_principal = reader.result;
       updateEmpresa(user.token, updateDataEmpresa, user.id_empresa)
         .then(() => {
@@ -193,6 +203,7 @@ const CuentaHome = () => {
         })
         .finally(() => {
           setReload(!reload);
+          setLoadingSubmit(false);
         });
     };
 
@@ -215,8 +226,8 @@ const CuentaHome = () => {
         <div className="flex w-full flex-col">
           <Tabs aria-label="Options" variant="underlined" color="primary">
             <Tab
-              key="datosPersonales"
-              title="Datos Personales"
+              key="datosRepresentanteLegal"
+              title="Datos del representante legal"
               style={{ width: "100%", textAlign: "left" }}
               className="w-full "
             >
@@ -225,17 +236,17 @@ const CuentaHome = () => {
                   <div className=" flex flex-col gap-4 p-4 ">
                     <div className="flex justify-between">
                       <h4 className="col-span-2 tracking-wide text-xl font-semibold">
-                        Datos Personales
+                        Datos del representante legal
                       </h4>
-                      <Button
+                      {/* <Button
                         className="bg-emerald-500 text-white h-6"
                         isIconOnly
                         onClick={() => handleTogleEdit("datosPersonales")}
                       >
                         <PencilSquareIcon className="h-4" />
-                      </Button>
+                      </Button> */}
                     </div>
-                    {togleEdit.datosEmpresa ? (
+                    {togleEdit.datosPersonales ? (
                       <DatosPersonalesUpdate
                         data={updateDataPerfil}
                         handleChange={handleChangePerfil}

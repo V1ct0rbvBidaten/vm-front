@@ -23,7 +23,7 @@ const SingleImageUploader = ({ image, setImage }) => {
   };
 
   return (
-    <div className="image-container shadow-lg hover:cursor-pointer">
+    <div className="imagen-portada-create shadow-lg hover:cursor-pointer">
       {!image && (
         <div className="uploader-container" onClick={handleClick}>
           <CameraIcon className="h-4" />

@@ -66,7 +66,7 @@ const EmpresaRoute = ({ Component }) => {
                     className="bg-sky-500 text-white shadow-md h-8 rounded-full"
                     endContent={<EllipsisVerticalIcon className="h-6" />}
                   >
-                    ¡Hola, {user.profile_name}!
+                    ¡Hola, {user.nombre_empresa}!
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu aria-label="Static Actions">
@@ -84,12 +84,12 @@ const EmpresaRoute = ({ Component }) => {
               <Component user={user} />
             </div>
           </main>
-          <Button
+          {/* <Button
             className="h-14 w-14 rounded-2xl bg-emerald-300 shadow-lg text-white fixed z-10 bottom-10 right-10 p-2"
             isIconOnly
           >
             <ChatBubbleLeftRightIcon />
-          </Button>
+          </Button> */}
         </div>
       </>
     )

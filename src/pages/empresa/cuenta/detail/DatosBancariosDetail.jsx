@@ -12,7 +12,7 @@ const DatosBancariosDetail = ({ data }) => {
   return (
     <div className="grid grid-cols-2 items-center gap-4">
       <Input
-        variant="bordered"
+        variant="flat"
         disabled
         label="Nombre banco"
         labelPlacement="outside"
@@ -21,7 +21,7 @@ const DatosBancariosDetail = ({ data }) => {
         value={banco}
       />
       <Input
-        variant="bordered"
+        variant="flat"
         disabled
         label="Rut cuenta"
         labelPlacement="outside"
@@ -30,7 +30,7 @@ const DatosBancariosDetail = ({ data }) => {
         value={rut_cuenta_bancaria}
       />
       <Input
-        variant="bordered"
+        variant="flat"
         disabled
         label="Tipo de cuenta bancaria"
         labelPlacement="outside"
@@ -40,7 +40,7 @@ const DatosBancariosDetail = ({ data }) => {
       />
 
       <Input
-        variant="bordered"
+        variant="flat"
         disabled
         label="Número de cuenta bancaria"
         labelPlacement="outside"
@@ -49,7 +49,7 @@ const DatosBancariosDetail = ({ data }) => {
         value={numero_cuenta_bancaria}
       />
       <Input
-        variant="bordered"
+        variant="flat"
         disabled
         label="Email cuenta bancaria"
         labelPlacement="outside"
