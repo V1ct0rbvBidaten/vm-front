@@ -243,11 +243,11 @@ const VentaDetail = () => {
                       </tr>
                       <tr className="border-b">
                         <td className="p-1 font-semibold bg-stone-100 text-sm">
-                          Direccion
+                          Dirección
                         </td>
                         <td className="p-1 text-sm">{direccion_cliente}</td>
                         <td className="p-1 font-semibold bg-stone-100 text-sm">
-                          Region
+                          Región
                         </td>
                         <td className="p-1 text-sm">{region_cliente}</td>
                       </tr>
