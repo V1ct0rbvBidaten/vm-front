@@ -33,6 +33,7 @@ const initialStateTogleEdit = {
 const initialStatePassword = {
   current_password: "",
   new_password: "",
+  confirm_new_password: "",
 };
 
 const CuentaHome = () => {
@@ -66,6 +67,10 @@ const CuentaHome = () => {
 
   const handleUpdatePassword = (e) => {
     e.preventDefault();
+    if (newPassword.new_password !== newPassword.confirm_new_password) {
+      toast.error("Las contraseñas no coinciden");
+      return;
+    }
     changePassword(user.token, newPassword, user.id_usuario)
       .then(() => {
         toast.success("Contraseña actualizada correctamente");
@@ -133,13 +138,32 @@ const CuentaHome = () => {
                       <h4 className="col-span-2 tracking-wide text-xl font-semibold">
                         Datos Personales
                       </h4>
-                      <Button
-                        className="bg-emerald-500 text-white h-6"
-                        isIconOnly
-                        onClick={() => handleTogleEdit("datosPersonales")}
-                      >
-                        <PencilSquareIcon className="h-4" />
-                      </Button>
+                      {togleEdit.datosPersonales ? (
+                        <div className="flex  gap-2">
+                          <Button
+                            className="bg-rose-400 text-white h-6"
+                            onClick={() => handleTogleEdit("datosPersonales")}
+                          >
+                            Cancelar
+                          </Button>{" "}
+                          <Button
+                            className="bg-emerald-500 text-white h-6"
+                            isIconOnly
+                            disabled
+                            onClick={() => handleTogleEdit("datosPersonales")}
+                          >
+                            <PencilSquareIcon className="h-4" />
+                          </Button>
+                        </div>
+                      ) : (
+                        <Button
+                          className="bg-emerald-500 text-white h-6"
+                          isIconOnly
+                          onClick={() => handleTogleEdit("datosPersonales")}
+                        >
+                          <PencilSquareIcon className="h-4" />
+                        </Button>
+                      )}
                     </div>
                     {togleEdit.datosPersonales ? (
                       <DatosPersonalesUpdate
@@ -168,14 +192,34 @@ const CuentaHome = () => {
                       <h4 className="col-span-2 tracking-wide text-xl font-semibold">
                         Datos Bancarios
                       </h4>
-                      <Button
-                        className="bg-emerald-500 text-white h-6"
-                        isIconOnly
-                        onClick={() => handleTogleEdit("datosBancarios")}
-                      >
-                        <PencilSquareIcon className="h-4" />
-                      </Button>
+                      {togleEdit.datosBancarios ? (
+                        <div className="flex  gap-2">
+                          <Button
+                            className="bg-rose-400 text-white h-6"
+                            onClick={() => handleTogleEdit("datosBancarios")}
+                          >
+                            Cancelar
+                          </Button>
+                          <Button
+                            className="bg-emerald-500 text-white h-6"
+                            isIconOnly
+                            disabled
+                            onClick={() => handleTogleEdit("datosBancarios")}
+                          >
+                            <PencilSquareIcon className="h-4" />
+                          </Button>
+                        </div>
+                      ) : (
+                        <Button
+                          className="bg-emerald-500 text-white h-6"
+                          isIconOnly
+                          onClick={() => handleTogleEdit("datosBancarios")}
+                        >
+                          <PencilSquareIcon className="h-4" />
+                        </Button>
+                      )}
                     </div>
+
                     {togleEdit.datosBancarios ? (
                       <DatosBancariosUpdate
                         data={updateDataPerfil}
@@ -193,7 +237,7 @@ const CuentaHome = () => {
             <Tab key="contrasena" title="Cambiar Contraseña" className="w-full">
               <Card>
                 <CardBody>
-                  <div className="flex flex-col  gap-4  p-4 ">
+                  <div className="flex flex-col    p-4 ">
                     <h4 className=" tracking-wide text-xl font-semibold">
                       Cambiar contraseña
                     </h4>

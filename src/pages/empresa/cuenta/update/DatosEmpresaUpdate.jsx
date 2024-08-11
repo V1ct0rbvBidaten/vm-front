@@ -38,6 +38,7 @@ const DatosEmpresaUpdate = ({ data, handleSubmit, handleChange }) => {
         label="Rut"
         labelPlacement="outside"
         size="sm"
+        disabled
         name="rut_razon_social"
         value={rut_razon_social}
         onChange={handleChange}

@@ -106,7 +106,10 @@ const VendedorSideNav = ({ user }) => {
     >
       {isCollapsed ? (
         <div className="p-4 flex flex-col h-full">
-          <div className="flex flex-col items-center justify-center">
+          <div
+            className="flex flex-col items-center justify-center hover:cursor-pointer"
+            onClick={() => navigate("/")}
+          >
             <img src={IconoVemdo} className="h-[40px]" />
           </div>
 
@@ -180,7 +183,10 @@ const VendedorSideNav = ({ user }) => {
         </div>
       ) : (
         <div className=" flex flex-col h-full">
-          <div className="flex justify-center items-center mt-8 m-4 ">
+          <div
+            className="flex justify-center items-center mt-8 m-4 hover:cursor-pointer"
+            onClick={() => navigate("/")}
+          >
             <img src={LogoVemdo} className="h-[40px]" />
           </div>
 
