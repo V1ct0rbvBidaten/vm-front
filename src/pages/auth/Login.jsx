@@ -83,57 +83,52 @@ const Login = () => {
               Iniciar Sesión
             </h1>
 
-            {loading ? (
-              <>
-                <Spinner />
-              </>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <Input
-                  required
-                  label="Correo"
-                  labelPlacement="outside"
-                  variant="bordered"
-                  placeholder="Ingrese su correo"
-                  startContent={<EnvelopeIcon className="h-4" />}
-                  name="email"
-                  size="sm"
-                  value={email}
-                  onChange={handleChange}
-                />
-                <Input
-                  label="Contraseña"
-                  variant="bordered"
-                  size="sm"
-                  required
-                  placeholder="Ingrese su contraseña"
-                  labelPlacement="outside"
-                  endContent={
-                    <button
-                      className="focus:outline-none"
-                      type="button"
-                      onClick={toggleVisibility}
-                    >
-                      {isVisible ? (
-                        <EyeSlashIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
-                      ) : (
-                        <EyeIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
-                      )}
-                    </button>
-                  }
-                  type={isVisible ? "text" : "password"}
-                  value={password}
-                  name="password"
-                  onChange={handleChange}
-                />
-                <Button
-                  className="w-full mt-4 bg-gradient-to-br from-v4 to-v3 text-white"
-                  type="submit"
-                >
-                  Iniciar Sesión
-                </Button>
-              </form>
-            )}
+            <form onSubmit={handleSubmit} className="grid gap-4">
+              <Input
+                required
+                label="Correo"
+                labelPlacement="outside"
+                variant="bordered"
+                placeholder="Ingrese su correo"
+                startContent={<EnvelopeIcon className="h-4" />}
+                name="email"
+                size="sm"
+                value={email}
+                onChange={handleChange}
+              />
+              <Input
+                label="Contraseña"
+                variant="bordered"
+                size="sm"
+                required
+                placeholder="Ingrese su contraseña"
+                labelPlacement="outside"
+                endContent={
+                  <button
+                    className="focus:outline-none"
+                    type="button"
+                    onClick={toggleVisibility}
+                  >
+                    {isVisible ? (
+                      <EyeSlashIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
+                    ) : (
+                      <EyeIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
+                    )}
+                  </button>
+                }
+                type={isVisible ? "text" : "password"}
+                value={password}
+                name="password"
+                onChange={handleChange}
+              />
+              <Button
+                className="w-full mt-4 bg-gradient-to-br from-v4 to-v3 text-white"
+                type="submit"
+                isLoading={loading}
+              >
+                Iniciar Sesión
+              </Button>
+            </form>
 
             <div className="flex flex-col w-full  gap-4">
               <div className="flex gap-2">

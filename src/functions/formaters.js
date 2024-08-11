@@ -20,6 +20,18 @@ export function formatChileanPhoneNumber(input) {
   return `+56 9 ${numerosTelefono}`;
 }
 
+export const formatDateToYYYYMMDD = (dateString) => {
+  const date = new Date(dateString);
+
+  const hora = String(date.getHours()).padStart(2, "0");
+  const minutos = String(date.getMinutes()).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are zero-indexed
+  const year = date.getFullYear();
+
+  return `${year}-${month}-${day} ${hora}:${minutos}`;
+};
+
 export const formatNumberToCurrency = (num) => {
   console.log(num);
   // Ensure the input is a number

@@ -9,6 +9,7 @@ import DataTablePrimary from "../../../components/tables/DataTablePrimary";
 import {
   formatDateToDDMMYY,
   formatDateToHHMMDDMMYY,
+  formatDateToYYYYMMDD,
   formatNumberToCurrency,
 } from "../../../functions/formaters";
 import { useNavigate } from "react-router-dom";
@@ -46,14 +47,21 @@ const VentasHome = () => {
 
   const columns = [
     {
+      title: "ID VENTA",
+      dataIndex: "correlative_number",
+      key: "correlative_number",
+      render: (text, record) => (
+        <span className="font-semibold text-slate-500">{text}</span>
+      ),
+    },
+    {
       title: "Fecha",
       dataIndex: "fecha_venta",
       key: "fecha_venta",
       render: (text, record) => (
         <div className="flex w-full justify-start items-center gap-2">
-          <ClockIcon className="h-4 text-slate-500" />
           <span className="font-semibold text-slate-500">
-            {formatDateToHHMMDDMMYY(text)}
+            {formatDateToYYYYMMDD(text)}
           </span>
         </div>
       ),
