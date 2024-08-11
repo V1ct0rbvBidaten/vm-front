@@ -157,24 +157,27 @@ const Registro = () => {
                     </Button>
                   </Tab>
                   <Tab key="empresa" title="Empresa">
-                    <Input
-                      label="Correo"
-                      labelPlacement="outside"
-                      placeholder="Ingrese su correo"
-                      variant="bordered"
-                      className="mt-4"
-                      startContent={<EnvelopeIcon className="h-4" />}
-                      name="email"
-                      value={email}
-                      onChange={handleChange}
-                    />
-                    <Button
-                      className="w-full mt-4 bg-gradient-to-br from-v4 to-v3 text-white"
-                      onClick={handleRegister}
-                      isLoading={loading}
-                    >
-                      Registrarse
-                    </Button>
+                    <form onSubmit={handleRegister}>
+                      <Input
+                        label="Correo"
+                        labelPlacement="outside"
+                        placeholder="Ingrese su correo"
+                        variant="bordered"
+                        className="mt-4"
+                        startContent={<EnvelopeIcon className="h-4" />}
+                        name="email"
+                        value={email}
+                        isRequired
+                        onChange={handleChange}
+                      />
+                      <Button
+                        className="w-full mt-4 bg-gradient-to-br from-v4 to-v3 text-white"
+                        type="submit"
+                        isLoading={loading}
+                      >
+                        Registrarse
+                      </Button>
+                    </form>
                   </Tab>
                 </Tabs>
 
