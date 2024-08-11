@@ -25,7 +25,7 @@ const ProductosDocs = ({
   const { data, loading: loadingFiles } = useFiles(token, body, reloadFiles);
 
   if (loadingFiles) {
-    return <Loading />;
+    return <span>Cargando...</span>;
   }
 
   const fileLocations = data.detail.data.file_locations;

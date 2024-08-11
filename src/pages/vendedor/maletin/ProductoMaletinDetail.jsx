@@ -65,7 +65,7 @@ const ProductoMaletinDetail = ({ maletinid }) => {
     <>
       <div className="w-full flex gap-4  mb-2 p-4 items-end justify-end">
         <label className="flex items-end text-default-400 text-small">
-          Filas por pagina:
+          Items por pagina:
           <select
             className="bg-transparent outline-none text-default-400 text-small"
             value={page_size}

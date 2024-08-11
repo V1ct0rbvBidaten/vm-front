@@ -1,6 +1,11 @@
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 
-const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
+const DatosBancariosUpdate = ({
+  data,
+  handleChange,
+  handleSubmit,
+  loading,
+}) => {
   const {
     banco,
     rut_cuenta_bancaria,
@@ -11,7 +16,7 @@ const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
 
   return (
     <form
-      className="grid grid-cols-2 items-center gap-4"
+      className="grid grid-cols-3 items-center gap-4"
       onSubmit={handleSubmit}
     >
       <Input
@@ -21,6 +26,7 @@ const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
         placeholder="Ingrese su banco"
         name="banco"
         value={banco}
+        size="sm"
         onChange={handleChange}
       />
       <Input
@@ -31,6 +37,7 @@ const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
         name="rut_cuenta_bancaria"
         value={rut_cuenta_bancaria}
         onChange={handleChange}
+        size="sm"
       />
       <Select
         variant="bordered"
@@ -40,6 +47,7 @@ const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
         name="tipo_cuenta_bancaria"
         value={tipo_cuenta_bancaria}
         onChange={handleChange}
+        size="sm"
       >
         <SelectItem key="vista" value="vista">
           Vista
@@ -58,6 +66,7 @@ const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
         placeholder="Ingrese número cuenta bancaria"
         name="numero_cuenta_bancaria"
         value={numero_cuenta_bancaria}
+        size="sm"
         onChange={handleChange}
       />
       <Input
@@ -68,9 +77,14 @@ const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
         name="email_cuenta_bancaria"
         value={email_cuenta_bancaria}
         onChange={handleChange}
+        size="sm"
         type="email"
       />
-      <Button type="submit" className="col-span-3 bg-foreground text-white">
+      <Button
+        type="submit"
+        className="col-span-3 bg-foreground text-white"
+        isLoading={loading}
+      >
         Actualizar
       </Button>
     </form>

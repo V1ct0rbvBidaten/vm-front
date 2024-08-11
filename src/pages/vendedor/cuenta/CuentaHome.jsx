@@ -39,6 +39,7 @@ const CuentaHome = () => {
   const [togleEdit, setTogleEdit] = useState(initialStateTogleEdit);
   const [updateDataPerfil, setUpdateDataPerfil] = useState(null);
   const [newPassword, setNewPassword] = useState(initialStatePassword);
+  const [loadingUpdate, setLoadingUpdate] = useState(false);
   const user = useSelector((state) => state.user);
 
   const [reload, setReload] = useState(false);
@@ -86,6 +87,7 @@ const CuentaHome = () => {
 
   const handleUpdatePerfil = (e) => {
     e.preventDefault();
+    setLoadingUpdate(true);
     updatePerfil(user.token, updateDataPerfil, updateDataPerfil.id_perfil)
       .then(() => {
         toast.success("Perfil actualizado correctamente");
@@ -97,6 +99,7 @@ const CuentaHome = () => {
       .finally(() => {
         setReload(!reload);
         setTogleEdit(initialStateTogleEdit);
+        setLoadingUpdate(false);
       });
   };
 
@@ -142,6 +145,7 @@ const CuentaHome = () => {
                       <DatosPersonalesUpdate
                         data={updateDataPerfil}
                         handleChange={handleChangePerfil}
+                        loading={loadingUpdate}
                         handleSubmit={handleUpdatePerfil}
                       />
                     ) : (
@@ -177,6 +181,7 @@ const CuentaHome = () => {
                         data={updateDataPerfil}
                         handleChange={handleChangePerfil}
                         handleSubmit={handleUpdatePerfil}
+                        loading={loadingUpdate}
                       />
                     ) : (
                       <DatosBancariosDetail data={updateDataPerfil} />
@@ -194,6 +199,7 @@ const CuentaHome = () => {
                     </h4>
                     <PasswordUpdate
                       data={newPassword}
+                      loading={loadingUpdate}
                       handleChange={passwordChange}
                       handleSubmit={handleUpdatePassword}
                     />

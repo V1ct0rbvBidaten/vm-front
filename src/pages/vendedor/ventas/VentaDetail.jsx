@@ -1,4 +1,4 @@
-import { ChevronDoubleLeftIcon } from "@heroicons/react/24/solid";
+import { ChevronDoubleLeftIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { Button, Divider, Tabs, Tab } from "@nextui-org/react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -25,9 +25,10 @@ const VentaDetail = () => {
 
   const [fileCapacitacion, setFileCapacitacion] = useState([]);
   const [fileVenta, setFileVenta] = useState([]);
+  const [loadingUpdate, setLoadingUpdate] = useState(false);
 
   const handleFileChangeVenta = (e) => {
-    setFileVenta([...e.target.files]);
+    setFileVenta((prevFiles) => [...prevFiles, ...e.target.files]);
   };
 
   const handleFileChangeCapacitacion = (e) => {
@@ -89,13 +90,14 @@ const VentaDetail = () => {
     path: `${id_venta}`,
   };
 
-  const uploadFileVenta = () => {
+  const uploadFileVenta = (e) => {
+    e.preventDefault();
+    setLoadingUpdate(true);
     uploadFile(user.token, paramsVenta, fileVenta)
       .then((res) => {
         console.log(res);
         toast.success("Archivo subido con éxito");
       })
-
       .catch((err) => {
         console.log(err);
         toast.error("Error al crear producto");
@@ -103,7 +105,13 @@ const VentaDetail = () => {
       .finally(() => {
         setReloadFiles(!reloadFiles);
         setFileVenta([]);
+        setLoadingUpdate(false);
       });
+  };
+
+  const handleRemoveFileVenta = (index) => {
+    let newFiles = fileVenta.filter((file, i) => i !== index);
+    setFileVenta(newFiles);
   };
 
   return (
@@ -275,61 +283,39 @@ const VentaDetail = () => {
                 setReloadFiles={setReloadFiles}
                 bucket={"vemdo-ventas"}
               />
-              <Tabs aria-label="Options">
-                <Tab key="uploadDocs" title="Subir Documentación">
-                  <InputFileUploader
-                    multiple
-                    handleFileChange={handleFileChangeVenta}
-                  />
-                  {fileVenta && fileVenta.length > 0 && (
-                    <div className="w-100 border-1">
-                      {fileVenta.map((file, index) => (
-                        <div
-                          className="w-100 bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between"
-                          key={index}
-                        >
-                          <span className="text-xs">{file.name}</span>
+              <InputFileUploader
+                multiple
+                handleFileChange={handleFileChangeVenta}
+              />
+              {fileVenta && fileVenta.length > 0 && (
+                <div className="w-100 border-1">
+                  {fileVenta.map((file, index) => (
+                    <div
+                      key={index}
+                      className="flex justify-between items-center gap-1"
+                    >
+                      <div className="w-full bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between">
+                        <span className="text-xs">{file.name}</span>
 
-                          <span className="text-xs">{getSize(file.size)}</span>
-                        </div>
-                      ))}
-                      <Button
-                        className="w-full text-xs h-6 bg-foreground text-white"
-                        onClick={uploadFileVenta}
+                        <span className="text-xs">{getSize(file.size)}</span>
+                      </div>
+                      <div
+                        className=" w-6 bg-rose-500 h-full p-1 text-white rounded-md hover:cursor-pointer hover:bg-rose-400"
+                        onClick={() => handleRemoveFileVenta(index)}
                       >
-                        Guardar
-                      </Button>
+                        <TrashIcon className="h-full" />
+                      </div>
                     </div>
-                  )}
-                </Tab>
-                <Tab key="downloadDocs" title="Descargar Documentación">
-                  <div className="grid grid-cols-2 gap-2">
-                    <div>
-                      <h2 className="font-semibold">Documentación Venta</h2>
-                      <ProductosDocs
-                        reloadFiles={reloadFiles}
-                        body={bodyVenta}
-                        token={user.token}
-                        setReloadFiles={setReloadFiles}
-                        bucket={"vemdo-empresas"}
-                      />
-                    </div>
-
-                    <div>
-                      <h2 className="font-semibold">
-                        Documentación Capacitación
-                      </h2>
-                      <ProductosDocs
-                        reloadFiles={reloadFiles}
-                        body={bodyCapacitacion}
-                        token={user.token}
-                        setReloadFiles={setReloadFiles}
-                        bucket={"vemdo-empresas"}
-                      />
-                    </div>
-                  </div>
-                </Tab>
-              </Tabs>
+                  ))}
+                  <Button
+                    className="w-full text-xs bg-foreground text-white"
+                    onClick={uploadFileVenta}
+                    isLoading={loadingUpdate}
+                  >
+                    Guardar
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
