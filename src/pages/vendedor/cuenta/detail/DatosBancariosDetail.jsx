@@ -12,8 +12,9 @@ const DatosBancariosDetail = ({ data }) => {
   return (
     <div className="grid grid-cols-2 items-center gap-4">
       <Input
-        variant="bordered"
+        variant="flat"
         disabled
+        size="sm"
         label="Nombre banco"
         labelPlacement="outside"
         placeholder="Ingrese su banco"
@@ -21,8 +22,9 @@ const DatosBancariosDetail = ({ data }) => {
         value={banco}
       />
       <Input
-        variant="bordered"
+        variant="flat"
         disabled
+        size="sm"
         label="Rut cuenta"
         labelPlacement="outside"
         placeholder="Ingrese rut cuenta"
@@ -30,8 +32,9 @@ const DatosBancariosDetail = ({ data }) => {
         value={rut_cuenta_bancaria}
       />
       <Input
-        variant="bordered"
+        variant="flat"
         disabled
+        size="sm"
         label="Tipo de cuenta bancaria"
         labelPlacement="outside"
         placeholder="Ingrese tipo cuenta bancaria"
@@ -40,8 +43,9 @@ const DatosBancariosDetail = ({ data }) => {
       />
 
       <Input
-        variant="bordered"
+        variant="flat"
         disabled
+        size="sm"
         label="Número de cuenta bancaria"
         labelPlacement="outside"
         placeholder="Ingrese número cuenta bancaria"
@@ -49,8 +53,9 @@ const DatosBancariosDetail = ({ data }) => {
         value={numero_cuenta_bancaria}
       />
       <Input
-        variant="bordered"
+        variant="flat"
         disabled
+        size="sm"
         label="Email cuenta bancaria"
         labelPlacement="outside"
         placeholder="Ingrese email cuenta bancaria"

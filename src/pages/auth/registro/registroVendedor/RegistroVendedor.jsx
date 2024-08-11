@@ -15,20 +15,20 @@ import { validateFields } from "../../../../functions/forms";
 import { Spinner } from "@nextui-org/react";
 
 const initialState = {
-  email: "",
-  nombres: "",
-  apellidos: "",
-  direccion: "",
-  telefono: "",
-  comuna: "",
-  region: "",
+  email: null,
+  nombres: null,
+  apellidos: null,
+  direccion: null,
+  telefono: null,
+  comuna: null,
+  region: null,
   es_vendedor: true,
   es_empresa: false,
-  rut_cuenta_bancaria: "",
-  banco: "",
-  tipo_cuenta_bancaria: "",
-  numero_cuenta_bancaria: "",
-  email_cuenta_bancaria: "",
+  rut_cuenta_bancaria: null,
+  banco: null,
+  tipo_cuenta_bancaria: null,
+  numero_cuenta_bancaria: null,
+  email_cuenta_bancaria: null,
 };
 
 const RegistroVendedor = ({ user }) => {
@@ -39,7 +39,7 @@ const RegistroVendedor = ({ user }) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const steps = ["Datos Perfil", "Datos Bancarios"];
+  const steps = ["Datos Perfil", "Datos Bancarios (Opcional)"];
 
   const handleChange = (e) => {
     if (
@@ -111,13 +111,21 @@ const RegistroVendedor = ({ user }) => {
         direccion: data.direccion,
         telefono: data.telefono,
         es_vendedor: data.es_vendedor,
-        rut_cuenta_bancaria: data.rut_cuenta_bancaria,
-        banco: data.banco,
+        rut_cuenta_bancaria: data.rut_cuenta_bancaria
+          ? data.rut_cuenta_bancaria
+          : null,
+        banco: data.banco ? data.banco : null,
         comuna: data.comuna,
         region: data.region,
-        tipo_cuenta_bancaria: data.tipo_cuenta_bancaria,
-        numero_cuenta_bancaria: data.numero_cuenta_bancaria,
-        email_cuenta_bancaria: data.email_cuenta_bancaria,
+        tipo_cuenta_bancaria: data.tipo_cuenta_bancaria
+          ? data.tipo_cuenta_bancaria
+          : null,
+        numero_cuenta_bancaria: data.numero_cuenta_bancaria
+          ? data.numero_cuenta_bancaria
+          : null,
+        email_cuenta_bancaria: data.email_cuenta_bancaria
+          ? data.email_cuenta_bancaria
+          : null,
       },
     };
 

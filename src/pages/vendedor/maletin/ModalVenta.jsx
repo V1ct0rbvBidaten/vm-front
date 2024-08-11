@@ -96,7 +96,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
       })
       .catch((err) => {
         console.log(err);
-        toast.error("Error al crear venta");
       })
       .finally((res) => {
         setLoading(false);

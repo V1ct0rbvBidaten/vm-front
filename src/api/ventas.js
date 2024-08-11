@@ -81,3 +81,15 @@ export const getVentasMerchant = async (token, body) => {
     }
   );
 };
+
+export const validateBankAccount = async (token) => {
+  return await axios.post(
+    `${import.meta.env.VITE_API_URL}/validate-bank-account`,
+    { token: token }, // Empty body, assuming you don't need to send any data in the body
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};

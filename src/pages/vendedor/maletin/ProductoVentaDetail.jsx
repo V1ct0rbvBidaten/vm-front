@@ -13,6 +13,8 @@ import ModalImageSlider from "../../../components/utils/ModalImageSlider";
 import { formatNumberToCurrency } from "../../../functions/formaters";
 import ModalVenta from "./ModalVenta";
 import ProductosDocs from "./ProductosDocs";
+import { validateBankAccount } from "../../../api/ventas";
+import { toast } from "react-toastify";
 
 const ProductoVentaDetail = () => {
   const idIndex = useRef(0);
@@ -33,7 +35,22 @@ const ProductoVentaDetail = () => {
   };
 
   const handleOpenVenta = () => {
-    setOpenVenta(!openVenta);
+    if (openVenta) setOpenVenta(!openVenta);
+    else {
+      validateBankAccount(user.token)
+        .then((res) => {
+          setOpenVenta(!openVenta);
+        })
+        .catch((err) => {
+          console.log(err);
+          setOpenVenta(false);
+          toast.error(err.response.data.detail.message);
+
+          if (!err.response.data.detail.data.cuenta_bancaria) {
+            navigate(`/vendedor/cuenta`);
+          }
+        });
+    }
   };
 
   const url = `product/${idProducto}`;

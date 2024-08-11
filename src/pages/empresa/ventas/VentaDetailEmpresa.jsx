@@ -75,6 +75,7 @@ const VentaDetailEmpresa = () => {
     id_empresa,
     id_producto,
     comision,
+    correlative_number,
   } = data.detail.data;
 
   const bodyVenta = {
@@ -177,7 +178,9 @@ const VentaDetailEmpresa = () => {
             </span>
           </div>
           <div className="w-100 justify-between flex">
-            <h1 className="text-xl  font-semibold mt-2">Venta #{id_venta}</h1>
+            <h1 className="text-xl  font-semibold mt-2">
+              Venta #{correlative_number}
+            </h1>
             {estado_venta === "EN PROCESO" ? (
               <Button className="bg-slate-200 text-slate-500  p-1 pr-4 pl-4 rounded-full">
                 {estado_venta}
