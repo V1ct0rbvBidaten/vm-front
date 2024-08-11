@@ -306,7 +306,11 @@ const ModalVenta = ({ open, handleOpen, data }) => {
               <Button color="danger" variant="light" onPress={onClose}>
                 Cerrar
               </Button>
-              <Button color="primary" onClick={handleSubmit}>
+              <Button
+                color="primary"
+                onClick={handleSubmit}
+                isLoading={loading}
+              >
                 Confirmar Venta
               </Button>
             </ModalFooter>
