@@ -145,6 +145,7 @@ const Registro = () => {
                       startContent={<EnvelopeIcon className="h-4" />}
                       name="email"
                       value={email}
+                      type="email"
                       onChange={handleChange}
                     />
                     <Button
