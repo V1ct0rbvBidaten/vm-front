@@ -210,6 +210,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                   <Input
                     size="sm"
                     variant="bordered"
+                    isRequired
                     label="Nombre"
                     labelPlacement="outside"
                     placeholder="Ingrese nombre cliente"
@@ -220,6 +221,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                   <Input
                     size="sm"
                     variant="bordered"
+                    isRequired
                     label="Apellido"
                     labelPlacement="outside"
                     placeholder="Ingrese apellido cliente"
@@ -230,6 +232,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                   <Input
                     size="sm"
                     variant="bordered"
+                    isRequired
                     label="Rut"
                     labelPlacement="outside"
                     placeholder="Ingrese rut cliente"
@@ -240,6 +243,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                   <Input
                     size="sm"
                     variant="bordered"
+                    isRequired
                     label="Correo"
                     labelPlacement="outside"
                     placeholder="Ingrese Correo cliente"
@@ -250,6 +254,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                   <Input
                     size="sm"
                     variant="bordered"
+                    isRequired
                     label="Telefono"
                     labelPlacement="outside"
                     placeholder="Ingrese Telefono cliente"
@@ -260,6 +265,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                   <Input
                     size="sm"
                     variant="bordered"
+                    isRequired
                     label="Dirección"
                     labelPlacement="outside"
                     placeholder="Ingrese Calle cliente"
@@ -270,6 +276,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
 
                   <Select
                     variant="bordered"
+                    isRequired
                     label="Región "
                     labelPlacement="outside"
                     placeholder="Ingrese región "
@@ -285,6 +292,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                   </Select>
                   <Select
                     variant="bordered"
+                    isRequired
                     label="Comuna "
                     labelPlacement="outside"
                     placeholder="Ingrese comuna "

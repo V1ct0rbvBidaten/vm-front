@@ -14,6 +14,7 @@ const ModalVerificarTerminos = ({
   handleSubmit,
   onScroll,
   endReached,
+  loading,
 }) => {
   return (
     <Modal
@@ -37,6 +38,7 @@ const ModalVerificarTerminos = ({
                   className="bg-gradient-to-r from-v3 to-v4 text-white w-full"
                   onClick={handleSubmit}
                   isDisabled={false}
+                  isLoading={loading}
                 >
                   Aceptar
                 </Button>

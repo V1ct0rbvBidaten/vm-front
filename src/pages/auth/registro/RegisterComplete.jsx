@@ -24,6 +24,7 @@ const RegisterComplete = () => {
   const [values, setValues] = useState(initialState);
   const [open, setOpen] = useState(false);
   const [endReached, setEndReached] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const esEmpresa = JSON.parse(localStorage.getItem("es-empresa"));
   const email = localStorage.getItem("email-verification");
@@ -69,6 +70,7 @@ const RegisterComplete = () => {
     };
     console.log(profileData);
 
+    setLoading(true);
     completeUser(profileData)
       .then((res) => {
         toast.success(res.data.detail.message);
@@ -94,6 +96,9 @@ const RegisterComplete = () => {
       .catch((err) => {
         console.log(err);
         toast.success(err.response.data.detail.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -116,6 +121,7 @@ const RegisterComplete = () => {
         handleSubmit={handleSubmit}
         onScroll={handleScroll}
         endReached={endReached}
+        loading={loading}
       />
 
       <div className="flex justify-center p-10 register-container bg-slate-100">

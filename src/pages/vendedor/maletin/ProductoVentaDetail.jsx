@@ -60,16 +60,6 @@ const ProductoVentaDetail = () => {
   if (loading) {
     return (
       <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
-        <div className="w-full mb-2 p-4 flex justify-between">
-          <h1 className="text-2xl font-semibold">Producto</h1>
-          <Button
-            className="bg-emerald-500 text-white h-7"
-            onClick={() => navigate(`/vendedor/explorar/empresa/${id}`)}
-          >
-            Volver
-          </Button>
-        </div>
-        <Divider />
         <Loading />
       </div>
     );

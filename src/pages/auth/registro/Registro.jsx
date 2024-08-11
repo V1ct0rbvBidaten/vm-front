@@ -103,9 +103,7 @@ const Registro = () => {
             <h1 className="text-5xl font-semibold  text-v2 mt-8">
               Registrarse
             </h1>
-            {loading ? ( // Mostrar el spinner cuando loading es true
-              <Loading size="xl" />
-            ) : emailSend ? (
+            {emailSend ? (
               <div className="flex flex-col gap-4 ">
                 <p className="text-left">
                   Un código de verificación fue enviado a su correo. Favor de
@@ -152,6 +150,7 @@ const Registro = () => {
                     <Button
                       className="w-full mt-4 bg-gradient-to-br from-v4 to-v3 text-white"
                       onClick={handleRegister}
+                      isLoading={loading}
                     >
                       Registrarse
                     </Button>
@@ -171,6 +170,7 @@ const Registro = () => {
                     <Button
                       className="w-full mt-4 bg-gradient-to-br from-v4 to-v3 text-white"
                       onClick={handleRegister}
+                      isLoading={loading}
                     >
                       Registrarse
                     </Button>
