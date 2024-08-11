@@ -94,6 +94,7 @@ const Login = () => {
                 name="email"
                 size="sm"
                 value={email}
+                type="email"
                 onChange={handleChange}
               />
               <Input
@@ -142,7 +143,7 @@ const Login = () => {
                   href="/reset-password"
                   className="text-v3 text-sm font-semibold"
                 >
-                  Olvide mi contraseña
+                  Olvidé mi contraseña
                 </Link>
               </div>
             </div>
