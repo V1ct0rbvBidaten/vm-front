@@ -20,6 +20,8 @@ import DatosPersonalesUpdate from "./update/DatosPersonalesUpdate";
 import DatosPerfilEmpresaUpdate from "./update/DatosPerfilEmpresaUpdate";
 import DatosBancariosDetail from "./detail/DatosBancariosDetail";
 import DatosBancariosUpdate from "./update/DatosBancariosUpdate";
+import PasswordUpdate from "./update/PasswordUpdate";
+import { changePassword } from "../../../api/auth";
 
 const initialStateTogleEdit = {
   datosPersonales: false,
@@ -28,9 +30,15 @@ const initialStateTogleEdit = {
   contrasena: false,
 };
 
+const initialStatePassword = {
+  current_password: "",
+  new_password: "",
+};
+
 const CuentaHome = () => {
   const [togleEdit, setTogleEdit] = useState(initialStateTogleEdit);
   const [updateDataPerfil, setUpdateDataPerfil] = useState(null);
+  const [newPassword, setNewPassword] = useState(initialStatePassword);
   const user = useSelector((state) => state.user);
 
   const [reload, setReload] = useState(false);
@@ -54,6 +62,27 @@ const CuentaHome = () => {
         <p className="text-sky-500 font-semibold text-xl">Cargando...</p>
       </div>
     );
+
+  const handleUpdatePassword = (e) => {
+    e.preventDefault();
+    changePassword(user.token, newPassword, user.id_usuario)
+      .then(() => {
+        toast.success("Contraseña actualizada correctamente");
+      })
+      .catch((error) => {
+        console.error("Error al actualizar contraseña: ", error);
+        toast.error("Error al actualizar contraseña");
+      })
+      .finally(() => {
+        setReload(!reload);
+        setNewPassword(initialStatePassword);
+      });
+  };
+
+  const passwordChange = (e) => {
+    const { name, value } = e.target;
+    setNewPassword({ ...newPassword, [name]: value });
+  };
 
   const handleUpdatePerfil = (e) => {
     e.preventDefault();
@@ -156,33 +185,17 @@ const CuentaHome = () => {
                 </CardBody>
               </Card>
             </Tab>
-            <Tab key="contrasena" title="Contraseña" className="w-full">
+            <Tab key="contrasena" title="Cambiar Contraseña" className="w-full">
               <Card>
                 <CardBody>
-                  <div className="grid grid-cols-2  gap-4  p-4 ">
-                    <h4 className="col-span-3 tracking-wide text-xl font-semibold">
-                      Contraseña
+                  <div className="flex flex-col  gap-4  p-4 ">
+                    <h4 className=" tracking-wide text-xl font-semibold">
+                      Cambiar contraseña
                     </h4>
-                    <Input
-                      variant="bordered"
-                      label="Mi correo"
-                      labelPlacement="outside"
-                      size="sm"
-                      disabled
-                      value={user.correo_electronico}
-                    />
-                    <Input
-                      variant="bordered"
-                      label="Contraseña"
-                      labelPlacement="outside"
-                      size="sm"
-                      endContent={
-                        <button className="focus:outline-none" type="button">
-                          <EyeSlashIcon className="h-6 mt-2 text-default-400 pointer-events-none flex-shrink-0" />
-                        </button>
-                      }
-                      type={"password"}
-                      value={user.password}
+                    <PasswordUpdate
+                      data={newPassword}
+                      handleChange={passwordChange}
+                      handleSubmit={handleUpdatePassword}
                     />
                   </div>
                 </CardBody>

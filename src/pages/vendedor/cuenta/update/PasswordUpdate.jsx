@@ -4,7 +4,7 @@ const PasswordUpdate = ({ data, handleChange, handleSubmit }) => {
   const { new_password, current_password } = data;
 
   return (
-    <div className="grid   gap-4  ">
+    <div className="grid gap-4 ">
       <Input
         variant="bordered"
         label="Contraseña actual"
