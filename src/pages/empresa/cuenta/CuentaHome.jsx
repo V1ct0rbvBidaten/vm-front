@@ -327,25 +327,15 @@ const CuentaHome = () => {
                   <div className=" flex flex-col gap-4 p-4 ">
                     <div className="flex justify-between">
                       <h4 className="col-span-2 tracking-wide text-xl font-semibold">
-                        Contraseña
-                      </h4>
-                      <Button
-                        className="bg-emerald-500 text-white h-6"
-                        onClick={() => handleTogleEdit("contrasena")}
-                      >
-                        <PencilSquareIcon className="h-4" />
                         Cambiar Contraseña
-                      </Button>
+                      </h4>
                     </div>
-                    {togleEdit.contrasena ? (
-                      <PasswordUpdate
-                        data={newPassword}
-                        handleChange={passwordChange}
-                        handleSubmit={handleUpdatePassword}
-                      />
-                    ) : (
-                      <PasswordDetail user={user} />
-                    )}
+
+                    <PasswordUpdate
+                      data={newPassword}
+                      handleChange={passwordChange}
+                      handleSubmit={handleUpdatePassword}
+                    />
                   </div>
                 </CardBody>
               </Card>

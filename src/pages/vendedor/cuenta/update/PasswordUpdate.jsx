@@ -1,6 +1,4 @@
-import { EyeSlashIcon } from "@heroicons/react/24/solid";
 import { Button, Input } from "@nextui-org/react";
-import React from "react";
 
 const PasswordUpdate = ({ data, handleChange, handleSubmit }) => {
   const { new_password, current_password } = data;
@@ -22,7 +20,7 @@ const PasswordUpdate = ({ data, handleChange, handleSubmit }) => {
         label="Nueva Contraseña"
         labelPlacement="outside"
         size="sm"
-        e={"password"}
+        type={"password"}
         value={new_password}
         name="new_password"
         onChange={handleChange}

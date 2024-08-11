@@ -97,6 +97,7 @@ const Login = () => {
                   placeholder="Ingrese su correo"
                   startContent={<EnvelopeIcon className="h-4" />}
                   name="email"
+                  size="sm"
                   value={email}
                   onChange={handleChange}
                 />

@@ -52,7 +52,11 @@ const RegistroEmpresa = ({ user }) => {
 
   let navigate = useNavigate();
 
-  const steps = ["Datos Perfil", "Datos Bancarios", "Datos Empresa"];
+  const steps = [
+    "Datos representante legal",
+    "Datos Bancarios",
+    "Datos Empresa",
+  ];
 
   const email = localStorage.getItem("email-verification");
 
@@ -175,11 +179,23 @@ const RegistroEmpresa = ({ user }) => {
       { name: "Comuna", value: values.comuna_razon_social },
     ];
 
-    if (currentStep === 1 && !validateFields(fieldsPerfil)) {
+    if (
+      currentStep === 1 &&
+      !validateFields(fieldsPerfil) &&
+      direction === "next"
+    ) {
       return;
-    } else if (currentStep === 2 && !validateFields(fieldsBanco)) {
+    } else if (
+      currentStep === 2 &&
+      !validateFields(fieldsBanco) &&
+      direction === "next"
+    ) {
       return;
-    } else if (currentStep === 3 && !validateFields(fieldsEmpresa)) {
+    } else if (
+      currentStep === 3 &&
+      !validateFields(fieldsEmpresa) &&
+      direction === "next"
+    ) {
       return;
     }
 
