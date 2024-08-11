@@ -85,7 +85,7 @@ const Login = () => {
 
             <form onSubmit={handleSubmit} className="grid gap-4">
               <Input
-                required
+                isRequired
                 label="Correo"
                 labelPlacement="outside"
                 variant="bordered"
@@ -101,7 +101,7 @@ const Login = () => {
                 label="Contraseña"
                 variant="bordered"
                 size="sm"
-                required
+                isRequired
                 placeholder="Ingrese su contraseña"
                 labelPlacement="outside"
                 endContent={
