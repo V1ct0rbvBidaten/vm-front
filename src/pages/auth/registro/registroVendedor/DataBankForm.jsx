@@ -6,6 +6,7 @@ import {
   AutocompleteItem,
 } from "@nextui-org/react";
 import bancos from "../../../../utils/bancos.json";
+import ReactSelect from "react-select";
 
 const DataBankForm = ({ handleChange, values }) => {
   const {
@@ -20,29 +21,41 @@ const DataBankForm = ({ handleChange, values }) => {
     const event = {
       target: {
         name: "banco",
-        value: value,
+        value: value.value,
       },
     };
     handleChange(event);
   };
 
+  const optionsBanks = bancos.banks.map((c) => {
+    return { value: c, label: c };
+  });
+
   return (
     <div className="grid grid-cols-2 items-center gap-4">
-      <Autocomplete
-        variant="bordered"
-        label="Nombre banco"
-        labelPlacement="outside"
-        placeholder="Ingrese su banco"
-        name="banco"
-        value={banco}
-        onSelectionChange={handleBancoChange}
-      >
-        {bancos.banks.map((banco) => (
-          <AutocompleteItem key={banco} value={banco}>
-            {banco}
-          </AutocompleteItem>
-        ))}
-      </Autocomplete>
+      <div className="flex flex-col justify-start gap-2">
+        <span className="text-sm">
+          Región <span className="text-rose-500">*</span>
+        </span>
+        <ReactSelect
+          options={optionsBanks}
+          required
+          styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              borderRadius: "0.7rem",
+              border: "2px solid #eaeaea",
+            }),
+            menu: (baseStyles) => ({
+              ...baseStyles,
+              zIndex: "999 ",
+            }),
+          }}
+          onChange={handleBancoChange}
+          placeholder="Seleccione banco"
+          defaultInputValue={values.banco}
+        />
+      </div>
 
       <Input
         variant="bordered"
@@ -62,13 +75,13 @@ const DataBankForm = ({ handleChange, values }) => {
         value={tipo_cuenta_bancaria}
         onChange={handleChange}
       >
-        <SelectItem key="vista" value="vista">
+        <SelectItem key="Cuenta Vista" value="Cuenta Vista">
           Vista
         </SelectItem>
-        <SelectItem key="corriente" value="corriente">
+        <SelectItem key="Cuenta Corriente" value="Cuenta Corriente">
           Corriente
         </SelectItem>
-        <SelectItem key="ahorro" value="ahorro">
+        <SelectItem key="Cuenta Ahorro" value="Cuenta Ahorro">
           Ahorro
         </SelectItem>
       </Select>

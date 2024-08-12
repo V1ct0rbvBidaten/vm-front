@@ -1,4 +1,4 @@
-import { Input } from "@nextui-org/react";
+import { Input, Textarea } from "@nextui-org/react";
 import React from "react";
 
 const DatosEmpresaDetail = ({ data }) => {
@@ -80,6 +80,15 @@ const DatosEmpresaDetail = ({ data }) => {
         size="sm"
         disabled
         value={correo_electronico_razon_social}
+      />{" "}
+      <Textarea
+        variant="flat"
+        label="Descripción empresa"
+        labelPlacement="outside"
+        size="sm"
+        className="col-span-3"
+        name="descripcion"
+        value={descripcion}
       />
     </form>
   );

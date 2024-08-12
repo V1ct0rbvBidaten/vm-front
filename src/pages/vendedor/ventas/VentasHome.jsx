@@ -1,208 +1,307 @@
-import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  User,
-  Chip,
-  Tooltip,
-  Button,
-  Pagination,
-  Divider,
-} from "@nextui-org/react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { ChevronDoubleLeftIcon, TrashIcon } from "@heroicons/react/24/solid";
+import { Button, Divider } from "@nextui-org/react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import useVentasSeller from "../../../hooks/useVentasSeller";
+import { useNavigate, useParams } from "react-router-dom";
+import useFetchById from "../../../hooks/useFetch";
 import Loading from "../../../components/utils/Loading";
-import DataTablePrimary from "../../../components/tables/DataTablePrimary";
+import Comentarios from "./Comentarios";
 import {
   formatDateToDDMMYY,
-  formatDateToHHMMDDMMYY,
   formatNumberToCurrency,
 } from "../../../functions/formaters";
-import { ClockIcon } from "@heroicons/react/24/solid";
+import { getSize } from "../../../functions/file";
+import ProductosDocs from "../maletin/ProductosDocs";
+import { uploadFile } from "../../../api/file";
+import { toast } from "react-toastify";
+import InputFileUploader from "../../../components/utils/InputFileUploader";
 
-const initialState = {
-  page: 1,
-  page_size: 10,
-};
-
-const VentasHome = () => {
-  const user = useSelector((state) => state.user);
-
-  const [dynamic, setDynamic] = useState(initialState);
-
+const VentaDetail = () => {
   let navigate = useNavigate();
 
-  const { data, loading } = useVentasSeller(user.token, dynamic);
+  const user = useSelector((state) => state.user);
+  const [reloadFiles, setReloadFiles] = useState(false);
+  const [reload, setReload] = useState(false);
 
-  if (loading) {
+  const [fileCapacitacion, setFileCapacitacion] = useState([]);
+  const [fileVenta, setFileVenta] = useState([]);
+  const [loadingUpdate, setLoadingUpdate] = useState(false);
+
+  const handleFileChangeVenta = (e) => {
+    setFileVenta((prevFiles) => [...prevFiles, ...e.target.files]);
+  };
+
+  const handleFileChangeCapacitacion = (e) => {
+    setFileCapacitacion([...e.target.files]);
+  };
+
+  const { idVenta } = useParams();
+
+  const { data, loading } = useFetchById(
+    user.token,
+    `venta-vendedor/${idVenta}`
+  );
+
+  if (loading)
     return (
-      <div className="w-full bg-white rounded-md shadow-md mb-5 p-4">
-        <div className="w-full  mb-2 p-4 flex justify-between">
-          <h1 className="text-2xl font-semibold">Ventas</h1>
-        </div>
-        <Divider />
-        <div className="text-center">
-          <Loading />
-          <p className="text-sky-500 font-semibold text-xl">Cargando...</p>
-        </div>
+      <div className="flex flex-col justify-center items-center w-full h-[400px] bg-white rounded-md shadow-md">
+        <Loading />
+        <p className="text-sky-500 font-semibold text-xl">Cargando...</p>
       </div>
     );
-  }
 
-  const columns = [
-    {
-      title: "ID VENTA",
-      dataIndex: "correlative_number",
-      key: "correlative_number",
-      render: (text, record) => (
-        <span className="font-semibold text-slate-500">{text}</span>
-      ),
-    },
-    {
-      title: "Fecha",
-      dataIndex: "fecha_venta",
-      key: "fecha_venta",
-      render: (text, record) => (
-        <div className="flex w-full justify-start items-center gap-2">
-          <span className="font-semibold text-slate-500">
-            {formatDateToHHMMDDMMYY(text)}
-          </span>
-        </div>
-      ),
-    },
-    {
-      title: "Empresa",
-      dataIndex: "empresa",
-      key: "empresa",
-      render: (text, record) => (
-        <span className="font-semibold text-slate-500">{text}</span>
-      ),
-    },
-    {
-      title: "Producto",
-      dataIndex: "producto",
-      key: "producto",
-      render: (text, record) => (
-        <span className="font-semibold text-slate-500">{text}</span>
-      ),
-    },
-    {
-      title: "Total",
-      dataIndex: "total_venta",
-      key: "total_venta",
-      render: (text, record) => (
-        <span className="font-semibold text-emerald-500">
-          {formatNumberToCurrency(text)}
-        </span>
-      ),
-    },
-    {
-      title: "Estado",
-      dataIndex: "estado",
-      key: "estado",
-      render: (text) => {
-        if (text === "EN PROCESO") {
-          return (
-            <span className="bg-slate-200 text-slate-500  p-1 pr-4 pl-4 rounded-full hover:cursor-pointer">
-              {text}
-            </span>
-          );
-        } else if (text === "REQUIERE REVISIÓN") {
-          return (
-            <span className="bg-amber-200 text-amber-500  p-1 pr-4 pl-4 rounded-full hover:cursor-pointer">
-              {text}
-            </span>
-          );
-        } else if (text === "RECHAZADA") {
-          return (
-            <span className="bg-rose-200 text-rose-500 p-1 pr-4 pl-4 rounded-full hover:cursor-pointer">
-              {text}
-            </span>
-          );
-        } else if (text === "COMPLETADA") {
-          return (
-            <span className="bg-emerald-200 text-emerald-500 p-1 pr-4 pl-4 rounded-full hover:cursor-pointer">
-              {text}
-            </span>
-          );
-        } else {
-          return <span>{text}</span>;
-        }
-      },
-    },
-    {
-      title: "Acciones",
-      dataIndex: "id_venta",
-      key: "acciones",
-      render: (text, record) => (
-        <Button
-          className=" bg-emerald-700 h-8 rounded-full text-white"
-          onClick={() => navigate(`/vendedor/ventas/${text}`)}
-        >
-          Detalle
-        </Button>
-      ),
-    },
-  ];
+  const {
+    fecha_venta,
+    empresa,
+    total_venta,
+    vendedor,
+    producto,
+    cantidad,
+    estado_venta,
+    precio_venta,
+    tipo_documento,
+    nombre_cliente,
+    apellido_cliente,
+    direccion_cliente,
+    region_cliente,
+    comuna_cliente,
+    telefono_cliente,
+    email_cliente,
+    rut_cliente,
+    id_venta,
+    id_empresa,
+    id_producto,
+    comision_seller,
+    correlative_number,
+  } = data.detail.data;
 
-  const { page, page_size } = dynamic;
+  const bodyVenta = {
+    path: `${id_empresa}/productos/${id_producto}/venta`,
+    id_empresa: "vemdo-empresas",
+  };
 
-  const totalItems =
-    data && data.detail && data.detail.data ? data.detail.data.total : [];
+  const bodyCapacitacion = {
+    path: `${id_empresa}/productos/${id_producto}/capacitacion`,
+    id_empresa: "vemdo-empresas",
+  };
 
-  const pages = Math.ceil(totalItems / page_size);
+  const paramsVenta = {
+    id_empresa: "vemdo-ventas",
+    path: `${id_venta}`,
+  };
 
-  const handleDynamicStateChange = (e) => {
-    setDynamic({ ...dynamic, [e.target.name]: e.target.value });
+  const uploadFileVenta = (e) => {
+    e.preventDefault();
+    setLoadingUpdate(true);
+    uploadFile(user.token, paramsVenta, fileVenta)
+      .then((res) => {
+        toast.success("Archivo subido con éxito");
+      })
+      .catch((err) => {
+        toast.error("Error al subir el archivo");
+      })
+      .finally(() => {
+        setReloadFiles(!reloadFiles);
+        setFileVenta([]);
+        setLoadingUpdate(false);
+      });
+  };
+
+  const handleRemoveFileVenta = (index) => {
+    let newFiles = fileVenta.filter((file, i) => i !== index);
+    setFileVenta(newFiles);
   };
 
   return (
-    <div className="w-full bg-white rounded-md shadow-md mb-5 ">
-      <div className="w-full  mb-2 p-4 flex justify-between">
-        <h1 className="text-2xl font-semibold">Ventas</h1>
-      </div>
-      <Divider />
-      <div className="p-4 flex flex-col gap-2">
-        <div className="w-full flex gap-4  mb-2 p-4 justify-end">
-          <label className="flex items-end text-default-400 text-small">
-            Items por pagina:
-            <select
-              className="bg-transparent outline-none text-default-400 text-small"
-              value={page_size}
-              name="page_size"
-              onChange={handleDynamicStateChange}
+    <>
+      {data && data.detail.data && (
+        <div className="w-full bg-white rounded-md shadow-md mb-5 p-4">
+          <div className="flex justify-between items-center">
+            <Button
+              isIconOnly
+              className="bg-emerald-500 text-white h-6"
+              onClick={() => navigate("/vendedor/ventas")}
             >
-              <option value="10">10</option>
-              <option value="15">15</option>
-              <option value="30">30</option>
-              <option value="50">50</option>
-            </select>
-          </label>
+              <ChevronDoubleLeftIcon className="h-4" />
+            </Button>
+            <span className="text-md font-semibold">
+              Fecha de venta: {formatDateToDDMMYY(fecha_venta)}
+            </span>
+          </div>
+          <div className="mt-4">
+            <h1 className="text-xl font-semibold">
+              Venta #{correlative_number}
+            </h1>
+            <Button
+              className={`${
+                estado_venta === "EN PROCESO"
+                  ? "bg-slate-200 text-slate-500"
+                  : estado_venta === "REQUIERE REVISIÓN"
+                  ? "bg-amber-200 text-amber-500"
+                  : estado_venta === "RECHAZADA"
+                  ? "bg-rose-200 text-rose-500"
+                  : estado_venta === "COMPLETADA"
+                  ? "bg-emerald-200 text-emerald-500"
+                  : "bg-emerald-500 text-white"
+              } p-1 pr-4 pl-4 rounded-full mt-2`}
+            >
+              {estado_venta}
+            </Button>
+          </div>
+
+          <div className="flex flex-col gap-4 mt-4">
+            <Comentarios />
+            <div className="border-slate-300 border rounded-md p-4 font-semibold">
+              <h1>Datos Venta</h1>
+              <div className="overflow-x-auto mt-2">
+                <table className="min-w-full border-collapse">
+                  <tbody>
+                    <tr className="border-b">
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Producto
+                      </td>
+                      <td className="p-1 text-sm" colSpan="3">
+                        {producto}
+                      </td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Vendedor
+                      </td>
+                      <td className="p-1 text-sm">{vendedor}</td>
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Tipo Documento
+                      </td>
+                      <td className="p-1 text-sm">{tipo_documento}</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Precio
+                      </td>
+                      <td className="p-1 text-sm">
+                        {formatNumberToCurrency(precio_venta)}
+                      </td>
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Cantidad
+                      </td>
+                      <td className="p-1 text-sm">{cantidad}</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Comisión
+                      </td>
+                      <td className="p-1 text-sm">
+                        {formatNumberToCurrency(comision_seller)}
+                      </td>
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Total Venta
+                      </td>
+                      <td className="p-1 text-sm">
+                        {formatNumberToCurrency(total_venta)}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <Divider className="mt-4" />
+
+              <h1>Datos Comprador</h1>
+              <div className="overflow-x-auto mt-2">
+                <table className="min-w-full border-collapse">
+                  <tbody>
+                    <tr className="border-b">
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Rut
+                      </td>
+                      <td className="p-1 text-sm">{rut_cliente}</td>
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Teléfono
+                      </td>
+                      <td className="p-1 text-sm">{telefono_cliente}</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Nombre
+                      </td>
+                      <td className="p-1 text-sm">{nombre_cliente}</td>
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Apellido
+                      </td>
+                      <td className="p-1 text-sm">{apellido_cliente}</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Dirección
+                      </td>
+                      <td className="p-1 text-sm">{direccion_cliente}</td>
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Región
+                      </td>
+                      <td className="p-1 text-sm">{region_cliente}</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Comuna
+                      </td>
+                      <td className="p-1 text-sm">{comuna_cliente}</td>
+                      <td className="p-1 font-semibold bg-stone-100 text-sm">
+                        Email
+                      </td>
+                      <td className="p-1 text-sm">{email_cliente}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <Divider className="mt-4" />
+
+              <h2 className="font-semibold">Documentación</h2>
+              <ProductosDocs
+                reloadFiles={reloadFiles}
+                body={paramsVenta}
+                token={user.token}
+                setReloadFiles={setReloadFiles}
+                bucket={"vemdo-ventas"}
+              />
+              <InputFileUploader
+                multiple
+                handleFileChange={handleFileChangeVenta}
+              />
+              {fileVenta && fileVenta.length > 0 && (
+                <div className="w-full border-1 mt-2">
+                  {fileVenta.map((file, index) => (
+                    <div
+                      key={index}
+                      className="flex justify-between items-center gap-1"
+                    >
+                      <div className="w-full bg-emerald-500 m-1 rounded-md p-1 text-white flex justify-between">
+                        <span className="text-xs">{file.name}</span>
+                        <span className="text-xs">{getSize(file.size)}</span>
+                      </div>
+                      <div
+                        className="w-6 bg-rose-500 h-full p-1 text-white rounded-md hover:cursor-pointer hover:bg-rose-400"
+                        onClick={() => handleRemoveFileVenta(index)}
+                      >
+                        <TrashIcon className="h-full" />
+                      </div>
+                    </div>
+                  ))}
+                  <Button
+                    className="w-full text-xs bg-foreground text-white"
+                    onClick={uploadFileVenta}
+                    isLoading={loadingUpdate}
+                  >
+                    Guardar
+                  </Button>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-        <DataTablePrimary rows={data.detail.data.ventas} columns={columns} />
-        <div className="w-full  flex justify-between items-center">
-          <Pagination
-            total={pages}
-            initialPage={page}
-            loop
-            showControls
-            color="secondary"
-            className="m-4"
-            name={page}
-            onChange={(page) => setDynamic({ ...dynamic, page: Number(page) })}
-          />
-          <span className="text-default-400 text-small">
-            Total {totalItems} registros
-          </span>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
-export default VentasHome;
+export default VentaDetail;

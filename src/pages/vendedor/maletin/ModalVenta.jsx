@@ -23,6 +23,7 @@ import {
 import regiones from "../../../utils/regiones";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import ReactSelect from "react-select";
 
 const initialState = {
   id_vendedor: "",
@@ -48,19 +49,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
   const [cantidad, setCantidad] = useState(0);
   const [selectedRegion, setSelectedRegion] = useState("");
   const [filteredComunas, setFilteredComunas] = useState([]);
-
-  const handleRegionChange = (event) => {
-    const { value } = event.target;
-    setSelectedRegion(value);
-    handleChange(event);
-
-    const region = regiones.Regiones.find((reg) => reg.Nombre === value);
-    if (region) {
-      setFilteredComunas(region.Comunas);
-    } else {
-      setFilteredComunas([]);
-    }
-  };
 
   const handleChange = (e) => {
     if (e.target.name === "rut_cliente") {
@@ -128,6 +116,46 @@ const ModalVenta = ({ open, handleOpen, data }) => {
     imagenes,
     id_producto,
   } = data;
+
+  const handleRegionChange = (value) => {
+    console.log("value", value);
+    setSelectedRegion(value.value);
+
+    const event = {
+      target: {
+        name: "region",
+        value: value.value,
+      },
+    };
+    handleChange(event);
+
+    const regionObj = regiones.Regiones.find(
+      (reg) => reg.Nombre === value.value
+    );
+    if (regionObj) {
+      setFilteredComunas(regionObj.Comunas);
+    } else {
+      setFilteredComunas([]);
+    }
+  };
+
+  const handleComunaChange = (value) => {
+    const event = {
+      target: {
+        name: "comuna",
+        value: value.value,
+      },
+    };
+    handleChange(event);
+  };
+
+  const optionsRegiones = regiones.Regiones.map((c) => {
+    return { value: c.Nombre, label: c.Nombre };
+  });
+
+  const optionsComunas = filteredComunas.map((c) => {
+    return { value: c, label: c };
+  });
 
   return (
     <Modal isOpen={open} onOpenChange={handleOpen} size="5xl">
@@ -207,8 +235,53 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                   <h1 className="text-lg col-span-2 font-semibold">
                     Datos del comprador
                   </h1>
+                  <div className="flex flex-col justify-start h-auto gap-2 z-50">
+                    <span className="text-sm">
+                      Región <span className="text-rose-500">*</span>
+                    </span>
+                    <ReactSelect
+                      options={optionsRegiones}
+                      required
+                      styles={{
+                        control: (baseStyles, state) => ({
+                          ...baseStyles,
+                          borderRadius: "0.7rem",
+                          border: "2px solid #eaeaea",
+                        }),
+                        menu: (base) => ({
+                          ...base,
+                          zIndex: 9999,
+                        }),
+                      }}
+                      onChange={handleRegionChange}
+                      placeholder="Seleccione región"
+                      defaultInputValue={values.region}
+                    />
+                  </div>
+                  <div className="flex flex-col justify-start gap-2">
+                    <span className="text-sm">
+                      Comuna <span className="text-rose-500">*</span>
+                    </span>
+                    <ReactSelect
+                      options={optionsComunas}
+                      styles={{
+                        control: (baseStyles, state) => ({
+                          ...baseStyles,
+                          borderRadius: "0.7rem",
+                          border: "2px solid #eaeaea",
+                        }),
+                        menu: (base) => ({
+                          ...base,
+                          zIndex: 9999,
+                        }),
+                      }}
+                      onChange={handleComunaChange}
+                      isDisabled={!selectedRegion}
+                      placeholder="Seleccione comuna"
+                      defaultInputValue={values.comuna}
+                    />
+                  </div>
                   <Input
-                    size="sm"
                     variant="bordered"
                     isRequired
                     label="Nombre"
@@ -219,7 +292,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     onChange={handleChange}
                   />
                   <Input
-                    size="sm"
                     variant="bordered"
                     isRequired
                     label="Apellido"
@@ -230,7 +302,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     onChange={handleChange}
                   />
                   <Input
-                    size="sm"
                     variant="bordered"
                     isRequired
                     label="Rut"
@@ -241,7 +312,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     onChange={handleChange}
                   />
                   <Input
-                    size="sm"
                     variant="bordered"
                     isRequired
                     label="Correo"
@@ -252,7 +322,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     onChange={handleChange}
                   />
                   <Input
-                    size="sm"
                     variant="bordered"
                     isRequired
                     label="Telefono"
@@ -263,7 +332,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     onChange={handleChange}
                   />
                   <Input
-                    size="sm"
                     variant="bordered"
                     isRequired
                     label="Dirección"
@@ -273,40 +341,6 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     value={direccion_cliente}
                     onChange={handleChange}
                   />
-
-                  <Select
-                    variant="bordered"
-                    isRequired
-                    label="Región "
-                    labelPlacement="outside"
-                    placeholder="Ingrese región "
-                    name="region_cliente"
-                    value={selectedRegion}
-                    onChange={handleRegionChange}
-                  >
-                    {regiones.Regiones.map((region) => (
-                      <SelectItem key={region.Nombre} value={region.Nombre}>
-                        {region.Nombre}
-                      </SelectItem>
-                    ))}
-                  </Select>
-                  <Select
-                    variant="bordered"
-                    isRequired
-                    label="Comuna "
-                    labelPlacement="outside"
-                    placeholder="Ingrese comuna "
-                    name="comuna_cliente"
-                    value={comuna_cliente}
-                    onChange={handleChange}
-                    disabled={!selectedRegion}
-                  >
-                    {filteredComunas.map((comuna) => (
-                      <SelectItem key={comuna} value={comuna}>
-                        {comuna}
-                      </SelectItem>
-                    ))}
-                  </Select>
                 </div>
               </div>
             </ModalBody>

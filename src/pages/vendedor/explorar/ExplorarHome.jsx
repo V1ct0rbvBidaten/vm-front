@@ -30,7 +30,7 @@ const ExplorarHome = () => {
 
   if (loading)
     return (
-      <div className="flex flex-col justify-center items-center w-100 h-[400px] bg-white rounded-md shadow-md">
+      <div className="flex flex-col justify-center items-center w-full h-[400px] bg-white rounded-md shadow-md">
         <Loading />
         <p className="text-sky-500 font-semibold text-xl">Cargando...</p>
       </div>
@@ -54,15 +54,15 @@ const ExplorarHome = () => {
 
   return (
     <div className="flex flex-col m-0 justify-center items-center bg-white rounded-md shadow-md">
-      <div className="w-full  mb-2 p-4 flex justify-between">
-        <h1 className="text-2xl font-semibold">Explorar </h1>
+      <div className="w-full mb-2 p-4 flex justify-between items-center">
+        <h1 className="text-xl sm:text-2xl font-semibold">Explorar </h1>
       </div>
       <Divider />
-      <div className="w-full flex gap-4  mb-2 p-4 justify-end">
-        <label className="flex items-end text-default-400 text-small">
-          Items por pagina:
+      <div className="w-full flex flex-col sm:flex-row gap-4 mb-2 p-4 justify-end items-center">
+        <label className="flex items-center text-default-400 text-small">
+          Items por página:
           <select
-            className="bg-transparent outline-none text-default-400 text-small"
+            className="bg-transparent outline-none text-default-400 text-small ml-2"
             value={page_size}
             name="page_size"
             onChange={handleDynamicStateChange}
@@ -74,7 +74,7 @@ const ExplorarHome = () => {
           </select>
         </label>
       </div>
-      <div className="p-4 grid grid-cols-5 w-full gap-2">
+      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full gap-4">
         {profiles &&
           profiles.length > 0 &&
           profiles
@@ -83,7 +83,7 @@ const ExplorarHome = () => {
               <EmpresaCard data={profile} key={profile.id_empresa} />
             ))}
       </div>
-      <div className="w-full bg-stone-100 pr-10 pl-10 flex justify-between items-center">
+      <div className="w-full bg-stone-100 p-4 flex flex-col sm:flex-row justify-between items-center">
         <Pagination
           total={pages}
           initialPage={page}
@@ -96,7 +96,7 @@ const ExplorarHome = () => {
             setDynamicState({ ...dynamicState, page: Number(page) })
           }
         />
-        <span className="text-default-400 text-small">
+        <span className="text-default-400 text-small mt-2 sm:mt-0">
           Total {totalItems} registros
         </span>
       </div>

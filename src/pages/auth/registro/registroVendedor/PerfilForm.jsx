@@ -1,6 +1,7 @@
 import { Autocomplete, Input, AutocompleteItem } from "@nextui-org/react";
 import regiones from "../../../../utils/regiones";
 import { useState } from "react";
+import Select from "react-select";
 
 const PerfilForm = ({ handleChange, values }) => {
   const { nombres, apellidos, direccion, telefono, comuna, region } = values;
@@ -10,17 +11,19 @@ const PerfilForm = ({ handleChange, values }) => {
 
   const handleRegionChange = (value) => {
     console.log("value", value);
-    setSelectedRegion(value);
+    setSelectedRegion(value.value);
 
     const event = {
       target: {
         name: "region",
-        value: value,
+        value: value.value,
       },
     };
     handleChange(event);
 
-    const regionObj = regiones.Regiones.find((reg) => reg.Nombre === value);
+    const regionObj = regiones.Regiones.find(
+      (reg) => reg.Nombre === value.value
+    );
     if (regionObj) {
       setFilteredComunas(regionObj.Comunas);
     } else {
@@ -32,11 +35,19 @@ const PerfilForm = ({ handleChange, values }) => {
     const event = {
       target: {
         name: "comuna",
-        value: value,
+        value: value.value,
       },
     };
     handleChange(event);
   };
+
+  const optionsRegiones = regiones.Regiones.map((c) => {
+    return { value: c.Nombre, label: c.Nombre };
+  });
+
+  const optionsComunas = filteredComunas.map((c) => {
+    return { value: c, label: c };
+  });
 
   return (
     <div className="grid grid-cols-2 items-center gap-4">
@@ -50,7 +61,6 @@ const PerfilForm = ({ handleChange, values }) => {
         isRequired
         onChange={handleChange}
       />
-
       <Input
         variant="bordered"
         label="Apellido"
@@ -81,39 +91,44 @@ const PerfilForm = ({ handleChange, values }) => {
         value={telefono}
         onChange={handleChange}
       />
-      <Autocomplete
-        variant="bordered"
-        label="Región "
-        labelPlacement="outside"
-        placeholder="Ingrese región "
-        isRequired
-        name="region"
-        value={selectedRegion}
-        onSelectionChange={handleRegionChange}
-      >
-        {regiones.Regiones.map((region) => (
-          <AutocompleteItem key={region.Nombre} value={region.Nombre}>
-            {region.Nombre}
-          </AutocompleteItem>
-        ))}
-      </Autocomplete>
-      <Autocomplete
-        variant="bordered"
-        label="Comuna "
-        isRequired
-        labelPlacement="outside"
-        placeholder="Ingrese comuna "
-        name="comuna"
-        value={comuna}
-        onSelectionChange={handleComunaChange}
-        disabled={!selectedRegion}
-      >
-        {filteredComunas.map((comuna) => (
-          <AutocompleteItem key={comuna} value={comuna}>
-            {comuna}
-          </AutocompleteItem>
-        ))}
-      </Autocomplete>
+      <div className="flex flex-col justify-start gap-2">
+        <span className="text-sm">
+          Región <span className="text-rose-500">*</span>
+        </span>
+        <Select
+          options={optionsRegiones}
+          required
+          styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              borderRadius: "0.7rem",
+              border: "2px solid #eaeaea",
+            }),
+          }}
+          onChange={handleRegionChange}
+          placeholder="Seleccione región"
+          defaultInputValue={values.region}
+        />
+      </div>
+      <div className="flex flex-col justify-start gap-2">
+        <span className="text-sm">
+          Comuna <span className="text-rose-500">*</span>
+        </span>
+        <Select
+          options={optionsComunas}
+          styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              borderRadius: "0.7rem",
+              border: "2px solid #eaeaea",
+            }),
+          }}
+          onChange={handleComunaChange}
+          isDisabled={!selectedRegion}
+          placeholder="Seleccione comuna"
+          defaultInputValue={values.comuna}
+        />
+      </div>
     </div>
   );
 };

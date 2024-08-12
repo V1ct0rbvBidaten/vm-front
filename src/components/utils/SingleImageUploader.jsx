@@ -40,7 +40,7 @@ const SingleImageUploader = ({ image, setImage }) => {
       />
       {image && (
         <img
-          className="hover:cursor-pointer hover:opacity-80 transition duration-300"
+          className="hover:cursor-pointer hover:opacity-80 transition duration-300  object-cover"
           onClick={handleClick}
           src={image}
           alt="Uploaded Image"

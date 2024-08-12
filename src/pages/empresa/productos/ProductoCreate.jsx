@@ -156,97 +156,99 @@ const ProductoCreate = () => {
       <Divider />
       <div className="w-full p-4">
         <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4">
-          <div className="row-span-3 h-auto ">
+          <div className=" row-span-3  ">
             <SingleImageUploader image={image} setImage={setImage} />
           </div>
-          <Input
-            size="sm"
-            variant="bordered"
-            placeholder="Nombre"
-            name="nombre_producto"
-            label="Nombre"
-            labelPlacement="outside"
-            value={values.nombre_producto}
-            isRequired
-            onChange={handleChange}
-          />
-          <Input
-            size="sm"
-            variant="bordered"
-            placeholder="Precio"
-            name="precio"
-            label="Precio"
-            labelPlacement="outside"
-            isRequired
-            value={values.precio}
-            onChange={handleChange}
-          />
-          <Select
-            size="sm"
-            variant="bordered"
-            name="estado_producto"
-            label="Estado producto"
-            labelPlacement="outside"
-            isRequired
-            value={values.estado_producto}
-            placeholder="estado"
-            onChange={handleChange}
-          >
-            <SelectItem key="disponible" value="disponible">
-              Disponible
-            </SelectItem>
-            <SelectItem key="no_disponible" value="no_disponible">
-              No Disponible
-            </SelectItem>
-          </Select>
-          <Input
-            size="sm"
-            variant="bordered"
-            placeholder="Comisión"
-            name="comision"
-            label="Comisión"
-            isRequired
-            labelPlacement="outside"
-            value={values.comision}
-            onChange={handleChange}
-            max={values.precio}
-            type="number"
-          />
-          <Select
-            size="sm"
-            variant="bordered"
-            name="categoria"
-            label="Categoria"
-            isRequired
-            placeholder="Categoria"
-            labelPlacement="outside"
-            value={values.categoria}
-            onChange={handleChange}
-          >
-            {categoriasProductos.map((c) => (
-              <SelectItem key={c} value={c}>
-                {c}
+          <div className="col-span-2 flex gap-2 flex-col">
+            <Input
+              size="sm"
+              variant="bordered"
+              placeholder="Nombre"
+              name="nombre_producto"
+              label="Nombre"
+              labelPlacement="outside"
+              value={values.nombre_producto}
+              isRequired
+              onChange={handleChange}
+            />
+            <Input
+              size="sm"
+              variant="bordered"
+              placeholder="Precio"
+              name="precio"
+              label="Precio"
+              labelPlacement="outside"
+              isRequired
+              value={values.precio}
+              onChange={handleChange}
+            />
+            <Select
+              size="sm"
+              variant="bordered"
+              name="estado_producto"
+              label="Estado producto"
+              labelPlacement="outside"
+              isRequired
+              value={values.estado_producto}
+              placeholder="estado"
+              onChange={handleChange}
+            >
+              <SelectItem key="disponible" value="disponible">
+                Disponible
               </SelectItem>
-            ))}
-          </Select>
-          <Select
-            size="sm"
-            variant="bordered"
-            name="tipo_venta"
-            label="Tipo de venta"
-            placeholder="Tipo de venta"
-            isRequired
-            labelPlacement="outside"
-            value={values.tipo_venta}
-            onChange={handleChange}
-          >
-            <SelectItem key="PAGO ANTICIPADO" value="PAGO ANTICIPADO">
-              Pago Anticipado
-            </SelectItem>
-            <SelectItem key="POSTPAGO" value="POSTPAGO">
-              Post Pago
-            </SelectItem>
-          </Select>
+              <SelectItem key="no_disponible" value="no_disponible">
+                No Disponible
+              </SelectItem>
+            </Select>
+            <Input
+              size="sm"
+              variant="bordered"
+              placeholder="Comisión"
+              name="comision"
+              label="Comisión"
+              isRequired
+              labelPlacement="outside"
+              value={values.comision}
+              onChange={handleChange}
+              max={values.precio}
+              type="number"
+            />
+            <Select
+              size="sm"
+              variant="bordered"
+              name="categoria"
+              label="Categoria"
+              isRequired
+              placeholder="Categoria"
+              labelPlacement="outside"
+              value={values.categoria}
+              onChange={handleChange}
+            >
+              {categoriasProductos.map((c) => (
+                <SelectItem key={c} value={c}>
+                  {c}
+                </SelectItem>
+              ))}
+            </Select>
+            <Select
+              size="sm"
+              variant="bordered"
+              name="tipo_venta"
+              label="Tipo de venta"
+              placeholder="Tipo de venta"
+              isRequired
+              labelPlacement="outside"
+              value={values.tipo_venta}
+              onChange={handleChange}
+            >
+              <SelectItem key="PAGO ANTICIPADO" value="PAGO ANTICIPADO">
+                Pago Anticipado
+              </SelectItem>
+              <SelectItem key="POSTPAGO" value="POSTPAGO">
+                Post Pago
+              </SelectItem>
+            </Select>
+          </div>
           <Textarea
             placeholder="Ingrese descripción"
             variant="bordered"

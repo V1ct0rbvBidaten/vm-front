@@ -13,7 +13,7 @@ const DataTablePrimary = ({ columns, rows }) => {
           rows.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {columns.map((column, colIndex) => (
-                <td key={colIndex}>
+                <td key={colIndex} data-label={column.title}>
                   {column.render
                     ? column.render(row[column.dataIndex], row)
                     : row[column.dataIndex]}

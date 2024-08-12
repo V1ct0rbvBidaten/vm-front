@@ -24,7 +24,7 @@ const CreateProfile = ({ user }) => {
   let esEmpresa = user.es_empresa;
 
   return (
-    <div className="h-full w-screen p-10 ">
+    <div className="h-screen w-screen p-10 ">
       <div className="flex  justify-between gradient-border relative pb-5">
         <img src={Logo} className="w-32" />
         <Button

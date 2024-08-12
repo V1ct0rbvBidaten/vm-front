@@ -7,24 +7,21 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-  DropdownSection,
 } from "@nextui-org/react";
 import {
-  ChatBubbleLeftRightIcon,
-  EllipsisVerticalIcon,
   ListBulletIcon,
+  EllipsisVerticalIcon,
   PowerIcon,
 } from "@heroicons/react/24/solid";
 import { toggleCollapse } from "../../reducers/sideBarCollapse";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import CreateProfile from "../../pages/vendedor/cuenta/CreateProfile";
+import EmpresaNavBar from "../navs/EmpresaNavBar";
 
 const EmpresaRoute = ({ Component }) => {
   const dispatch = useDispatch();
-
   let navigate = useNavigate();
-
   const user = useSelector((state) => state.user);
 
   const handleToggle = () => {
@@ -44,54 +41,49 @@ const EmpresaRoute = ({ Component }) => {
     user.profile_name === null ? (
       <CreateProfile user={user} />
     ) : (
-      <>
-        <div className=" flex max-h-screen">
-          <div>
-            <EmpresaSideNav user={user} />
-          </div>
-          <main className="p-7 w-full bg-stone-50 overflow-scroll">
-            <div className="flex justify-between items-center gap-4 bg-white p-3 rounded-md shadow-md">
-              <Button
-                isIconOnly
-                size="sm"
-                radius="md"
-                onClick={handleToggle}
-                className="p-1 text-white bg-emerald-500"
-              >
-                <ListBulletIcon className="h-6 " />
-              </Button>
-              <Dropdown>
-                <DropdownTrigger>
-                  <Button
-                    className="bg-sky-500 text-white shadow-md h-8 rounded-full capitalize"
-                    endContent={<EllipsisVerticalIcon className="h-6" />}
-                  >
-                    ¡Hola, {user.nombre_empresa}!
-                  </Button>
-                </DropdownTrigger>
-                <DropdownMenu aria-label="Static Actions">
-                  <DropdownItem
-                    key="delete"
-                    startContent={<PowerIcon className="h-4" />}
-                    onClick={handleSignOut}
-                  >
-                    Cerrar Sesión
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
-            </div>
-            <div className="  mt-5   rounded-md">
-              <Component user={user} />
-            </div>
-          </main>
-          {/* <Button
-            className="h-14 w-14 rounded-2xl bg-emerald-300 shadow-lg text-white fixed z-10 bottom-10 right-10 p-2"
-            isIconOnly
-          >
-            <ChatBubbleLeftRightIcon />
-          </Button> */}
+      <div className="flex flex-col md:flex-row max-h-screen">
+        <div className="hidden sm:block">
+          <EmpresaSideNav user={user} />
         </div>
-      </>
+        <main className="sm:p-7  w-full bg-stone-50 overflow-scroll min-h-screen">
+          <div className="block sm:hidden">
+            <EmpresaNavBar user={user} />
+          </div>
+          <div className="flex justify-between items-center gap-2 bg-white p-3 rounded-md shadow-md m-7 sm:m-0">
+            <Button
+              isIconOnly
+              size="sm"
+              radius="md"
+              onClick={handleToggle}
+              className="p-1 text-white bg-emerald-500 hidden sm:block"
+            >
+              <ListBulletIcon className="h-6 " />
+            </Button>
+            <Dropdown>
+              <DropdownTrigger>
+                <Button
+                  className="bg-sky-500 text-white shadow-md h-8 rounded-full capitalize"
+                  endContent={<EllipsisVerticalIcon className="h-6" />}
+                >
+                  ¡Hola, {user.nombre_empresa}!
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Static Actions">
+                <DropdownItem
+                  key="logout"
+                  startContent={<PowerIcon className="h-4" />}
+                  onClick={handleSignOut}
+                >
+                  Cerrar Sesión
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+          <div className=" rounded-md p-7 sm:p-0">
+            <Component user={user} />
+          </div>
+        </main>
+      </div>
     )
   ) : (
     <LoadingToRedirect />

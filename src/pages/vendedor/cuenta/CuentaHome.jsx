@@ -131,53 +131,49 @@ const CuentaHome = () => {
               style={{ width: "100%", textAlign: "left" }}
               className="w-full "
             >
-              <Card className="w-full">
-                <CardBody>
-                  <div className=" flex flex-col gap-4 p-4 ">
-                    <div className="flex justify-between">
-                      <h4 className="col-span-2 tracking-wide text-xl font-semibold">
-                        Datos Personales
-                      </h4>
-                      {togleEdit.datosPersonales ? (
-                        <div className="flex  gap-2">
-                          <Button
-                            className="bg-rose-400 text-white h-6"
-                            onClick={() => handleTogleEdit("datosPersonales")}
-                          >
-                            Cancelar
-                          </Button>{" "}
-                          <Button
-                            className="bg-emerald-500 text-white h-6"
-                            isIconOnly
-                            disabled
-                            onClick={() => handleTogleEdit("datosPersonales")}
-                          >
-                            <PencilSquareIcon className="h-4" />
-                          </Button>
-                        </div>
-                      ) : (
-                        <Button
-                          className="bg-emerald-500 text-white h-6"
-                          isIconOnly
-                          onClick={() => handleTogleEdit("datosPersonales")}
-                        >
-                          <PencilSquareIcon className="h-4" />
-                        </Button>
-                      )}
+              <div className=" flex flex-col gap-4 p-4 ">
+                <div className="flex justify-between">
+                  <h4 className="col-span-2 tracking-wide text-xl font-semibold">
+                    Datos Personales
+                  </h4>
+                  {togleEdit.datosPersonales ? (
+                    <div className="flex  gap-2">
+                      <Button
+                        className="bg-rose-400 text-white h-6"
+                        onClick={() => handleTogleEdit("datosPersonales")}
+                      >
+                        Cancelar
+                      </Button>{" "}
+                      <Button
+                        className="bg-emerald-500 text-white h-6"
+                        isIconOnly
+                        disabled
+                        onClick={() => handleTogleEdit("datosPersonales")}
+                      >
+                        <PencilSquareIcon className="h-4" />
+                      </Button>
                     </div>
-                    {togleEdit.datosPersonales ? (
-                      <DatosPersonalesUpdate
-                        data={updateDataPerfil}
-                        handleChange={handleChangePerfil}
-                        loading={loadingUpdate}
-                        handleSubmit={handleUpdatePerfil}
-                      />
-                    ) : (
-                      <DatosPersonalesDetail data={updateDataPerfil} />
-                    )}
-                  </div>
-                </CardBody>
-              </Card>
+                  ) : (
+                    <Button
+                      className="bg-emerald-500 text-white h-6"
+                      isIconOnly
+                      onClick={() => handleTogleEdit("datosPersonales")}
+                    >
+                      <PencilSquareIcon className="h-4" />
+                    </Button>
+                  )}
+                </div>
+                {togleEdit.datosPersonales ? (
+                  <DatosPersonalesUpdate
+                    data={updateDataPerfil}
+                    handleChange={handleChangePerfil}
+                    loading={loadingUpdate}
+                    handleSubmit={handleUpdatePerfil}
+                  />
+                ) : (
+                  <DatosPersonalesDetail data={updateDataPerfil} />
+                )}
+              </div>
             </Tab>
 
             <Tab
@@ -185,71 +181,63 @@ const CuentaHome = () => {
               title="Datos Bancarios"
               className="w-full"
             >
-              <Card>
-                <CardBody>
-                  <div className=" flex flex-col gap-4 p-4 ">
-                    <div className="flex justify-between">
-                      <h4 className="col-span-2 tracking-wide text-xl font-semibold">
-                        Datos Bancarios
-                      </h4>
-                      {togleEdit.datosBancarios ? (
-                        <div className="flex  gap-2">
-                          <Button
-                            className="bg-rose-400 text-white h-6"
-                            onClick={() => handleTogleEdit("datosBancarios")}
-                          >
-                            Cancelar
-                          </Button>
-                          <Button
-                            className="bg-emerald-500 text-white h-6"
-                            isIconOnly
-                            disabled
-                            onClick={() => handleTogleEdit("datosBancarios")}
-                          >
-                            <PencilSquareIcon className="h-4" />
-                          </Button>
-                        </div>
-                      ) : (
-                        <Button
-                          className="bg-emerald-500 text-white h-6"
-                          isIconOnly
-                          onClick={() => handleTogleEdit("datosBancarios")}
-                        >
-                          <PencilSquareIcon className="h-4" />
-                        </Button>
-                      )}
+              <div className=" flex flex-col gap-4 p-4 ">
+                <div className="flex justify-between">
+                  <h4 className="col-span-2 tracking-wide text-xl font-semibold">
+                    Datos Bancarios
+                  </h4>
+                  {togleEdit.datosBancarios ? (
+                    <div className="flex  gap-2">
+                      <Button
+                        className="bg-rose-400 text-white h-6"
+                        onClick={() => handleTogleEdit("datosBancarios")}
+                      >
+                        Cancelar
+                      </Button>
+                      <Button
+                        className="bg-emerald-500 text-white h-6"
+                        isIconOnly
+                        disabled
+                        onClick={() => handleTogleEdit("datosBancarios")}
+                      >
+                        <PencilSquareIcon className="h-4" />
+                      </Button>
                     </div>
+                  ) : (
+                    <Button
+                      className="bg-emerald-500 text-white h-6"
+                      isIconOnly
+                      onClick={() => handleTogleEdit("datosBancarios")}
+                    >
+                      <PencilSquareIcon className="h-4" />
+                    </Button>
+                  )}
+                </div>
 
-                    {togleEdit.datosBancarios ? (
-                      <DatosBancariosUpdate
-                        data={updateDataPerfil}
-                        handleChange={handleChangePerfil}
-                        handleSubmit={handleUpdatePerfil}
-                        loading={loadingUpdate}
-                      />
-                    ) : (
-                      <DatosBancariosDetail data={updateDataPerfil} />
-                    )}
-                  </div>
-                </CardBody>
-              </Card>
+                {togleEdit.datosBancarios ? (
+                  <DatosBancariosUpdate
+                    data={updateDataPerfil}
+                    handleChange={handleChangePerfil}
+                    handleSubmit={handleUpdatePerfil}
+                    loading={loadingUpdate}
+                  />
+                ) : (
+                  <DatosBancariosDetail data={updateDataPerfil} />
+                )}
+              </div>
             </Tab>
             <Tab key="contrasena" title="Cambiar Contraseña" className="w-full">
-              <Card>
-                <CardBody>
-                  <div className="flex flex-col    p-4 ">
-                    <h4 className=" tracking-wide text-xl font-semibold">
-                      Cambiar contraseña
-                    </h4>
-                    <PasswordUpdate
-                      data={newPassword}
-                      loading={loadingUpdate}
-                      handleChange={passwordChange}
-                      handleSubmit={handleUpdatePassword}
-                    />
-                  </div>
-                </CardBody>
-              </Card>
+              <div className="flex flex-col    p-4 ">
+                <h4 className=" tracking-wide text-xl font-semibold">
+                  Cambiar contraseña
+                </h4>
+                <PasswordUpdate
+                  data={newPassword}
+                  loading={loadingUpdate}
+                  handleChange={passwordChange}
+                  handleSubmit={handleUpdatePassword}
+                />
+              </div>
             </Tab>
           </Tabs>
         </div>

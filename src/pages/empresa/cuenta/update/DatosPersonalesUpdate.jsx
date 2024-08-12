@@ -1,7 +1,12 @@
 import { Button, Input } from "@nextui-org/react";
 import React from "react";
 
-const DatosPersonalesUpdate = ({ data, handleChange, handleSubmit }) => {
+const DatosPersonalesUpdate = ({
+  data,
+  handleChange,
+  handleSubmit,
+  loading,
+}) => {
   const {
     nombres,
     apellidos,
@@ -52,7 +57,11 @@ const DatosPersonalesUpdate = ({ data, handleChange, handleSubmit }) => {
         value={telefono}
         onChange={handleChange}
       />
-      <Button className="col-span-2 bg-foreground text-white" type="submit">
+      <Button
+        className="col-span-2 bg-foreground text-white"
+        type="submit"
+        isLoading={loading}
+      >
         Guardar cambios
       </Button>
     </form>

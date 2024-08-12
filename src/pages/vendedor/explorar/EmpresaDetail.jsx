@@ -68,11 +68,11 @@ const EmpresaDetail = () => {
       <div className="w-full bg-white rounded-md shadow-md mb-5 p-4 flex flex-col gap-2">
         <EmpresaBanner data={dataEmpresa.detail.data} />
 
-        <div className="w-full flex gap-4 mb-2 p-4 justify-end">
-          <label className="flex items-end text-default-400 text-small">
-            Filas por pagina:
+        <div className="w-full flex flex-col sm:flex-row gap-4 mb-2 p-4 justify-end items-center">
+          <label className="flex items-center text-default-400 text-small">
+            Filas por página:
             <select
-              className="bg-transparent outline-none text-default-400 text-small"
+              className="bg-transparent outline-none text-default-400 text-small ml-2"
               value={page_size}
               name="page_size"
               onChange={handleParamsChange}
@@ -86,12 +86,12 @@ const EmpresaDetail = () => {
         </div>
         {productos && productos.length > 0 ? (
           <>
-            <div className="grid grid-cols-5 gap-4 p-4 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 w-full">
               {productos.map((c) => (
                 <ProductoCardVendedor key={c.id_producto} data={c} />
               ))}
             </div>
-            <div className="w-full bg-stone-100 pr-10 pl-10 flex justify-between items-center">
+            <div className="w-full bg-stone-100 pr-4 pl-4 sm:pr-10 sm:pl-10 flex flex-col sm:flex-row justify-between items-center">
               <Pagination
                 total={pages}
                 initialPage={page}
@@ -104,13 +104,13 @@ const EmpresaDetail = () => {
                   setParams({ ...params, page: Number(page) })
                 }
               />
-              <span className="text-default-400 text-small">
+              <span className="text-default-400 text-small mt-2 sm:mt-0">
                 Total {totalItems} registros
               </span>
             </div>
           </>
         ) : (
-          <div className="grid grid-cols-6 gap-4 p-4 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 w-full">
             <ProductoCardVendedor data={noData} />
           </div>
         )}

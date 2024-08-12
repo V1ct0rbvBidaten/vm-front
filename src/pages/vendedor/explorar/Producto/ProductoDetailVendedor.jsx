@@ -101,8 +101,8 @@ const ProductoDetailVendedor = () => {
 
   if (loading || loadingMaletines || loadingPM) {
     return (
-      <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
-        <div className="w-full mb-2 p-4 flex justify-between">
+      <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md p-4">
+        <div className="w-full mb-2 flex justify-between">
           <h1 className="text-2xl font-semibold">Producto</h1>
           <Button
             className="bg-emerald-500 text-white h-7"
@@ -119,8 +119,8 @@ const ProductoDetailVendedor = () => {
 
   if (!data || !data.detail || !data.detail.data) {
     return (
-      <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
-        <div className="w-full mb-2 p-4 flex justify-between">
+      <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md p-4">
+        <div className="w-full mb-2 flex justify-between">
           <h1 className="text-2xl font-semibold">Producto</h1>
           <Button
             className="bg-emerald-500 text-white h-7"
@@ -161,8 +161,8 @@ const ProductoDetailVendedor = () => {
         handleUpdateMaletin={handleUpdateMaletin}
       />
 
-      <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
-        <div className="w-full mb-2 p-4 flex justify-between">
+      <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md p-4">
+        <div className="w-full mb-2 flex justify-between">
           <Button
             className="bg-emerald-500 text-white h-7"
             onClick={() => navigate(`/vendedor/explorar/empresa/${id}`)}
@@ -189,14 +189,18 @@ const ProductoDetailVendedor = () => {
           )}
         </div>
         <Divider />
-        <div className="grid grid-cols-3 gap-4 w-full p-2">
-          <div className="imagen-portada shadow-md justify-center flex items-center">
-            <img src={imagen_principal} alt="Imagen Principal" />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full p-2">
+          <div className="imagen-portada shadow-md justify-center flex items-center lg:col-span-1">
+            <img
+              src={imagen_principal}
+              alt="Imagen Principal"
+              className="w-full h-auto object-cover rounded-md"
+            />
           </div>
-          <div className="col-span-2 flex gap-4 flex-col min-h-[500px] border-2 p-2 rounded-md">
-            <div className="h-[10%] items-center flex justify-between">
+          <div className="col-span-2 flex flex-col gap-4 min-h-[500px] border-2 p-2 rounded-md">
+            <div className="flex flex-col md:flex-row justify-between items-center">
               <h1 className="text-2xl font-semibold">{nombre_producto}</h1>
-              <Button className="rounded-full text-xs h-6 bg-sky-700 text-white">
+              <Button className="rounded-full text-xs h-6 bg-sky-700 text-white mt-2 md:mt-0">
                 {categoria}
               </Button>
             </div>
@@ -204,34 +208,32 @@ const ProductoDetailVendedor = () => {
             <div className="bg-slate-50 p-4 rounded-md drop-shadow-md h-[80%]">
               <p>{descripcion}</p>
             </div>
-            <div className=" flex justify-between">
-              <span className=" bg-emerald-500 text-white p-1 rounded-md text-sm">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <span className="bg-emerald-500 text-white p-1 rounded-md text-sm">
                 Precio: {formatNumberToCurrency(precio || 0)}
               </span>
-              <span className=" bg-amber-500 text-white p-1 rounded-md text-sm">
+              <span className="bg-amber-500 text-white p-1 rounded-md text-sm mt-2 md:mt-0">
                 Comisión: {formatNumberToCurrency(comision_seller || 0)}
               </span>
             </div>
           </div>
-          <div className="col-span-3 w-full grid grid-cols-3 gap-2">
-            <div className="col-span-3">
-              <h4 className="font-semibold">Galería</h4>
-              <Divider />
-              <div className="w-full grid-cols-10 grid gap-2 p-2">
-                {imagenes[0].map((imagen, index) => (
-                  <div
-                    key={index}
-                    onClick={() => handleChangeOpen(index)}
-                    className="hover:cursor-pointer rounded-md shadow-md overflow-hidden h-[150px]"
-                  >
-                    <img
-                      src={imagen}
-                      alt={`Imagen ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
+          <div className="col-span-1 lg:col-span-3 w-full">
+            <h4 className="font-semibold">Galería</h4>
+            <Divider />
+            <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 p-2">
+              {imagenes[0].map((imagen, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleChangeOpen(index)}
+                  className="hover:cursor-pointer rounded-md shadow-md overflow-hidden h-[150px]"
+                >
+                  <img
+                    src={imagen}
+                    alt={`Imagen ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

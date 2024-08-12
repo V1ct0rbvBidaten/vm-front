@@ -2,7 +2,7 @@ import { EyeSlashIcon } from "@heroicons/react/24/solid";
 import { Button, Input } from "@nextui-org/react";
 import React from "react";
 
-const PasswordUpdate = ({ data, handleChange, handleSubmit }) => {
+const PasswordUpdate = ({ data, handleChange, loading, handleSubmit }) => {
   const { new_password, current_password, confirm_new_password } = data;
 
   return (
@@ -37,7 +37,11 @@ const PasswordUpdate = ({ data, handleChange, handleSubmit }) => {
         name="confirm_new_password"
         onChange={handleChange}
       />
-      <Button className="w-100 bg-foreground text-white" onClick={handleSubmit}>
+      <Button
+        className="w-100 bg-foreground text-white"
+        onClick={handleSubmit}
+        isLoading={loading}
+      >
         Cambiar contraseña
       </Button>
     </div>

@@ -1,6 +1,13 @@
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 
-const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
+import bancos from "../../../../utils/bancos.json";
+import ReactSelect from "react-select";
+const DatosBancariosUpdate = ({
+  data,
+  handleChange,
+  loading,
+  handleSubmit,
+}) => {
   const {
     banco,
     rut_cuenta_bancaria,
@@ -9,20 +16,48 @@ const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
     email_cuenta_bancaria,
   } = data;
 
+  const handleBancoChange = (value) => {
+    const event = {
+      target: {
+        name: "banco",
+        value: value.value,
+      },
+    };
+    handleChange(event);
+  };
+
+  const optionsBanks = bancos.banks.map((c) => {
+    return { value: c, label: c };
+  });
+
   return (
     <form
       className="grid grid-cols-2 items-center gap-4"
       onSubmit={handleSubmit}
     >
-      <Input
-        variant="bordered"
-        label="Nombre banco"
-        labelPlacement="outside"
-        placeholder="Ingrese su banco"
-        name="banco"
-        value={banco}
-        onChange={handleChange}
-      />
+      <div className="flex flex-col justify-start gap-2">
+        <span className="text-sm">
+          Banco <span className="text-rose-500">*</span>
+        </span>
+        <ReactSelect
+          options={optionsBanks}
+          required
+          styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              borderRadius: "0.7rem",
+              border: "2px solid #eaeaea",
+            }),
+            menu: (baseStyles) => ({
+              ...baseStyles,
+              zIndex: "999 ",
+            }),
+          }}
+          onChange={handleBancoChange}
+          placeholder="Seleccione banco"
+          defaultInputValue={data.banco}
+        />
+      </div>
       <Input
         variant="bordered"
         label="Rut cuenta"
@@ -32,25 +67,6 @@ const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
         value={rut_cuenta_bancaria}
         onChange={handleChange}
       />
-      <Select
-        variant="bordered"
-        label="Tipo de cuenta bancaria"
-        labelPlacement="outside"
-        placeholder="Ingrese tipo cuenta bancaria"
-        name="tipo_cuenta_bancaria"
-        value={tipo_cuenta_bancaria}
-        onChange={handleChange}
-      >
-        <SelectItem key="vista" value="vista">
-          Vista
-        </SelectItem>
-        <SelectItem key="corriente" value="corriente">
-          Corriente
-        </SelectItem>
-        <SelectItem key="ahorro" value="ahorro">
-          Ahorro
-        </SelectItem>
-      </Select>
       <Input
         variant="bordered"
         label="Número de cuenta bancaria"
@@ -69,8 +85,31 @@ const DatosBancariosUpdate = ({ data, handleChange, handleSubmit }) => {
         value={email_cuenta_bancaria}
         onChange={handleChange}
         type="email"
-      />
-      <Button type="submit" className="col-span-3 bg-foreground text-white">
+      />{" "}
+      <Select
+        variant="bordered"
+        label="Tipo de cuenta bancaria"
+        labelPlacement="outside"
+        placeholder="Ingrese tipo cuenta bancaria"
+        name="tipo_cuenta_bancaria"
+        value={tipo_cuenta_bancaria}
+        onChange={handleChange}
+      >
+        <SelectItem key="Cuenta Vista" value="Cuenta Vista">
+          Vista
+        </SelectItem>
+        <SelectItem key="Cuenta Corriente" value="Cuenta Corriente">
+          Corriente
+        </SelectItem>
+        <SelectItem key="Cuenta Ahorro" value="Cuenta Ahorro">
+          Ahorro
+        </SelectItem>
+      </Select>
+      <Button
+        type="submit"
+        className="col-span-2 bg-foreground text-white"
+        isLoading={loading}
+      >
         Actualizar
       </Button>
     </form>
