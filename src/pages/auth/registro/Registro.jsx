@@ -18,11 +18,11 @@ const initialState = {
 
 const Registro = () => {
   const inputsRef = useRef([]);
-  var timeCountDown = 300;
+  const timeCountDown = 300;
   const [registerData, setRegisterData] = useState(initialState);
   const [emailSend, setEmailSend] = useState(false);
   const [selectedTab, setSelectedTab] = useState("vendedor");
-  const [loading, setLoading] = useState(false); // Estado de carga
+  const [loading, setLoading] = useState(false);
 
   let navigate = useNavigate();
 
@@ -32,7 +32,7 @@ const Registro = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    setLoading(true); // Activar el spinner
+    setLoading(true);
     const dataToSend = {
       ...registerData,
       es_empresa: selectedTab === "empresa",
@@ -48,7 +48,6 @@ const Registro = () => {
             res.data.detail.data.email
           );
           localStorage.setItem("es-empresa", dataToSend.es_empresa);
-          console.log("setEmailSend True");
           setEmailSend(true);
         } else {
           toast.error(res.data.message);
@@ -97,14 +96,14 @@ const Registro = () => {
   return (
     <>
       <LandingNav />
-      <div className="flex justify-center p-10 register-container bg-slate-100">
-        <div className="bg-white w-full rounded-md shadow-lg grid grid-cols-3 border-1">
-          <div className="flex flex-col p-10 justify-center gap-6 text-left">
-            <h1 className="text-5xl font-semibold  text-v2 mt-8">
+      <div className="flex justify-center p-5 sm:p-10 md:p-10 lg:p-20 bg-slate-100 min-h-screen">
+        <div className="bg-white w-full max-w-6xl rounded-md shadow-lg grid grid-cols-1 lg:grid-cols-3 border">
+          <div className="flex flex-col p-6 sm:p-10 lg:p-10 justify-center gap-6 text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-v2 mt-4 sm:mt-8">
               Registrarse
             </h1>
             {emailSend ? (
-              <div className="flex flex-col gap-4 ">
+              <div className="flex flex-col gap-4">
                 <p className="text-left">
                   Un código de verificación fue enviado a su correo. Favor de
                   ingresarlo a continuación para continuar con su registro.
@@ -113,17 +112,17 @@ const Registro = () => {
                 <h2 className="text-2xl font-semibold text-center">
                   <CountdownTimer time={timeCountDown} />
                 </h2>
-                <div className="space-x-2 text-center ">
+                <div className="space-x-2 text-center">
                   <VerificationCodeInput inputsRef={inputsRef} />
                 </div>
-                {loading ? ( // Mostrar el spinner cuando loading es true
+                {loading ? (
                   <Loading size="xl" />
                 ) : (
                   <Button
                     className="bg-slate-700 text-white"
                     onClick={handleVerificationSubmit}
                   >
-                    Ingresar codigo de verificación
+                    Ingresar código de verificación
                   </Button>
                 )}
               </div>
@@ -182,7 +181,7 @@ const Registro = () => {
                   </Tab>
                 </Tabs>
 
-                <div className="flex gap-4">
+                <div className="flex gap-4 mt-4">
                   <p>¿Ya tienes cuenta?</p>
                   <Link href="/login" className="text-v3 font-semibold">
                     Iniciar Sesión
@@ -191,11 +190,15 @@ const Registro = () => {
               </>
             )}
           </div>
-          <div className="gap-2 col-span-2 background-vemdo rounded-tr-md rounded-br-md p-20 flex items-center flex-col justify-center">
+          <div className="gap-2 col-span-1 lg:col-span-2 background-vemdo rounded-br-md lg:rounded-tr-md p-10 sm:p-20 flex items-center flex-col justify-center">
             <span>
-              <img src={LogoFondoNegro} />
+              <img
+                src={LogoFondoNegro}
+                alt="Logo"
+                className="w-32 sm:w-40 md:w-48 lg:w-60"
+              />
             </span>
-            <span className="text-v4 w-[500px] text-xl pl-5 pr-5 bg-white rounded-full p-2">
+            <span className="text-v4 text-center text-lg sm:text-xl w-full max-w-xs sm:max-w-md lg:max-w-lg bg-white rounded-full p-2 mt-5">
               <Typewriter
                 words={["Vendo más", "Vendo mucho", "Vendo mejor"]}
                 loop={5}

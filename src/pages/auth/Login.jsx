@@ -9,7 +9,6 @@ import { getCurrentUser, login } from "../../api/auth";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import LogoFondoNegro from "../../assets/logoFondoNegro.svg";
-import { Spinner } from "@nextui-org/react";
 
 const initialState = {
   email: "",
@@ -18,14 +17,12 @@ const initialState = {
 
 const Login = () => {
   const [values, setValues] = useState(initialState);
-
   const [isVisible, setIsVisible] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   const dispatch = useDispatch();
-
   let navigate = useNavigate();
 
   const { text } = useTypewriter({
@@ -43,7 +40,6 @@ const Login = () => {
       .then((res) => {
         let token = res.data.detail.data.access_token;
         localStorage.setItem("token", token);
-        console.log(res);
         toast.success(res.data.detail.message);
         getCurrentUser({ token: token })
           .then((response) => {
@@ -51,7 +47,6 @@ const Login = () => {
               type: "LOGGED_IN_USER",
               payload: { ...response.data, token },
             });
-            console.log(response.data);
             let esEmpresa = response.data.es_empresa;
             if (esEmpresa) {
               navigate(`/empresa/home`);
@@ -64,7 +59,6 @@ const Login = () => {
           });
       })
       .catch((err) => {
-        console.log(err);
         toast.error(err.response.data.detail.message);
       })
       .finally(() => {
@@ -73,13 +67,14 @@ const Login = () => {
   };
 
   const { email, password } = values;
+
   return (
     <>
       <LandingNav />
-      <div className="flex justify-center p-10  register-container  bg-slate-100">
-        <div className="bg-white w-full rounded-md shadow-lg grid grid-cols-3 border-1">
-          <div className="flex flex-col p-10 justify-center gap-6 text-left">
-            <h1 className="text-5xl font-semibold  text-v2 mt-8">
+      <div className="flex justify-center p-5 sm:p-10 md:p-10 lg:p-20 bg-slate-100 min-h-screen">
+        <div className="bg-white w-full max-w-6xl rounded-md shadow-lg grid grid-cols-1 lg:grid-cols-3 border">
+          <div className="flex flex-col p-6 sm:p-10 lg:p-10 justify-center gap-6 text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-v2 mt-4 sm:mt-8">
               Iniciar Sesión
             </h1>
 
@@ -131,7 +126,7 @@ const Login = () => {
               </Button>
             </form>
 
-            <div className="flex flex-col w-full  gap-4">
+            <div className="flex flex-col w-full gap-4">
               <div className="flex gap-2">
                 <p>¿No tienes cuenta?</p>
                 <Link href="/registro" className="text-v3 font-semibold">
@@ -148,11 +143,15 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div className="gap-2 col-span-2 background-vemdo rounded-tr-md rounded-br-md p-20 flex items-center flex-col justify-center">
+          <div className="lg:col-span-2 background-vemdo rounded-br-md lg:rounded-tr-md p-10 lg:p-20 flex items-center flex-col justify-center">
             <span>
-              <img src={LogoFondoNegro} />
+              <img
+                src={LogoFondoNegro}
+                alt="Logo"
+                className="w-32 sm:w-40 md:w-48 lg:w-60"
+              />
             </span>
-            <span className="text-v4 w-[500px] text-xl pl-5 pr-5 bg-white rounded-full p-2">
+            <span className="text-v4 text-center text-lg sm:text-xl w-full max-w-xs sm:max-w-md lg:max-w-lg bg-white rounded-full p-2 mt-5">
               <Typewriter
                 words={["Vendo más", "Vendo mucho", "Vendo mejor"]}
                 loop={5}
