@@ -80,7 +80,7 @@ const ResetPassword = () => {
       });
   };
 
-  const { sub } = decodedToken;
+  const sub = decodedToken ? decodedToken.sub : null;
 
   return (
     <>
