@@ -172,7 +172,9 @@ const VentasHome = () => {
             </select>
           </label>
         </div>
-        <DataTablePrimary rows={data.detail.data.ventas} columns={columns} />
+        <div className="overflow-x-scroll">
+          <DataTablePrimary rows={data.detail.data.ventas} columns={columns} />
+        </div>
         <div className="w-full  flex justify-between items-center">
           <Pagination
             total={pages}

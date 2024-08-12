@@ -50,7 +50,48 @@ const PerfilForm = ({ handleChange, values }) => {
   });
 
   return (
-    <div className="grid grid-cols-2 items-center gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {" "}
+      <div className="flex flex-col justify-start gap-2">
+        <span className="text-sm">
+          Región <span className="text-rose-500">*</span>
+        </span>
+        <Select
+          options={optionsRegiones}
+          required
+          styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              borderRadius: "0.7rem",
+              border: "2px solid #eaeaea",
+            }),
+            menu: (base) => ({ ...base, zIndex: 1000 }),
+          }}
+          onChange={handleRegionChange}
+          placeholder="Seleccione región"
+          defaultInputValue={values.region}
+        />
+      </div>
+      <div className="flex flex-col justify-start gap-2">
+        <span className="text-sm">
+          Comuna <span className="text-rose-500">*</span>
+        </span>
+        <Select
+          options={optionsComunas}
+          styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              borderRadius: "0.7rem",
+              border: "2px solid #eaeaea",
+            }),
+            menu: (base) => ({ ...base, zIndex: 1000 }),
+          }}
+          onChange={handleComunaChange}
+          isDisabled={!selectedRegion}
+          placeholder="Seleccione comuna"
+          defaultInputValue={values.comuna}
+        />
+      </div>
       <Input
         variant="bordered"
         label="Nombre"
@@ -91,44 +132,6 @@ const PerfilForm = ({ handleChange, values }) => {
         value={telefono}
         onChange={handleChange}
       />
-      <div className="flex flex-col justify-start gap-2">
-        <span className="text-sm">
-          Región <span className="text-rose-500">*</span>
-        </span>
-        <Select
-          options={optionsRegiones}
-          required
-          styles={{
-            control: (baseStyles, state) => ({
-              ...baseStyles,
-              borderRadius: "0.7rem",
-              border: "2px solid #eaeaea",
-            }),
-          }}
-          onChange={handleRegionChange}
-          placeholder="Seleccione región"
-          defaultInputValue={values.region}
-        />
-      </div>
-      <div className="flex flex-col justify-start gap-2">
-        <span className="text-sm">
-          Comuna <span className="text-rose-500">*</span>
-        </span>
-        <Select
-          options={optionsComunas}
-          styles={{
-            control: (baseStyles, state) => ({
-              ...baseStyles,
-              borderRadius: "0.7rem",
-              border: "2px solid #eaeaea",
-            }),
-          }}
-          onChange={handleComunaChange}
-          isDisabled={!selectedRegion}
-          placeholder="Seleccione comuna"
-          defaultInputValue={values.comuna}
-        />
-      </div>
     </div>
   );
 };

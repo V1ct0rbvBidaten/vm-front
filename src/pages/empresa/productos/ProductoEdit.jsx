@@ -95,101 +95,102 @@ const ProductoEdit = ({ data, setReload, reload, setEdit, edit }) => {
       <Divider />
       <div className="w-full p-4">
         <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4">
-          <div className="row-span-3 h-auto ">
+          <div className="imagen-portada shadow-md justify-center flex items-center col-span-3 sm:col-span-1">
             <SingleImageUploader image={image} setImage={setImage} />
           </div>
-          <Input
-            size="sm"
-            variant="bordered"
-            placeholder="Nombre"
-            name="nombre_producto"
-            label="Nombre"
-            labelPlacement="outside"
-            value={values.nombre_producto}
-            onChange={handleChange}
-          />
-          <Input
-            size="sm"
-            variant="bordered"
-            placeholder="Precio"
-            name="precio"
-            label="Precio"
-            labelPlacement="outside"
-            value={values.precio}
-            onChange={handleChange}
-          />
-          <Select
-            size="sm"
-            variant="bordered"
-            name="estado_producto"
-            label="Estado producto"
-            labelPlacement="outside"
-            value={values.estado_producto}
-            placeholder="estado"
-            onChange={handleChange}
-          >
-            <SelectItem key="disponible" value="disponible">
-              Disponible
-            </SelectItem>
-            <SelectItem key="no_disponible" value="no_disponible">
-              No Disponible
-            </SelectItem>
-          </Select>
-          <Input
-            size="sm"
-            variant="bordered"
-            placeholder="Comisión"
-            name="comision"
-            label="Comisión"
-            labelPlacement="outside"
-            value={values.comision}
-            onChange={handleChange}
-            type="number"
-          />
-          <Select
-            size="sm"
-            variant="bordered"
-            name="categoria"
-            label="Categoria"
-            placeholder="Categoria"
-            labelPlacement="outside"
-            value={values.categoria}
-            onChange={handleChange}
-          >
-            {categoriasProductos.map((c) => (
-              <SelectItem key={c} value={c}>
-                {c}
+          <div className="col-span-3 sm:col-span-2 flex gap-4 flex-col min-h-[500px] p-2 rounded-md">
+            <Input
+              size="sm"
+              variant="bordered"
+              placeholder="Nombre"
+              name="nombre_producto"
+              label="Nombre"
+              labelPlacement="outside"
+              value={values.nombre_producto}
+              onChange={handleChange}
+            />
+            <Input
+              size="sm"
+              variant="bordered"
+              placeholder="Precio"
+              name="precio"
+              label="Precio"
+              labelPlacement="outside"
+              value={values.precio}
+              onChange={handleChange}
+            />
+            <Select
+              size="sm"
+              variant="bordered"
+              name="estado_producto"
+              label="Estado producto"
+              labelPlacement="outside"
+              value={values.estado_producto}
+              placeholder="estado"
+              onChange={handleChange}
+            >
+              <SelectItem key="disponible" value="disponible">
+                Disponible
               </SelectItem>
-            ))}
-          </Select>
-          <Select
-            size="sm"
-            variant="bordered"
-            name="tipo_venta"
-            label="Tipo de venta"
-            placeholder="Tipo de venta"
-            labelPlacement="outside"
-            value={values.tipo_venta}
-            onChange={handleChange}
-          >
-            <SelectItem key="PAGO ANTICIPADO" value="PAGO ANTICIPADO">
-              Pago Anticipado
-            </SelectItem>
-            <SelectItem key="POSTPAGO" value="POSTPAGO">
-              Post Pago
-            </SelectItem>
-          </Select>
-          <Textarea
-            placeholder="Ingrese descripción"
-            variant="bordered"
-            name="descripcion"
-            label="Descripción"
-            labelPlacement="outside"
-            className="col-span-3"
-            value={values.descripcion}
-            onChange={handleChange}
-          />
-
+              <SelectItem key="no_disponible" value="no_disponible">
+                No Disponible
+              </SelectItem>
+            </Select>
+            <Input
+              size="sm"
+              variant="bordered"
+              placeholder="Comisión"
+              name="comision"
+              label="Comisión"
+              labelPlacement="outside"
+              value={values.comision}
+              onChange={handleChange}
+              type="number"
+            />
+            <Select
+              size="sm"
+              variant="bordered"
+              name="categoria"
+              label="Categoria"
+              placeholder="Categoria"
+              labelPlacement="outside"
+              value={values.categoria}
+              onChange={handleChange}
+            >
+              {categoriasProductos.map((c) => (
+                <SelectItem key={c} value={c}>
+                  {c}
+                </SelectItem>
+              ))}
+            </Select>
+            <Select
+              size="sm"
+              variant="bordered"
+              name="tipo_venta"
+              label="Tipo de venta"
+              placeholder="Tipo de venta"
+              labelPlacement="outside"
+              value={values.tipo_venta}
+              onChange={handleChange}
+            >
+              <SelectItem key="PAGO ANTICIPADO" value="PAGO ANTICIPADO">
+                Pago Anticipado
+              </SelectItem>
+              <SelectItem key="POSTPAGO" value="POSTPAGO">
+                Post Pago
+              </SelectItem>
+            </Select>
+            <Textarea
+              placeholder="Ingrese descripción"
+              variant="bordered"
+              name="descripcion"
+              label="Descripción"
+              labelPlacement="outside"
+              className="col-span-3"
+              value={values.descripcion}
+              onChange={handleChange}
+            />
+          </div>
           <div className="col-span-3 flex gap-2 flex-col">
             <h2 className="mt-4 font-semibold">Galería</h2>
             <Divider />

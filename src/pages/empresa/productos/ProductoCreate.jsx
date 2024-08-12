@@ -156,10 +156,10 @@ const ProductoCreate = () => {
       <Divider />
       <div className="w-full p-4">
         <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-4">
-          <div className=" row-span-3  ">
+          <div className=" sm:row-span-3 col-span-3 sm:col-span-1  ">
             <SingleImageUploader image={image} setImage={setImage} />
           </div>
-          <div className="col-span-2 flex gap-2 flex-col">
+          <div className="col-span-3 sm:col-span-2 flex gap-2 flex-col">
             <Input
               size="sm"
               variant="bordered"
@@ -261,7 +261,7 @@ const ProductoCreate = () => {
             onChange={handleChange}
           />
 
-          <div className="col-span-2 flex gap-2 flex-col">
+          <div className="col-span-3 sm:col-span-2 flex gap-2 flex-col">
             <h2 className="mt-4 font-semibold">Galería</h2>
             <Divider />
             <div>
@@ -272,7 +272,7 @@ const ProductoCreate = () => {
               />
             </div>
           </div>
-          <div className="flex gap-2 flex-col">
+          <div className="flex gap-2 flex-col col-span-3 sm:col-span-1">
             <h2 className="mt-4 font-semibold">Documentación Venta</h2>
             <Divider />
 

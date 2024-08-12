@@ -47,7 +47,7 @@ const MultipleImageUploader = ({ maxImages = 10, images, setImages }) => {
         onChange={handleImageChange}
         multiple
       />
-      <div className="grid grid-cols-5 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
         {Array.from({ length: maxImages }, (_, index) => (
           <div key={index} className="relative">
             {images[index] ? (

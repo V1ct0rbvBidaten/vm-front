@@ -1,10 +1,4 @@
-import {
-  Input,
-  Select,
-  SelectItem,
-  Autocomplete,
-  AutocompleteItem,
-} from "@nextui-org/react";
+import { Input, Select, SelectItem } from "@nextui-org/react";
 import bancos from "../../../../utils/bancos.json";
 import ReactSelect from "react-select";
 
@@ -32,10 +26,10 @@ const DataBankForm = ({ handleChange, values }) => {
   });
 
   return (
-    <div className="grid grid-cols-2 items-center gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div className="flex flex-col justify-start gap-2">
         <span className="text-sm">
-          Región <span className="text-rose-500">*</span>
+          Banco <span className="text-rose-500">*</span>
         </span>
         <ReactSelect
           options={optionsBanks}
@@ -48,7 +42,7 @@ const DataBankForm = ({ handleChange, values }) => {
             }),
             menu: (baseStyles) => ({
               ...baseStyles,
-              zIndex: "999 ",
+              zIndex: "999",
             }),
           }}
           onChange={handleBancoChange}
@@ -70,7 +64,7 @@ const DataBankForm = ({ handleChange, values }) => {
         variant="bordered"
         label="Tipo de cuenta bancaria"
         labelPlacement="outside"
-        placeholder="Ingrese tipo cuenta bancaria"
+        placeholder="Seleccione tipo de cuenta bancaria"
         name="tipo_cuenta_bancaria"
         value={tipo_cuenta_bancaria}
         onChange={handleChange}

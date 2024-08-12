@@ -24,7 +24,7 @@ const CreateProfile = ({ user }) => {
   let esEmpresa = user.es_empresa;
 
   return (
-    <div className="h-screen w-screen p-4 md:p-10">
+    <div className="min-h-screen w-screen p-4 md:p-10">
       <div className="flex justify-between items-center gradient-border relative pb-5">
         <img src={Logo} className="w-24 md:w-32" alt="Logo" />
         <Button
@@ -39,7 +39,7 @@ const CreateProfile = ({ user }) => {
         <p className="text-sm md:text-md font-semibold text-center px-4">
           Para poder ingresar vemdo es necesario que termine de crear su perfil.
         </p>
-        <div className="w-full md:w-[70%] mt-5">
+        <div className="w-full  md:w-[70%] mt-5">
           {esEmpresa ? (
             <RegistroEmpresa user={user} />
           ) : (

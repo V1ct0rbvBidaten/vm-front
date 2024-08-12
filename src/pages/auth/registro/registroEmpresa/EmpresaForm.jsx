@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  Input,
-  SelectItem,
-  Autocomplete,
-  AutocompleteItem,
-  AutocompleteSection,
-} from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import regiones from "../../../../utils/regiones";
 import rubros from "../../../../utils/rubros";
 import ReactSelect from "react-select";
@@ -37,7 +31,6 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
   };
 
   const handleRegionChange = (value) => {
-    console.log("value", value);
     setSelectedRegion(value.value);
 
     const event = {
@@ -83,7 +76,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
   );
 
   return (
-    <div className="grid grid-cols-2 items-center gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <Input
         variant="bordered"
         label="Rut razón social"
@@ -119,7 +112,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
             }),
             menu: (baseStyles) => ({
               ...baseStyles,
-              zIndex: "999 ",
+              zIndex: "999",
             }),
           }}
           onChange={handleRubroChange}
@@ -127,29 +120,6 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
           defaultInputValue={values.rubro}
         />
       </div>
-      {/* <Autocomplete
-        label="Rubro"
-        variant="bordered"
-        isRequired
-        placeholder="Seleccione rubro"
-        className="w-100 col-span-2"
-        selectedKey={rubro}
-        onSelectionChange={setRubro}
-      >
-        {rubros.map((item) => (
-          <AutocompleteSection
-            showDivider
-            title={item.Categoria}
-            key={item.Categoria}
-          >
-            {item.Items.map((subitem) => (
-              <AutocompleteItem key={subitem.Campo1} value={subitem.Campo1}>
-                {subitem.Campo1}
-              </AutocompleteItem>
-            ))}
-          </AutocompleteSection>
-        ))}
-      </Autocomplete> */}
       <Input
         variant="bordered"
         label="Nombre razón social"
@@ -193,6 +163,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
               borderRadius: "0.7rem",
               border: "2px solid #eaeaea",
             }),
+            menu: (base) => ({ ...base, zIndex: 1000, position: "static" }),
           }}
           onChange={handleRegionChange}
           placeholder="Seleccione región"
@@ -211,6 +182,7 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
               borderRadius: "0.7rem",
               border: "2px solid #eaeaea",
             }),
+            menu: (base) => ({ ...base, zIndex: 1000, position: "static" }),
           }}
           onChange={handleComunaChange}
           isDisabled={!selectedRegion}
