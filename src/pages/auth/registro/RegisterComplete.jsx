@@ -53,7 +53,6 @@ const RegisterComplete = () => {
     const hasCapitalLetter = /[A-Z]/.test(contraseña);
     const isLongEnough = contraseña.length > 8;
 
-    console.log(hasCapitalLetter, isLongEnough);
     return hasCapitalLetter && isLongEnough;
   };
 
@@ -68,7 +67,6 @@ const RegisterComplete = () => {
       password: data.contraseña,
       es_empresa: esEmpresa,
     };
-    console.log(profileData);
 
     setLoading(true);
     completeUser(profileData)
@@ -104,7 +102,6 @@ const RegisterComplete = () => {
 
   const handleScroll = (e) => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;
-    console.log({ scrollTop, scrollHeight, clientHeight });
     if (scrollTop + clientHeight + 1 >= scrollHeight) {
       setEndReached(true);
     } else {
@@ -124,19 +121,19 @@ const RegisterComplete = () => {
         loading={loading}
       />
 
-      <div className="flex justify-center p-10 register-container bg-slate-100">
-        <div className="bg-white w-full rounded-md shadow-lg grid grid-cols-3 border-1">
-          <div className="flex flex-col p-10 justify-center gap-6text-center">
+      <div className="flex justify-center p-4 sm:p-10 register-container bg-slate-100">
+        <div className="bg-white w-full rounded-md shadow-lg grid grid-cols-1 md:grid-cols-3 border-1">
+          <div className="flex flex-col p-6 sm:p-10 justify-center gap-6 text-center">
             <div className="relative mb-6">
-              <h1 className="text-5xl font-semibold text-v2 mt-8">
+              <h1 className="text-3xl sm:text-5xl font-semibold text-v2 mt-4 sm:mt-8">
                 Registrarse
               </h1>
               {esEmpresa ? (
-                <Button className="absolute top-5 right-0 w-32 h-6 text-white bg-v3">
+                <Button className="absolute top-5 right-0 w-24 sm:w-32 h-6 text-white bg-v3 hidden sm:block">
                   Empresa
                 </Button>
               ) : (
-                <Button className="absolute top-5 right-0 w-32 h-6 text-white bg-v3">
+                <Button className="absolute top-5 right-0 w-24 sm:w-32 h-6 text-white bg-v3 hidden sm:block">
                   Vendedor
                 </Button>
               )}
@@ -155,11 +152,11 @@ const RegisterComplete = () => {
               Registrarse
             </Button>
           </div>
-          <div className="gap-2 col-span-2 background-vemdo rounded-tr-md rounded-br-md p-20 flex items-center flex-col justify-center">
-            <span>
-              <img src={LogoFondoNegro} />
+          <div className="gap-2 col-span-2 background-vemdo rounded-br-md md:rounded-tr-md p-10 sm:p-20 flex items-center flex-col justify-center md:block hidden">
+            <span className="w-full max-w-[200px] sm:max-w-[300px]">
+              <img src={LogoFondoNegro} alt="Logo" />
             </span>
-            <span className="text-v4 w-[500px] text-xl pl-5 pr-5 bg-white rounded-full p-2">
+            <span className="text-v4 w-full max-w-[300px] sm:max-w-[500px] text-lg sm:text-xl pl-2 sm:pl-5 pr-2 sm:pr-5 bg-white rounded-full p-2 mt-4">
               <Typewriter
                 words={["Vendo más", "Vendo mucho", "Vendo mejor"]}
                 loop={5}

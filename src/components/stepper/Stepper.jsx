@@ -9,7 +9,7 @@ const Stepper = ({ steps, currentStep }) => {
     const newSteps = [...steps];
     let stepCounter = 0;
     while (stepCounter < newSteps.length) {
-      //current step
+      // Current step
       if (stepCounter === stepNumber) {
         newSteps[stepCounter] = {
           ...newSteps[stepCounter],
@@ -61,17 +61,15 @@ const Stepper = ({ steps, currentStep }) => {
     return (
       <div
         key={index}
-        className={
-          index !== newStep.length - 1
-            ? `w-full flex items-center`
-            : `flex items-center`
-        }
+        className={`flex items-center  ${
+          index !== newStep.length - 1 ? "w-full" : ""
+        } ${index !== newStep.length - 1 ? "sm:w-auto" : ""}`}
       >
-        <div className="relative flex flex-col items-center text-teal-600">
+        <div className="relative flex   sm:flex-col items-center justify-center text-teal-600 sm:mb-0 mb-8">
           <div
             className={`rounded-full transition duration-500 ease-in-out border-2
               border-gray-300 h-10 w-10 flex items-center 
-              justify-center py-3
+              justify-center
               ${
                 step.selected
                   ? "bg-sky-600 text-white font-bold border border-sky-600"
@@ -88,24 +86,26 @@ const Stepper = ({ steps, currentStep }) => {
             )}
           </div>
           <div
-            className={`absolute top-0 text-center mt-12 w-[200px] text-xs font-medium uppercase ${
+            className={`capitalize  absolute top-0  text-center mt-12 w-[100px] text-xs font-medium  ${
               step.highlighted ? "text-gray-900" : "text-gray-400"
-            } `}
+            }`}
           >
             {step.description}
           </div>
         </div>
-        <div
-          className={`flex-auto border-t-2 transition duration-500 ease-in-out ${
-            step.completed ? "border-sky-600" : "border-gray-300"
-          }`}
-        ></div>
+        {index !== newStep.length - 1 && (
+          <div
+            className={` hidden sm:block flex-auto border-t-2 transition duration-500 ease-in-out ${
+              step.completed ? "border-sky-600" : "border-gray-300"
+            }`}
+          ></div>
+        )}
       </div>
     );
   });
 
   return (
-    <div className="mx-4 p-4 flex justify-between items-center ">
+    <div className="mx-4 p-4 flex  sm:flex-row justify-between items-center   sm:space-y-0 sm:space-x-4 mb-14">
       {displaySteps}
     </div>
   );

@@ -24,9 +24,9 @@ const CreateProfile = ({ user }) => {
   let esEmpresa = user.es_empresa;
 
   return (
-    <div className="h-screen w-screen p-10 ">
-      <div className="flex  justify-between gradient-border relative pb-5">
-        <img src={Logo} className="w-32" />
+    <div className="h-screen w-screen p-4 md:p-10">
+      <div className="flex justify-between items-center gradient-border relative pb-5">
+        <img src={Logo} className="w-24 md:w-32" alt="Logo" />
         <Button
           className="bg-foreground text-white rounded-full"
           startContent={<PowerIcon className="h-4" />}
@@ -35,11 +35,11 @@ const CreateProfile = ({ user }) => {
           Desconectarse
         </Button>
       </div>
-      <div className="w-full flex justify-center items-center flex-col pt-5 mt-5 rounded-md border-1 pb-5">
-        <p className="text-md font-semibold">
+      <div className="w-full flex flex-col items-center pt-5 mt-5 rounded-md p-2 pb-5">
+        <p className="text-sm md:text-md font-semibold text-center px-4">
           Para poder ingresar vemdo es necesario que termine de crear su perfil.
         </p>
-        <div className="w-[70%]">
+        <div className="w-full md:w-[70%] mt-5">
           {esEmpresa ? (
             <RegistroEmpresa user={user} />
           ) : (
