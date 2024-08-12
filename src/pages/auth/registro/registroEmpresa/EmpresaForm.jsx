@@ -25,27 +25,42 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
   const [filteredComunas, setFilteredComunas] = useState([]);
   const [selectedRubro, setSelectedRubro] = useState(rubro);
 
-  // const data = rubro_sii.category;
-
-  const handleRegionChange = (event) => {
-    const { value } = event.target;
-    setSelectedRegion(value);
-    handleChange(event);
-
-    const region = regiones.Regiones.find((reg) => reg.Nombre === value);
-    if (region) {
-      setFilteredComunas(region.Comunas);
-    } else {
-      setFilteredComunas([]);
-    }
-  };
-
   const handleRubroChange = (key) => {
     setSelectedRubro(key);
     const event = {
       target: {
         name: "rubro",
         value: key,
+      },
+    };
+    handleChange(event);
+  };
+
+  const handleRegionChange = (value) => {
+    console.log("value", value);
+    setSelectedRegion(value);
+
+    const event = {
+      target: {
+        name: "region",
+        value: value,
+      },
+    };
+    handleChange(event);
+
+    const regionObj = regiones.Regiones.find((reg) => reg.Nombre === value);
+    if (regionObj) {
+      setFilteredComunas(regionObj.Comunas);
+    } else {
+      setFilteredComunas([]);
+    }
+  };
+
+  const handleComunaChange = (value) => {
+    const event = {
+      target: {
+        name: "comuna_razon_social",
+        value: value,
       },
     };
     handleChange(event);
@@ -126,39 +141,39 @@ const EmpresaForm = ({ values, handleChange, rubro, setRubro }) => {
         value={telefono_razon_social}
         onChange={handleChange}
       />
-      <Select
+      <Autocomplete
         variant="bordered"
-        label="Región razón social"
-        isRequired
+        label="Región "
         labelPlacement="outside"
-        placeholder="Ingrese región empresa"
+        placeholder="Ingrese región "
+        isRequired
         name="region_razon_social"
         value={selectedRegion}
-        onChange={handleRegionChange}
+        onSelectionChange={handleRegionChange}
       >
         {regiones.Regiones.map((region) => (
-          <SelectItem key={region.Nombre} value={region.Nombre}>
+          <AutocompleteItem key={region.Nombre} value={region.Nombre}>
             {region.Nombre}
-          </SelectItem>
+          </AutocompleteItem>
         ))}
-      </Select>
-      <Select
+      </Autocomplete>
+      <Autocomplete
         variant="bordered"
-        label="Comuna razón social"
-        labelPlacement="outside"
+        label="Comuna "
         isRequired
-        placeholder="Ingrese comuna empresa"
+        labelPlacement="outside"
+        placeholder="Ingrese comuna "
         name="comuna_razon_social"
         value={comuna_razon_social}
-        onChange={handleChange}
+        onSelectionChange={handleComunaChange}
         disabled={!selectedRegion}
       >
         {filteredComunas.map((comuna) => (
-          <SelectItem key={comuna} value={comuna}>
+          <AutocompleteItem key={comuna} value={comuna}>
             {comuna}
-          </SelectItem>
+          </AutocompleteItem>
         ))}
-      </Select>
+      </Autocomplete>
     </div>
   );
 };

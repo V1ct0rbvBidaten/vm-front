@@ -1,4 +1,4 @@
-import { Input, Select, SelectItem } from "@nextui-org/react";
+import { Autocomplete, Input, AutocompleteItem } from "@nextui-org/react";
 import regiones from "../../../../utils/regiones";
 import { useState } from "react";
 
@@ -8,17 +8,34 @@ const PerfilForm = ({ handleChange, values }) => {
   const [selectedRegion, setSelectedRegion] = useState(region);
   const [filteredComunas, setFilteredComunas] = useState([]);
 
-  const handleRegionChange = (event) => {
-    const { value } = event.target;
+  const handleRegionChange = (value) => {
+    console.log("value", value);
     setSelectedRegion(value);
+
+    const event = {
+      target: {
+        name: "region",
+        value: value,
+      },
+    };
     handleChange(event);
 
-    const region = regiones.Regiones.find((reg) => reg.Nombre === value);
-    if (region) {
-      setFilteredComunas(region.Comunas);
+    const regionObj = regiones.Regiones.find((reg) => reg.Nombre === value);
+    if (regionObj) {
+      setFilteredComunas(regionObj.Comunas);
     } else {
       setFilteredComunas([]);
     }
+  };
+
+  const handleComunaChange = (value) => {
+    const event = {
+      target: {
+        name: "comuna",
+        value: value,
+      },
+    };
+    handleChange(event);
   };
 
   return (
@@ -30,6 +47,7 @@ const PerfilForm = ({ handleChange, values }) => {
         placeholder="Ingrese su nombre"
         name="nombres"
         value={nombres}
+        isRequired
         onChange={handleChange}
       />
 
@@ -41,6 +59,7 @@ const PerfilForm = ({ handleChange, values }) => {
         name="apellidos"
         value={apellidos}
         onChange={handleChange}
+        isRequired
       />
       <Input
         variant="bordered"
@@ -49,6 +68,7 @@ const PerfilForm = ({ handleChange, values }) => {
         placeholder="Ingrese su dirección"
         name="direccion"
         value={direccion}
+        isRequired
         onChange={handleChange}
       />
       <Input
@@ -57,40 +77,43 @@ const PerfilForm = ({ handleChange, values }) => {
         labelPlacement="outside"
         placeholder="+56 9"
         name="telefono"
+        isRequired
         value={telefono}
         onChange={handleChange}
       />
-      <Select
+      <Autocomplete
         variant="bordered"
         label="Región "
         labelPlacement="outside"
         placeholder="Ingrese región "
+        isRequired
         name="region"
         value={selectedRegion}
-        onChange={handleRegionChange}
+        onSelectionChange={handleRegionChange}
       >
         {regiones.Regiones.map((region) => (
-          <SelectItem key={region.Nombre} value={region.Nombre}>
+          <AutocompleteItem key={region.Nombre} value={region.Nombre}>
             {region.Nombre}
-          </SelectItem>
+          </AutocompleteItem>
         ))}
-      </Select>
-      <Select
+      </Autocomplete>
+      <Autocomplete
         variant="bordered"
         label="Comuna "
+        isRequired
         labelPlacement="outside"
         placeholder="Ingrese comuna "
         name="comuna"
         value={comuna}
-        onChange={handleChange}
+        onSelectionChange={handleComunaChange}
         disabled={!selectedRegion}
       >
         {filteredComunas.map((comuna) => (
-          <SelectItem key={comuna} value={comuna}>
+          <AutocompleteItem key={comuna} value={comuna}>
             {comuna}
-          </SelectItem>
+          </AutocompleteItem>
         ))}
-      </Select>
+      </Autocomplete>
     </div>
   );
 };

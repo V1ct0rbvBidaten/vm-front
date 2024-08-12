@@ -150,6 +150,17 @@ const VentasHome = () => {
     },
   ];
 
+  const { page, page_size } = dynamic;
+
+  const totalItems =
+    data && data.detail && data.detail.data ? data.detail.data.total : [];
+
+  const pages = Math.ceil(totalItems / page_size);
+
+  const handleDynamicStateChange = (e) => {
+    setDynamic({ ...dynamic, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="w-full bg-white rounded-md shadow-md mb-5 ">
       <div className="w-full  mb-2 p-4 flex justify-between">
@@ -157,8 +168,38 @@ const VentasHome = () => {
       </div>
       <Divider />
       <div className="p-4 flex flex-col gap-2">
-        <div></div>
+        <div className="w-full flex gap-4  mb-2 p-4 justify-end">
+          <label className="flex items-end text-default-400 text-small">
+            Items por pagina:
+            <select
+              className="bg-transparent outline-none text-default-400 text-small"
+              value={page_size}
+              name="page_size"
+              onChange={handleDynamicStateChange}
+            >
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="50">50</option>
+            </select>
+          </label>
+        </div>
         <DataTablePrimary rows={data.detail.data.ventas} columns={columns} />
+        <div className="w-full  flex justify-between items-center">
+          <Pagination
+            total={pages}
+            initialPage={page}
+            loop
+            showControls
+            color="secondary"
+            className="m-4"
+            name={page}
+            onChange={(page) => setDynamic({ ...dynamic, page: Number(page) })}
+          />
+          <span className="text-default-400 text-small">
+            Total {totalItems} registros
+          </span>
+        </div>
       </div>
     </div>
   );

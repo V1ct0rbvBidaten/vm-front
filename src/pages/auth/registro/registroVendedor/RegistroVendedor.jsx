@@ -11,7 +11,6 @@ import { completeProfile, getCurrentUser } from "../../../../api/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import DataBankForm from "./DataBankForm";
-import { validateFields } from "../../../../functions/forms";
 import { Spinner } from "@nextui-org/react";
 
 const initialState = {
@@ -19,7 +18,7 @@ const initialState = {
   nombres: null,
   apellidos: null,
   direccion: null,
-  telefono: null,
+  telefono: "+56 9 ",
   comuna: null,
   region: null,
   es_vendedor: true,
