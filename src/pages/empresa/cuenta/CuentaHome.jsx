@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useFetchById from "../../../hooks/useFetch";
 import { useSelector } from "react-redux";
 import {
@@ -36,6 +36,7 @@ const initialStateTogleEdit = {
 const initialStatePassword = {
   current_password: "",
   new_password: "",
+  confirm_new_password: "",
 };
 
 const CuentaHome = () => {
@@ -49,6 +50,8 @@ const CuentaHome = () => {
   const user = useSelector((state) => state.user);
 
   const [reload, setReload] = useState(false);
+
+  const scrollPositionRef = useRef(0);
 
   const url = `cuenta-user/${user.id_usuario}`;
 
@@ -74,6 +77,14 @@ const CuentaHome = () => {
     if (dataEmpresa) setPortada(dataEmpresa.detail.data.background);
   }, [data, dataEmpresa]);
 
+  useEffect(() => {
+    window.scrollTo(0, scrollPositionRef.current);
+  }, [togleEdit]);
+
+  const handleTabChange = () => {
+    scrollPositionRef.current = window.scrollY;
+  };
+
   if (
     loading ||
     loadingEmpresa ||
@@ -90,6 +101,10 @@ const CuentaHome = () => {
 
   const handleUpdatePassword = (e) => {
     e.preventDefault();
+    if (newPassword.new_password !== newPassword.confirm_new_password) {
+      toast.error("Las contraseñas no coinciden");
+      return;
+    }
     changePassword(user.token, newPassword, user.id_usuario)
       .then(() => {
         toast.success("Contraseña actualizada correctamente");
@@ -259,7 +274,12 @@ const CuentaHome = () => {
                 </CardBody>
               </Card>
             </Tab>
-            <Tab key="datosEmpresa" title="Datos Empresa" className="w-full">
+            <Tab
+              key="datosEmpresa"
+              title="Datos Empresa"
+              className="w-full"
+              onSelectionChange={handleTabChange}
+            >
               <Card className="w-full">
                 <CardBody>
                   <div className=" flex flex-col gap-4 p-4 ">

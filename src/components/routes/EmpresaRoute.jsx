@@ -63,7 +63,7 @@ const EmpresaRoute = ({ Component }) => {
               <Dropdown>
                 <DropdownTrigger>
                   <Button
-                    className="bg-sky-500 text-white shadow-md h-8 rounded-full"
+                    className="bg-sky-500 text-white shadow-md h-8 rounded-full capitalize"
                     endContent={<EllipsisVerticalIcon className="h-6" />}
                   >
                     ¡Hola, {user.nombre_empresa}!

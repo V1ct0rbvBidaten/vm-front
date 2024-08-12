@@ -67,7 +67,7 @@ const DatosPerfilEmpresaUpdate = ({
             <span className="bg-sky-500  rounded-full px-4 text-white capitalize text-center md:text-left">
               {rubro}
             </span>
-            <span className="text-lg md:text-xl font-semibold text-center md:text-left">
+            <span className="text-lg md:text-xl font-semibold text-center capitalize md:text-left">
               {nombre_razon_social}
             </span>
 

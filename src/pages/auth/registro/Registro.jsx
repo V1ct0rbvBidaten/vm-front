@@ -144,6 +144,7 @@ const Registro = () => {
                       className="mt-4"
                       startContent={<EnvelopeIcon className="h-4" />}
                       name="email"
+                      isRequired
                       value={email}
                       type="email"
                       onChange={handleChange}

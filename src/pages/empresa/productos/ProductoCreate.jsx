@@ -18,7 +18,7 @@ import MultipleImageUploader from "../../../components/utils/MultipleImageUpload
 import InputFileUploader from "../../../components/utils/InputFileUploader";
 import { getSize } from "../../../functions/file";
 import { uploadFile } from "../../../api/file";
-import { TrashIcon } from "@heroicons/react/24/solid";
+import { ChevronDoubleLeftIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 const initialState = {
   nombre_producto: "",
@@ -140,9 +140,18 @@ const ProductoCreate = () => {
     );
 
   return (
-    <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md">
-      <div className="w-full  mb-2 p-4 flex justify-between">
-        <h1 className="text-2xl font-semibold">Crear Producto</h1>
+    <div className="flex flex-col gap-2  bg-white rounded-md shadow-md">
+      <div className="flex justify-start gap-2 px-4 items-center">
+        <Button
+          className="bg-emerald-500 text-white h-7"
+          onClick={() => navigate("/empresa/home")}
+          startContent={<ChevronDoubleLeftIcon className="h-4" />}
+        >
+          Volver
+        </Button>
+        <div className="w-full  mb-2 p-4 flex justify-between">
+          <h1 className="text-2xl font-semibold">Crear Producto</h1>
+        </div>
       </div>
       <Divider />
       <div className="w-full p-4">

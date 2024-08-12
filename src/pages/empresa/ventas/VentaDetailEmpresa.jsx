@@ -27,6 +27,7 @@ const VentaDetailEmpresa = () => {
   const [fileVenta, setFileVenta] = useState([]);
   const [open, setOpen] = useState(false);
   const [estadoUpdate, setEstadoUpdate] = useState("");
+  const [loadingUpdate, setLoadingUpdate] = useState(false);
 
   const handleOpen = () => setOpen(!open);
 
@@ -135,7 +136,7 @@ const VentaDetailEmpresa = () => {
   const handleUpdate = () => {
     data.detail.data.estado_venta = estadoUpdate;
 
-    console.log(estadoUpdate);
+    setLoadingUpdate(true);
     updateVenta(user.token, id_venta, data.detail.data)
       .then((res) => {
         console.log(res);
@@ -149,6 +150,7 @@ const VentaDetailEmpresa = () => {
       .finally(() => {
         setReload(!reload);
         setOpen(false);
+        setLoadingUpdate(false);
       });
   };
 
@@ -160,6 +162,7 @@ const VentaDetailEmpresa = () => {
         estado={estado_venta}
         handleUpdate={handleUpdate}
         setEstadoUpdate={setEstadoUpdate}
+        loading={loadingUpdate}
       />
       {data && data.detail.data && (
         <div className="w-full bg-white rounded-md shadow-md mb-5 p-4">

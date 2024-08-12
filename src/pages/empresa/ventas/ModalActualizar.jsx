@@ -15,6 +15,7 @@ const ModalActualizar = ({
   handleOpen,
   estado,
   handleUpdate,
+  loading,
   setEstadoUpdate,
 }) => {
   return (
@@ -65,7 +66,11 @@ const ModalActualizar = ({
               <Button color="danger" variant="light" onPress={onClose}>
                 Cerrar
               </Button>
-              <Button color="primary" onPress={handleUpdate}>
+              <Button
+                color="primary"
+                onPress={handleUpdate}
+                isLoading={loading}
+              >
                 Actualizar
               </Button>
             </ModalFooter>
