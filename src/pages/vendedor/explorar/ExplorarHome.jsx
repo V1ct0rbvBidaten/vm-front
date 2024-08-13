@@ -87,7 +87,6 @@ const ExplorarHome = () => {
         <Pagination
           total={pages}
           initialPage={page}
-          loop
           showControls
           color="secondary"
           className="m-4"

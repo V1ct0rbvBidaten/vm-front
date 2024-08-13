@@ -162,12 +162,9 @@ const VentaDetail = () => {
             <div></div>
           </div>
           <div className="grid grid-cols-3 gap-2">
-            <div className=" flex flex-col mt-4  gap-2 h-auto ">
-              <Comentarios />
-            </div>
-            <div className=" flex flex-col gap-4 mt-4 col-span-2 border-slate-300 border rounded-md p-4 font-semibold">
+            <div className=" col-span-3 sm:col-span-2 flex flex-col gap-4 mt-4  border-slate-300 border rounded-md p-4 font-semibold">
               <h1>Datos Venta</h1>
-              <div className="flex gap-2 mt-4  p-2 font-semibold">
+              <div className="flex gap-2 mt-4  p-2 font-semibold overflow-x-auto">
                 <table className="min-w-full border-collapse ">
                   <tbody>
                     <tr className="border-b">
@@ -316,6 +313,9 @@ const VentaDetail = () => {
                   </Button>
                 </div>
               )}
+            </div>
+            <div className="col-span-3 sm:col-span-1 flex flex-col mt-4  gap-2 h-auto  ">
+              <Comentarios />
             </div>
           </div>
         </div>
