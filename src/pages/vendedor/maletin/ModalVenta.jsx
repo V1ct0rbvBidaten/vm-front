@@ -6,8 +6,6 @@ import {
   ModalFooter,
   Button,
   Input,
-  Tabs,
-  Tab,
   Select,
   SelectItem,
   ButtonGroup,
@@ -73,57 +71,26 @@ const ModalVenta = ({ open, handleOpen, data }) => {
     values.id_producto = data.id_producto;
     values.cantidad = cantidad;
     values.precio_venta = data.precio;
-    console.log(data);
-    console.log(values);
     setLoading(true);
     createVenta(user.token, values)
       .then((res) => {
-        console.log(res);
         toast.success("Venta creada con éxito");
         navigate(`/vendedor/ventas/${res.data.detail.data.id_venta}`);
       })
       .catch((err) => {
         console.log(err);
       })
-      .finally((res) => {
+      .finally(() => {
         setLoading(false);
       });
   };
 
-  const {
-    precio_venta,
-    estado_venta,
-    tipo_documento,
-    nombre_cliente,
-    apellido_cliente,
-    direccion_cliente,
-    region_cliente,
-    comuna_cliente,
-    telefono_cliente,
-    email,
-    rut_cliente,
-  } = values;
-
-  const {
-    nombre_producto,
-    precio,
-    descripcion,
-    imagen_principal,
-    categoria,
-    comision,
-    estado_producto,
-    id_empresa,
-    imagenes,
-    id_producto,
-  } = data;
-
   const handleRegionChange = (value) => {
-    console.log("value", value);
     setSelectedRegion(value.value);
 
     const event = {
       target: {
-        name: "region",
+        name: "region_cliente",
         value: value.value,
       },
     };
@@ -142,7 +109,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
   const handleComunaChange = (value) => {
     const event = {
       target: {
-        name: "comuna",
+        name: "comuna_cliente",
         value: value.value,
       },
     };
@@ -158,7 +125,12 @@ const ModalVenta = ({ open, handleOpen, data }) => {
   });
 
   return (
-    <Modal isOpen={open} onOpenChange={handleOpen} size="5xl">
+    <Modal
+      isOpen={open}
+      onOpenChange={handleOpen}
+      size="5xl"
+      scrollBehavior="inside"
+    >
       <ModalContent>
         {(onClose) => (
           <>
@@ -166,21 +138,14 @@ const ModalVenta = ({ open, handleOpen, data }) => {
               Vender Producto
             </ModalHeader>
             <ModalBody>
-              <div className="grid grid-cols-2 gap-2">
-                <div
-                  className="grid grid-cols-2 gap-4 p-4 justify-start items-start h-auto 
-                border-1 rounded-md
-                "
-                  style={{ alignSelf: "flex-start" }}
-                >
-                  <h1 className="text-lg col-span-2 font-semibold">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 p-4 border rounded-md">
+                  <h1 className="text-lg font-semibold">
                     Detalles de la venta
                   </h1>
-                  <div className="col-span-2 grid grid-cols-2 gap-6  p-2">
-                    <span className="text-sm col-span-2">
-                      Cantidad de productos:
-                    </span>
-                    <div className="col-span-2 w-full flex justify-between items-center gap-2">
+                  <div className="w-full flex flex-col gap-2">
+                    <span className="text-sm">Cantidad de productos:</span>
+                    <div className="flex justify-between items-center gap-2">
                       <ButtonGroup>
                         <Button
                           size="sm"
@@ -191,7 +156,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                         >
                           -
                         </Button>
-                        <Button size="sm" className="bg-white ">
+                        <Button size="sm" className="bg-white">
                           {cantidad} Productos
                         </Button>
                         <Button
@@ -205,11 +170,11 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                       <Input
                         variant="bordered"
                         size="sm"
-                        className=""
                         label="Total"
                         labelPlacement="outside-left"
                         placeholder="$"
-                        value={formatNumberToCurrency(cantidad * precio)}
+                        value={formatNumberToCurrency(cantidad * data.precio)}
+                        readOnly
                       />
                     </div>
                     <Select
@@ -217,9 +182,9 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                       label="Tipo de documento"
                       labelPlacement="outside"
                       placeholder="Seleccione tipo de documento"
-                      className="col-span-2"
+                      className="w-full"
                       name="tipo_documento"
-                      value={tipo_documento}
+                      value={values.tipo_documento}
                       onChange={handleChange}
                     >
                       <SelectItem key="BOLETA" value="BOLETA">
@@ -231,11 +196,9 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     </Select>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-2 p-4 border-1 rounded-md">
-                  <h1 className="text-lg col-span-2 font-semibold">
-                    Datos del comprador
-                  </h1>
-                  <div className="flex flex-col justify-start h-auto gap-2 z-50">
+                <div className="grid grid-cols-1 gap-4 p-4 border rounded-md">
+                  <h1 className="text-lg font-semibold">Datos del comprador</h1>
+                  <div className="flex flex-col gap-2">
                     <span className="text-sm">
                       Región <span className="text-rose-500">*</span>
                     </span>
@@ -243,7 +206,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                       options={optionsRegiones}
                       required
                       styles={{
-                        control: (baseStyles, state) => ({
+                        control: (baseStyles) => ({
                           ...baseStyles,
                           borderRadius: "0.7rem",
                           border: "2px solid #eaeaea",
@@ -255,17 +218,21 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                       }}
                       onChange={handleRegionChange}
                       placeholder="Seleccione región"
-                      defaultInputValue={values.region}
+                      value={
+                        optionsRegiones.find(
+                          (option) => option.value === selectedRegion
+                        ) || null
+                      }
                     />
                   </div>
-                  <div className="flex flex-col justify-start gap-2">
+                  <div className="flex flex-col gap-2">
                     <span className="text-sm">
                       Comuna <span className="text-rose-500">*</span>
                     </span>
                     <ReactSelect
                       options={optionsComunas}
                       styles={{
-                        control: (baseStyles, state) => ({
+                        control: (baseStyles) => ({
                           ...baseStyles,
                           borderRadius: "0.7rem",
                           border: "2px solid #eaeaea",
@@ -278,7 +245,11 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                       onChange={handleComunaChange}
                       isDisabled={!selectedRegion}
                       placeholder="Seleccione comuna"
-                      defaultInputValue={values.comuna}
+                      value={
+                        optionsComunas.find(
+                          (option) => option.value === values.comuna_cliente
+                        ) || null
+                      }
                     />
                   </div>
                   <Input
@@ -288,7 +259,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     labelPlacement="outside"
                     placeholder="Ingrese nombre cliente"
                     name="nombre_cliente"
-                    value={nombre_cliente}
+                    value={values.nombre_cliente}
                     onChange={handleChange}
                   />
                   <Input
@@ -298,7 +269,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     labelPlacement="outside"
                     placeholder="Ingrese apellido cliente"
                     name="apellido_cliente"
-                    value={apellido_cliente}
+                    value={values.apellido_cliente}
                     onChange={handleChange}
                   />
                   <Input
@@ -308,7 +279,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     labelPlacement="outside"
                     placeholder="Ingrese rut cliente"
                     name="rut_cliente"
-                    value={rut_cliente}
+                    value={values.rut_cliente}
                     onChange={handleChange}
                   />
                   <Input
@@ -318,7 +289,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     labelPlacement="outside"
                     placeholder="Ingrese Correo cliente"
                     name="email"
-                    value={email}
+                    value={values.email}
                     onChange={handleChange}
                   />
                   <Input
@@ -328,7 +299,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     labelPlacement="outside"
                     placeholder="Ingrese Telefono cliente"
                     name="telefono_cliente"
-                    value={telefono_cliente}
+                    value={values.telefono_cliente}
                     onChange={handleChange}
                   />
                   <Input
@@ -338,7 +309,7 @@ const ModalVenta = ({ open, handleOpen, data }) => {
                     labelPlacement="outside"
                     placeholder="Ingrese Calle cliente"
                     name="direccion_cliente"
-                    value={direccion_cliente}
+                    value={values.direccion_cliente}
                     onChange={handleChange}
                   />
                 </div>
