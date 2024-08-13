@@ -36,12 +36,16 @@ const MaletinHome = () => {
   const maletin = data.detail.data.maletines[0].maletin.id_maletin;
 
   return (
-    <div className="flex flex-col m-0 justify-center items-center bg-white rounded-md shadow-md">
-      <div className="w-full  mb-2 p-4 flex justify-between">
-        <h1 className="text-2xl font-semibold">Maletín de productos</h1>
+    <div className="flex flex-col m-0 justify-center items-center bg-white rounded-md shadow-md p-4 lg:p-8">
+      <div className="w-full mb-2 flex flex-col lg:flex-row justify-between items-center">
+        <h1 className="text-2xl font-semibold text-center lg:text-left">
+          Maletín de productos
+        </h1>
       </div>
-      <Divider />
-      <ProductoMaletinDetail maletinid={maletin} />
+      <Divider className="w-full" />
+      <div className="w-full flex flex-col items-center lg:items-stretch">
+        <ProductoMaletinDetail maletinid={maletin} />
+      </div>
     </div>
   );
 };

@@ -44,7 +44,7 @@ const ProductoMaletinDetail = ({ maletinid }) => {
 
   if (loading) {
     return (
-      <div className="w-full bg-white  mb-5 p-4">
+      <div className="w-full bg-white mb-5 p-4">
         <div className="text-center">
           <Loading />
           <p className="text-sky-500 font-semibold text-xl">Cargando...</p>
@@ -63,11 +63,11 @@ const ProductoMaletinDetail = ({ maletinid }) => {
 
   return (
     <>
-      <div className="w-full flex gap-4  mb-2 p-4 items-end justify-end">
+      <div className="w-full flex gap-4 mb-2 p-4 items-end justify-end">
         <label className="flex items-end text-default-400 text-small">
-          Items por pagina:
+          Items por página:
           <select
-            className="bg-transparent outline-none text-default-400 text-small"
+            className="bg-transparent outline-none text-default-400 text-small ml-2"
             value={page_size}
             name="page_size"
             onChange={handleParamsChange}
@@ -79,40 +79,41 @@ const ProductoMaletinDetail = ({ maletinid }) => {
           </select>
         </label>
       </div>
-      <div className="grid grid-cols-5 w-full p-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full p-4 gap-4">
         {productos &&
           productos.map((product) => (
             <Card
               key={product.id_producto}
-              className="w-100"
+              className="w-full"
               isPressable
               onClick={() =>
                 navigate(`/vendedor/productos/${product.id_producto}`)
               }
             >
               <CardHeader>
-                <h4 className="text-xl font-semibold">
+                <h4 className="text-lg font-semibold">
                   {product.nombre_producto}
                 </h4>
               </CardHeader>
               <CardBody className="overflow-visible py-2 h-[200px]">
-                <div className="image-container ">
+                <div className="image-container">
                   <img
-                    className="hover:cursor-pointer hover:opacity-80 transition duration-300"
+                    className="hover:cursor-pointer hover:opacity-80 transition duration-300 w-full h-full object-cover"
                     src={
                       product.imagen_principal
                         ? product.imagen_principal
                         : NoImage
                     }
+                    alt={product.nombre_producto}
                   />
                 </div>
               </CardBody>
               <CardFooter>
                 <div className="w-full flex flex-col gap-2">
-                  <span className="w-full bg-emerald-500 text-white p-1 rounded-md text-sm">
+                  <span className="w-full bg-emerald-500 text-white p-1 rounded-md text-sm text-center">
                     Precio: {formatNumberToCurrency(product.precio)}
                   </span>
-                  <span className="w-full bg-amber-500 text-white p-1 rounded-md text-sm">
+                  <span className="w-full bg-amber-500 text-white p-1 rounded-md text-sm text-center">
                     Comisión:{" "}
                     {formatNumberToCurrency(product.comision_seller || 0)}
                   </span>

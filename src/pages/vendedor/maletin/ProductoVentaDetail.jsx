@@ -122,10 +122,10 @@ const ProductoVentaDetail = () => {
         </div>
         <Divider />
         <div className="grid grid-cols-3 gap-4 w-full p-2">
-          <div className="imagen-portada shadow-md justify-center flex items-center">
+          <div className="imagen-portada shadow-md justify-center flex items-center col-span-3 sm:col-span-1">
             <img src={imagen_principal} alt="Imagen Principal" />
           </div>
-          <div className="col-span-2 flex gap-4 flex-col min-h-[500px] border-2 p-2 rounded-md">
+          <div className="col-span-3 sm:col-span-2 flex gap-4 flex-col min-h-[500px] border-2 p-2 rounded-md">
             <div className="h-[10%] items-center flex justify-between">
               <h1 className="text-2xl font-semibold">{nombre_producto}</h1>
               <Button className="rounded-full text-xs h-6 bg-sky-700 text-white">
@@ -146,7 +146,7 @@ const ProductoVentaDetail = () => {
             </div>
           </div>
           <div className="col-span-3 w-full grid grid-cols-3 gap-2">
-            <div className="col-span-2 border-1 p-2 rounded-md">
+            <div className="col-span-3 sm:col-span-2 border-1 p-2 rounded-md">
               <h4 className="font-semibold">Galería</h4>
               <div className="w-full grid-cols-5 grid gap-2 p-2">
                 {imagenes[0].map((imagen, index) => (
@@ -164,7 +164,7 @@ const ProductoVentaDetail = () => {
                 ))}
               </div>
             </div>
-            <div>
+            <div className="col-span-3 sm:col-span-1">
               <div className="border-1 p-2 rounded-md ">
                 <h4 className="font-semibold">Documentación Venta</h4>
                 <ProductosDocs

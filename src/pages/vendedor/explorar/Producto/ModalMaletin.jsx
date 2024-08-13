@@ -13,7 +13,7 @@ import { getProductInMaletin, updateMaletin } from "../../../../api/maletin";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const ModalMaletin = ({ open, handleOpen, handleUpdateMaletin }) => {
+const ModalMaletin = ({ open, handleOpen, handleUpdateMaletin, loading }) => {
   return (
     <Modal isOpen={open} onOpenChange={handleOpen}>
       <ModalContent>
@@ -30,6 +30,7 @@ const ModalMaletin = ({ open, handleOpen, handleUpdateMaletin }) => {
               <Button
                 className="bg-emerald-500 text-white"
                 onClick={handleUpdateMaletin}
+                isLoading={loading}
               >
                 Confirmar
               </Button>

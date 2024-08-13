@@ -75,6 +75,7 @@ const ProductoDetailVendedor = () => {
     producto.productos_ids = [idProducto];
     const idMaletin = maletines.detail.data.maletines[0].maletin.id_maletin;
 
+    setLoadingPM(true);
     updateMaletin(user.token, producto, idMaletin)
       .then((res) => {
         toast.success("Producto agregado al maletín");
@@ -87,6 +88,7 @@ const ProductoDetailVendedor = () => {
         handleOpenModalMaletin();
         setReload(!reload);
         setProducto(initialStateMaletin);
+        setLoadingPM(false);
       });
   };
 
@@ -159,6 +161,7 @@ const ProductoDetailVendedor = () => {
         open={openModalMaletin}
         handleOpen={handleOpenModalMaletin}
         handleUpdateMaletin={handleUpdateMaletin}
+        loading={loadingPM}
       />
 
       <div className="flex flex-col gap-2 justify-center items-center bg-white rounded-md shadow-md p-4">
